@@ -44,6 +44,7 @@ export default function StepsSlider() {
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const thumbRefs = useRef<(HTMLDivElement | null)[]>([]);
   const railFillRef = useRef<HTMLDivElement>(null);
+  const footLabelRef = useRef<HTMLSpanElement>(null);
   const [reduced] = useState(
     () =>
       typeof window !== "undefined" &&
@@ -66,6 +67,53 @@ export default function StepsSlider() {
       gsap.set([texts[0], thumbs[0]], { opacity: 1 });
       gsap.set(images[0], { opacity: 1, yPercent: 0 });
       titles[0]?.classList.add(styles.titleActive);
+
+      // ---- First appearance ------------------------------------------------
+      // Texts stagger in; the first image and thumbnail use the mission
+      // section's two-layer curtain (blue cover wipes down, then the photo).
+      const HIDDEN = "inset(0% 0% 100% 0%)"; // clipped to the top edge (empty)
+      const SHOWN = "inset(0% 0% 0% 0%)";
+
+      const layers = [images[0], thumbs[0]].map((el) => ({
+        cover: el?.querySelector<HTMLElement>("[data-cover]") ?? null,
+        fill: el?.querySelector<HTMLElement>("[data-fill]") ?? null,
+      }));
+      const titleEls = titles.filter(Boolean) as HTMLDivElement[];
+      // The step transitions own the .cardText wrapper's opacity, so the intro
+      // animates its children (heading + copy) instead of fighting for it.
+      const firstText = texts[0] ? (Array.from(texts[0].children) as HTMLElement[]) : [];
+
+      gsap.set(
+        layers.flatMap((l) => [l.cover, l.fill]).filter(Boolean) as HTMLElement[],
+        { clipPath: HIDDEN },
+      );
+      gsap.set(titleEls, { yPercent: 55, opacity: 0 });
+      gsap.set([...firstText, footLabelRef.current], { y: 26, opacity: 0 });
+
+      const intro = gsap.timeline({
+        scrollTrigger: { trigger: sectionRef.current, start: "top 78%", once: true },
+      });
+
+      intro
+        .to(
+          titleEls,
+          { yPercent: 0, opacity: 1, duration: 0.75, ease: "power3.out", stagger: 0.09 },
+          0,
+        )
+        .to(
+          firstText,
+          { y: 0, opacity: 1, duration: 0.7, ease: "power3.out", stagger: 0.12 },
+          0.2,
+        )
+        .to(footLabelRef.current, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.5);
+
+      layers.forEach((l, i) => {
+        if (!l.cover || !l.fill) return;
+        const at = 0.25 + i * 0.18;
+        intro
+          .to(l.cover, { clipPath: SHOWN, duration: 0.45, ease: "power2.inOut" }, at)
+          .to(l.fill, { clipPath: SHOWN, duration: 0.6, ease: "power2.inOut" }, at + 0.4);
+      });
 
       const state = { i: 0 };
       let running: gsap.core.Timeline | null = null;
@@ -160,7 +208,9 @@ export default function StepsSlider() {
           </nav>
 
           <div className={styles.foot}>
-            <span className={styles.footLabel}>Approfondimento ↓</span>
+            <span ref={footLabelRef} className={styles.footLabel}>
+              Approfondimento ↓
+            </span>
             <div className={styles.thumbStack}>
               {STEPS.map((s, i) => (
                 <div
@@ -170,10 +220,12 @@ export default function StepsSlider() {
                   }}
                   className={styles.thumb}
                 >
+                  <span className={styles.mediaCover} data-cover aria-hidden="true" />
                   <img
                     src={s.image}
                     alt=""
                     className={styles.thumbImg}
+                    data-fill
                     loading="lazy"
                     decoding="async"
                   />
@@ -207,10 +259,12 @@ export default function StepsSlider() {
                 }}
                 className={styles.cardImage}
               >
+                <span className={styles.mediaCover} data-cover aria-hidden="true" />
                 <img
                   src={s.image}
                   alt={s.title}
                   className={styles.cardImg}
+                  data-fill
                   loading="lazy"
                   decoding="async"
                 />

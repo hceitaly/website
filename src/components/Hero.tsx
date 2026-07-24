@@ -102,7 +102,10 @@ export default function Hero() {
         // Slide 0's number/caption ride up with the slide, so their `y` is owned
         // by the rise tween — only fade them here.
         gsap.set([s.number, s.caption], i === 0 ? { opacity: 0 } : { opacity: 0, y: 10 });
-        gsap.set([s.cta, s.catalog], { opacity: 0, y: 14 });
+        // pointerEvents travels with the fade: a faded-out slide still sits on
+        // top of the visible one, so without this its CTA and catalog card
+        // swallow every hover and click meant for the slide on screen.
+        gsap.set([s.cta, s.catalog], { opacity: 0, y: 14, pointerEvents: "none" });
       };
 
       // Fully-shown state (no enter animation) — used for the first slide, whose
@@ -114,7 +117,7 @@ export default function Hero() {
         gsap.set(s.badge, { clipPath: CLIP_SHOWN });
         gsap.set(s.badgeChars, { opacity: 1, x: 0 });
         gsap.set([s.number, s.caption], { opacity: 1 });
-        gsap.set([s.cta, s.catalog], { opacity: 1, y: 0 });
+        gsap.set([s.cta, s.catalog], { opacity: 1, y: 0, pointerEvents: "auto" });
       };
 
       // Initial hidden states — applied before first paint (useLayoutEffect).
@@ -173,7 +176,7 @@ export default function Hero() {
           )
           .to(
             [s.cta, s.catalog],
-            { opacity: 1, y: 0, ease: ENTER, duration: 0.55, stagger: 0.1 },
+            { opacity: 1, y: 0, pointerEvents: "auto", ease: ENTER, duration: 0.55, stagger: 0.1 },
             0.08,
           );
         running[i] = t;
@@ -184,6 +187,7 @@ export default function Hero() {
         // Exit is ONLY a fast fade-out — no movement.
         running[i] = gsap.to(els[i].parents, {
           opacity: 0,
+          pointerEvents: "none",
           duration: 0.22,
           ease: "power1.in",
         });
@@ -277,14 +281,20 @@ export default function Hero() {
             slideContentRefs.current[i] = el;
           }}
           className={styles.slideContent}
-          style={{ zIndex: 10 + i, order: reducedMotion ? i * 2 + 3 : undefined }}
+          style={
+            {
+              zIndex: 10 + i,
+              order: reducedMotion ? i * 2 + 3 : undefined,
+              // Inherited by the badge and by the CTA's hover fill.
+              "--tag-color": slide.tagColor,
+            } as CSSProperties
+          }
         >
           <span
             ref={(el) => {
               partsRef.current[i].badge = el;
             }}
             className={styles.badge}
-            style={{ "--tag-color": slide.tagColor } as CSSProperties}
           >
             <span className={styles.badgeInner}>
               <img className={styles.badgeIcon} src={slide.iconImg} alt="" aria-hidden="true" />

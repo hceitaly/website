@@ -253,8 +253,23 @@
   transition: filter 0.25s var(--ease-out);
 }
 
-.cta:hover::before {
-  filter: brightness(0.94);
+/* Hover: the slide's own tag colour floods the face from left to right.
+   Same skew as the white face, so the two shapes coincide at full width. */
+.cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--tag-color);
+  transform: skewX(-12deg) scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.6s var(--ease-in-out);
+}
+
+.cta:hover::after,
+.cta:focus-visible::after {
+  transform: skewX(-12deg) scaleX(1);
+  transform-origin: left center;
 }
 
 .ctaInner {
@@ -266,12 +281,25 @@
   font-size: 0.74rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  transition: color 0.4s var(--ease-in-out);
+}
+
+.cta:hover .ctaInner,
+.cta:focus-visible .ctaInner {
+  color: #fff;
 }
 
 .ctaIcon {
   width: 22px;
   height: 22px;
   object-fit: contain;
+  transition: filter 0.4s var(--ease-in-out);
+}
+
+/* The icon is a colour PNG — knock it out to white so it reads on the fill. */
+.cta:hover .ctaIcon,
+.cta:focus-visible .ctaIcon {
+  filter: brightness(0) invert(1);
 }
 
 /* Catalog card — product name + "Catalogo", "Scarica ora", icon panel. */
@@ -312,6 +340,7 @@
 }
 
 .catalogDownload {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -321,6 +350,26 @@
   transition: color 0.25s var(--ease-out);
 }
 
+/* Underline draws in from the left, retracts to the right. */
+.catalogDownload::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.45s var(--ease-in-out);
+}
+
+.catalogDownload:hover::after,
+.catalogDownload:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
 .catalogDownload:hover {
   color: var(--hce-blue-deep);
 }
@@ -328,6 +377,11 @@
 .catalogDownloadIcon {
   width: 15px;
   height: 15px;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.catalogDownload:hover .catalogDownloadIcon {
+  transform: translateY(2px);
 }
 
 /* Catalog cover artwork — fixed frame so all 5 covers render identically. */
