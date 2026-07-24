@@ -1,0 +1,440 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--paper);
+  /* Left offset for tag/title/button: 469px + the page gutter. */
+  --slide-indent: 469px;
+}
+
+@media (max-width: 1200px) {
+  .hero {
+    --slide-indent: 0px;
+  }
+}
+
+.reduced {
+  height: auto;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------------------------------------------------------- */
+/* Layers — one per "screen": intro (index 0) + 5 product curtains   */
+/* ---------------------------------------------------------------- */
+
+/* Intro background + heading stay overlaid as one unit in both layouts. */
+.introScreen {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.reduced .introScreen {
+  position: relative;
+  inset: auto;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.imageLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* Direct children only — the intro's imageLayer is nested and sized by
+   .introScreen instead. */
+.reduced > .imageLayer {
+  position: relative;
+  height: 100vh;
+  transform: none;
+}
+
+/* Product curtain layers. GSAP owns their transform (initial hidden state
+   is set in useLayoutEffect before first paint, so no CSS transform here —
+   a CSS transform would concatenate with GSAP's yPercent and double-offset). */
+/* Product slides use photographic backgrounds (one per category). */
+.photo {
+  background-color: var(--ink-900);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Dark wash for white-text legibility over varied photos: heavier on the left
+   (tag / title / CTA) and toward the bottom, lighter over the subject. */
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6, 9, 18, 0.18) 0%, rgba(6, 9, 18, 0.62) 100%),
+    linear-gradient(90deg, rgba(6, 9, 18, 0.78) 0%, rgba(6, 9, 18, 0.4) 42%, transparent 72%);
+  pointer-events: none;
+}
+
+.bg0 {
+  background-image: url("/assets/pannelli-solari.jpg");
+}
+
+.bg1 {
+  background-image: url("/assets/inverter.jpg");
+}
+
+.bg2 {
+  background-image: url("/assets/accumulo.webp");
+}
+
+.bg3 {
+  background-image: url("/assets/mobilita-elettrica.jpg");
+}
+
+.bg4 {
+  background-image: url("/assets/pompadicalore.jpg");
+}
+
+.watermark {
+  position: absolute;
+  right: clamp(1rem, 5vw, 4rem);
+  bottom: clamp(1rem, 6vw, 4rem);
+  width: clamp(180px, 26vw, 360px);
+  height: auto;
+  color: rgba(255, 255, 255, 0.09);
+  stroke-width: 0.6;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------- */
+/* Intro screen — single centered line over the animated backdrop    */
+/* ---------------------------------------------------------------- */
+
+.introLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-inline: var(--pad-x);
+  pointer-events: none;
+}
+
+.reduced .introLayer {
+  opacity: 1;
+  transform: none;
+}
+
+.introTitle {
+  max-width: 18ch;
+  font-size: clamp(2.3rem, 6vw, 4.8rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  color: #fff;
+  text-shadow: 0 2px 40px rgba(8, 14, 44, 0.35);
+}
+
+/* ---------------------------------------------------------------- */
+/* Per-letter split                                                  */
+/* ---------------------------------------------------------------- */
+
+.word {
+  display: inline-block;
+}
+
+.char {
+  display: inline-block;
+}
+
+/* ---------------------------------------------------------------- */
+/* Per-slide text content — left column aligned to --pad-x (logo)    */
+/* ---------------------------------------------------------------- */
+
+.slideContent {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  color: var(--text-on-dark);
+}
+
+/* Reduced motion: no curtain animation, so drop the standalone image
+   screens and give each content screen its own dark backdrop instead —
+   otherwise the white slide text would sit on the light page background. */
+.reduced > .imageLayer.photo {
+  display: none;
+}
+
+.reduced .slideContent {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 4rem;
+  pointer-events: auto;
+  background: linear-gradient(150deg, var(--ink-900) 0%, var(--hce-blue-deep) 130%);
+}
+
+/* Tag — tight white-glass parallelogram aligned with the title, content
+   counter-skewed upright. Font matches the number/caption (14px). */
+/* Soft-tinted pill tag — identical to the "Prodotti Recenti" tags. */
+.badge {
+  position: absolute;
+  left: calc(var(--pad-x) + var(--slide-indent));
+  bottom: calc(50% + 14px);
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px 5px 8px;
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--tag-color) 16%, #fff);
+}
+
+.badgeInner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--tag-color);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Product icon in its own colour on the tinted pill (positive). */
+.badgeIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.titleBlock {
+  position: absolute;
+  left: calc(var(--pad-x) + var(--slide-indent));
+  top: calc(50% + 24px);
+  max-width: 620px;
+}
+
+.slideTitle {
+  font-size: clamp(1.5rem, 2.7vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1.22;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(6, 9, 18, 0.55);
+}
+
+/* CTA — parallelogram like the menu; shape on a skewed pseudo so the label
+   text stays untransformed (crisp). */
+.cta {
+  position: relative;
+  display: inline-block;
+  margin-top: 1.6rem;
+  padding: 0.6rem 1.4rem;
+  pointer-events: auto;
+  isolation: isolate;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  transform: skewX(-12deg);
+  transition: filter 0.25s var(--ease-out);
+}
+
+.cta:hover::before {
+  filter: brightness(0.94);
+}
+
+.ctaInner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--text-on-light);
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ctaIcon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* Catalog card — product name + "Catalogo", "Scarica ora", icon panel. */
+.catalogCard {
+  position: absolute;
+  right: var(--pad-x);
+  bottom: var(--pad-y);
+  display: flex;
+  width: 272px;
+  min-height: 122px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  pointer-events: auto;
+}
+
+.catalogBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+}
+
+.catalogHeading {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.12;
+}
+
+.catalogName,
+.catalogWord {
+  font-size: 1.16rem;
+  font-weight: 700;
+  color: var(--text-on-light);
+}
+
+.catalogDownload {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-on-light);
+  transition: color 0.25s var(--ease-out);
+}
+
+.catalogDownload:hover {
+  color: var(--hce-blue-deep);
+}
+
+.catalogDownloadIcon {
+  width: 15px;
+  height: 15px;
+}
+
+/* Catalog cover artwork — fixed frame so all 5 covers render identically. */
+.catalogPanel {
+  position: relative;
+  width: 92px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.catalogCover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+@media (max-width: 680px) {
+  .catalogCard {
+    display: none;
+  }
+  .badge {
+    bottom: calc(50% + 48px);
+  }
+  .titleBlock {
+    top: calc(50% + 18px);
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Shared chrome — one progress line spanning all 5 product slides   */
+/* ---------------------------------------------------------------- */
+
+.chrome {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.reduced .chrome {
+  position: relative;
+  height: auto;
+  opacity: 1;
+  padding: 2rem var(--pad-x);
+  background: var(--ink-800);
+}
+
+/* The 1px line sits at the vertical centre; GSAP owns its transform so it can
+   rise up with the first slide. */
+.trackWrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  will-change: transform;
+}
+
+.reduced .trackWrap {
+  display: none;
+}
+
+.track {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.slideNumber {
+  position: absolute;
+  left: var(--pad-x);
+  bottom: calc(50% + 12px);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.slideCaption {
+  position: absolute;
+  left: var(--pad-x);
+  top: calc(50% + 12px);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.reduced .slideNumber,
+.reduced .slideCaption {
+  position: static;
+  display: inline-block;
+  margin-right: 1rem;
+  color: var(--text-on-dark);
+}

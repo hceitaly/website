@@ -1,0 +1,140 @@
+/* "Prodotti Recenti" — full-bleed auto-advancing product slider on a warm
+   light panel, matching the Mission section. */
+.recent {
+  background: #ece8e1;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  padding-top: clamp(3rem, 6vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 7vw, 6rem);
+  overflow: hidden;
+}
+
+.head {
+  padding-inline: var(--pad-x);
+  padding-bottom: clamp(1.6rem, 3vw, 2.6rem);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(23, 20, 15, 0.72);
+}
+
+/* Slider viewport + track. Slide width is measured in JS, so no gap here. */
+.viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  will-change: transform;
+}
+
+.slide {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 1.8vw, 1.6rem);
+  padding-inline: var(--pad-x);
+  color: inherit;
+}
+
+.slideHead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Category tag — soft-tinted pill with the product icon in its own colour. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  padding: 5px 12px 5px 8px;
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--tag-color) 16%, #fff);
+  color: var(--tag-color);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.tagIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.name {
+  font-family: var(--font-montserrat);
+  font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: #17140f;
+}
+
+/* Product image — darkens slightly on hover. */
+.image {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: rgba(23, 20, 15, 0.06);
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #0b0906;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-out);
+  pointer-events: none;
+}
+
+.image:hover::after {
+  opacity: 0.16;
+}
+
+.image:hover img {
+  transform: scale(1.02);
+}
+
+/* "Esplora prodotto" — animated underline that grows on hover of the card. */
+.explore {
+  align-self: flex-start;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #17140f;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  transition: background-size 0.35s var(--ease-out);
+}
+
+.slide:hover .explore,
+.slide:focus-visible .explore {
+  background-size: 100% 1.5px;
+}
+
+@media (max-width: 900px) {
+  .slide {
+    flex-basis: 100%;
+  }
+}

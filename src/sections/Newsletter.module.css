@@ -1,0 +1,131 @@
+/* Newsletter CTA — warm light band, matching the Mission section. */
+.news {
+  background: #ece8e1;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  padding-block: clamp(3rem, 7vw, 6rem);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-inline: var(--pad-x);
+}
+
+.title {
+  font-family: var(--font-montserrat);
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: #17140f;
+}
+
+.sub {
+  margin-top: clamp(0.8rem, 1.5vw, 1.2rem);
+  max-width: 42ch;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(23, 20, 15, 0.66);
+}
+
+.formCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.formLabel {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: rgba(23, 20, 15, 0.8);
+}
+
+.field {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 0.95rem 3.4rem 0.95rem 1.3rem;
+  border: 1px solid rgba(23, 20, 15, 0.28);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  font-size: 1rem;
+  transition: border-color 0.25s var(--ease-out);
+}
+
+.input::placeholder {
+  color: rgba(23, 20, 15, 0.45);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--hce-blue);
+}
+
+.submit {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #17140f;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+.submit:hover {
+  background: var(--hce-blue);
+  transform: translateY(-50%) translateX(2px);
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: rgba(23, 20, 15, 0.6);
+  cursor: pointer;
+}
+
+.consent input {
+  margin-top: 0.15rem;
+  accent-color: var(--hce-blue);
+}
+
+.consent a {
+  color: #17140f;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.thanks {
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  font-weight: 600;
+  color: #17140f;
+}
+
+@media (max-width: 800px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: clamp(1.6rem, 5vw, 2.4rem);
+  }
+}

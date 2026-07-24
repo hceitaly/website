@@ -1,0 +1,174 @@
+/* Editorial mission block below the hero slider — warm light panel, Montserrat.
+   Full-bleed with only the page side gutter, matching the hero. */
+.mission {
+  background: #ece8e1;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  /* Extra room at the bottom to separate Mission from the steps slider. */
+  padding-top: clamp(3rem, 7vw, 6.5rem);
+  padding-bottom: clamp(7rem, 14vw, 13rem);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  grid-template-areas:
+    "brand     news-label"
+    "statement news";
+  column-gap: clamp(2rem, 5vw, 6rem);
+  row-gap: clamp(1.4rem, 3vw, 2.4rem);
+  padding-inline: var(--pad-x);
+  border-top: 1px solid rgba(23, 20, 15, 0.22);
+  padding-top: clamp(1rem, 1.6vw, 1.6rem);
+}
+
+/* Brand — top-left */
+.brand {
+  grid-area: brand;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.reg {
+  font-size: 0.6em;
+  vertical-align: super;
+  font-weight: 600;
+}
+
+.brandSub {
+  display: block;
+  font-weight: 500;
+  color: rgba(23, 20, 15, 0.62);
+}
+
+/* "Recent News ↓" — top-right, above the cards */
+.newsLabel {
+  grid-area: news-label;
+  align-self: start;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Mission statement with a floated cut-out image.
+   Bottom-aligned in its grid row so the whole block reads as sitting low. */
+.statementWrap {
+  grid-area: statement;
+  align-self: end;
+}
+
+.cutout {
+  float: left;
+  width: clamp(150px, 15vw, 230px);
+  aspect-ratio: 3 / 4;
+  margin: 0.35rem clamp(1.4rem, 2vw, 2.2rem) 0.7rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.statement {
+  /* Capped measure so lines stay short and the copy always wraps well past
+     the bottom of the floated image (>= 5 full-width lines below it). */
+  max-width: 34ch;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.26;
+  letter-spacing: -0.01em;
+}
+
+/* Recent news cards */
+.news {
+  grid-area: news;
+  align-self: end; /* cards sit level with the bottom of the mission text */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 1.6vw, 1.6rem);
+}
+
+.card {
+  background: rgba(23, 20, 15, 0.04);
+  transition: background 0.25s var(--ease-out);
+}
+
+.card:hover {
+  background: rgba(23, 20, 15, 0.07);
+}
+
+.cardMedia {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.85rem 0.9rem 1.05rem;
+}
+
+.cardTitle {
+  font-family: var(--font-montserrat);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.32;
+  letter-spacing: 0;
+}
+
+.cardDate {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(23, 20, 15, 0.5);
+}
+
+/* Reveal layers: a logo-blue curtain (below) and the image (above); both are
+   clipped to the top edge by GSAP, then wiped open top -> bottom. */
+.cover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--hce-blue);
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  background: var(--ink-700);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "statement"
+      "news-label"
+      "news";
+  }
+
+  .newsLabel {
+    margin-top: 1rem;
+  }
+
+  .news {
+    align-self: start;
+  }
+}
+
+@media (max-width: 520px) {
+  .news {
+    grid-template-columns: 1fr;
+  }
+
+  .cutout {
+    width: clamp(120px, 34vw, 170px);
+  }
+}

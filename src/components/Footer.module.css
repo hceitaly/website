@@ -1,0 +1,248 @@
+.footer {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--ink-900);
+  color: var(--text-on-dark);
+  overflow: hidden;
+  font-family: var(--font-montserrat);
+}
+
+/* ---------- Lead: headline + single CTA ---------- */
+.lead {
+  padding: clamp(4rem, 12vh, 9rem) var(--pad-x) clamp(3rem, 9vh, 7rem);
+}
+
+.headline {
+  font-family: var(--font-montserrat);
+  font-size: clamp(2rem, 4.6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: clamp(1.6rem, 3.5vw, 2.6rem);
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--text-on-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
+}
+
+.cta:hover {
+  background: var(--hce-blue);
+  color: #fff;
+  box-shadow: var(--shadow-blue);
+}
+
+/* ---------- Full-bleed shortcut row ---------- */
+.shortcuts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--ink-600);
+  border-bottom: 1px solid var(--ink-600);
+}
+
+.shortcut {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.7rem, 4vw, 2.8rem) var(--pad-x);
+  overflow: hidden; /* masks the white wipe */
+}
+
+/* White face wiping across the cell. It grows from the left on enter and
+   collapses to the right on leave, so the motion always reads left-to-right. */
+.shortcut::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  transform: scaleX(0);
+  transform-origin: right center;
+  /* Even S-curve, not --ease-out: an expo ease covers the cell almost at once
+     and reads as a snap rather than a sweep. */
+  transition: transform 0.5s var(--ease-in-out);
+}
+
+.shortcut:hover::before,
+.shortcut:focus-visible::before {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Vertical rules sit between the cells only, so the row reads edge to edge. */
+.shortcut + .shortcut {
+  border-left: 1px solid var(--ink-600);
+}
+
+.shortcutLabel {
+  position: relative; /* rides above the wipe */
+  font-size: clamp(1.05rem, 1.6vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: color 0.35s var(--ease-in-out);
+}
+
+.shortcut:hover .shortcutLabel,
+.shortcut:focus-visible .shortcutLabel {
+  color: var(--text-on-light);
+}
+
+.arrow {
+  position: relative; /* rides above the wipe */
+  flex: none;
+  width: clamp(20px, 1.8vw, 28px);
+  height: clamp(20px, 1.8vw, 28px);
+  fill: none;
+  stroke: var(--hce-blue);
+  stroke-width: 2.4;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  transition: transform 0.45s var(--ease-out), stroke 0.35s var(--ease-in-out);
+}
+
+.shortcut:hover .arrow,
+.shortcut:focus-visible .arrow {
+  transform: translateX(6px);
+  stroke: var(--hce-blue-deep);
+}
+
+/* ---------- Meta strip ---------- */
+/* Sits at the very bottom — it is the footer's last block. */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(1.8rem, 4vw, 3rem);
+  margin-top: auto;
+  padding: clamp(2.5rem, 7vh, 5rem) var(--pad-x) clamp(2rem, 6vh, 4rem);
+}
+
+.metaGroups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1.6rem, 5vw, 5rem);
+}
+
+.metaTitle {
+  font-family: var(--font-montserrat);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-on-dark);
+  margin-bottom: 0.6rem;
+}
+
+.metaText {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--text-on-dark-dim);
+}
+
+.metaText a {
+  transition: color 0.25s var(--ease-out);
+}
+
+.metaText a:hover {
+  color: var(--hce-blue-bright);
+}
+
+.metaSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.1rem;
+}
+
+.social {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.socialBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--text-on-dark);
+  transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out),
+    color 0.25s var(--ease-out);
+}
+
+.socialBtn:hover {
+  background: var(--hce-blue);
+  border-color: var(--hce-blue);
+  color: #fff;
+}
+
+.socialBtn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem 1.3rem;
+  font-size: 0.78rem;
+  color: var(--text-on-dark-dim);
+}
+
+.legal a {
+  transition: color 0.25s var(--ease-out);
+}
+
+.legal a:hover {
+  color: var(--hce-blue-bright);
+}
+
+.credit {
+  color: var(--text-on-dark-dim);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .footer {
+    min-height: 0;
+  }
+  .shortcuts {
+    grid-template-columns: 1fr;
+  }
+  .shortcut + .shortcut {
+    border-left: none;
+    border-top: 1px solid var(--ink-600);
+  }
+  .metaSide {
+    align-items: flex-start;
+  }
+  .legal {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .metaGroups {
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+}

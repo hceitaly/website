@@ -1,0 +1,249 @@
+/* Vertical Floema-style slider: five titles top-left (aligned to the logo), a
+   line at 1/3 that fills with progress, placeholder text + image on the right. */
+.steps {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #ece8e1;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+}
+
+.inner {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1px 2fr;
+  column-gap: clamp(1.5rem, 3.5vw, 3.5rem);
+  padding: clamp(2.5rem, 7vh, 4.5rem) var(--pad-x);
+}
+
+/* ---- Left third ---- */
+.left {
+  grid-column: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.3rem, 0.9vw, 0.75rem);
+}
+
+/* Title text sits at the page gutter — flush with the navbar logo. */
+.title {
+  position: relative;
+  font-size: clamp(1.6rem, 3.1vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: rgba(23, 20, 15, 0.3);
+  transition: color 0.4s var(--ease-out);
+}
+
+.slash {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #17140f;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.titleText {
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform 0.4s var(--ease-out);
+}
+
+/* Active: black, slash shown, text nudged right. */
+.titleActive {
+  color: #17140f;
+  font-weight: 700;
+}
+
+.titleActive .slash {
+  opacity: 1;
+}
+
+.titleActive .titleText {
+  transform: translateX(1.5rem);
+}
+
+.foot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.footLabel {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(23, 20, 15, 0.55);
+}
+
+.thumbStack {
+  position: relative;
+  width: clamp(120px, 12vw, 190px);
+  aspect-ratio: 1 / 1;
+}
+
+.thumb {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  will-change: opacity;
+  background: var(--ink-700);
+}
+
+.thumbImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Vertical line at 1/3 — fills with scroll progress ---- */
+.rail {
+  grid-column: 2;
+  position: relative;
+  align-self: stretch;
+  background: rgba(23, 20, 15, 0.2);
+}
+
+.railFill {
+  position: absolute;
+  inset: 0;
+  background: #17140f;
+  transform: scaleY(0);
+  transform-origin: top center;
+  will-change: transform;
+}
+
+/* ---- Right two-thirds ---- */
+.right {
+  grid-column: 3;
+  position: relative;
+  min-width: 0;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  padding-block: 0.25rem;
+  will-change: opacity;
+}
+
+.heading {
+  font-family: var(--font-montserrat);
+  font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: #17140f;
+}
+
+.desc {
+  max-width: 38ch;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.5;
+  color: rgba(23, 20, 15, 0.72);
+}
+
+.cardImage {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  will-change: transform, opacity;
+  background: var(--ink-700);
+}
+
+.cardImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Reduced motion: no pin, cards stack down the page ---- */
+.reduced {
+  height: auto;
+  overflow: visible;
+}
+
+.reduced .inner {
+  display: block;
+}
+
+.reduced .rail {
+  display: none;
+}
+
+.reduced .title {
+  color: #17140f;
+}
+
+.reduced .titleText {
+  transform: none;
+}
+
+.reduced .right {
+  position: static;
+  margin-top: 2.5rem;
+}
+
+.reduced .card {
+  position: relative;
+  inset: auto;
+  min-height: 60vh;
+  margin-top: 2rem;
+}
+
+.reduced .cardText,
+.reduced .cardImage,
+.reduced .thumb {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.reduced .thumb {
+  position: relative;
+}
+
+.reduced .thumb:not(:first-child) {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr 1px 1.4fr;
+    column-gap: 1.5rem;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .cardImage {
+    min-height: 40%;
+  }
+}

@@ -1,0 +1,55 @@
+/* ============================================================
+   HCE — Design Tokens
+   Brand palette derived from the company profile (blue gradient,
+   deep indigo -> bright sky/cyan) and the HCE logo.
+   ============================================================ */
+
+:root {
+  /* --- Brand blues --- */
+  --hce-blue: #2fa1e0;          /* primary / logo bright blue */
+  --hce-blue-bright: #4ab8f0;   /* highlight cyan */
+  --hce-blue-deep: #1e5fbf;     /* mid royal blue */
+  --hce-indigo: #2233a6;        /* deep indigo (gradient start) */
+
+  /* --- Neutrals / surfaces --- */
+  --ink-900: #060912;           /* near-black background */
+  --ink-800: #0a0e17;           /* base dark surface */
+  --ink-700: #111725;           /* raised dark surface */
+  --ink-600: #1a2234;           /* borders on dark */
+  --paper: #f4f7fb;             /* light section background */
+  --paper-2: #e8eef6;           /* light section alt */
+
+  /* --- Text --- */
+  --text-on-dark: #eef3fb;
+  --text-on-dark-dim: #9fb0c8;
+  --text-on-light: #10151f;
+  --text-on-light-dim: #566072;
+
+  /* --- Gradients --- */
+  --grad-brand: linear-gradient(135deg, var(--hce-indigo) 0%, var(--hce-blue-deep) 45%, var(--hce-blue-bright) 100%);
+  --grad-brand-soft: linear-gradient(135deg, #223a9e 0%, #2fa1e0 100%);
+  --grad-text: linear-gradient(120deg, #ffffff 0%, var(--hce-blue-bright) 100%);
+
+  /* --- Typography --- */
+  --font-display: "Orbitron", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-montserrat: "Montserrat", "Segoe UI", system-ui, sans-serif;
+
+  /* --- Layout --- */
+  --pad-x: 22px;                /* page side gutter (left & right) */
+  --pad-y: 24px;               /* page vertical gutter (top & bottom) */
+  --container: 1240px;
+  --nav-h: 76px;
+
+  /* --- Radii & shadow --- */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-pill: 999px;
+  --shadow-blue: 0 18px 50px -18px rgba(47, 161, 224, 0.55);
+  --shadow-soft: 0 20px 60px -25px rgba(0, 0, 0, 0.6);
+
+  /* --- Motion --- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
