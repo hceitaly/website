@@ -1,0 +1,453 @@
+/* ============================================================
+   Scheda prodotto — foto ferma a sinistra, contenuti che
+   scorrono a destra, sullo stesso pannello chiaro del catalogo.
+   ============================================================ */
+
+.page {
+  --panel: #eae5dc;
+  --rule: rgba(23, 20, 15, 0.13);
+  background: #f2efea;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  padding-top: calc(var(--nav-h) + clamp(0.5rem, 1.5vw, 1.2rem));
+}
+
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-inline: var(--pad-x);
+}
+
+/* ---------- Colonna sinistra (ferma) ---------- */
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  padding: 0.6rem 1.1rem 0.6rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
+}
+
+.back:hover {
+  background: #17140f;
+  border-color: #17140f;
+  color: #f4f2ee;
+}
+
+.back svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Il perno: resta agganciato sotto la navbar per tutta la colonna destra. */
+.stage {
+  position: sticky;
+  top: calc(var(--nav-h) + clamp(1rem, 2vw, 2rem));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: clamp(1.5rem, 4vw, 4rem);
+  padding-block: clamp(1rem, 2vw, 2rem);
+}
+
+/* Due strati per il reveal: sipario nel colore della categoria, poi la foto.
+   L'altezza la detta la proporzione, non il viewport: così su schermi molto
+   alti la colonna non gonfia la riga oltre i contenuti di destra. Il
+   `max-height` garantisce che resti comunque tutta in vista. */
+.shot {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: calc(100vh - var(--nav-h) - clamp(4rem, 8vw, 7rem));
+}
+
+.shotCover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--cat);
+  border-radius: 14px;
+}
+
+.shotFill {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.shotFill img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+/* ---------- Colonna destra (scorre) ---------- */
+
+.right {
+  border-left: 1px solid var(--rule);
+  padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(4rem, 8vw, 7rem) clamp(1.6rem, 4vw, 4rem);
+  min-width: 0;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 6px 13px 6px 10px;
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--cat) 18%, #fff);
+  color: color-mix(in srgb, var(--cat) 82%, #17140f);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tagIcon {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.title {
+  margin-top: clamp(0.8rem, 1.6vw, 1.3rem);
+  font-family: var(--font-montserrat);
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: #17140f;
+}
+
+/* Righe etichetta + contenuto, separate da un filo, come nel modello. */
+.row {
+  display: grid;
+  grid-template-columns: clamp(110px, 13vw, 170px) 1fr;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding-block: clamp(1.3rem, 2.4vw, 2rem);
+}
+
+.ruled {
+  border-top: 1px solid var(--rule);
+}
+
+.rowLabel {
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(23, 20, 15, 0.5);
+}
+
+.intro {
+  font-size: clamp(1rem, 1.25vw, 1.22rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: #17140f;
+}
+
+/* ---------- Bottoni ---------- */
+
+/* Riempimento identico ai bottoni del menu in home: la tendina cala dall'alto.
+   Base nel colore della categoria, hover in nero. */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  padding-bottom: clamp(1.6rem, 3vw, 2.6rem);
+}
+
+.btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.5rem;
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  background: var(--cat);
+  color: #fff;
+  font-family: var(--font-montserrat);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.btnFill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #0d0b08;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.45s var(--ease-out);
+}
+
+.btn:hover .btnFill,
+.btn:focus-visible .btnFill {
+  clip-path: inset(0 0 0 0);
+}
+
+.btn:focus-visible {
+  outline: 2px solid #17140f;
+  outline-offset: 3px;
+}
+
+.btnIcon {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Contenuti tecnici ---------- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-content: flex-start;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-pill);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.points li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cat);
+}
+
+/* Tabella dei modelli — griglia sottile, contenuto centrato. */
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(0.78rem, 0.85vw, 0.88rem);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.table th,
+.table td {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--rule);
+}
+
+.table th {
+  font-weight: 600;
+  color: #17140f;
+}
+
+.table td {
+  font-weight: 500;
+  color: rgba(23, 20, 15, 0.78);
+}
+
+.table tbody tr:nth-child(odd) td {
+  background: rgba(23, 20, 15, 0.025);
+}
+
+/* ---------- Altri prodotti ---------- */
+
+.more {
+  padding: clamp(2.5rem, 5vw, 4.5rem) var(--pad-x) clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--rule);
+}
+
+.moreLabel {
+  display: block;
+  padding-bottom: clamp(1.2rem, 2.5vw, 2rem);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(23, 20, 15, 0.5);
+}
+
+.moreGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: var(--panel);
+  color: inherit;
+  overflow: hidden;
+}
+
+.cardHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(14px, 1.2vw, 20px) clamp(14px, 1.2vw, 20px) 0;
+}
+
+.cardName {
+  font-size: clamp(0.9rem, 0.95vw, 1.08rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+/* Stesso riempimento del tag nella griglia catalogo. */
+.cardTag {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-shrink: 0;
+  margin: -5px -7px -5px 0;
+  padding: 5px 9px;
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  font-size: clamp(0.72rem, 0.78vw, 0.85rem);
+  font-weight: 500;
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--cat) 80%, #17140f);
+  transition: color 0.35s var(--ease-out);
+}
+
+.cardTagFill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--cat);
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.45s var(--ease-out);
+}
+
+.card:hover .cardTagFill {
+  clip-path: inset(0 0 0 0);
+}
+
+.card:hover .cardTag {
+  color: #fff;
+}
+
+.card:hover .tagIcon {
+  filter: brightness(0) invert(1);
+}
+
+.cardMedia {
+  position: relative;
+  display: block;
+  flex: 1;
+  min-height: 0;
+  margin: clamp(12px, 1vw, 18px);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.cardMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6%;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.card:hover .cardMedia img {
+  transform: scale(1.03);
+}
+
+/* ---------- Adattamenti ---------- */
+
+@media (max-width: 1100px) {
+  .moreGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Sotto il tablet le due colonne si impilano: la foto smette di essere ferma
+   e torna un blocco normale in testa alla pagina. */
+@media (max-width: 900px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .stage {
+    position: static;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    padding-right: 0;
+    padding-block: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .right {
+    border-left: none;
+    border-top: 1px solid var(--rule);
+    padding-left: 0;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .moreGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+

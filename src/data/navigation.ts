@@ -3,14 +3,14 @@ export type NavLink = { label: string; href: string };
 export const NAV_LINKS: NavLink[] = [
   { label: "Chi Siamo", href: "#chi-siamo" },
   { label: "Tecnologie", href: "#tecnologie" },
-  { label: "Prodotti", href: "#prodotti" },
+  { label: "Prodotti", href: "/prodotti" },
   { label: "Normative", href: "#normative" },
   { label: "Contatti", href: "#contatti" },
 ];
 
 /** The three large shortcut cells in the footer. */
 export const FOOTER_SHORTCUTS: NavLink[] = [
-  { label: "I Nostri Prodotti", href: "#prodotti" },
+  { label: "I Nostri Prodotti", href: "/prodotti" },
   { label: "Chi Siamo", href: "#chi-siamo" },
   { label: "Contattaci", href: "mailto:info@hceitaly.it" },
 ];

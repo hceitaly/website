@@ -1,0 +1,296 @@
+/* ============================================================
+   Megamenu prodotti — pannello a tutta larghezza (dentro i
+   margini), tagliato dalle stesse oblique dei bottoni del menu.
+   Le scritte restano dritte.
+   ============================================================ */
+
+/* Stessa inclinazione dei bottoni della navbar (`skewX(-12deg)`). */
+.mega {
+  --skew: -12deg;
+  --rule-1: 25%;
+  /* La terza colonna tiene giusto la copertina intera, niente di più. */
+  --rule-2: 76%;
+  /* 40% dell'altezza pagina, con un fondo sotto cui i contenuti non starebbero. */
+  --h: max(40vh, 320px);
+  /* Sbandamento orizzontale di un'obliqua alta quanto il pannello:
+     tan(12°) ≈ 0.2126. È con questo che si taglia il bordo dell'immagine. */
+  --slant: calc(var(--h) * 0.2126);
+  /* Stacco dal fondo, condiviso da tutte le colonne: è ciò che allinea
+     "Catalogo …" con "Vedi tutto il catalogo". */
+  --foot: clamp(1.4rem, 2.6vw, 2.2rem);
+
+  position: fixed;
+  top: var(--nav-h);
+  left: var(--pad-x);
+  right: var(--pad-x);
+  height: var(--h);
+  display: grid;
+  grid-template-columns: var(--rule-1) calc(var(--rule-2) - var(--rule-1)) 1fr;
+  overflow: hidden;
+  background: #f2efea;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  box-shadow: 0 30px 60px -30px rgba(10, 8, 6, 0.5);
+  visibility: hidden;
+}
+
+/* ---------- Le oblique ---------- */
+
+/* Più alte del pannello: inclinandosi devono comunque coprirlo da cima a fondo. */
+.rule {
+  position: absolute;
+  top: -20%;
+  height: 140%;
+  width: 1px;
+  background: rgba(23, 20, 15, 0.16);
+  transform: skewX(var(--skew));
+  pointer-events: none;
+  z-index: 3;
+}
+
+.rule1 {
+  left: var(--rule-1);
+}
+
+/* ---------- Colonne ---------- */
+
+/* Il padding orizzontale è generoso: le oblique sbandano di ~40px sui bordi e
+   il testo non deve mai finirci sotto. */
+.col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(1.4rem, 2.6vw, 2.4rem) clamp(2.2rem, 4vw, 3.6rem) var(--foot);
+}
+
+.colProducts {
+  padding-left: clamp(2.4rem, 4vw, 3.6rem);
+  padding-right: clamp(1.4rem, 2.2vw, 2rem);
+}
+
+.colHead {
+  display: block;
+  padding-bottom: clamp(0.9rem, 1.8vw, 1.4rem);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(23, 20, 15, 0.45);
+}
+
+/* Maschera per la caduta della parola dall'alto. */
+.mask {
+  display: block;
+  overflow: hidden;
+}
+
+.word {
+  display: block;
+}
+
+/* ---------- Categorie ---------- */
+
+.cats {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cat {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 100%;
+  padding: clamp(0.5rem, 1vw, 0.75rem) clamp(0.9rem, 1.6vw, 1.3rem);
+  font-family: var(--font-montserrat);
+  text-align: left;
+}
+
+/* Il pieno è un parallelogramma, come i bottoni del menu; il testo sopra resta
+   dritto perché non è dentro l'elemento inclinato. */
+.catFill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--cat);
+  transform: skewX(var(--skew));
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.45s var(--ease-out);
+}
+
+.catOn .catFill {
+  clip-path: inset(0 0 0 0);
+}
+
+.catBody {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: clamp(1rem, 1.5vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  transition: color 0.35s var(--ease-out);
+}
+
+.catOn .catBody {
+  color: #fff;
+}
+
+.catIcon {
+  width: clamp(20px, 1.6vw, 26px);
+  height: clamp(20px, 1.6vw, 26px);
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: filter 0.35s var(--ease-out);
+}
+
+.catOn .catIcon {
+  filter: brightness(0) invert(1);
+}
+
+/* ---------- Prodotti ---------- */
+
+/* Elenco a colonne: il numero lo decide il componente in base a quante voci
+   ci sono, così una lista corta non resta spaiata su tre colonne. */
+.products {
+  flex: 1;
+  min-height: 0;
+  columns: var(--pcols, 1);
+  column-gap: clamp(1.2rem, 2.4vw, 2.4rem);
+}
+
+.products li {
+  break-inside: avoid;
+  padding-bottom: clamp(0.3rem, 0.6vw, 0.5rem);
+}
+
+.product {
+  position: relative;
+  display: block;
+  padding-right: 1.4rem; /* spazio per la freccia, che è fuori dal flusso */
+  font-size: clamp(0.82rem, 0.95vw, 0.98rem);
+  font-weight: 500;
+  line-height: 1.3;
+  color: #17140f;
+  transition: color 0.25s var(--ease-out);
+}
+
+.product:hover {
+  color: var(--cat);
+}
+
+/* Fuori dal flusso: comparendo non deve spostare il nome del prodotto. */
+.arrow {
+  position: absolute;
+  right: 0;
+  top: 0.15em;
+  width: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+.product:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.all {
+  align-self: flex-start;
+  flex-shrink: 0;
+  margin-top: clamp(0.6rem, 1.2vw, 1rem);
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.2; /* stessa di .mediaLabel: le due righe restano a filo */
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(23, 20, 15, 0.55);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  transition: color 0.25s var(--ease-out), background-size 0.35s var(--ease-out);
+}
+
+.all:hover {
+  color: #17140f;
+  background-size: 100% 1.5px;
+}
+
+/* ---------- Copertina catalogo ---------- */
+
+/* Nessun padding: l'immagine occupa tutta l'altezza del menu. Il bordo sinistro
+   è tagliato in obliquo e sborda a sinistra di mezzo sbandamento, così cade
+   esattamente sotto la seconda linea. */
+.media {
+  position: relative;
+  display: block;
+  margin-left: calc(var(--slant) / -2);
+  clip-path: polygon(var(--slant) 0, 100% 0, 100% 100%, 0 100%);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--cat) 13%, #f2efea);
+}
+
+/* Il padding sinistro vale un intero sbandamento: è il punto più a destra del
+   taglio obliquo, quindi da lì in poi il contenuto è al sicuro a ogni altezza. */
+.mediaInner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vw, 0.8rem);
+  padding: clamp(1rem, 1.8vw, 1.5rem) clamp(1.1rem, 1.8vw, 1.6rem) var(--foot);
+  padding-left: calc(var(--slant) + clamp(0.4rem, 0.8vw, 0.8rem));
+}
+
+/* Copertina intera: contenuta, mai tagliata. */
+.shot {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.media:hover .shot {
+  transform: scale(1.03);
+}
+
+.mediaLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #17140f;
+}
+
+.mediaLabel svg {
+  width: 16px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Adattamenti ---------- */
+
+/* Il megamenu vive con il puntatore: sotto il breakpoint del burger sparisce e
+   resta il link diretto al catalogo. */
+@media (max-width: 900px), (hover: none) {
+  .mega {
+    display: none;
+  }
+}

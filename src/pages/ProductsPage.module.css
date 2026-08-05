@@ -1,0 +1,606 @@
+/* ============================================================
+   Catalogo prodotti — pannello chiaro caldo come Mission /
+   Prodotti Recenti, titolo centrato, doppio filtro e masonry.
+   ============================================================ */
+
+.page {
+  --panel: #eae5dc; /* superficie delle schede, un tono sotto la pagina */
+  background: #f2efea;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  padding-top: calc(var(--nav-h) + clamp(2.5rem, 7vw, 6.5rem));
+  padding-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+/* ---------- Titolo ---------- */
+
+.head {
+  padding-inline: var(--pad-x);
+  padding-bottom: clamp(3rem, 8vw, 7rem);
+  text-align: center;
+}
+
+.title {
+  max-width: 26ch;
+  margin-inline: auto;
+  font-family: var(--font-montserrat);
+  font-size: clamp(1.9rem, 4.2vw, 3.9rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #17140f;
+}
+
+/* ---------- Barra dei filtri ---------- */
+
+/* Sinistra: 5 categorie. Destra: 4 settori. Le proporzioni tengono le card
+   della stessa larghezza nei due gruppi. */
+.filters {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  align-items: start;
+  padding-inline: var(--pad-x);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.groupLabel {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(23, 20, 15, 0.5);
+}
+
+.groupLabel strong {
+  font-weight: 600;
+  color: #17140f;
+}
+
+.row {
+  display: grid;
+  gap: clamp(8px, 0.7vw, 12px);
+  min-width: 0;
+}
+
+.rowCats {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.rowSectors {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Card di filtro: miniatura + etichetta. */
+.fCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 7px 7px 11px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  text-align: center;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out),
+    background 0.3s var(--ease-out), opacity 0.3s var(--ease-out), filter 0.3s var(--ease-out);
+}
+
+.fCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px -18px rgba(23, 20, 15, 0.6);
+}
+
+.fCard:focus-visible {
+  outline: 2px solid var(--hce-blue);
+  outline-offset: 3px;
+}
+
+/* Categorie — tinta della categoria, la stessa del tag in home. */
+.fCat {
+  background: color-mix(in srgb, var(--cat) 22%, #fff);
+  color: color-mix(in srgb, var(--cat) 82%, #17140f);
+}
+
+.fCat.fOn {
+  background: var(--cat);
+  color: #fff;
+  border-color: color-mix(in srgb, var(--cat) 70%, #000);
+}
+
+/* Settori — card bianche, selezione in inchiostro. */
+.fSector {
+  background: #fff;
+  color: #17140f;
+  border-color: rgba(23, 20, 15, 0.07);
+}
+
+.fSector.fOn {
+  background: #17140f;
+  color: #f4f2ee;
+  border-color: #17140f;
+}
+
+/* Non selezionata mentre il suo gruppo ha una selezione attiva. */
+.fOff {
+  opacity: 0.5;
+  filter: saturate(0.55);
+}
+
+/* Settore senza prodotti nelle categorie scelte: grigio e fuori uso. */
+.fCard:disabled {
+  cursor: not-allowed;
+  background: #f1eee9;
+  border-color: rgba(23, 20, 15, 0.06);
+  color: rgba(23, 20, 15, 0.3);
+}
+
+.fCard:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.fCard:disabled .fThumb {
+  filter: grayscale(1) contrast(0.9);
+  opacity: 0.4;
+}
+
+.fThumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  border-radius: 7px;
+  overflow: hidden;
+  background: rgba(23, 20, 15, 0.06);
+}
+
+/* Sipario colorato che precede l'immagine, come nel resto del sito. */
+.fCover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--cat, var(--hce-blue));
+}
+
+.fFill {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+}
+
+.fFill img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Segnaposto finché non arrivano le immagini dei settori. Opaco: sotto c'è il
+   sipario colorato del reveal, che non deve trasparire. */
+.fEmpty {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, #e4dfd6 0 9px, #eeeae3 9px 18px);
+}
+
+.fLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: clamp(0.78rem, 0.85vw, 0.95rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.fIcon {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Sull'icona colorata, in stato selezionato, serve contrasto sul pieno. */
+.fOn .fIcon {
+  filter: brightness(0) invert(1);
+}
+
+/* ---------- Conteggio risultati ---------- */
+
+.resultsBar {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-inline: var(--pad-x);
+  padding-top: clamp(2rem, 4vw, 3.4rem);
+  padding-bottom: clamp(0.8rem, 1.6vw, 1.4rem);
+}
+
+.results {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(23, 20, 15, 0.6);
+}
+
+.clear {
+  font-family: var(--font-montserrat);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #17140f;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1.5px;
+  transition: color 0.25s var(--ease-out);
+}
+
+.clear:hover {
+  color: var(--hce-blue);
+}
+
+/* ---------- Griglia modulare ---------- */
+
+/* Il modulo base è un quadrato: l'altezza di riga vale esattamente la
+   larghezza di colonna. `100cqw` è la larghezza interna di `.gridWrap`, da cui
+   togliamo le grondaie e dividiamo per le colonne — niente misure in JS.
+   Un prodotto occupa 1×1, 1×2 (verticale) o 2×1 (orizzontale). */
+.gridWrap {
+  container-type: inline-size;
+  padding-inline: var(--pad-x);
+}
+
+.grid {
+  --cols: 4;
+  --gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  grid-auto-rows: calc((100cqw - (var(--cols) - 1) * var(--gap)) / var(--cols));
+  grid-auto-flow: row dense;
+  gap: var(--gap);
+}
+
+.cell {
+  min-width: 0;
+}
+
+/* 1 colonna × 2 righe. */
+.cellV {
+  grid-row: span 2;
+}
+
+/* 2 colonne × 1 riga. */
+.cellH {
+  grid-column: span 2;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 12px;
+  background: var(--panel);
+  color: inherit;
+  overflow: hidden;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--hce-blue);
+  outline-offset: 3px;
+}
+
+/* ---------- Copertina catalogo ---------- */
+
+/* Stessa scheda dei prodotti, ma la foto riempie tutto il modulo e i contenuti
+   si appoggiano ai quattro angoli. */
+.catCard {
+  position: relative;
+  justify-content: space-between;
+  padding: clamp(16px, 1.4vw, 24px);
+  color: #fff;
+}
+
+.catCover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.catCard:hover .catCover {
+  transform: scale(1.03);
+}
+
+/* Velatura che tiene leggibili testo e pulsante su qualunque foto: carica sui
+   due bordi, dove stanno i contenuti, e quasi assente al centro. */
+.catScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 8, 6, 0.78) 0%,
+    rgba(10, 8, 6, 0.12) 48%,
+    rgba(10, 8, 6, 0.55) 100%
+  );
+}
+
+.catRow {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.catRowEnd {
+  align-items: flex-end;
+}
+
+.catKind {
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.catTitle {
+  font-size: clamp(1.05rem, 1.7vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.catBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: clamp(40px, 3vw, 50px);
+  aspect-ratio: 1;
+  border-radius: 14px;
+  background: #fff;
+  color: #17140f;
+}
+
+.catBtn svg {
+  width: 44%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cardHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(14px, 1.2vw, 20px) clamp(14px, 1.2vw, 20px) 0;
+}
+
+.cardName {
+  font-size: clamp(0.9rem, 0.95vw, 1.08rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+/* I margini negativi compensano il padding: il tag resta otticamente allineato
+   al titolo com'era prima di diventare una pillola. */
+.cardTag {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-shrink: 0;
+  margin: -5px -7px -5px 0;
+  padding: 5px 9px;
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  font-size: clamp(0.72rem, 0.78vw, 0.85rem);
+  font-weight: 500;
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--cat) 80%, #17140f);
+  transition: color 0.35s var(--ease-out);
+}
+
+/* Sulla copertina il tag parte già bianco: sotto c'è la foto, non il pannello.
+   Il riempimento all'hover resta quello di tutte le altre schede. */
+.tagOnCover {
+  color: #fff;
+  font-weight: 600;
+}
+
+.tagOnCover .tagIcon {
+  filter: brightness(0) invert(1);
+}
+
+/* Tendina del colore di categoria: cala dall'alto, come i bottoni del menu. */
+.tagFill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--cat);
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.45s var(--ease-out);
+}
+
+.card:hover .tagFill,
+.card:focus-visible .tagFill {
+  clip-path: inset(0 0 0 0);
+}
+
+.card:hover .cardTag,
+.card:focus-visible .cardTag {
+  color: #fff;
+}
+
+.tagIcon {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: filter 0.35s var(--ease-out);
+}
+
+/* Le icone sono PNG colorate: sul pieno vanno portate a bianco. */
+.card:hover .tagIcon,
+.card:focus-visible .tagIcon {
+  filter: brightness(0) invert(1);
+}
+
+/* Il riquadro immagine prende tutta l'altezza che avanza nel modulo: la forma
+   della foto la decide la cella, non il prodotto. */
+.media {
+  position: relative;
+  display: block;
+  flex: 1;
+  min-height: 0;
+  margin: clamp(12px, 1vw, 18px);
+  border-radius: 8px;
+  overflow: hidden;
+  /* Bianco: le foto prodotto sono scontornate su bianco, e chi arriva con lo
+     sfondo trasparente (l'inverter) si appoggia sulla stessa base. */
+  background: #fff;
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.media img[data-fit="cover"] {
+  object-fit: cover;
+}
+
+/* Gli scontornati respirano: contenuti, con un filo di margine. */
+.media img[data-fit="contain"] {
+  object-fit: contain;
+  padding: 6%;
+}
+
+.card:hover .media img {
+  transform: scale(1.03);
+}
+
+.empty {
+  padding: clamp(3rem, 8vw, 6rem) var(--pad-x);
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(23, 20, 15, 0.6);
+}
+
+/* ---------- Pillola filtri flottante ---------- */
+
+/* La centratura usa la proprietà `translate`, non `transform`: così GSAP può
+   animare `y` sulla pillola senza sovrascrivere il -50%. */
+.pill {
+  position: fixed;
+  z-index: 90;
+  left: 50%;
+  bottom: clamp(18px, 3vw, 32px);
+  translate: -50% 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 16px 38px -16px rgba(23, 20, 15, 0.55);
+  transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out);
+}
+
+.pill:hover {
+  background: #17140f;
+  color: #f4f2ee;
+}
+
+.pill svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.pillCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding-inline: 5px;
+  border-radius: var(--r-pill);
+  background: var(--hce-blue);
+  color: #fff;
+  font-size: 0.68rem;
+  line-height: 1;
+}
+
+/* ---------- Adattamenti ---------- */
+
+/* Cambia solo il numero di colonne: il modulo quadrato si ricalcola da sé. */
+@media (max-width: 1280px) {
+  .grid {
+    --cols: 3;
+  }
+}
+
+@media (max-width: 1024px) {
+  .filters {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .grid {
+    --cols: 2;
+  }
+
+  /* I filtri scorrono in orizzontale invece di schiacciarsi. */
+  .row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fCard {
+    flex: 0 0 clamp(128px, 38vw, 168px);
+    scroll-snap-align: start;
+  }
+}
+
+/* Colonna singola: gli orizzontali tornano quadrati, i verticali restano alti. */
+@media (max-width: 560px) {
+  .grid {
+    --cols: 1;
+  }
+
+  .cellH {
+    grid-column: span 1;
+  }
+}
+

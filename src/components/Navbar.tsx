@@ -2,9 +2,15 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { NAV_LINKS } from "../data/navigation";
+import MegaMenu from "./MegaMenu";
 import styles from "./Navbar.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
+
+/** La voce che apre il megamenu. */
+const MEGA_HREF = "/prodotti";
+/** Respiro per passare dal bottone al pannello senza che si chiuda. */
+const CLOSE_DELAY = 140;
 
 const LOGO_WHITE = "/assets/HCE_Logo%20A%20Bianco.png";
 const LOGO_COLOR = "/assets/HCE_Logo%20A%20Colori.png";
@@ -12,6 +18,8 @@ const LOGO_COLOR = "/assets/HCE_Logo%20A%20Colori.png";
 export default function Navbar() {
   const navRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
+  const [mega, setMega] = useState(false);
+  const megaTimer = useRef(0);
   // Dark backgrounds by default (hero/slider/footer) -> white logo; light
   // sections (marked data-nav-theme="light") -> colour logo.
   const [onLight, setOnLight] = useState(false);
@@ -60,6 +68,28 @@ export default function Navbar() {
     return () => ctx.revert();
   }, []);
 
+  // Megamenu: apre subito, chiude con un attimo di ritardo così il puntatore
+  // può attraversare lo stacco fra il bottone e il pannello.
+  const openMega = () => {
+    window.clearTimeout(megaTimer.current);
+    setMega(true);
+  };
+  const closeMega = () => {
+    window.clearTimeout(megaTimer.current);
+    megaTimer.current = window.setTimeout(() => setMega(false), CLOSE_DELAY);
+  };
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMega(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.clearTimeout(megaTimer.current);
+    };
+  }, []);
+
   // Swap the logo variant based on the section currently under the navbar.
   useEffect(() => {
     const lightSections = gsap.utils.toArray<HTMLElement>('[data-nav-theme="light"]');
@@ -91,7 +121,7 @@ export default function Navbar() {
     <header ref={navRef} className={styles.nav}>
       <div className={styles.inner}>
         <div className={`${styles.brandGroup} ${onLight ? styles.brandGroupLight : ""}`}>
-          <a href="#top" className={styles.brand} aria-label="HCE home">
+          <a href="/" className={styles.brand} aria-label="HCE — vai alla home">
             <img
               src={LOGO_WHITE}
               alt="HCE — Home Comfort Electronics"
@@ -129,6 +159,10 @@ export default function Navbar() {
               href={link.href}
               className={styles.link}
               data-btn
+              aria-expanded={link.href === MEGA_HREF ? mega : undefined}
+              onMouseEnter={link.href === MEGA_HREF ? openMega : closeMega}
+              onMouseLeave={link.href === MEGA_HREF ? closeMega : undefined}
+              onFocus={link.href === MEGA_HREF ? openMega : closeMega}
               onClick={() => setOpen(false)}
             >
               {/* Reveal layers: logo-blue curtain, then white resting face. */}
@@ -156,6 +190,8 @@ export default function Navbar() {
           <span className={open ? styles.barBot : ""} />
         </button>
       </div>
+
+      <MegaMenu open={mega} onEnter={openMega} onLeave={closeMega} />
     </header>
   );
 }

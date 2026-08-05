@@ -20,7 +20,7 @@ export const RECENT_PRODUCTS: RecentProduct[] = [
     iconImg: "/assets/icona-inverter.png",
     name: "Inverter ibrido monofase",
     image: "/assets/inverter.jpg",
-    href: "#prodotti",
+    href: "/prodotti",
   },
   {
     tag: "Fotovoltaico",
@@ -28,7 +28,7 @@ export const RECENT_PRODUCTS: RecentProduct[] = [
     iconImg: "/assets/Icona-pannelli.png",
     name: "Modulo full-black ad alta resa",
     image: "/assets/pannelli-solari.jpg",
-    href: "#prodotti",
+    href: "/prodotti",
   },
   {
     tag: "Accumulo",
@@ -36,7 +36,7 @@ export const RECENT_PRODUCTS: RecentProduct[] = [
     iconImg: "/assets/icona%20batterie.png",
     name: "Batteria ad alta densità",
     image: "/assets/accumulo.webp",
-    href: "#prodotti",
+    href: "/prodotti",
   },
   {
     tag: "Mobilità",
@@ -44,7 +44,7 @@ export const RECENT_PRODUCTS: RecentProduct[] = [
     iconImg: "/assets/icona%20mobilita.png",
     name: "Wallbox per ricarica domestica",
     image: "/assets/mobilita-elettrica.jpg",
-    href: "#prodotti",
+    href: "/prodotti",
   },
   {
     tag: "Clima",
@@ -52,6 +52,6 @@ export const RECENT_PRODUCTS: RecentProduct[] = [
     iconImg: "/assets/icona%20pompa.png",
     name: "Pompa di calore aria-acqua",
     image: "/assets/pompadicalore.jpg",
-    href: "#prodotti",
+    href: "/prodotti",
   },
 ];

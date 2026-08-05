@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Design mockups / screenshots di riferimento (non servono al build)
+/public/product-page.png
+/public/pagina-singolo-prodotto.png
