@@ -82,7 +82,7 @@ export default function PaintHero() {
           Prodotti selezionati, competenza tecnica e assistenza continua. Dal magazzino al
           tuo impianto, in un unico percorso.
         </p>
-        <a ref={ctaRef} href="#prodotti" className={styles.cta}>
+        <a ref={ctaRef} href="/prodotti" className={styles.cta}>
           Scopri i prodotti
         </a>
       </div>
