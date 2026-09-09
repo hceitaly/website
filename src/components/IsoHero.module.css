@@ -38,7 +38,7 @@
   font-size: clamp(2.6rem, 7.5vw, 6rem);
   font-weight: 800;
   line-height: 1.02;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: #10151f;
 }
 
@@ -59,7 +59,7 @@
   border-bottom: 1px solid rgba(16, 21, 31, 0.5);
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: rgba(16, 21, 31, 0.62);
 }

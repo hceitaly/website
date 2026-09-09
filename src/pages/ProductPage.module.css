@@ -35,7 +35,7 @@
   border-radius: var(--r-pill);
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out),
     border-color 0.3s var(--ease-out);
@@ -137,7 +137,7 @@
   font-size: clamp(2rem, 3.6vw, 3.5rem);
   font-weight: 600;
   line-height: 1.06;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
   color: #17140f;
 }
 
@@ -171,11 +171,18 @@
 
 /* Riempimento identico ai bottoni del menu in home: la tendina cala dall'alto.
    Base nel colore della categoria, hover in nero. */
+/* Stessa griglia di `.row`: la prima colonna resta vuota — quella
+   dell'etichetta — e il bottone parte a filo del testo che lo precede. */
 .actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
+  display: grid;
+  grid-template-columns: clamp(110px, 13vw, 170px) 1fr;
+  gap: clamp(1rem, 2vw, 2rem);
   padding-bottom: clamp(1.6rem, 3vw, 2.6rem);
+}
+
+.actions .btn {
+  grid-column: 2;
+  justify-self: start;
 }
 
 .btn {
@@ -192,7 +199,7 @@
   font-family: var(--font-montserrat);
   font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
@@ -266,6 +273,79 @@
   height: 6px;
   border-radius: 50%;
   background: var(--cat);
+}
+
+/* ---------- Schede tecniche ---------- */
+
+/* Un documento per riga, separati da un filo: il nome a sinistra, formato e
+   freccia a destra. Al passaggio del mouse la riga si tinge della categoria
+   e la freccia scende, come l'atto di scaricare. */
+.files {
+  display: flex;
+  flex-direction: column;
+}
+
+.file {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.75rem;
+  border-top: 1px solid var(--rule);
+  transition: color 0.25s var(--ease-out);
+}
+
+.files li:last-child .file {
+  border-bottom: 1px solid var(--rule);
+}
+
+.file:hover,
+.file:focus-visible {
+  color: var(--cat);
+}
+
+.fileName {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.fileMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: none;
+}
+
+.fileKind {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(23, 20, 15, 0.5);
+  white-space: nowrap;
+  transition: color 0.25s var(--ease-out);
+}
+
+.file:hover .fileKind,
+.file:focus-visible .fileKind {
+  color: inherit;
+}
+
+.fileIcon svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.file:hover .fileIcon svg,
+.file:focus-visible .fileIcon svg {
+  transform: translateY(3px);
 }
 
 /* Tabella dei modelli — griglia sottile, contenuto centrato. */
@@ -344,7 +424,7 @@
   font-size: clamp(0.9rem, 0.95vw, 1.08rem);
   font-weight: 500;
   line-height: 1.25;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.015em;
 }
 
 /* Stesso riempimento del tag nella griglia catalogo. */
@@ -442,6 +522,16 @@
   .row {
     grid-template-columns: 1fr;
     gap: 0.6rem;
+  }
+
+  /* Su una colonna sola non c'è più la colonna dell'etichetta da saltare:
+     il bottone torna a filo del margine, come tutto il resto. */
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .actions .btn {
+    grid-column: 1;
   }
 }
 

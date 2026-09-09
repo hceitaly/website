@@ -48,7 +48,7 @@
   opacity: 0.32;
 }
 
-.user {
+.search {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -59,12 +59,12 @@
   transition: color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
 }
 
-.user:hover {
+.search:hover {
   color: var(--hce-blue);
   transform: translateY(-1px);
 }
 
-.user svg {
+.search svg {
   width: 21px;
   height: 21px;
   fill: none;
@@ -153,7 +153,7 @@
   display: block;
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #0a0e17;
   transition: color 0.35s var(--ease-out);

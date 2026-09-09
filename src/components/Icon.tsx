@@ -12,6 +12,7 @@ export type IconName =
   | "target"
   | "box"
   | "arrow"
+  | "hand"
   | "search"
   | "download";
 
@@ -90,6 +91,14 @@ const paths: Record<IconName, ReactNode> = {
     </>
   ),
   arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
+  // Mano col dito indice alzato — il gesto del puntatore.
+  hand: (
+    <>
+      <path d="M10 10V4.2a1.9 1.9 0 0 1 3.8 0V11" />
+      <path d="M13.8 10.6V9.4a1.9 1.9 0 0 1 3.8 0V11" />
+      <path d="M17.6 11.2v-.4a1.9 1.9 0 0 1 3.8 0V14a7.5 7.5 0 0 1-7.5 7.5h-1.4c-2.4 0-4-.8-5.4-2.2l-3.4-3.4a1.9 1.9 0 0 1 2.7-2.7L10 16" />
+    </>
+  ),
   search: (
     <>
       <circle cx="11" cy="11" r="7" />

@@ -6,7 +6,7 @@
 
 export type CategoryKey = "fotovoltaico" | "inverter" | "accumulo" | "mobilita" | "clima";
 
-export type SectorKey = "residenziale" | "commerciale" | "industriale" | "agricolo";
+export type SectorKey = "residenziale" | "industriale";
 
 export type Category = {
   key: CategoryKey;
@@ -101,9 +101,7 @@ export const CATEGORIES: Category[] = [
     settore che rappresenta. */
 export const SECTORS: Sector[] = [
   { key: "residenziale", label: "Residenziale", image: "/assets/pompadicalore.jpg" },
-  { key: "commerciale", label: "Commerciale", image: "/assets/mobilita-elettrica.jpg" },
   { key: "industriale", label: "Industriale", image: "/assets/pannelli-solari.jpg" },
-  { key: "agricolo", label: "Agricolo", image: "/assets/pinsnap-106327241187857624.jpg" },
 ];
 
 /** Artwork provvisorio: sparisce da sé appena un prodotto ha la sua `image`. */
@@ -129,28 +127,28 @@ export const CATALOG: CatalogProduct[] = [
     id: "fv-sonnenkraft",
     name: "Moduli Sonnenkraft",
     category: "fotovoltaico",
-    sectors: ["residenziale", "commerciale", "industriale"],
+    sectors: ["residenziale", "industriale"],
     image: "/assets/modulo-fotovoltaico.webp",
   },
   {
     id: "inv-serie-t-g3",
     name: "Inverter Serie T (G3)",
     category: "inverter",
-    sectors: ["residenziale", "commerciale", "industriale", "agricolo"],
+    sectors: ["residenziale", "industriale"],
     image: "/assets/inverter-serie%20t.png",
   },
   {
     id: "acc-g-max",
     name: "Batterie G-MAX (100 kW / 215 kWh)",
     category: "accumulo",
-    sectors: ["commerciale", "industriale", "agricolo"],
+    sectors: ["industriale"],
     image: "/assets/batterie.webp",
   },
   {
     id: "mob-fox-ess-serie-a",
     name: "Serie A Fox ESS",
     category: "mobilita",
-    sectors: ["residenziale", "commerciale", "agricolo"],
+    sectors: ["residenziale"],
     image:
       "/assets/se516-fox-ess-caricabatterie-fox-11kw-serie-a-per-veicoli-elettrici-trifase-con-cavo-tipo-2-da-6-m.jpg",
   },
@@ -158,7 +156,7 @@ export const CATALOG: CatalogProduct[] = [
     id: "cli-ferroli-omnia-st",
     name: "Gamma Ferroli OMNIA ST 3.2",
     category: "clima",
-    sectors: ["residenziale", "commerciale", "agricolo"],
+    sectors: ["residenziale"],
     image: "/assets/b_Ferroli_OMNIA-ST-32_tnj7XW7Wo7.webp",
   },
 ];

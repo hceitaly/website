@@ -23,6 +23,9 @@ body {
   background: var(--ink-800);
   color: var(--text-on-dark);
   line-height: 1.6;
+  /* Base di tutto il sito: le descrizioni che non dichiarano una spaziatura
+     propria partono già leggermente strette. */
+  letter-spacing: -0.01em;
   overflow-x: hidden;
 }
 
@@ -62,7 +65,7 @@ h4 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.05;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
 }
 
 ::selection {
@@ -103,7 +106,7 @@ h4 {
   font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--hce-blue-bright);
 }

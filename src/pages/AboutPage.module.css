@@ -1,0 +1,1154 @@
+/* ============================================================
+   Chi Siamo — pannello chiaro caldo come il catalogo, tagliato
+   dalle stesse oblique del resto del sito. La struttura ricalca
+   il riferimento (manifesto fissato, valori su fondo azzurro,
+   team, finale video), ma parla i colori e le immagini di HCE.
+   ============================================================ */
+
+.page {
+  /* Il respiro fra una sezione e l'altra: un solo valore per tutta la pagina. */
+  --section-gap: clamp(7rem, 16vh, 13rem);
+  background: #f2efea;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  overflow: clip; /* le figure oblique sbordano di proposito */
+}
+
+.page ::selection {
+  background: var(--hce-blue);
+  color: #fff;
+}
+
+/* I titoli delle pagine chiare sono in Montserrat (come il catalogo):
+   qui si scavalca l'Orbitron globale di h1-h4. */
+.page h2,
+.page h3 {
+  font-family: var(--font-montserrat);
+}
+
+/* ---------- Tendina doppia (come le immagini della home) ---------- */
+
+/* Sotto ogni foto animata: il velo blu cala per primo, la foto gli cala
+   sopra e lo copre. GSAP li tiene chiusi sul bordo alto (clip-path) e li
+   apre in sequenza; senza animazioni sono già aperti. */
+.cover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--hce-blue);
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.fill img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Apertura: il marchio sul fondo liquido ---------- */
+
+.belief {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Il fluido pixelato dell'hero della home. Le zone ferme del canvas sono
+   trasparenti: sotto ci passa il colore della pagina. */
+.beliefCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Il resto della pagina: scorre sopra l'apertura, che ScrollTrigger tiene
+   ferma senza spazio di riserva. Il fondo pieno è indispensabile — senza,
+   il fluido si vedrebbe in trasparenza dietro le sezioni. */
+.rise {
+  position: relative;
+  z-index: 1;
+  background: #f2efea;
+}
+
+/* --- Il marchio, grande al centro --- */
+
+/* Il marchio è un'immagine appoggiata sopra al fluido, non un disegno dentro
+   di lui: così resta netto e il mouse non lo piega. Il riquadro ha il rapporto
+   del segno (841 x 308) e gli fa da maschera nell'entrata dal basso. */
+.wordmark {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  /* Poco sopra la metà: lascia libera la fascia bassa dei due blocchi. */
+  top: 46%;
+  transform: translate(-50%, -50%);
+  /* Il limite in vh serve alle finestre larghe e basse: senza, il marchio
+     arriverebbe a toccare la scheda in basso a destra. */
+  width: clamp(220px, min(52vw, 90vh), 54rem);
+  aspect-ratio: 841 / 308;
+  overflow: hidden;
+  /* Il mouse gli passa attraverso: sotto c'è il fluido, ed è lui a reagire. */
+  pointer-events: none;
+}
+
+/* Quello che sale all'arrivo sulla pagina; l'immagine dentro sta ferma. */
+.wordmarkMark {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+/* Il PNG ha un margine trasparente tutt'intorno: il segno sta fra 61 e 902 in
+   orizzontale e fra 112 e 420 in verticale, su 960 x 540. L'immagine si allarga
+   (960/841) e si sposta di quello scarto, così il ritaglio riempie esatto il
+   riquadro invece di starci dentro rimpicciolito. */
+.wordmarkImg {
+  position: absolute;
+  display: block;
+  width: 114.15%;
+  left: -7.253%;
+  top: -36.364%;
+}
+
+/* Il titolo resta nel documento — per gli screen reader e per i motori di
+   ricerca — ma non si vede: quello che si vede è il marchio. */
+.wordmarkLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --- In basso a sinistra: la frase e l'invito a scendere --- */
+
+.claim {
+  position: absolute;
+  z-index: 1;
+  left: var(--pad-x);
+  bottom: clamp(2rem, 6vh, 3.6rem);
+  width: min(34vw, 21rem);
+}
+
+.claimText {
+  font-size: clamp(1.05rem, 1.5vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.26;
+  letter-spacing: -0.02em;
+}
+
+.claimRule {
+  display: block;
+  height: 1px;
+  margin: clamp(0.8rem, 1.6vh, 1.2rem) 0 0.65rem;
+  background: rgba(23, 20, 15, 0.3);
+  transform-origin: left center;
+}
+
+.claimHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(23, 20, 15, 0.62);
+}
+
+/* La freccia del set del sito, girata verso il basso. */
+.claimArrow {
+  width: 13px;
+  height: 13px;
+  transform: rotate(90deg);
+}
+
+/* --- In basso a destra: la ricerca di personale --- */
+
+.recruit {
+  position: absolute;
+  z-index: 1;
+  right: var(--pad-x);
+  bottom: clamp(2rem, 6vh, 3.6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Il bottone non deve stirarsi: cresce lui verso destra, in hover. */
+  align-items: flex-start;
+  gap: clamp(1.6rem, 4vh, 2.6rem);
+  width: clamp(250px, 23vw, 330px);
+  aspect-ratio: 3 / 2;
+  padding: clamp(0.85rem, 1.3vw, 1.15rem);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.recruitVideo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Il velo che tiene leggibile il bianco sopra il filmato. */
+.recruitShade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 9, 18, 0.58) 0%,
+    rgba(6, 9, 18, 0.2) 52%,
+    rgba(6, 9, 18, 0.42) 100%
+  );
+}
+
+.recruitText {
+  max-width: 24ch;
+  font-size: clamp(0.82rem, 0.95vw, 0.95rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: #fff;
+}
+
+/* Il bottone: parallelogramma come quelli della home. */
+.work {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: var(--text-on-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+/* La faccia inclinata sta su uno pseudo-elemento, così la scritta resta
+   dritta. In hover il fondo NON cambia: la faccia si limita a seguire il
+   bottone che si allarga. */
+.work::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #fff;
+  transform: skewX(-12deg);
+  box-shadow: 0 10px 30px -14px rgba(6, 9, 18, 0.7);
+}
+
+.workIcon {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+/* L'icona resta dov'è: si sposta la scritta, e con lei il bordo destro del
+   bottone — che quindi si allarga solo verso destra. */
+.workLabel {
+  transition: margin-left 0.55s var(--ease-in-out);
+}
+
+.work:hover .workLabel,
+.work:focus-visible .workLabel {
+  margin-left: 1.5rem;
+}
+
+/* ---------- L'ecosistema: testa centrata e quattro riquadri ---------- */
+
+.eco {
+  padding-block: var(--section-gap);
+}
+
+.ecoHead {
+  max-width: 54ch;
+  margin-inline: auto;
+  padding: 0 var(--pad-x) clamp(3.5rem, 9vh, 6.5rem);
+  text-align: center;
+}
+
+.ecoTitle {
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+
+.ecoIntro {
+  margin-top: clamp(1.1rem, 2.4vh, 1.7rem);
+  font-size: clamp(1rem, 1.3vw, 1.28rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: rgba(23, 20, 15, 0.72);
+}
+
+/* La fila è a tutta pagina: i riquadri arrivano ai bordi dello schermo. */
+.ecoRow {
+  display: flex;
+  height: clamp(300px, 26vw, 470px);
+  border-top: 1px solid rgba(23, 20, 15, 0.18);
+}
+
+.ecoCell {
+  position: relative;
+  /* La larghezza arriva da React: a riposo un quarto, sotto il mouse di più. */
+  width: var(--eco-w, 25%);
+  overflow: hidden;
+  padding: clamp(0.9rem, 1.5vw, 1.5rem);
+  border-right: 1px solid rgba(23, 20, 15, 0.18);
+  transition: width 0.75s var(--ease-in-out);
+}
+
+.ecoCell:last-child {
+  border-right: 0;
+}
+
+/* La foto sta ferma sotto, e si scopre quando il riquadro si apre. */
+.ecoImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.07);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 1.3s var(--ease-out);
+}
+
+.ecoShade {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 9, 18, 0.5) 0%,
+    rgba(6, 9, 18, 0.12) 42%,
+    rgba(6, 9, 18, 0.62) 100%
+  );
+  transition: opacity 0.7s var(--ease-out);
+}
+
+.ecoCellOn .ecoImg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ecoCellOn .ecoShade {
+  opacity: 1;
+}
+
+.ecoBody {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.ecoName {
+  font-size: clamp(1.05rem, 1.5vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+  transition: color 0.5s var(--ease-out);
+}
+
+.ecoRole {
+  display: block;
+}
+
+.ecoCellOn .ecoName {
+  color: #fff;
+}
+
+/* Numero e descrizione stanno nello stesso angolo: uno esce, l'altra entra. */
+.ecoFoot {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ecoNumber {
+  font-size: clamp(1.3rem, 2vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: rgba(23, 20, 15, 0.75);
+  transition: opacity 0.45s var(--ease-out);
+}
+
+.ecoCellOn .ecoNumber {
+  opacity: 0;
+}
+
+.ecoText {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(100%, 30ch);
+  text-align: right;
+  font-size: clamp(0.74rem, 0.85vw, 0.84rem);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.7s var(--ease-out);
+}
+
+.ecoCellOn .ecoText {
+  opacity: 1;
+  transform: none;
+}
+
+/* Senza mouse (o in colonna) non c'è niente da scoprire: le foto e le
+   descrizioni restano visibili, e i riquadri si impilano. */
+@media (max-width: 760px), (hover: none) {
+  .ecoRow {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .ecoCell {
+    width: 100%;
+    height: clamp(210px, 52vw, 300px);
+    border-right: 0;
+    border-bottom: 1px solid rgba(23, 20, 15, 0.18);
+  }
+
+  .ecoCell:last-child {
+    border-bottom: 0;
+  }
+
+  .ecoImg {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ecoShade {
+    opacity: 1;
+  }
+
+  .ecoName {
+    color: #fff;
+  }
+
+  .ecoNumber {
+    opacity: 0;
+  }
+
+  .ecoText {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Manifesto disteso ---------- */
+
+/* Alto quasi quanto lo schermo: il prodotto etichettato in alto a sinistra,
+   la frase a tutta larghezza col capoverso rientrato, e a destra il binario
+   con la linea verticale, le origini e una foto — come nel riferimento. */
+.manifesto {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(280px, 26vw, 420px);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  min-height: min(100vh, 920px);
+  padding: var(--section-gap) var(--pad-x);
+}
+
+.manifestoMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(2.5rem, 7vh, 5rem);
+}
+
+.manifestoObject {
+  width: clamp(130px, 12vw, 210px);
+}
+
+/* L'etichetta: la lineetta sopra è un elemento a sé, così GSAP la può
+   tirare da sinistra; la scritta è un blocco, per poter salire. */
+.manifestoTag {
+  position: relative;
+  display: block;
+  margin-bottom: 0.8rem;
+  padding-top: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(23, 20, 15, 0.6);
+}
+
+.tagLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(23, 20, 15, 0.25);
+}
+
+.tagText {
+  display: block;
+}
+
+.manifestoObjectMedia {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+/* Il prodotto è un PNG ritagliato: sotto la foto ci va il colore della
+   pagina, o a tendina finita il velo blu trasparirebbe dal fondo. */
+.fillPaper {
+  background: #f2efea;
+}
+
+.manifestoText {
+  font-size: clamp(1.9rem, 4.6vw, 3.9rem);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+  /* Il capoverso rientra come nel riferimento. */
+  text-indent: clamp(2.5rem, 13%, 13rem);
+}
+
+/* `text-indent` si eredita, e le maschere per parola di SplitText sono
+   blocchi in linea: senza questo ognuna rientrerebbe per conto suo. */
+.manifestoText * {
+  text-indent: 0;
+}
+
+/* Parola accentata + punteggiatura: mai a capo fra le due. */
+.nowrap {
+  white-space: nowrap;
+}
+
+.manifestoAccent {
+  color: var(--hce-blue-deep);
+}
+
+.manifestoRail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(2.5rem, 6vh, 4rem);
+  padding-left: clamp(1.2rem, 2vw, 2.2rem);
+}
+
+/* La linea del binario: un elemento a sé (non un bordo), perché GSAP la
+   disegni dall'alto verso il basso. */
+.railLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: rgba(23, 20, 15, 0.25);
+  pointer-events: none;
+}
+
+.manifestoStory {
+  max-width: 34ch;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.65;
+  color: rgba(23, 20, 15, 0.65);
+}
+
+.manifestoShot {
+  position: relative;
+  width: min(100%, 330px);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  align-self: flex-end;
+}
+
+/* ---------- Come lavoriamo: foto ferma, blocchi che le scorrono accanto ---- */
+
+.method {
+  padding-block: var(--section-gap);
+}
+
+.methodHead {
+  padding: 0 var(--pad-x) clamp(2.5rem, 6vh, 4.5rem);
+}
+
+/* Etichetta e titolo incolonnati sul margine sinistro. */
+.methodLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: rgba(23, 20, 15, 0.62);
+}
+
+.methodLabel::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--hce-blue);
+}
+
+.methodTitle {
+  max-width: 22ch;
+  margin-top: clamp(0.9rem, 2.2vh, 1.5rem);
+  font-size: clamp(1.5rem, 2.6vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+
+/* Due colonne di pari larghezza: a sinistra la foto (una sola riga alta
+   quanto tutta la sezione), a destra i quattro blocchi incolonnati. */
+.methodBody {
+  --step-h: clamp(260px, 30vw, 420px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, minmax(var(--step-h), auto));
+}
+
+.methodMediaCol {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  border-right: 1px solid rgba(23, 20, 15, 0.18);
+}
+
+.methodSticky {
+  position: sticky;
+  /* Sopra le righe di separazione: sono più larghe della colonna dei blocchi
+     e senza questo attraverserebbero la foto. */
+  z-index: 1;
+  top: calc(var(--nav-h) + clamp(0.5rem, 2vh, 1.4rem));
+  height: var(--step-h);
+  overflow: hidden;
+  background: var(--ink-900);
+}
+
+/* Le quattro foto stanno una sopra l'altra: si scambiano in dissolvenza. */
+.methodImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-in-out);
+}
+
+.methodImgOn {
+  opacity: 1;
+}
+
+/* La "e" del marchio: stesso trucco del logo grande, il margine trasparente
+   del file (il segno sta fra 281 e 679 su 960) viene tolto dal riquadro. */
+.methodMark {
+  position: absolute;
+  z-index: 1;
+  top: clamp(0.9rem, 1.6vw, 1.5rem);
+  right: clamp(0.9rem, 1.6vw, 1.5rem);
+  display: block;
+  width: clamp(26px, 2.4vw, 40px);
+  aspect-ratio: 398 / 330;
+  overflow: clip;
+  /* Col ritaglio attivo, la misura minima automatica diventa quella del
+     contenuto (il PNG intero) e scavalcherebbe il rapporto d'aspetto. */
+  min-height: 0;
+}
+
+.methodMark img {
+  display: block;
+  width: calc(100% * 960 / 398);
+  max-width: none;
+  height: auto;
+  margin-left: calc(-100% * 281 / 398);
+  margin-top: calc(-100% * 315 / 398);
+}
+
+/* Le righe di separazione vivono sui blocchi, quindi si fermano al bordo
+   della colonna: la colonna della foto resta senza tagli orizzontali. */
+.methodStep {
+  position: relative;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 1.9vw, 1.9rem) clamp(1rem, 2vw, 2rem);
+  border-top: 1px solid rgba(23, 20, 15, 0.18);
+}
+
+/* La foto dentro al blocco serve solo quando la colonna sparisce. */
+.methodStepImg {
+  display: none;
+}
+
+.methodStepTitle {
+  font-size: clamp(1.15rem, 1.9vw, 1.8rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.methodStepText {
+  margin-top: 0.7rem;
+  max-width: 34ch;
+  font-size: clamp(0.88rem, 1.05vw, 1rem);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+  color: rgba(23, 20, 15, 0.66);
+}
+
+.methodNumber {
+  margin-top: auto;
+  align-self: flex-end;
+  padding-top: 1.5rem;
+  font-size: clamp(1.5rem, 2.4vw, 2.3rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: rgba(23, 20, 15, 0.42);
+}
+
+@media (max-width: 900px) {
+  /* In colonna sola non c'è niente a cui agganciare la foto: ogni blocco
+     si porta dietro la sua. */
+  .methodBody {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .methodMediaCol {
+    display: none;
+  }
+
+  .methodStep {
+    grid-column: 1;
+    padding-inline: var(--pad-x);
+  }
+
+  .methodStepImg {
+    display: block;
+    width: 100%;
+    height: clamp(180px, 42vw, 260px);
+    margin-bottom: clamp(1rem, 3vh, 1.6rem);
+    object-fit: cover;
+  }
+
+}
+
+/* ---------- Il team ---------- */
+
+/* L'etichetta tiene la colonna stretta a sinistra, tutto il resto sta nei
+   tre quarti di destra. Lo stacco in cima è un quinto di quello di pagina:
+   il blocco video che precede finisce già pieno di aria, e il respiro
+   intero allontanava troppo il titolo. Sotto resta intero. */
+.team {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  gap: 0 clamp(1.5rem, 4vw, 3.5rem);
+  padding: calc(var(--section-gap) * 0.2) var(--pad-x) var(--section-gap);
+}
+
+.teamLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  color: rgba(23, 20, 15, 0.5);
+}
+
+/* ---- Le persone e i reparti: la colonna larga, accanto all'etichetta ---- */
+
+/* Titolo ed etichetta partono dalla stessa riga: nella griglia lo stacco
+   che li separava non serve più (torna quando la sezione va su una colonna). */
+.teamBelow {
+  margin-top: 0;
+}
+
+.teamBelowTitle {
+  max-width: 24ch;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.teamIntro {
+  margin-top: clamp(2rem, 4vh, 3rem);
+  max-width: 40ch;
+  font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.teamCount {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(23, 20, 15, 0.5);
+}
+
+.teamDepts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(2rem, 5vw, 5rem);
+  margin-top: clamp(2.5rem, 5vh, 4rem);
+}
+
+.dept {
+  padding-block: clamp(1rem, 2vh, 1.4rem);
+  border-top: 1px solid rgba(23, 20, 15, 0.18);
+}
+
+.deptName {
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  font-weight: 600;
+}
+
+.deptText {
+  margin-top: 0.3rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(23, 20, 15, 0.6);
+}
+
+/* ---------- Ogni impianto, una risposta: testi fissi, foto al centro ---- */
+
+/* Come nel riferimento: la frase resta agganciata in alto a sinistra, la
+   nota in basso a destra, e in mezzo scorre la pila di foto orizzontali. */
+.talent {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.75fr) minmax(0, 0.8fr);
+  /* Nessuno stacco fra le righe: il blocco video deve seguire la pila di
+     foto alla stessa distanza delle card (il suo margin-top). */
+  gap: 0 clamp(1.5rem, 3.5vw, 4rem);
+  padding: var(--section-gap) var(--pad-x);
+}
+
+/* L'altezza vera la calcola il codice, sul fondo del penultimo scatto.
+   Questa è il ripiego di quando le animazioni sono disattivate: due terzi
+   della pila, che è lo stesso ordine di grandezza. */
+.talentLead {
+  grid-column: 1;
+  align-self: start;
+  height: 66.7%;
+}
+
+/* Il blocco che resta agganciato: l'etichetta piccola e, sotto, il racconto
+   delle origini. Non è più un titolo grande — è testo corrente, quindi il
+   corpo scende e la colonna si allarga per reggere le righe. */
+.talentSticky {
+  position: sticky;
+  top: calc(var(--nav-h) + 3vh);
+  max-width: 34ch;
+}
+
+.talentLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  color: rgba(23, 20, 15, 0.5);
+}
+
+.talentIntro {
+  margin-top: 0.9rem;
+  font-size: clamp(1rem, 1.45vw, 1.28rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+}
+
+/* Rettangoli orizzontali quasi a contatto, come nello screenshot. */
+.talentImgs {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.2vh, 14px);
+}
+
+.talentMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.talentMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.talentAside {
+  position: relative;
+}
+
+/* Si aggancia nella metà bassa dello schermo e ci resta finché la sezione
+   non finisce. L'aggancio è più alto di prima: qui ora ci sono due
+   capoversi, e più in basso l'ultimo uscirebbe dallo schermo. */
+.talentNote {
+  position: sticky;
+  top: 52vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 34ch;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.65;
+  color: rgba(23, 20, 15, 0.7);
+}
+
+/* ---- Il finale video: l'ultima "foto" cresce fino a tutto schermo ---- */
+
+/* Riga a tutta larghezza sotto la griglia, alta uno schermo: viene fissata
+   da ScrollTrigger mentre il riquadro si espande. I margini negativi
+   annullano il padding della sezione per arrivare ai bordi. */
+.talentVideoWrap {
+  position: relative;
+  grid-column: 1 / -1;
+  height: 100vh;
+  /* Larghezza esplicita: il solo margine negativo sposterebbe il riquadro
+     senza allargarlo, lasciando scoperto il bordo destro. */
+  width: calc(100% + 2 * var(--pad-x));
+  margin-left: calc(-1 * var(--pad-x));
+  margin-top: clamp(8px, 1.2vh, 14px);
+  /* Niente ritaglio: crescendo, il riquadro esce dal blocco anche verso
+     l'alto — è così che arriva a coprire tutto lo schermo. */
+  background: #f2efea;
+}
+
+/* Senza JS (o con reduced motion) il riquadro è già a tutto schermo. */
+.talentVideoBox {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--ink-900);
+}
+
+.talentVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.talentVideoShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(200deg, rgba(6, 9, 18, 0.05) 40%, rgba(6, 9, 18, 0.6) 100%);
+}
+
+/* La citazione del riferimento: grande, in basso a sinistra, senza bottoni. */
+.talentVideoQuote {
+  position: absolute;
+  left: clamp(1.2rem, 3vw, 3rem);
+  right: clamp(1.2rem, 3vw, 3rem);
+  bottom: clamp(1.6rem, 5vh, 3.5rem);
+  color: #fff;
+}
+
+.talentVideoQuote p {
+  max-width: 30ch;
+  font-size: clamp(1.7rem, 3.6vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  text-indent: clamp(2.5rem, 7vw, 6rem);
+}
+
+.talentVideoQuote footer {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- Lavora con noi ---------- */
+
+.careers {
+  padding: var(--section-gap) var(--pad-x);
+}
+
+.careersTitle {
+  margin-top: 0.8rem;
+  max-width: 22ch;
+  font-size: clamp(2rem, 4.4vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.careersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 380px));
+  gap: clamp(1rem, 2vw, 1.6rem);
+  margin-top: clamp(2.5rem, 5vh, 4rem);
+}
+
+.careerCard {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 6vh, 4rem);
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+  background: #eae5dc;
+  transition: background 0.35s var(--ease-out);
+}
+
+.careerCard:hover {
+  background: #e2dcd1;
+}
+
+.careerName {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(23, 20, 15, 0.2);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-weight: 600;
+}
+
+.careerMeta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: rgba(23, 20, 15, 0.6);
+}
+
+.careerApply {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #17140f;
+}
+
+.careerApply svg {
+  width: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.careerCard:hover .careerApply svg {
+  transform: translateX(4px);
+}
+
+/* ---------- Adattamenti ---------- */
+
+@media (max-width: 760px) {
+  /* Affiancati non ci starebbero. La sezione diventa una colonna: il marchio
+     al centro dello spazio libero, i due blocchi impilati in fondo. Niente
+     percentuali — così tiene anche sugli schermi molto bassi. */
+  .belief {
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--nav-h) + 1rem) var(--pad-x) clamp(1.6rem, 5vh, 2.6rem);
+  }
+
+  .wordmark {
+    position: static;
+    transform: none;
+    width: min(78%, 320px);
+    margin: auto;
+  }
+
+  .recruit {
+    position: static;
+    order: 1;
+    width: min(78%, 300px);
+    margin-bottom: clamp(1.1rem, 3vh, 1.8rem);
+  }
+
+  .claim {
+    position: static;
+    order: 2;
+    width: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .manifesto {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .manifestoText {
+    text-indent: 2rem;
+  }
+
+  .manifestoRail {
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+
+  /* Su una colonna sola la linea del binario diventa orizzontale, in cima. */
+  .railLine {
+    bottom: auto;
+    right: 0;
+    width: auto;
+    height: 1px;
+  }
+
+  /* Su schermi stretti la colonna dell'etichetta ruberebbe troppo spazio:
+     etichetta sopra, contenuto sotto, a tutta larghezza. */
+  .team {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .teamBelow {
+    margin-top: 0.8rem;
+  }
+
+  .teamDepts {
+    grid-template-columns: 1fr;
+  }
+
+  .talent {
+    /* `minmax(0, ...)` come sul desktop: senza, il blocco del filmato — che
+       è più largo della colonna di proposito — allarga la traccia e le foto
+       finiscono a filo del bordo destro. */
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .talentLead {
+    height: auto;
+  }
+
+  .talentSticky {
+    position: static;
+    max-width: 46ch;
+  }
+
+  /* Senza row-gap la colonna singola ha bisogno dei suoi stacchi. */
+  .talentImgs {
+    margin-top: 1.5rem;
+  }
+
+  .talentNote {
+    position: static;
+    max-width: 46ch;
+    margin-top: 1.5rem;
+  }
+}

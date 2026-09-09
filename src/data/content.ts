@@ -73,11 +73,20 @@ export const PRODUCTS: Card[] = [
   },
 ];
 
-/** Ecosystem partners */
+/** Ecosystem partners — descrizioni dal profilo aziendale. */
 export const ECOSYSTEM = [
-  { name: "GMT S.p.A.", text: "Tecnologie per l'uso razionale dell'energia." },
-  { name: "KOINÈ", text: "Fondazione per uno sviluppo sostenibile." },
-  { name: "ZapGrid", text: "Piattaforma per la mobilità elettrica." },
+  {
+    name: "GMT S.p.A.",
+    text: "G.M.T. S.p.A. è attiva nell'applicazione di tecnologie efficienti per l'uso razionale dell'energia, al fine di ridurre i consumi energetici e concorrere al raggiungimento degli obiettivi previsti dall'agenda ONU 2030.",
+  },
+  {
+    name: "KOINÈ",
+    text: "KOINÈ ETS è una fondazione senza scopo di lucro nata per promuovere un nuovo modello di sviluppo sostenibile, con l'obiettivo di coinvolgere comunità, istituzioni e imprese in percorsi di crescita responsabile.",
+  },
+  {
+    name: "ZapGrid",
+    text: "ZapGrid è l'anello di collegamento tra i gestori delle stazioni e-mobility e gli utilizzatori di autoveicoli elettrici. ZapGrid si occupa dell'invisibile processo che coniuga l'offerta e la domanda nel mondo della mobilità elettrica.",
+  },
 ];
 
 export const COMPANY = {

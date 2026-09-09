@@ -73,7 +73,7 @@
   font-size: clamp(1.5rem, 2.5vw, 2.5rem);
   font-weight: 700;
   line-height: 1.26;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 /* Recent news cards */
@@ -112,7 +112,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.32;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
 }
 
 .cardDate {

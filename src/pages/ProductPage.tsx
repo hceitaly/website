@@ -123,19 +123,13 @@ export default function ProductPage({ product }: { product: CatalogProduct }) {
                 <p className={styles.intro}>{detail.intro}</p>
               </div>
 
+              {/* Stessa griglia delle righe: il bottone parte dalla colonna
+                  del testo, a filo con la descrizione qui sopra. */}
               <div className={styles.actions} data-reveal>
                 <button type="button" className={styles.btn} onClick={() => setQuoteOpen(true)}>
                   <span className={styles.btnFill} aria-hidden="true" />
                   Richiedi preventivo
                 </button>
-                <a className={styles.btn} href={detail.catalogFile} download>
-                  <span className={styles.btnFill} aria-hidden="true" />
-                  <svg className={styles.btnIcon} viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 4v11M7.5 10.5 12 15l4.5-4.5" />
-                    <path d="M5 19h14" />
-                  </svg>
-                  Scarica il catalogo prodotto
-                </a>
               </div>
 
               <div className={`${styles.row} ${styles.ruled}`} data-reveal>
@@ -181,6 +175,32 @@ export default function ProductPage({ product }: { product: CatalogProduct }) {
                       </tbody>
                     </table>
                   </div>
+                </div>
+              )}
+
+              {detail.datasheets && detail.datasheets.length > 0 && (
+                <div className={`${styles.row} ${styles.ruled}`} data-reveal>
+                  <span className={styles.rowLabel}>Schede tecniche</span>
+                  <ul className={styles.files}>
+                    {detail.datasheets.map((d) => (
+                      <li key={d.file}>
+                        <a className={styles.file} href={d.file} download>
+                          <span className={styles.fileName}>{d.label}</span>
+                          <span className={styles.fileMeta}>
+                            <span className={styles.fileKind}>
+                              PDF{d.size ? ` · ${d.size}` : ""}
+                            </span>
+                            <span className={styles.fileIcon} aria-hidden="true">
+                              <svg viewBox="0 0 24 24">
+                                <path d="M12 4v11M7.5 10.5 12 15l4.5-4.5" />
+                                <path d="M5 19h14" />
+                              </svg>
+                            </span>
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
             </>

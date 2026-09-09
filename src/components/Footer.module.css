@@ -19,7 +19,7 @@
   font-size: clamp(2rem, 4.6vw, 4.2rem);
   font-weight: 700;
   line-height: 1.08;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: #fff;
 }
 
@@ -33,7 +33,7 @@
   color: var(--text-on-light);
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out),
     box-shadow 0.3s var(--ease-out);
@@ -92,7 +92,7 @@
   position: relative; /* rides above the wipe */
   font-size: clamp(1.05rem, 1.6vw, 1.5rem);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   transition: color 0.35s var(--ease-in-out);
 }
 
@@ -142,7 +142,7 @@
   font-family: var(--font-montserrat);
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--text-on-dark);
   margin-bottom: 0.6rem;

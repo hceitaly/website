@@ -5,37 +5,41 @@ import styles from "./StepsSlider.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/** Five cards; titles and imagery are final — the copy is placeholder for now. */
+/** Le cinque schede: il verbo a sinistra, il seguito della frase e il testo
+ *  sulla scheda a destra. */
 const STEPS = [
   {
     title: "Selezioniamo",
-    heading: "Titolo placeholder 01",
+    heading: "I prodotti che fanno per te",
+    text: "Individuiamo i prodotti più adatti alle esigenze specifiche di ogni cliente, scegliendo tra soluzioni di qualità e tecnologie all'avanguardia.",
     image: "/assets/pannelli-solari.jpg",
   },
   {
     title: "Traduciamo",
-    heading: "Titolo placeholder 02",
+    heading: "Le complessità del settore",
+    text: "Offriamo un affiancamento tecnico competente per orientare le scelte verso le soluzioni più efficaci e convenienti.",
     image: "/assets/inverter.jpg",
   },
   {
     title: "Assistiamo",
-    heading: "Titolo placeholder 03",
+    heading: "Prima, durante e dopo l'acquisto",
+    text: "Assicuriamo risposte rapide e soluzioni concrete.",
     image: "/assets/pompadicalore.jpg",
   },
   {
     title: "Comprendiamo",
-    heading: "Titolo placeholder 04",
+    heading: "I vostri bisogni",
+    text: "Mettiamo a disposizione un team con esperienza trasversale nei settori dell'energia, dell'elettronica e della mobilità sostenibile.",
     image: "/assets/accumulo.webp",
   },
   {
     title: "Costruiamo",
-    heading: "Titolo placeholder 05",
+    heading: "Rapporti duraturi",
+    text: "Sia con i nostri collaboratori che con i nostri fornitori.",
     image: "/assets/pinsnap-106327241187857624.jpg",
   },
 ];
 const COUNT = STEPS.length;
-const PLACEHOLDER_TEXT =
-  "Testo placeholder a destra della linea. Questo blocco verrà sostituito con i contenuti definitivi della scheda.";
 
 export default function StepsSlider() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -240,7 +244,7 @@ export default function StepsSlider() {
           <div ref={railFillRef} className={styles.railFill} />
         </div>
 
-        {/* Right two-thirds: placeholder text (top + bottom) and a big image */}
+        {/* Right two-thirds: heading at the top, copy at the bottom, big image */}
         <div className={styles.right}>
           {STEPS.map((s, i) => (
             <div key={s.title} className={styles.card}>
@@ -251,7 +255,7 @@ export default function StepsSlider() {
                 className={styles.cardText}
               >
                 <h3 className={styles.heading}>{s.heading}</h3>
-                <p className={styles.desc}>{PLACEHOLDER_TEXT}</p>
+                <p className={styles.desc}>{s.text}</p>
               </div>
               <div
                 ref={(el) => {

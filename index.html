@@ -19,9 +19,106 @@
     />
 
     <title>HCE — Home Comfort Electronics</title>
+
+    <!-- ========================================================
+         Transizione fra pagine — colonne oblique a tutto schermo.
+         Vive fuori da React, e il suo stile è qui in linea, perché
+         la pagina in arrivo deve trovarla già coprente al primo
+         paint: il flag lo lascia la pagina che sta uscendo, e lo
+         script qui sotto lo legge prima che il bundle parta.
+         L'animazione la guida `src/lib/pageTransition.ts`.
+         ======================================================== -->
+    <style>
+      .pt {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        overflow: hidden;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      /* Le colonne sono inclinate: sbordano oltre lo schermo di quanto
+         basta perché, storte, lo coprano comunque da bordo a bordo. */
+      .pt-cols {
+        position: absolute;
+        top: -25vh;
+        bottom: -25vh;
+        left: -18vh;
+        right: -18vh;
+      }
+
+      /* A riposo le colonne stanno già in posizione coprente: a nasconderle
+         è `visibility` sul contenitore. Se qui ci fosse anche una traslazione,
+         GSAP la sommerebbe alla propria e l'animazione partirebbe sballata. */
+      .pt-col {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(var(--pt-i) * (100% / var(--pt-n)));
+        /* Il pixel in più chiude la fessura fra una colonna e l'altra. */
+        width: calc(100% / var(--pt-n) + 1px);
+        /* L'azzurro del logo (`--hce-blue`), scritto per esteso: questo stile
+           dipinge la pagina prima che il CSS del bundle definisca i token. */
+        background: #2fa1e0;
+        /* Stessa inclinazione dei bottoni del menu. */
+        transform: skewX(-12deg);
+      }
+
+      /* `data-pt` è lo stato: "cover" (pagina appena aperta), "in", "out". */
+      html[data-pt] .pt {
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      html[data-pt] .pt-col {
+        will-change: transform;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .pt {
+          display: none;
+        }
+      }
+    </style>
+    <script>
+      // Sincrono e prima di tutto: se arriviamo da un link già animato lo
+      // schermo deve nascere coperto, senza un lampo di pagina vuota.
+      (function () {
+        try {
+          if (sessionStorage.getItem("hce:pt") !== "1") return;
+          sessionStorage.removeItem("hce:pt");
+          document.documentElement.setAttribute("data-pt", "cover");
+          // Rete di sicurezza: se il bundle non parte, il velo si toglie
+          // da solo invece di lasciare la pagina murata.
+          setTimeout(function () {
+            if (document.documentElement.getAttribute("data-pt") === "cover")
+              document.documentElement.removeAttribute("data-pt");
+          }, 4000);
+        } catch (e) {
+          /* sessionStorage negato (private mode): nessuna transizione */
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Sette colonne nell'azzurro del logo: l'animazione le conta da sola,
+         per cambiarne il numero basta aggiungerne qui una con il suo indice
+         e aggiornare `--pt-n`. -->
+    <div class="pt" aria-hidden="true">
+      <div class="pt-cols" style="--pt-n: 7">
+        <div class="pt-col" style="--pt-i: 0"></div>
+        <div class="pt-col" style="--pt-i: 1"></div>
+        <div class="pt-col" style="--pt-i: 2"></div>
+        <div class="pt-col" style="--pt-i: 3"></div>
+        <div class="pt-col" style="--pt-i: 4"></div>
+        <div class="pt-col" style="--pt-i: 5"></div>
+        <div class="pt-col" style="--pt-i: 6"></div>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

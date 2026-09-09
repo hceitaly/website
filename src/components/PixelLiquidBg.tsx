@@ -99,6 +99,20 @@ uniform vec4 bgColor;
 uniform float uTime;
 uniform vec2 uRes;
 uniform float uPixelSize;
+// Quanti pixel dello schermo vale un pixel CSS: il reticolo del dither e la
+// grana si contano su quelli, o su uno schermo fitto verrebbero la metà.
+uniform float uDpr;
+
+// Il marchio fuso nel fluido: il riquadro dove va disegnato (in UV del
+// canvas), il ritaglio del disegno dentro il file, quanto la corrente lo
+// trascina, la sua griglia di pixel e la sua entrata dal basso.
+uniform sampler2D uLogo;
+uniform vec4 uLogoRect;
+uniform vec4 uLogoCrop;
+uniform float uLogoAmount;
+uniform float uLogoPixel;
+uniform float uLogoRise;
+uniform float uLogoOn;
 
 varying vec2 uv;
 
@@ -124,7 +138,8 @@ void main(){
   vec2 vel  = texture2D(velocity, pixUV).xy;
   float len = clamp(length(vel) * 2.2, 0.0, 1.0);
 
-  vec2 bayerUV = (mod(floor(gl_FragCoord.xy), 4.0) + 0.5) / 4.0;
+  vec2 fragPx  = gl_FragCoord.xy / uDpr;
+  vec2 bayerUV = (mod(floor(fragPx), 4.0) + 0.5) / 4.0;
   float dither  = texture2D(uBayer, bayerUV).r - 0.5;
 
   float noiseVal = noise(uv * 6.0 + uTime * 0.15) * 0.06 - 0.03;
@@ -133,11 +148,41 @@ void main(){
 
   vec3 fluidColor = texture2D(palette, vec2(t, 0.5)).rgb;
   vec3 col        = mix(bgColor.rgb, fluidColor, t);
+  float alpha     = mix(bgColor.a, 1.0, t);
 
-  float grain = hash(gl_FragCoord.xy + vec2(uTime * 137.0, uTime * 91.0));
+  // Il marchio non sta sopra al fondo: sta dentro. Si legge il campo di
+  // velocità a piena risoluzione (non quello squadrato dai pixel: le lettere
+  // devono piegarsi, non spezzarsi) e si va a prendere il pixel del marchio
+  // da dove la corrente l'ha portato via — il segno meno è lo stesso
+  // dell'advezione, così il disegno viaggia *con* il fluido.
+  if (uLogoOn > 0.5) {
+    vec2 ratio  = max(uRes.x, uRes.y) / uRes;
+    vec2 flow   = texture2D(velocity, uv).xy;
+    vec2 markUV = uv - flow * uLogoAmount * ratio;
+
+    if (uLogoPixel > 0.0) {
+      vec2 markGrid = uRes / uLogoPixel;
+      markUV = (floor(markUV * markGrid) + 0.5) / markGrid;
+    }
+
+    // Coordinate dentro al riquadro. uLogoRise sposta il disegno verso il
+    // basso: a 1 è tutto fuori, a 0 è a posto — è l'entrata in maschera del
+    // resto della pagina, fatta qui perché il riquadro taglia da sé.
+    vec2 box = (markUV - uLogoRect.xy) / uLogoRect.zw;
+    box.y += uLogoRise;
+
+    if (box.x > 0.0 && box.x < 1.0 && box.y > 0.0 && box.y < 1.0) {
+      vec4 mark = texture2D(uLogo, uLogoCrop.xy + box * uLogoCrop.zw);
+      col   = mark.rgb * mark.a + col * (1.0 - mark.a);
+      alpha = mark.a + alpha * (1.0 - mark.a);
+    }
+  }
+
+  // La grana va per ultima: prende anche il marchio, che così respira con
+  // il resto del fondo invece di sembrarci appoggiato sopra.
+  float grain = hash(fragPx + vec2(uTime * 137.0, uTime * 91.0));
   col += (grain - 0.5) * 0.085;
 
-  float alpha = mix(bgColor.a, 1.0, t);
   gl_FragColor = vec4(clamp(col, 0.0, 1.0), alpha);
 }
 `;
@@ -307,9 +352,9 @@ class CommonGL {
   delta = 0;
   container: HTMLElement | null = null;
 
-  init(container: HTMLElement) {
+  init(container: HTMLElement, pixelRatio = 1) {
     this.container = container;
-    this.pixelRatio = 1;
+    this.pixelRatio = pixelRatio;
     this.resize();
     this.renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
     this.renderer.autoClear = false;
@@ -842,6 +887,28 @@ class FluidSim {
   }
 }
 
+/** Il marchio da fondere nel fluido: invece di stare sopra al canvas come
+ *  immagine, viene disegnato dentro il pass di colore, e le stesse correnti
+ *  che muovono il fondo lo trascinano. */
+export interface PixelLiquidLogo {
+  /** Il file del marchio (PNG con trasparenza). */
+  src: string;
+  /** L'elemento che ne detta posizione e misura: il marchio ci finisce
+   *  dentro, così a disporlo resta il CSS. */
+  anchor: { current: HTMLElement | null };
+  /** Il ritaglio del disegno dentro il file, in pixel — [x, y, larghezza,
+   *  altezza]. Serve ai file con il margine trasparente intorno. */
+  crop?: [number, number, number, number];
+  /** Quanto la corrente lo trascina, in frazione di schermo. */
+  distort?: number;
+  /** Se > 0, il marchio si spezza sulla griglia di pixel del fondo (in px).
+   *  Da usare con misura: i caratteri sottili non la reggono. */
+  pixelSize?: number;
+  /** L'entrata, letta a ogni fotogramma: 1 = tutto sotto il riquadro, 0 = a
+   *  posto. Ci si attacca GSAP come a qualsiasi altro oggetto. */
+  rise?: { current: number };
+}
+
 export interface PixelLiquidBgProps {
   /** gradient stops the fluid ramps through, low velocity -> high */
   palette?: string[];
@@ -855,6 +922,8 @@ export interface PixelLiquidBgProps {
   cursorSize?: number;
   /** auto-moves fluid when idle, yields to cursor */
   autoDemo?: boolean;
+  /** marchio disegnato dentro il fluido, e quindi distorto con lui */
+  logo?: PixelLiquidLogo;
   className?: string;
   children?: React.ReactNode;
 }
@@ -867,10 +936,19 @@ export default function PixelLiquidBg({
   mouseForce = 8,
   cursorSize = 110,
   autoDemo = true,
+  logo,
   className,
   children,
 }: PixelLiquidBgProps) {
   const mountRef = useRef<HTMLDivElement>(null);
+  // L'oggetto del marchio arriva nuovo a ogni render: tenerlo in un ref evita
+  // di ricostruire tutto il contesto WebGL, e il ciclo di disegno ne legge
+  // comunque sempre i valori aggiornati.
+  const logoRef = useRef(logo);
+  useEffect(() => {
+    logoRef.current = logo;
+  });
+  const logoSrc = logo?.src;
   // Arrays/objects would re-run the effect on every render if compared by
   // identity, so the palette is keyed by value instead.
   const paletteKey = paletteStops.join(",");
@@ -881,7 +959,12 @@ export default function PixelLiquidBg({
     const stops = paletteKey.split(",");
 
     const gl = new CommonGL();
-    gl.init(container);
+    // Il fluido da solo non ha niente da guadagnare dai pixel dello schermo:
+    // è quadrettato di proposito, e a 1x costa un quarto. Il marchio invece
+    // sì — è un disegno vero, e disegnato a 1x su uno schermo fitto sarebbe
+    // molle. La simulazione non cambia: i suoi buffer nascono dalle misure
+    // in pixel CSS, non da queste.
+    gl.init(container, logoSrc ? Math.min(window.devicePixelRatio || 1, 2) : 1);
     container.prepend(gl.renderer!.domElement);
 
     const mouse = new MouseGL();
@@ -890,6 +973,16 @@ export default function PixelLiquidBg({
 
     const palette = makePaletteTexture(stops);
     const bayerTex = makeBayerTexture();
+    // Il sampler vuole comunque una texture: finché il PNG non è arrivato
+    // (o se non c'è nessun marchio) legge questo pixel trasparente.
+    const blankTex = new THREE.DataTexture(
+      new Uint8Array([0, 0, 0, 0]),
+      1,
+      1,
+      THREE.RGBAFormat,
+    );
+    blankTex.needsUpdate = true;
+    let logoTex: THREE.Texture | null = null;
 
     const sim = new FluidSim(gl, mouse, {
       resolution,
@@ -910,6 +1003,14 @@ export default function PixelLiquidBg({
       uTime: { value: 0 },
       uRes: { value: new THREE.Vector2(gl.width, gl.height) },
       uPixelSize: { value: pixelSize },
+      uDpr: { value: gl.pixelRatio },
+      uLogo: { value: blankTex },
+      uLogoRect: { value: new THREE.Vector4(0, 0, 0, 0) },
+      uLogoCrop: { value: new THREE.Vector4(0, 0, 1, 1) },
+      uLogoAmount: { value: 0 },
+      uLogoPixel: { value: 0 },
+      uLogoRise: { value: 0 },
+      uLogoOn: { value: 0 },
       boundarySpace: { value: new THREE.Vector2() },
       px: { value: new THREE.Vector2() },
     };
@@ -935,13 +1036,71 @@ export default function PixelLiquidBg({
       ? new AutoDriver(mouse, () => lastInteraction, 0.45, 1200)
       : null;
 
+    /** Dove finisce il marchio, in coordinate del canvas (0–1, y verso
+     *  l'alto): lo dice l'elemento di riferimento, così il layout resta un
+     *  fatto di CSS e il fluido si limita a disegnare dove gli si dice. */
+    const measureLogo = () => {
+      const el = logoRef.current?.anchor.current;
+      const host = container.getBoundingClientRect();
+      if (!el || !logoTex || !host.width || !host.height) {
+        outputUniforms.uLogoOn.value = 0;
+        return;
+      }
+      const box = el.getBoundingClientRect();
+      if (!box.width || !box.height) {
+        outputUniforms.uLogoOn.value = 0;
+        return;
+      }
+      (outputUniforms.uLogoRect.value as THREE.Vector4).set(
+        (box.left - host.left) / host.width,
+        1 - (box.bottom - host.top) / host.height,
+        box.width / host.width,
+        box.height / host.height,
+      );
+      outputUniforms.uLogoOn.value = 1;
+    };
+
+    if (logoSrc) {
+      new THREE.TextureLoader().load(logoSrc, (tex) => {
+        // Come per la palette: il RawShaderMaterial non passa dalla gestione
+        // del colore di three, quindi i byte del file vanno presi grezzi.
+        tex.colorSpace = THREE.NoColorSpace;
+        tex.magFilter = THREE.LinearFilter;
+        tex.minFilter = THREE.LinearFilter;
+        tex.wrapS = THREE.ClampToEdgeWrapping;
+        tex.wrapT = THREE.ClampToEdgeWrapping;
+        tex.generateMipmaps = false;
+        logoTex = tex;
+        outputUniforms.uLogo.value = tex;
+
+        const iw = tex.image?.width || 1;
+        const ih = tex.image?.height || 1;
+        const [cx, cy, cw, ch] = logoRef.current?.crop ?? [0, 0, iw, ih];
+        // La texture arriva capovolta (flipY): la v parte dal fondo del file.
+        (outputUniforms.uLogoCrop.value as THREE.Vector4).set(
+          cx / iw,
+          1 - (cy + ch) / ih,
+          cw / iw,
+          ch / ih,
+        );
+        measureLogo();
+      });
+    }
+
     const handleResize = () => {
       gl.resize();
       sim.resize();
       (outputUniforms.uRes.value as THREE.Vector2).set(gl.width, gl.height);
+      measureLogo();
     };
     const ro = new ResizeObserver(handleResize);
     ro.observe(container);
+    // Il riquadro del marchio cambia misura per conto suo (è il CSS a
+    // deciderla): va guardato anche lui — ma da un osservatore a parte, che
+    // non ha motivo di rifare i buffer della simulazione.
+    const anchorEl = logoRef.current?.anchor.current;
+    const logoRo = anchorEl ? new ResizeObserver(measureLogo) : null;
+    logoRo?.observe(anchorEl!);
 
     let raf = 0;
     let running = false;
@@ -955,6 +1114,12 @@ export default function PixelLiquidBg({
       mouse.update();
       gl.update();
       outputUniforms.uTime.value = gl.time;
+      const mark = logoRef.current;
+      if (mark) {
+        outputUniforms.uLogoAmount.value = mark.distort ?? 0.055;
+        outputUniforms.uLogoPixel.value = mark.pixelSize ?? 0;
+        outputUniforms.uLogoRise.value = mark.rise?.current ?? 0;
+      }
       sim.update(gl.time);
       const r = gl.renderer;
       if (r) {
@@ -993,12 +1158,15 @@ export default function PixelLiquidBg({
       running = false;
       cancelAnimationFrame(raf);
       ro.disconnect();
+      logoRo?.disconnect();
       io.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
       mouse.dispose();
       sim.dispose();
       palette.dispose();
       bayerTex.dispose();
+      blankTex.dispose();
+      logoTex?.dispose();
       (outputMesh.material as THREE.Material).dispose();
       outputMesh.geometry.dispose();
       gl.dispose();
@@ -1017,6 +1185,7 @@ export default function PixelLiquidBg({
     mouseForce,
     cursorSize,
     autoDemo,
+    logoSrc,
   ]);
 
   return (

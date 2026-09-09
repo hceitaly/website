@@ -1,0 +1,656 @@
+/* ============================================================
+   Contatti — due metà affiancate, come il riferimento.
+
+   Sinistra: pannello fermo, fondo liquido e frasi che sfilano.
+   Destra: il titolo, i reparti da chiamare e i tre moduli.
+   Colori e caratteri sono quelli di Chi Siamo: la carta calda,
+   l'inchiostro quasi nero e il Montserrat.
+   ============================================================ */
+
+.page {
+  position: relative;
+  background: #f2efea;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  overflow: clip;
+}
+
+.page ::selection {
+  background: var(--hce-blue);
+  color: #fff;
+}
+
+/* Nelle pagine chiare i titoli sono in Montserrat: si scavalca
+   l'Orbitron globale di h1-h4. */
+.page h1,
+.page h2,
+.page h3 {
+  font-family: var(--font-montserrat);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  align-items: start;
+}
+
+/* ---------------- Il pannello di sinistra ---------------- */
+
+/* Resta fermo per tutta la corsa della colonna di destra. Il fondo pieno
+   serve: sotto al canvas le zone ferme sono trasparenti. */
+.side {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #f2efea;
+  border-right: 1px solid rgba(23, 20, 15, 0.16);
+}
+
+.sideCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* La finestra dentro cui la giostra di frasi gira: taglia quello che entra
+   e quello che esce. Il mouse la attraversa — sotto c'è il fluido, ed è lui
+   a reagire. */
+.sideMask {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sideList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: clamp(1.5rem, 5vw, 4rem);
+  will-change: transform;
+}
+
+.claimBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.claim {
+  max-width: 15ch;
+  font-size: clamp(1.2rem, 2.3vw, 2.05rem);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* Fra una frase e l'altra: filo, lineetta, filo — come nel riferimento. */
+.sep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.2rem, 3vh, 2rem);
+  padding-block: clamp(1.2rem, 3vh, 2rem);
+}
+
+.sepLine {
+  width: 1px;
+  height: clamp(46px, 9vh, 92px);
+  background: rgba(23, 20, 15, 0.45);
+}
+
+.sepDash {
+  width: 14px;
+  height: 1px;
+  background: rgba(23, 20, 15, 0.75);
+}
+
+/* ---------------- La colonna di destra ---------------- */
+
+.main {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  background: #f2efea;
+}
+
+/* --- Il titolo, grande e centrato come nel riferimento --- */
+
+.head {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(40vh, 46vh, 60vh);
+  padding: calc(var(--nav-h) + clamp(2rem, 6vh, 4.5rem)) var(--pad-x)
+    clamp(2.5rem, 6vh, 4rem);
+  border-bottom: 1px solid rgba(23, 20, 15, 0.55);
+}
+
+.title {
+  font-size: clamp(2.6rem, 7vw, 6.4rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+/* Il dentello nero all'angolo, come nello screenshot: chiude la riga
+   di separazione sul lato del pannello. */
+.notch {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 14px;
+  height: 14px;
+  background: #17140f;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+/* --- Blocchi di contenuto --- */
+
+.block,
+.forms {
+  padding: clamp(3rem, 7vh, 5.5rem) var(--pad-x);
+}
+
+.block {
+  border-bottom: 1px solid rgba(23, 20, 15, 0.16);
+}
+
+.label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  color: rgba(23, 20, 15, 0.5);
+}
+
+.blockTitle {
+  margin-top: 0.7rem;
+  max-width: 22ch;
+  font-size: clamp(1.5rem, 2.7vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+/* --- La sede, in apertura di sezione --- */
+
+.place {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+
+/* Indirizzo e casella generale sono due link, ma non lo dichiarano: stesso
+   inchiostro del testo intorno, e la riga arriva solo sotto al puntatore. */
+.placeText,
+.placeMail {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.3s var(--ease-out);
+}
+
+.placeText:hover,
+.placeText:focus-visible,
+.placeMail:hover,
+.placeMail:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.placeText {
+  font-size: clamp(1.15rem, 1.9vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.placeMail {
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  font-weight: 500;
+}
+
+/* --- I reparti da chiamare --- */
+
+.depts {
+  margin-top: clamp(2.2rem, 5.5vh, 3.4rem);
+}
+
+.dept {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, auto);
+  align-items: start;
+  gap: 1rem clamp(1.5rem, 4vw, 3.5rem);
+  padding-block: clamp(1.2rem, 2.6vh, 1.8rem);
+  border-top: 1px solid rgba(23, 20, 15, 0.18);
+}
+
+.dept:last-of-type {
+  border-bottom: 1px solid rgba(23, 20, 15, 0.18);
+}
+
+.deptName {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.deptText {
+  margin-top: 0.35rem;
+  max-width: 34ch;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: rgba(23, 20, 15, 0.6);
+}
+
+.deptLines {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+/* Il numero è il gesto principale della sezione: grande, e sottolineato
+   dalla riga che si tira al passaggio del mouse. */
+.phone {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.phoneNumber {
+  position: relative;
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.phoneNumber::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s var(--ease-out);
+}
+
+.phone:hover .phoneNumber::after,
+.phone:focus-visible .phoneNumber::after {
+  transform: scaleX(1);
+}
+
+.deptMail {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: rgba(23, 20, 15, 0.72);
+  transition: color 0.25s var(--ease-out);
+}
+
+.deptMail:hover {
+  color: var(--hce-blue-deep);
+}
+
+.hours {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: rgba(23, 20, 15, 0.5);
+}
+
+/* ---------------- I tre moduli ---------------- */
+
+/* --- Le schede --- */
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: clamp(1.5rem, 3.5vh, 2.2rem);
+}
+
+.tab {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid rgba(23, 20, 15, 0.25);
+  border-radius: var(--r-pill);
+  font-family: var(--font-montserrat);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition:
+    color 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out);
+}
+
+/* La tendina sale dal basso: al passaggio del mouse la scheda si riempie
+   come i bottoni del menu. Quella scelta resta piena. */
+.tabFill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #17140f;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.45s var(--ease-out);
+}
+
+.tab:hover,
+.tab:focus-visible,
+.tabOn {
+  color: #f2efea;
+  border-color: #17140f;
+}
+
+.tab:hover .tabFill,
+.tab:focus-visible .tabFill,
+.tabOn .tabFill {
+  clip-path: inset(0 0 0 0);
+}
+
+.tabLabel {
+  position: relative;
+}
+
+/* --- Il modulo --- */
+
+.panel {
+  margin-top: clamp(2rem, 4.5vh, 3rem);
+}
+
+.intro {
+  max-width: 52ch;
+}
+
+.formTitle {
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.formText {
+  margin-top: 0.6rem;
+  font-size: clamp(0.9rem, 1.05vw, 1rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgba(23, 20, 15, 0.66);
+}
+
+/* Due colonne come nel riferimento; i campi lunghi le occupano entrambe. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(1.5rem, 3.5vw, 3rem);
+  row-gap: clamp(1.5rem, 3.2vh, 2.1rem);
+  margin-top: clamp(2rem, 4.5vh, 2.8rem);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.fieldLabel {
+  padding: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(23, 20, 15, 0.55);
+}
+
+/* Campi a filo, senza riquadro: solo la riga sotto, come nel riferimento. */
+.input {
+  width: 100%;
+  padding: 0.55rem 0.2rem;
+  border: 0;
+  border-bottom: 1px solid rgba(23, 20, 15, 0.3);
+  border-radius: 0;
+  background: transparent;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  font-size: 0.98rem;
+  font-weight: 500;
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.input::placeholder {
+  color: rgba(23, 20, 15, 0.38);
+  font-weight: 500;
+}
+
+.input:focus {
+  outline: none;
+  border-bottom-color: var(--hce-blue);
+}
+
+.area {
+  min-height: 7.5rem;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+/* --- Le risposte a scelta --- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.chip {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(23, 20, 15, 0.22);
+  border-radius: var(--r-pill);
+  font-family: var(--font-montserrat);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(23, 20, 15, 0.75);
+  transition:
+    background 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out),
+    color 0.3s var(--ease-out);
+}
+
+.chip:hover {
+  border-color: rgba(23, 20, 15, 0.5);
+  color: #17140f;
+}
+
+.chipOn {
+  background: #17140f;
+  border-color: #17140f;
+  color: #f2efea;
+}
+
+/* --- Consenso e invio --- */
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem clamp(1.5rem, 3vw, 2.5rem);
+  margin-top: clamp(2rem, 4.5vh, 2.8rem);
+  padding-top: clamp(1.4rem, 3vh, 2rem);
+  border-top: 1px solid rgba(23, 20, 15, 0.16);
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  max-width: 46ch;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(23, 20, 15, 0.66);
+  cursor: pointer;
+}
+
+.consent input {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  margin-top: 0.15rem;
+  accent-color: var(--hce-blue);
+}
+
+.consent a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 1rem 1.9rem;
+  border-radius: var(--r-pill);
+  background: var(--hce-blue-deep);
+  color: #fff;
+  font-family: var(--font-montserrat);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.ctaFill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #17140f;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.45s var(--ease-out);
+}
+
+.cta:hover:not(:disabled) .ctaFill,
+.cta:focus-visible:not(:disabled) .ctaFill {
+  clip-path: inset(0 0 0 0);
+}
+
+.cta:disabled {
+  background: rgba(23, 20, 15, 0.14);
+  color: rgba(23, 20, 15, 0.42);
+  cursor: not-allowed;
+}
+
+/* --- La conferma --- */
+
+.done {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding-block: clamp(1.5rem, 5vh, 3rem);
+}
+
+.doneMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--hce-blue);
+  color: #fff;
+}
+
+.doneMark svg {
+  width: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.doneTitle {
+  max-width: 24ch;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.doneText {
+  max-width: 44ch;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgba(23, 20, 15, 0.66);
+}
+
+.again {
+  margin-top: 0.6rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(23, 20, 15, 0.35);
+  font-family: var(--font-montserrat);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.again:hover {
+  border-bottom-color: var(--hce-blue);
+}
+
+/* ---------------- Schermi stretti ---------------- */
+
+/* Sotto i 1000px le due metà si mettono in fila: il pannello diventa una
+   fascia in cima, alta poco più di mezzo schermo, con dentro la stessa
+   giostra di frasi. */
+@media (max-width: 1000px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .side {
+    position: relative;
+    height: 62vh;
+    border-right: 0;
+    border-bottom: 1px solid rgba(23, 20, 15, 0.16);
+  }
+
+  .head {
+    min-height: 0;
+    padding-top: clamp(2.5rem, 8vh, 5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dept {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .foot {
+    justify-content: flex-start;
+  }
+
+  .cta {
+    width: 100%;
+  }
+}

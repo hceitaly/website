@@ -27,7 +27,7 @@
   font-size: clamp(1.9rem, 4.2vw, 3.9rem);
   font-weight: 600;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: #17140f;
 }
 
@@ -345,14 +345,14 @@
 .catKind {
   font-size: 0.86rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .catTitle {
   font-size: clamp(1.05rem, 1.7vw, 1.85rem);
   font-weight: 600;
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.025em;
   text-wrap: balance;
 }
 
@@ -389,7 +389,7 @@
   font-size: clamp(0.9rem, 0.95vw, 1.08rem);
   font-weight: 500;
   line-height: 1.25;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.015em;
 }
 
 /* I margini negativi compensano il padding: il tag resta otticamente allineato
@@ -519,7 +519,7 @@
   font-family: var(--font-montserrat);
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   box-shadow: 0 16px 38px -16px rgba(23, 20, 15, 0.55);
   transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out);

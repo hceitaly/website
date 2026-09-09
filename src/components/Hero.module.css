@@ -134,7 +134,7 @@
   font-size: clamp(2.3rem, 6vw, 4.8rem);
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   line-height: 1.08;
   color: #fff;
   text-shadow: 0 2px 40px rgba(8, 14, 44, 0.35);
@@ -203,7 +203,7 @@
   color: var(--tag-color);
   font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
 }
 
 /* Product icon in its own colour on the tinted pill (positive). */
@@ -226,7 +226,7 @@
   font-weight: 700;
   line-height: 1.22;
   text-transform: uppercase;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.015em;
   color: #fff;
   text-shadow: 0 2px 18px rgba(6, 9, 18, 0.55);
 }
@@ -279,7 +279,7 @@
   color: var(--text-on-light);
   font-weight: 700;
   font-size: 0.74rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
   transition: color 0.4s var(--ease-in-out);
 }
@@ -471,7 +471,7 @@
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: #fff;
 }
 
@@ -481,7 +481,7 @@
   top: calc(50% + 12px);
   font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   color: rgba(255, 255, 255, 0.78);
 }
 

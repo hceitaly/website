@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { NAV_LINKS } from "../data/navigation";
 import MegaMenu from "./MegaMenu";
+import ProductSearch from "./ProductSearch";
 import styles from "./Navbar.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -19,6 +20,7 @@ export default function Navbar() {
   const navRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const [mega, setMega] = useState(false);
+  const [search, setSearch] = useState(false);
   const megaTimer = useRef(0);
   // Dark backgrounds by default (hero/slider/footer) -> white logo; light
   // sections (marked data-nav-theme="light") -> colour logo.
@@ -141,10 +143,16 @@ export default function Navbar() {
 
           <span className={styles.brandDivider} aria-hidden="true" />
 
-          <button type="button" className={styles.user} aria-label="Area riservata">
+          <button
+            type="button"
+            className={styles.search}
+            aria-label="Cerca fra i prodotti"
+            aria-expanded={search}
+            onClick={() => setSearch(true)}
+          >
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="8" r="3.6" />
-              <path d="M4.8 20a7.2 7.2 0 0 1 14.4 0" />
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" />
             </svg>
           </button>
         </div>
@@ -192,6 +200,7 @@ export default function Navbar() {
       </div>
 
       <MegaMenu open={mega} onEnter={openMega} onLeave={closeMega} />
+      <ProductSearch open={search} onClose={() => setSearch(false)} />
     </header>
   );
 }

@@ -13,7 +13,7 @@ export default function Footer() {
           Forniture complete per l&apos;energia,
           <br />e un partner su cui contare.
         </h2>
-        <a className={styles.cta} href={`mailto:${COMPANY.email}`}>
+        <a className={styles.cta} href="/contatti">
           Richiedi una consulenza
         </a>
       </div>

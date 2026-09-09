@@ -9,6 +9,15 @@ export type ModelTable = {
   rows: string[][];
 };
 
+/** Un documento scaricabile della sezione "Schede tecniche". */
+export type Datasheet = {
+  label: string;
+  /** PDF — da depositare in `public/schede/`. */
+  file: string;
+  /** Peso indicativo, mostrato accanto al formato. Facoltativo. */
+  size?: string;
+};
+
 export type ProductDetail = {
   /** Caratteristiche tecniche in breve: una per pastiglia, sotto il titolo. */
   highlights: string[];
@@ -18,6 +27,8 @@ export type ProductDetail = {
   points: string[];
   /** Tabella dei modelli disponibili. */
   models?: ModelTable;
+  /** Documenti scaricabili, sotto la tabella dei modelli. */
+  datasheets?: Datasheet[];
   /** Catalogo del singolo prodotto — da depositare in `public/cataloghi/`. */
   catalogFile: string;
 };
@@ -40,6 +51,12 @@ export const PRODUCT_DETAILS: Record<string, ProductDetail | undefined> = {
         ["KPV500HC", "500 Wp HC Zebra", "1935×1143×35", "120 celle"],
       ],
     },
+    datasheets: [
+      { label: "Scheda tecnica KPV445HC", file: "/schede/kpv445hc.pdf", size: "1,2 MB" },
+      { label: "Scheda tecnica KPV450HC", file: "/schede/kpv450hc.pdf", size: "1,2 MB" },
+      { label: "Scheda tecnica KPV500HC", file: "/schede/kpv500hc.pdf", size: "1,3 MB" },
+      { label: "Certificazioni e garanzia", file: "/schede/sonnenkraft-garanzia.pdf", size: "780 KB" },
+    ],
     catalogFile: "/cataloghi/moduli-sonnenkraft.pdf",
   },
 };
