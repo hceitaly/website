@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Icon from "./Icon";
 import { HERO_SLIDES } from "../data/slides";
-import { CATEGORY_BY_KEY } from "../data/products";
+import { CATEGORY_BY_KEY, categoryCatalog } from "../data/products";
 import { setSliderScroll } from "../hooks/useSmoothScroll";
 import styles from "./Hero.module.css";
 
@@ -322,7 +322,7 @@ export default function Hero() {
             >
               <span className={styles.ctaInner}>
                 <img className={styles.ctaIcon} src={slide.iconImg} alt="" aria-hidden="true" />
-                {slide.ctaLabel}
+                <span className={styles.ctaLabel}>{slide.ctaLabel}</span>
               </span>
             </a>
           </div>
@@ -339,12 +339,15 @@ export default function Hero() {
                 <span className={styles.catalogWord}>Catalogo</span>
               </div>
               <a
-                href={CATEGORY_BY_KEY[slide.category].catalogFile}
-                download
+                href={categoryCatalog(CATEGORY_BY_KEY[slide.category]).href}
+                download={categoryCatalog(CATEGORY_BY_KEY[slide.category]).pdf || undefined}
                 className={styles.catalogDownload}
               >
-                Scarica ora
-                <Icon name="download" className={styles.catalogDownloadIcon} />
+                {categoryCatalog(CATEGORY_BY_KEY[slide.category]).pdf ? "Scarica ora" : "Vedi i documenti"}
+                <Icon
+                  name={categoryCatalog(CATEGORY_BY_KEY[slide.category]).pdf ? "download" : "arrow"}
+                  className={styles.catalogDownloadIcon}
+                />
               </a>
             </div>
             <div className={styles.catalogPanel}>

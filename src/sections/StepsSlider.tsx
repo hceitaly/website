@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./StepsSlider.module.css";
@@ -41,11 +41,32 @@ const STEPS = [
 ];
 const COUNT = STEPS.length;
 
+/** Telefoni, schermi in verticale (anche i tablet tenuti dritti) e schermi
+    bassi come il telefono in orizzontale: lì la sezione bloccata allo scroll
+    non ha spazio, e i passi si leggono uno sotto l'altro. */
+const STACKED = "(max-width: 767.98px), (orientation: portrait), (max-height: 559.98px)";
+
+/** Vero finché la media query è soddisfatta; segue rotazioni e ridimensioni. */
+function useMedia(query: string) {
+  const [match, setMatch] = useState(
+    () => typeof window !== "undefined" && window.matchMedia(query).matches,
+  );
+  useEffect(() => {
+    const mq = window.matchMedia(query);
+    const sync = () => setMatch(mq.matches);
+    mq.addEventListener("change", sync);
+    sync();
+    return () => mq.removeEventListener("change", sync);
+  }, [query]);
+  return match;
+}
+
 export default function StepsSlider() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRefs = useRef<(HTMLDivElement | null)[]>([]);
   const textRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const thumbRefs = useRef<(HTMLDivElement | null)[]>([]);
   const railFillRef = useRef<HTMLDivElement>(null);
   const footLabelRef = useRef<HTMLSpanElement>(null);
@@ -54,9 +75,38 @@ export default function StepsSlider() {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
+  // Chi ha chiesto meno movimento riceve la versione impilata ovunque.
+  const stacked = useMedia(STACKED) || reduced;
 
   useLayoutEffect(() => {
+    // L'evidenza del titolo attivo è una classe, non uno stile: il revert di
+    // GSAP non la tocca. Passando da impilata a bloccata e ritorno, senza
+    // questa pulizia resterebbero accesi due titoli.
+    titleRefs.current.forEach((t) => t?.classList.remove(styles.titleActive));
     if (reduced) return;
+
+    if (stacked) {
+      // Impilata: ogni passo entra quando arriva in vista — il titolo sale, la
+      // foto si scopre con la stessa tendina doppia del resto del sito.
+      const ctx = gsap.context(() => {
+        const HIDDEN = "inset(0% 0% 100% 0%)";
+        const SHOWN = "inset(0% 0% 0% 0%)";
+        cardRefs.current.forEach((card) => {
+          if (!card) return;
+          const words = card.querySelectorAll<HTMLElement>("[data-rise]");
+          const cover = card.querySelector<HTMLElement>("[data-cover]");
+          const fill = card.querySelector<HTMLElement>("[data-fill]");
+          gsap.set(words, { y: 28, opacity: 0 });
+          gsap.set([cover, fill], { clipPath: HIDDEN });
+          gsap
+            .timeline({ scrollTrigger: { trigger: card, start: "top 82%", once: true } })
+            .to(words, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out", stagger: 0.1 }, 0)
+            .to(cover, { clipPath: SHOWN, duration: 0.45, ease: "power2.inOut" }, 0.15)
+            .to(fill, { clipPath: SHOWN, duration: 0.6, ease: "power2.inOut" }, 0.55);
+        });
+      }, sectionRef);
+      return () => ctx.revert();
+    }
 
     const ctx = gsap.context(() => {
       const titles = titleRefs.current;
@@ -181,13 +231,13 @@ export default function StepsSlider() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [reduced]);
+  }, [reduced, stacked]);
 
   return (
     <section
       ref={sectionRef}
       id="tecnologie"
-      className={`${styles.steps} ${reduced ? styles.reduced : ""}`}
+      className={`${styles.steps} ${stacked ? styles.stacked : ""}`}
       data-nav-theme="light"
       aria-label="Il nostro metodo in cinque passi"
     >
@@ -247,14 +297,31 @@ export default function StepsSlider() {
         {/* Right two-thirds: heading at the top, copy at the bottom, big image */}
         <div className={styles.right}>
           {STEPS.map((s, i) => (
-            <div key={s.title} className={styles.card}>
+            <div
+              key={s.title}
+              ref={(el) => {
+                cardRefs.current[i] = el;
+              }}
+              className={styles.card}
+            >
+              {/* Il verbo dentro la scheda serve solo nella versione impilata,
+                  dove non c'è la colonna dei titoli a sinistra. */}
+              <p className={styles.cardTitle} data-rise>
+                {s.title}
+              </p>
               <div
                 ref={(el) => {
                   textRefs.current[i] = el;
                 }}
                 className={styles.cardText}
               >
-                <h3 className={styles.heading}>{s.heading}</h3>
+                <h3 className={styles.heading} data-rise>
+                  {s.heading}
+                  <span className={styles.headingArrow} aria-hidden="true">
+                    {" "}
+                    ↓
+                  </span>
+                </h3>
                 <p className={styles.desc}>{s.text}</p>
               </div>
               <div

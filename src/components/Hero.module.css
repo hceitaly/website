@@ -7,7 +7,7 @@
   --slide-indent: 469px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1199.98px) {
   .hero {
     --slide-indent: 0px;
   }
@@ -217,6 +217,9 @@
 .titleBlock {
   position: absolute;
   left: calc(var(--pad-x) + var(--slide-indent));
+  /* Con il solo `left` il blocco poteva allargarsi fino al bordo dello schermo:
+     sul telefono le parole lunghe finivano a filo del vetro. */
+  right: var(--pad-x);
   top: calc(50% + 24px);
   max-width: 620px;
 }
@@ -233,11 +236,21 @@
 
 /* CTA — parallelogram like the menu; shape on a skewed pseudo so the label
    text stays untransformed (crisp). */
+/* Centrato davvero, in entrambe le direzioni. Da `inline-block` il contenuto
+   stava sulla linea di base del testo, con sotto lo spazio riservato alle
+   discendenti: l'etichetta — tutta maiuscola, senza discendenti — risultava
+   più alta del centro. Da flex quello spazio non esiste, e il gruppo icona +
+   etichetta sta al centro del parallelogramma. */
 .cta {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  max-width: 100%;
   margin-top: 1.6rem;
-  padding: 0.6rem 1.4rem;
+  padding: 0.55rem 1.5rem;
+  line-height: 1;
   pointer-events: auto;
   isolation: isolate;
 }
@@ -275,7 +288,12 @@
 .ctaInner {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.55rem;
+  /* Se l'etichetta va a capo (telefoni stretti, "Scopri la mobilità
+     elettrica") le righe restano centrate. */
+  text-align: center;
+  line-height: 1.2;
   color: var(--text-on-light);
   font-weight: 700;
   font-size: 0.74rem;
@@ -289,9 +307,20 @@
   color: #fff;
 }
 
+/* Il riquadro del testo viene ritagliato all'altezza delle maiuscole: così
+   il centro dell'etichetta è il centro delle lettere, non della riga, e
+   l'icona si allinea a quello. Dove il browser non lo supporta resta il
+   centro della riga, a un pixel dall'ottico. */
+@supports (text-box: trim-both cap alphabetic) {
+  .ctaLabel {
+    text-box: trim-both cap alphabetic;
+  }
+}
+
 .ctaIcon {
   width: 22px;
   height: 22px;
+  flex-shrink: 0;
   object-fit: contain;
   transition: filter 0.4s var(--ease-in-out);
 }
@@ -400,18 +429,6 @@
   object-position: top center;
 }
 
-@media (max-width: 680px) {
-  .catalogCard {
-    display: none;
-  }
-  .badge {
-    bottom: calc(50% + 48px);
-  }
-  .titleBlock {
-    top: calc(50% + 18px);
-  }
-}
-
 /* ---------------------------------------------------------------- */
 /* Shared chrome — one progress line spanning all 5 product slides   */
 /* ---------------------------------------------------------------- */
@@ -491,4 +508,74 @@
   display: inline-block;
   margin-right: 1rem;
   color: var(--text-on-dark);
+}
+
+/* Gli adattamenti stanno in fondo al file di proposito: a parità di peso
+   vince la regola scritta dopo, e le regole base di numero, didascalia e
+   bottone sono più su. */
+
+/* ---------------------------------------------------------------- */
+/* Sotto i 1200 px                                                   */
+/* ---------------------------------------------------------------- */
+
+/* Sopra i 1200 px il contenuto della slide parte a 469 px e il margine
+   sinistro è tutto di numero e didascalia. Sotto, lo scostamento va a zero e
+   partono tutti dallo stesso punto: il tag copriva il numero, la didascalia
+   si schiacciava sul titolo. Qui ognuno ha la sua riga:
+
+       [ tag ]
+       01  Energia dal sole
+       ─────────────────────────  linea di avanzamento
+       TITOLO DELLA SLIDE
+       [ SCOPRI ]
+
+   Il posto del numero e della didascalia è nella "chrome" condivisa, quello di
+   tag e titolo nella slide: vivono in contenitori diversi, per questo le
+   quote si danno a mano, da un'unica misura della riga (--meta). */
+@media (max-width: 1199.98px) {
+  .hero {
+    --meta: 14px; /* corpo e interlinea della riga numero + didascalia */
+  }
+
+  .slideNumber,
+  .slideCaption {
+    bottom: calc(50% + 12px);
+    line-height: var(--meta);
+  }
+
+  .slideCaption {
+    top: auto;
+    /* Accanto al numero, non sotto la linea: "01" in Orbitron è largo ~2 em. */
+    left: calc(var(--pad-x) + 2.4em);
+    right: var(--pad-x);
+  }
+
+  .badge {
+    bottom: calc(50% + 12px + var(--meta) + 14px);
+  }
+
+  .titleBlock {
+    top: calc(50% + 22px);
+  }
+}
+
+/* Sotto i 768 px il riquadro del catalogo non ha dove stare senza coprire il
+   titolo: il catalogo resta scaricabile dal catalogo prodotti. */
+@media (max-width: 767.98px) {
+  .catalogCard {
+    display: none;
+  }
+}
+
+/* Schermi bassi — il telefono in orizzontale: metà altezza sono meno di 200 px.
+   Il riquadro del catalogo finirebbe sopra titolo e bottone, e il bottone si
+   avvicina al titolo per restare nello schermo. */
+@media (max-height: 559.98px) {
+  .catalogCard {
+    display: none;
+  }
+
+  .cta {
+    margin-top: 1rem;
+  }
 }

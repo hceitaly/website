@@ -349,36 +349,167 @@
 }
 
 /* Tabella dei modelli — griglia sottile, contenuto centrato. */
+/* ---------- Modelli ----------
+
+   Mai uno scorrimento orizzontale. La tabella ha due forme e sceglie in base
+   alla larghezza che ha davvero — una container query, non una media query:
+   la stessa finestra da 1000 px dà alla tabella 430 px quando la pagina è su
+   due colonne e più del doppio quando è impilata, e conta lo spazio, non lo
+   schermo.
+
+   - Sotto i 600 px ogni modello è una scheda: il nome in testa, poi una riga
+     per dato, etichetta a sinistra e valore a destra (sotto i 400 px
+     l'etichetta va sopra il valore).
+   - Da 600 px in su è una tabella vera, con il testo che va a capo nelle
+     celle: quattro colonne da ~150 px sono il minimo per leggerle.
+
+   Si parte dalle schede (mobile first): un browser senza container query
+   mostra quelle, che stanno comunque nello schermo. */
+
+/* Il "Modelli" sta sopra la tabella invece che accanto, anche su desktop. */
+.rowWide {
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
 .tableWrap {
-  overflow-x: auto;
+  container: models / inline-size;
 }
 
 .table {
+  display: block;
   width: 100%;
-  border-collapse: collapse;
-  font-size: clamp(0.78rem, 0.85vw, 0.88rem);
-  text-align: center;
-  white-space: nowrap;
+  font-size: clamp(0.8rem, 0.85vw, 0.88rem);
+  line-height: 1.45;
+  text-align: left;
+  /* Codici lunghi come "KPV445HC·301101013" non hanno spazi: devono poter
+     andare a capo ovunque, o allargherebbero la cella oltre il bordo. */
+  overflow-wrap: anywhere;
 }
 
-.table th,
-.table td {
-  padding: 0.7rem 0.9rem;
+/* Le etichette di colonna diventano le etichette di ogni riga (::before). */
+.table thead {
+  display: none;
+}
+
+.table tbody {
+  display: grid;
+  gap: 10px;
+}
+
+.table tr {
+  display: block;
+  padding: 0.85rem 1rem 0.6rem;
   border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: rgba(23, 20, 15, 0.025);
 }
 
-.table th {
+.table th[scope="row"] {
+  display: block;
+  padding-bottom: 0.55rem;
+  margin-bottom: 0.35rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1.04em;
   font-weight: 600;
   color: #17140f;
 }
 
 .table td {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 0.9rem;
+  padding-block: 0.3rem;
   font-weight: 500;
   color: rgba(23, 20, 15, 0.78);
 }
 
-.table tbody tr:nth-child(odd) td {
-  background: rgba(23, 20, 15, 0.025);
+.table td::before {
+  content: attr(data-label);
+  font-size: 0.9em;
+  font-weight: 500;
+  color: rgba(23, 20, 15, 0.48);
+}
+
+/* Una cella vuota nella scheda sarebbe un'etichetta senza niente accanto. */
+.table td:empty {
+  display: none;
+}
+
+@container models (max-width: 399px) {
+  .table td {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.1rem;
+    padding-block: 0.35rem;
+  }
+}
+
+@container models (min-width: 600px) {
+  .table {
+    display: table;
+    border-collapse: collapse;
+  }
+
+  .table thead {
+    display: table-header-group;
+  }
+
+  .table tbody {
+    display: table-row-group;
+  }
+
+  .table tr {
+    display: table-row;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+  }
+
+  .table th,
+  .table td {
+    display: table-cell;
+    padding: 0.7rem 0.85rem;
+    margin: 0;
+    border: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  /* Le intestazioni — di colonna e il nome del modello — tengono le parole
+     intere: "Dimensioni" non deve diventare "Dimensio-ni". Sono le celle di
+     dati, che possono spezzare ovunque, a garantire che la tabella non sbordi:
+     è su di loro che il browser recupera lo spazio. */
+  .table th {
+    font-size: 1em;
+    font-weight: 600;
+    color: #17140f;
+    overflow-wrap: break-word;
+  }
+
+  /* Il nome del modello fa da intestazione di riga. Il selettore con
+     l'attributo pesa più di `.table th`, quindi qui va rimesso tutto ciò che la
+     forma a schede gli aveva dato: altrimenti resta un blocco dentro la riga e
+     il browser lo schiaccia in una colonna da un carattere. */
+  .table th[scope="row"] {
+    display: table-cell;
+    width: 22%;
+    padding: 0.7rem 0.85rem;
+    margin: 0;
+    border: 1px solid var(--rule);
+    font-size: 1em;
+  }
+
+  .table td::before {
+    content: none;
+  }
+
+  .table td:empty {
+    display: table-cell;
+  }
+
+  .table tbody tr:nth-child(odd) > * {
+    background: rgba(23, 20, 15, 0.025);
+  }
 }
 
 /* ---------- Altri prodotti ---------- */
@@ -396,11 +527,21 @@
   color: rgba(23, 20, 15, 0.5);
 }
 
+/* Al massimo quattro: una fila da quattro su desktop, un due per due su tablet
+   e telefono — mai una fila da tre con un orfano sotto. */
 .moreGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 20px);
 }
+
+@media (min-width: 992px) {
+  .moreGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+
 
 .card {
   display: flex;
@@ -492,12 +633,6 @@
 
 /* ---------- Adattamenti ---------- */
 
-@media (max-width: 1100px) {
-  .moreGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 /* Sotto il tablet le due colonne si impilano: la foto smette di essere ferma
    e torna un blocco normale in testa alla pagina. */
 @media (max-width: 900px) {
@@ -535,9 +670,32 @@
   }
 }
 
-@media (max-width: 700px) {
-  .moreGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+/* Sta in fondo di proposito: a parità di peso vince la regola scritta dopo,
+   e le regole base di .card e .cardMedia sono più su.
+
+   Sotto i 576 px una scheda è larga ~150 px: nome e tag uno sopra l'altro, o
+   il nome resterebbe schiacciato in una colonnina accanto al tag. E la scheda
+   smette di essere quadrata: con due o tre righe di nome la foto, che prende lo
+   spazio che avanza, resterebbe un francobollo. La foto ha il suo quadrato, in
+   fondo, così nelle due schede affiancate le immagini stanno alla stessa altezza
+   anche se i nomi vanno a capo in modo diverso. */
+@media (max-width: 575.98px) {
+  .card {
+    aspect-ratio: auto;
+  }
+
+  .cardHead {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cardTag {
+    margin: 0;
+  }
+
+  .cardMedia {
+    flex: none;
+    aspect-ratio: 1;
+    margin-top: auto;
   }
 }
-

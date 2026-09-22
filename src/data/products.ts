@@ -1,8 +1,15 @@
-/* Catalogo prodotti — dati della pagina "/prodotti".
+/* Catalogo prodotti — un solo contenuto, tre usi.
 
-   Le categorie sono le stesse (colori + icone) del carosello in home e dello
-   slider hero, così il filtro parla la stessa lingua visiva del resto del sito.
-   Vedi `data/slides.ts` e `data/recent.ts`. */
+   I prodotti non stanno più qui: vivono in `catalog.json`, che è il file
+   scritto dal pannello `/admin`. Questo modulo lo legge, scarta le voci
+   malformate e ne deriva le tre viste che il sito usa — la griglia di
+   `/prodotti`, la scheda `/prodotti/<id>` e l'elenco per categoria del mega
+   menu. Un prodotto caricato dal pannello compare in tutti e tre.
+
+   Le categorie invece restano in codice: colori, icone e copertine sono scelte
+   di design, non contenuto da redigere. Vedi `data/slides.ts` e `data/recent.ts`. */
+
+import catalog from "./catalog.json";
 
 export type CategoryKey = "fotovoltaico" | "inverter" | "accumulo" | "mobilita" | "clima";
 
@@ -11,6 +18,8 @@ export type SectorKey = "residenziale" | "industriale";
 export type Category = {
   key: CategoryKey;
   label: string;
+  /** Titolo della colonna prodotti nel mega menu. */
+  menuTitle: string;
   /** Colore identitario della categoria (uguale a hero + prodotti recenti). */
   color: string;
   /** Icona PNG colorata, usata nel tag di ogni scheda prodotto. */
@@ -19,8 +28,10 @@ export type Category = {
   image: string;
   /** Foto di sfondo della scheda "Scarica il catalogo". */
   catalogCover: string;
-  /** PDF del catalogo — da depositare in `public/cataloghi/`. */
-  catalogFile: string;
+  /** PDF del catalogo della categoria, in `public/cataloghi/`. Finché manca,
+      i link "catalogo" portano alla sua documentazione nella pagina Cataloghi
+      — vedi `categoryCatalog()`. */
+  catalogFile?: string;
 };
 
 export type Sector = {
@@ -36,15 +47,47 @@ export type Sector = {
     - `horizontal` 2 colonne × 1 riga */
 export type Shape = "square" | "vertical" | "horizontal";
 
+/** Tabella dei modelli. Le intestazioni sono contenuto anche loro: un modulo
+    dichiara le celle, un inverter la potenza. La prima colonna è il nome del
+    modello — è quella che il preventivo propone come scelta. */
+export type ModelTable = {
+  columns: string[];
+  rows: string[][];
+};
+
+/** Un documento scaricabile della sezione "Schede tecniche". */
+export type Datasheet = {
+  label: string;
+  /** PDF — caricato dal pannello in `public/schede/`. */
+  file: string;
+  /** Peso indicativo, mostrato accanto al formato. Facoltativo. */
+  size?: string;
+};
+
 export type CatalogProduct = {
   id: string;
   name: string;
   category: CategoryKey;
   sectors: SectorKey[];
+  /** Con la scheda pubblicata il prodotto entra nella griglia e ha una pagina
+      sua; senza, resta una voce di gamma nel menu che porta al catalogo. */
+  published: boolean;
   /** Foto del prodotto. Finché manca si usa il placeholder di categoria. */
   image?: string;
   /** Come la foto riempie il riquadro: gli scontornati stanno meglio "contain". */
   fit?: "cover" | "contain";
+  /** Cos'è il prodotto, in due o tre righe. */
+  intro?: string;
+  /** Caratteristiche in breve: una per pastiglia, sotto il titolo. */
+  highlights?: string[];
+  /** In evidenza — punti chiave, uno per riga. */
+  points?: string[];
+  /** Modelli disponibili: nella scheda e nella scelta del preventivo. */
+  models?: ModelTable;
+  /** Documenti scaricabili, sotto la tabella dei modelli. */
+  datasheets?: Datasheet[];
+  /** Catalogo del singolo prodotto — da depositare in `public/cataloghi/`. */
+  catalogFile?: string;
 };
 
 /** Filtro di sinistra — "Filtra per categoria". */
@@ -52,47 +95,47 @@ export const CATEGORIES: Category[] = [
   {
     key: "fotovoltaico",
     label: "Fotovoltaico",
+    menuTitle: "Moduli fotovoltaici",
     color: "#2fa1e0",
     icon: "/assets/Icona-pannelli.png",
     image: "/assets/fotovoltaico-catalog.png",
     catalogCover: "/assets/pannelli-solari.jpg",
-    catalogFile: "/cataloghi/fotovoltaico.pdf",
   },
   {
     key: "inverter",
     label: "Inverter",
+    menuTitle: "Inverter fotovoltaici (Fox ESS)",
     color: "#1fb6a6",
     icon: "/assets/icona-inverter.png",
     image: "/assets/inverter-catalog.png",
     catalogCover: "/assets/pinsnap-106327241187857624.jpg",
-    catalogFile: "/cataloghi/inverter.pdf",
   },
   {
     key: "accumulo",
     label: "Accumulo",
+    menuTitle: "Sistemi di accumulo (Fox ESS)",
     color: "#3463af",
     icon: "/assets/icona%20batterie.png",
     image: "/assets/accumulo-catalog.png",
     catalogCover: "/assets/accumulo.webp",
-    catalogFile: "/cataloghi/accumulo.pdf",
   },
   {
     key: "mobilita",
     label: "Mobilità",
+    menuTitle: "Mobilità elettrica",
     color: "#6250a2",
     icon: "/assets/icona%20mobilita.png",
     image: "/assets/mobilita-catalog.png",
     catalogCover: "/assets/mobilita-elettrica.jpg",
-    catalogFile: "/cataloghi/mobilita.pdf",
   },
   {
     key: "clima",
     label: "Clima",
+    menuTitle: "Climatizzazione e pompe di calore (Ferroli)",
     color: "#a33c8c",
     icon: "/assets/icona%20pompa.png",
     image: "/assets/clima-catalog.png",
     catalogCover: "/assets/pompadicalore.jpg",
-    catalogFile: "/cataloghi/clima.pdf",
   },
 ];
 
@@ -113,53 +156,43 @@ export const PLACEHOLDER_IMAGE: Record<CategoryKey, string> = {
   clima: "/assets/pompadicalore.jpg",
 };
 
+/**
+ * Dove porta "il catalogo" di una categoria: il PDF quando c'è, altrimenti la
+ * sua documentazione nella pagina Cataloghi, già filtrata. I cinque PDF di
+ * categoria non sono ancora stati consegnati: senza questo ripiego menu, slider
+ * e catalogo prodotti puntavano a file inesistenti.
+ */
+export function categoryCatalog(c: Category): { href: string; pdf: boolean } {
+  return c.catalogFile
+    ? { href: c.catalogFile, pdf: true }
+    : { href: `/cataloghi?categoria=${c.key}`, pdf: false };
+}
+
 export const CATEGORY_BY_KEY: Record<CategoryKey, Category> = Object.fromEntries(
   CATEGORIES.map((c) => [c.key, c]),
 ) as Record<CategoryKey, Category>;
 
-/* Griglia prodotti.
+const CATEGORY_KEYS = new Set<string>(CATEGORIES.map((c) => c.key));
+
+/** Tutta la gamma, nell'ordine in cui il JSON la elenca, bozze comprese: è
+    quello che il menu mostra. Le voci senza id, senza nome o con una categoria
+    che non esiste vengono scartate — un refuso nel contenuto non deve poter
+    mandare in errore il sito. */
+export const ALL_PRODUCTS: CatalogProduct[] = (catalog.products as CatalogProduct[]).filter(
+  (p) => p.id && p.name && CATEGORY_KEYS.has(p.category),
+);
+
+/* Griglia prodotti: solo le schede pubblicate.
 
    L'ordine conta ancora — decide quale prodotto riceve quale forma e tiene le
    categorie mescolate — ma la forma non è più un dato del prodotto: la calcola
    `layoutShapes()` sull'elenco effettivamente a schermo. */
-export const CATALOG: CatalogProduct[] = [
-  {
-    id: "fv-sonnenkraft",
-    name: "Moduli Sonnenkraft",
-    category: "fotovoltaico",
-    sectors: ["residenziale", "industriale"],
-    image: "/assets/modulo-fotovoltaico.webp",
-  },
-  {
-    id: "inv-serie-t-g3",
-    name: "Inverter Serie T (G3)",
-    category: "inverter",
-    sectors: ["residenziale", "industriale"],
-    image: "/assets/inverter-serie%20t.png",
-  },
-  {
-    id: "acc-g-max",
-    name: "Batterie G-MAX (100 kW / 215 kWh)",
-    category: "accumulo",
-    sectors: ["industriale"],
-    image: "/assets/batterie.webp",
-  },
-  {
-    id: "mob-fox-ess-serie-a",
-    name: "Serie A Fox ESS",
-    category: "mobilita",
-    sectors: ["residenziale"],
-    image:
-      "/assets/se516-fox-ess-caricabatterie-fox-11kw-serie-a-per-veicoli-elettrici-trifase-con-cavo-tipo-2-da-6-m.jpg",
-  },
-  {
-    id: "cli-ferroli-omnia-st",
-    name: "Gamma Ferroli OMNIA ST 3.2",
-    category: "clima",
-    sectors: ["residenziale"],
-    image: "/assets/b_Ferroli_OMNIA-ST-32_tnj7XW7Wo7.webp",
-  },
-];
+export const CATALOG: CatalogProduct[] = ALL_PRODUCTS.filter((p) => p.published);
+
+/** La gamma di una categoria, per la colonna centrale del mega menu. */
+export function productsByCategory(key: CategoryKey): CatalogProduct[] {
+  return ALL_PRODUCTS.filter((p) => p.category === key);
+}
 
 /* ------------------------------------------------------------------
    Forme della griglia

@@ -94,4 +94,17 @@ export const COMPANY = {
   address: "Via Sesta Strada, 8 — 35129 Padova (PD)",
   phone: "+39 049.5479331",
   email: "info@hceitaly.it",
+  /** L'indirizzo scomposto, per i dati strutturati che leggono i motori di
+      ricerca (vedi `seo/meta.ts`). Deve dire la stessa cosa di `address`. */
+  addressParts: {
+    street: "Via Sesta Strada, 8",
+    postalCode: "35129",
+    city: "Padova",
+    province: "PD",
+    country: "IT",
+  },
+  /** Dati societari, nell'ultima riga del footer di ogni pagina. */
+  taxCode: "04338740287",
+  shareCapital: "200.000 €",
+  rea: "Padova 381753",
 };

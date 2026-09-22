@@ -216,11 +216,60 @@
   color: var(--hce-blue-bright);
 }
 
-.credit {
+/* ---------- Ultima riga: dati societari e firma ---------- */
+
+.colophon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem 2rem;
+  padding: 1.1rem var(--pad-x) max(1.3rem, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--ink-600);
+  font-size: 0.74rem;
+  line-height: 1.6;
   color: var(--text-on-dark-dim);
 }
 
+/* Una riga sola, con i trattini fra una voce e l'altra. Le voci non si
+   spezzano al loro interno: "200.000 €" non deve finire su due righe. */
+.company {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5em;
+}
+
+.company span {
+  white-space: nowrap;
+}
+
+.company span + span::before {
+  content: "–";
+  margin-right: 0.5em;
+}
+
+.madeBy {
+  white-space: nowrap;
+}
+
 /* ---------- Responsive ---------- */
+
+/* Sotto i 992 px la riga non ci sta più tutta, e andando a capo un trattino
+   finirebbe in testa alla riga nuova: una voce per riga, senza trattini. */
+@media (max-width: 991.98px) {
+  .colophon {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .company {
+    flex-direction: column;
+  }
+
+  .company span + span::before {
+    content: none;
+  }
+}
 @media (max-width: 900px) {
   .footer {
     min-height: 0;

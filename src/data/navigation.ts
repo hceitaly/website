@@ -3,6 +3,7 @@ export type NavLink = { label: string; href: string };
 export const NAV_LINKS: NavLink[] = [
   { label: "Chi Siamo", href: "/chi-siamo" },
   { label: "Prodotti", href: "/prodotti" },
+  { label: "Cataloghi", href: "/cataloghi" },
   { label: "Contatti", href: "/contatti" },
 ];
 

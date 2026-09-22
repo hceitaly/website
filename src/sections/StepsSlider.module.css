@@ -160,6 +160,13 @@
   will-change: opacity;
 }
 
+/* Il verbo dentro la scheda e la freccia dopo il sottotitolo servono solo
+   alla versione impilata. */
+.cardTitle,
+.headingArrow {
+  display: none;
+}
+
 .heading {
   font-family: var(--font-montserrat);
   font-size: clamp(1.4rem, 2.4vw, 2.1rem);
@@ -194,55 +201,6 @@
   object-fit: cover;
 }
 
-/* ---- Reduced motion: no pin, cards stack down the page ---- */
-.reduced {
-  height: auto;
-  overflow: visible;
-}
-
-.reduced .inner {
-  display: block;
-}
-
-.reduced .rail {
-  display: none;
-}
-
-.reduced .title {
-  color: #17140f;
-}
-
-.reduced .titleText {
-  transform: none;
-}
-
-.reduced .right {
-  position: static;
-  margin-top: 2.5rem;
-}
-
-.reduced .card {
-  position: relative;
-  inset: auto;
-  min-height: 60vh;
-  margin-top: 2rem;
-}
-
-.reduced .cardText,
-.reduced .cardImage,
-.reduced .thumb {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-.reduced .thumb {
-  position: relative;
-}
-
-.reduced .thumb:not(:first-child) {
-  display: none;
-}
-
 @media (max-width: 900px) {
   .inner {
     grid-template-columns: 1fr 1px 1.4fr;
@@ -255,5 +213,101 @@
 
   .cardImage {
     min-height: 40%;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Versione impilata — telefoni, schermi in verticale, schermi bassi */
+/* ---------------------------------------------------------------- */
+
+/* Niente sezione bloccata: un passo sotto l'altro, ciascuno con il suo verbo,
+   un filo, il seguito della frase con la freccia, la foto grande e il testo.
+   La classe la mette il componente (vedi STACKED), che nello stesso momento
+   smette di bloccare lo scroll: layout e animazione cambiano insieme. Vale
+   anche per chi ha chiesto meno movimento, su qualunque schermo. */
+.stacked {
+  height: auto;
+  overflow: visible;
+}
+
+.stacked .inner {
+  display: block;
+  height: auto;
+  padding-block: clamp(3.5rem, 12vw, 6rem);
+}
+
+.stacked .left,
+.stacked .rail {
+  display: none;
+}
+
+.stacked .right {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3.5rem, 14vw, 6rem);
+}
+
+.stacked .card {
+  position: relative;
+  inset: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Il contenitore del testo si dissolve: titolo, sottotitolo, foto e testo
+   diventano fratelli, e l'ordine lo decide `order`. */
+.stacked .cardText {
+  display: contents;
+}
+
+.stacked .cardTitle {
+  display: block;
+  order: 1;
+  padding-bottom: clamp(0.8rem, 3vw, 1.1rem);
+  border-bottom: 1px solid rgba(23, 20, 15, 0.22);
+  font-size: clamp(2.1rem, 9vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: #17140f;
+}
+
+.stacked .heading {
+  order: 2;
+  margin-top: clamp(0.7rem, 2.5vw, 1rem);
+  font-size: clamp(0.9rem, 2.6vw, 1.05rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #17140f;
+}
+
+.stacked .headingArrow {
+  display: inline;
+}
+
+.stacked .cardImage {
+  order: 3;
+  margin-top: clamp(1rem, 4vw, 1.5rem);
+  aspect-ratio: 4 / 5;
+  opacity: 1;
+  transform: none;
+}
+
+.stacked .desc {
+  order: 4;
+  max-width: 46ch;
+  margin-top: clamp(1rem, 4vw, 1.4rem);
+  font-size: clamp(0.92rem, 2.6vw, 1.05rem);
+  line-height: 1.55;
+}
+
+/* Tablet in verticale: una foto 4:5 larga 700 px sarebbe alta quasi quanto lo
+   schermo. Più distesa, e comunque mai oltre i tre quarti della finestra. */
+@media (min-width: 576px) {
+  .stacked .cardImage {
+    aspect-ratio: 4 / 3;
+    max-height: 75vh;
   }
 }

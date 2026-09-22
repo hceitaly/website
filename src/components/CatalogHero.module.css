@@ -1,0 +1,230 @@
+/* ============================================================
+   Apertura delle pagine di catalogo (/prodotti, /cataloghi):
+   la frase grande centrata e le card per filtrare.
+   I colori di pagina (fondo, inchiostro) li dà la pagina.
+   ============================================================ */
+
+/* ---------- Titolo ---------- */
+
+.head {
+  padding-inline: var(--pad-x);
+  padding-bottom: clamp(3rem, 8vw, 7rem);
+  text-align: center;
+}
+
+.title {
+  max-width: 26ch;
+  margin-inline: auto;
+  font-family: var(--font-montserrat);
+  font-size: clamp(1.9rem, 4.2vw, 3.9rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #17140f;
+}
+
+/* ---------- Barra dei filtri ---------- */
+
+/* Sinistra: 5 categorie. Destra: 4 settori. Le proporzioni tengono le card
+   della stessa larghezza nei due gruppi. */
+.filters {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  align-items: start;
+  padding-inline: var(--pad-x);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.groupLabel {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(23, 20, 15, 0.5);
+}
+
+.groupLabel strong {
+  font-weight: 600;
+  color: #17140f;
+}
+
+.row {
+  display: grid;
+  gap: clamp(8px, 0.7vw, 12px);
+  min-width: 0;
+}
+
+.rowCats {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.rowSectors {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Card di filtro: miniatura + etichetta. */
+.fCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 7px 7px 11px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  text-align: center;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out),
+    background 0.3s var(--ease-out), opacity 0.3s var(--ease-out), filter 0.3s var(--ease-out);
+}
+
+.fCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px -18px rgba(23, 20, 15, 0.6);
+}
+
+.fCard:focus-visible {
+  outline: 2px solid var(--hce-blue);
+  outline-offset: 3px;
+}
+
+/* Categorie — tinta della categoria, la stessa del tag in home. */
+.fCat {
+  background: color-mix(in srgb, var(--cat) 22%, #fff);
+  color: color-mix(in srgb, var(--cat) 82%, #17140f);
+}
+
+.fCat.fOn {
+  background: var(--cat);
+  color: #fff;
+  border-color: color-mix(in srgb, var(--cat) 70%, #000);
+}
+
+/* Settori — card bianche, selezione in inchiostro. */
+.fSector {
+  background: #fff;
+  color: #17140f;
+  border-color: rgba(23, 20, 15, 0.07);
+}
+
+.fSector.fOn {
+  background: #17140f;
+  color: #f4f2ee;
+  border-color: #17140f;
+}
+
+/* Non selezionata mentre il suo gruppo ha una selezione attiva. */
+.fOff {
+  opacity: 0.5;
+  filter: saturate(0.55);
+}
+
+/* Settore senza prodotti nelle categorie scelte: grigio e fuori uso. */
+.fCard:disabled {
+  cursor: not-allowed;
+  background: #f1eee9;
+  border-color: rgba(23, 20, 15, 0.06);
+  color: rgba(23, 20, 15, 0.3);
+}
+
+.fCard:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.fCard:disabled .fThumb {
+  filter: grayscale(1) contrast(0.9);
+  opacity: 0.4;
+}
+
+.fThumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  border-radius: 7px;
+  overflow: hidden;
+  background: rgba(23, 20, 15, 0.06);
+}
+
+/* Sipario colorato che precede l'immagine, come nel resto del sito. */
+.fCover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--cat, var(--hce-blue));
+}
+
+.fFill {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+}
+
+.fFill img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Segnaposto finché non arrivano le immagini dei settori. Opaco: sotto c'è il
+   sipario colorato del reveal, che non deve trasparire. */
+.fEmpty {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, #e4dfd6 0 9px, #eeeae3 9px 18px);
+}
+
+.fLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: clamp(0.78rem, 0.85vw, 0.95rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.fIcon {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Sull'icona colorata, in stato selezionato, serve contrasto sul pieno. */
+.fOn .fIcon {
+  filter: brightness(0) invert(1);
+}
+
+/* ---------- Adattamenti ---------- */
+
+@media (max-width: 1024px) {
+  .filters {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 820px) {
+  /* I filtri scorrono in orizzontale invece di schiacciarsi. */
+  .row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fCard {
+    flex: 0 0 clamp(128px, 38vw, 168px);
+    scroll-snap-align: start;
+  }
+}

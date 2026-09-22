@@ -1,0 +1,4585 @@
+{
+  "products": [
+    {
+      "id": "fv-sk-power-full-black-made-eu",
+      "name": "SK POWER full-black — Made-EU",
+      "category": "fotovoltaico",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/sk-power-full-black-foto-prodotto-8ee98397.webp",
+      "intro": "Modulo fotovoltaico full-black con celle TOPCon 2.0, prodotto in Austria e disponibile nelle potenze da 450 e 500 Wp. Cornice e foglio posteriore neri ne completano la finitura.",
+      "highlights": [
+        "TOPCon 2.0",
+        "Full-black",
+        "Made in Austria",
+        "Fino a 500 Wp",
+        "Efficienza fino al 22,61%",
+        "Grandine HW4"
+      ],
+      "points": [
+        "30 anni di garanzia sul prodotto.",
+        "Rendimento garantito per 30 anni: Sonnenkraft garantisce almeno il 99% della potenza nel primo anno e un degrado massimo dello 0,4% annuo negli anni successivi."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "KPV450HCB (301101022)",
+            "Modulo vetro-pellicola full-black, celle TOPCon, IP65",
+            "1748 × 1143 × 35 mm · 22,5 kg",
+            "450 Wp · 108 mezze celle · efficienza 22,52 % · 1000 V DC"
+          ],
+          [
+            "KPV500HCB (301101021)",
+            "Modulo vetro-pellicola full-black, celle TOPCon, IP65",
+            "1935 × 1143 × 35 mm · 28,5 kg",
+            "500 Wp · 120 mezze celle · efficienza 22,61 % · 1000 V DC"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica 450 Wp (tedesco)",
+          "file": "/schede/sk-power-450-wp-hcb-scheda-tecnica-de-873d8871.pdf",
+          "size": "700 KB"
+        },
+        {
+          "label": "Scheda tecnica 500 Wp (tedesco)",
+          "file": "/schede/sk-power-500-wp-hcb-scheda-tecnica-de-1a9cb7d7.pdf",
+          "size": "94 KB"
+        },
+        {
+          "label": "Istruzioni di montaggio (tedesco)",
+          "file": "/schede/sk-power-full-black-manuale-installazione-de-b41418e2.pdf",
+          "size": "2,8 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità UE (inglese)",
+          "file": "/schede/sk-power-full-black-dichiarazione-di-conformita-en-a82cbf22.pdf",
+          "size": "46 KB"
+        }
+      ]
+    },
+    {
+      "id": "fv-sk-power-zebra-made-eu-enea-cat-a",
+      "name": "SK POWER zebra — Made-EU, ENEA cat. A",
+      "category": "fotovoltaico",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/sk-power-zebra-foto-prodotto-0547fa29.webp",
+      "intro": "SK POWER zebra è la gamma di moduli TOPCon Sonnenkraft iscritta al Registro ENEA in Categoria A, disponibile nelle potenze da 445, 450 e 500 Wp, con efficienza fino al 22,61%.",
+      "highlights": [
+        "ENEA Categoria A",
+        "TOPCon",
+        "445–500 Wp",
+        "Efficienza fino al 22,61%",
+        "Sistema fino a 1500 V",
+        "Garanzia prodotto 30 anni"
+      ],
+      "points": [
+        "Categoria A: dedicata ai moduli prodotti nell'Unione Europea con efficienza di almeno il 21,5%.",
+        "Rendimento garantito per 30 anni. Sonnenkraft garantisce almeno il 99% della potenza nel primo anno e un degrado massimo dello 0,4% annuo negli anni successivi."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "KPV 445 Wp HC (KPV445HC · 301101013)",
+            "Modulo 5.0 vetro-pellicola, celle TOPCon, cornice nera, foglio posteriore nero davanti e bianco dietro, IP67",
+            "1748 × 1143 × 35 mm · 22,5 kg",
+            "445 Wp · 108 mezze celle · efficienza 22,28 % · 1500 V DC"
+          ],
+          [
+            "KPV450HC (301101015)",
+            "Modulo vetro-pellicola zebra, celle TOPCon, cornice nera e foglio posteriore bianco, IP65",
+            "1748 × 1143 × 35 mm · 22,5 kg",
+            "450 Wp · 108 mezze celle · efficienza 22,52 % · 1500 V DC"
+          ],
+          [
+            "KPV500HC (KPV500HCPLUS)",
+            "Modulo vetro-pellicola zebra, celle TOPCon, cornice nera e foglio posteriore bianco, IP65",
+            "1935 × 1143 × 35 mm · 28,5 kg",
+            "500 Wp · 120 mezze celle · efficienza 22,61 % · 1500 V DC"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica 445 Wp",
+          "file": "/schede/sk-power-445-wp-hc-scheda-tecnica-it-8894566d.pdf",
+          "size": "81 KB"
+        },
+        {
+          "label": "Scheda tecnica 450 Wp",
+          "file": "/schede/sk-power-450-wp-hc-scheda-tecnica-it-145edcd3.pdf",
+          "size": "81 KB"
+        },
+        {
+          "label": "Scheda tecnica 500 Wp (tedesco)",
+          "file": "/schede/sk-power-500-wp-hc-scheda-tecnica-de-62ea8500.pdf",
+          "size": "94 KB"
+        },
+        {
+          "label": "Istruzioni di montaggio (tedesco)",
+          "file": "/schede/sk-power-full-black-manuale-installazione-de-b41418e2.pdf",
+          "size": "2,8 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità UE (inglese)",
+          "file": "/schede/sk-power-full-black-dichiarazione-di-conformita-en-a82cbf22.pdf",
+          "size": "46 KB"
+        }
+      ]
+    },
+    {
+      "id": "fv-sk-power-vetro-vetro-ne",
+      "name": "SK POWER vetro-vetro NE",
+      "category": "fotovoltaico",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/sk-power-vetro-vetro-ne-foto-prodotto-8524ce37.webp",
+      "intro": "Moduli fotovoltaici vetro-vetro da 440 e 460 Wp, con celle TOPCon bifacciali e costruzione a doppio vetro da 2 + 2 mm.",
+      "highlights": [
+        "Vetro-vetro 2 + 2 mm",
+        "TOPCon bifacciale",
+        "440–460 Wp",
+        "Efficienza fino al 23,02%",
+        "Sistema fino a 1500 V",
+        "Garanzia prodotto 15 anni"
+      ],
+      "points": [
+        "Fino al 30% di resa aggiuntiva dal lato posteriore sul modello da 440 Wp.",
+        "Rendimento garantito fino a 30 anni: 25 anni sul modello da 440 Wp e 30 anni sul 460 Wp."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "KPV440WP (440GG2RNE)",
+            "Modulo vetro-vetro 2 + 2 mm, celle TOPCon bifacciali, cornice nera, stampa ceramica nera parziale sul retro",
+            "1722 × 1134 × 35 mm · 25 kg",
+            "440 Wp · 108 mezze celle · efficienza 22,53 % · 1500 V DC · rendimento garantito 97 % il primo anno, −0,7 %/anno fino a 25 anni"
+          ],
+          [
+            "KPV 460 Wp HC NE (460GG2RNE · 321109009)",
+            "Modulo vetro-vetro 2 + 2 mm, celle TOPCon bifacciali, cornice nera, IP65",
+            "1762 × 1134 × 35 mm",
+            "460 Wp · 96 mezze celle · efficienza 23,02 % · 1500 V DC · rendimento garantito 99 % il primo anno, −0,4 %/anno fino a 30 anni"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica 440 Wp",
+          "file": "/schede/sk-power-440-wp-hc-ne-scheda-tecnica-it-41e471d1.pdf",
+          "size": "328 KB"
+        },
+        {
+          "label": "Scheda tecnica 460 Wp",
+          "file": "/schede/sk-power-460-wp-hc-ne-scheda-tecnica-it-99586356.pdf",
+          "size": "115 KB"
+        },
+        {
+          "label": "Istruzioni di montaggio (tedesco)",
+          "file": "/schede/sk-power-full-black-manuale-installazione-de-b41418e2.pdf",
+          "size": "2,8 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità UE (inglese)",
+          "file": "/schede/sk-power-full-black-dichiarazione-di-conformita-en-a82cbf22.pdf",
+          "size": "46 KB"
+        }
+      ]
+    },
+    {
+      "id": "fv-3sun-b60-hjt-made-in-italy-enea-cat-c",
+      "name": "3SUN B60 — HJT Made in Italy, ENEA cat. C",
+      "category": "fotovoltaico",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/3sun-b60-foto-prodotto-6257d8be.webp",
+      "intro": "Modulo fotovoltaico bifacciale vetro-vetro da 575 Wp con tecnologia a eterogiunzione (HJT), progettato e prodotto a Catania. Celle e modulo sono Made in Italy e la referenza è iscritta al Registro ENEA in Categoria C.",
+      "highlights": [
+        "ENEA Categoria C",
+        "Made in Italy",
+        "HJT",
+        "Bifacciale vetro-vetro",
+        "575 Wp",
+        "1500 V"
+      ],
+      "points": [
+        "Coefficiente di bifaccialità del 90% ± 10%. La superficie posteriore contribuisce alla produzione del modulo.",
+        "15 anni di garanzia sul prodotto e 30 anni sulla potenza, con almeno il 98% garantito nel primo anno e un calo massimo dello 0,30% annuo dal secondo al trentesimo."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "3SUN B60 575 Wp (3SHBGH-AD-575)",
+            "Modulo bifacciale vetro-vetro a eterogiunzione, 120 mezze celle, cornice in alluminio anodizzato",
+            "2172 × 1303 × 35 mm · 36 kg",
+            "575 Wp · efficienza 20,3 % · 1500 V"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/3sun-b60-scheda-tecnica-it-7ab32aa2.pdf",
+          "size": "258 KB"
+        },
+        {
+          "label": "Manuale di installazione e manutenzione",
+          "file": "/schede/3sun-b60-manuale-installazione-it-c14b8cc6.pdf",
+          "size": "1,6 MB"
+        }
+      ]
+    },
+    {
+      "id": "fv-sk-back-contact",
+      "name": "SK back-contact",
+      "category": "fotovoltaico",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/sk-power-480-wp-hc-ne-back-contact-foto-prodotto-2a7ceeb9.webp",
+      "intro": "Modulo fotovoltaico vetro-vetro bifacciale da 480 Wp con celle TOPCon a contatto posteriore. L'assenza di busbar e connettori di cella visibili sul fronte rende l'aspetto più omogeneo.",
+      "highlights": [
+        "Back-contact TOPCon",
+        "Vetro-vetro bifacciale",
+        "480 Wp",
+        "Efficienza 23,52%",
+        "1500 V DC",
+        "Garanzia prodotto 15 anni"
+      ],
+      "points": [
+        "4,25 m² di superficie per kWp, con un'efficienza del 23,52%.",
+        "Rendimento garantito per 30 anni. Sonnenkraft garantisce almeno il 99% della potenza nel primo anno e un degrado massimo dello 0,4% annuo negli anni successivi."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "KPV 480Wp HC NE (480GG2RNE)",
+            "Modulo vetro-vetro bifacciale, 108 mezze celle TOPCon back-contact, cornice nera",
+            "1800 × 1134 × 35 mm · 24,50 kg",
+            "480 Wp · efficienza 23,52 % · 1500 V"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (tedesco)",
+          "file": "/schede/sk-power-480-wp-hc-ne-back-contact-scheda-tecnica-de-e7e0bd41.pdf",
+          "size": "70 KB"
+        },
+        {
+          "label": "Manuale di installazione (tedesco)",
+          "file": "/schede/sk-power-full-black-manuale-installazione-de-b41418e2.pdf",
+          "size": "2,8 MB"
+        },
+        {
+          "label": "Dichiarazione UE di conformità (inglese)",
+          "file": "/schede/sk-power-full-black-dichiarazione-di-conformita-en-a82cbf22.pdf",
+          "size": "46 KB"
+        }
+      ]
+    },
+    {
+      "id": "fv-sk-alpin-terracotta-edifici-vincolati",
+      "name": "SK ALPIN Terracotta — edifici vincolati",
+      "category": "fotovoltaico",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/sk-power-400-wp-hc-terracotta-foto-prodotto-3e1c223f.webp",
+      "intro": "Modulo fotovoltaico da 400 Wp color terracotta, adatto all'integrazione su coperture in tegole rosse e in contesti con particolari esigenze architettoniche, inclusi edifici tutelati e aree vincolate.",
+      "highlights": [
+        "Terracotta",
+        "Cornice RAL 8004",
+        "TOPCon",
+        "400 Wp",
+        "Bassa riflessione",
+        "Made in Europe"
+      ],
+      "points": [
+        "Bassa riflessione. Il vetro antiriflesso riduce l'abbagliamento nei contesti in cui la riflessione deve essere contenuta.",
+        "30 anni di garanzia sul prodotto e sul rendimento. Sonnenkraft garantisce almeno il 99% della potenza nel primo anno e un degrado massimo dello 0,4% annuo negli anni successivi."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "KPV GME 400Wp terracotta (KPV400HCTA)",
+            "Modulo vetro-pellicola, vetro frontale 3,2 mm color terracotta, cornice rossa RAL 8004, foglio posteriore nero",
+            "1748 × 1143 × 35 mm · 22,50 kg",
+            "400 Wp · efficienza 20,02 % · 4,99 m² per kWp · 1000 V"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (tedesco)",
+          "file": "/schede/sk-power-400-wp-hc-terracotta-scheda-tecnica-de-81b65480.pdf",
+          "size": "741 KB"
+        },
+        {
+          "label": "Manuale di installazione (tedesco)",
+          "file": "/schede/sk-power-full-black-manuale-installazione-de-b41418e2.pdf",
+          "size": "2,8 MB"
+        },
+        {
+          "label": "Dichiarazione UE di conformità (inglese)",
+          "file": "/schede/sk-power-full-black-dichiarazione-di-conformita-en-a82cbf22.pdf",
+          "size": "46 KB"
+        }
+      ]
+    },
+    {
+      "id": "inv-fox-h1-ibrido-monofase",
+      "name": "Fox H1 — ibrido monofase",
+      "category": "inverter",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-h1-foto-prodotto-a3302805.webp",
+      "intro": "Fox H1 è una serie di inverter ibridi monofase da 3 a 6 kW per impianti fotovoltaici con accumulo. Dispone di due MPPT e si abbina alle batterie ad alta tensione EP6 ed EP12.",
+      "highlights": [
+        "Ibrido monofase da 3 a 6 kW",
+        "2 MPPT",
+        "Accumulo ad alta tensione",
+        "CEI 0-21",
+        "Limitazione dell'immissione",
+        "Uscita di emergenza",
+        "Sezionatore CC integrato"
+      ],
+      "points": [
+        "Accumulo con EP6 ed EP12. L'abbinamento è certificato CEI 0-21 su tutte le taglie da 3 a 6 kW, con potenza di carica e scarica fino alla potenza nominale dell'inverter.",
+        "Limitazione dell'immissione inclusa. La funzione è integrata e il sensore di corrente (CT) è compreso nella confezione.",
+        "Uscita di emergenza. Con la batteria collegata, in caso di assenza rete i carichi passano sull'uscita di emergenza in meno di 20 ms, con una potenza di picco per 60 secondi fino a 7,2 kVA sulla taglia da 6 kW."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "H1-3.0-E-G2",
+            "Inverter ibrido monofase, generazione G2",
+            "434 × 418 × 185 mm · 22 kg",
+            "3 kW · 2 MPPT · fotovoltaico fino a 6.000 Wp"
+          ],
+          [
+            "H1-3.7-E-G2",
+            "Inverter ibrido monofase, generazione G2",
+            "434 × 418 × 185 mm · 22 kg",
+            "3,68 kW · 2 MPPT · fotovoltaico fino a 7.400 Wp"
+          ],
+          [
+            "H1-4.6-E-G2",
+            "Inverter ibrido monofase, generazione G2",
+            "434 × 418 × 185 mm · 22 kg",
+            "4,6 kW · 2 MPPT · fotovoltaico fino a 9.200 Wp"
+          ],
+          [
+            "H1-5.0-E-G2",
+            "Inverter ibrido monofase, generazione G2",
+            "434 × 418 × 185 mm · 22 kg",
+            "5 kW · 2 MPPT · fotovoltaico fino a 10.000 Wp"
+          ],
+          [
+            "H1-6.0-E-G2",
+            "Inverter ibrido monofase, generazione G2",
+            "434 × 418 × 185 mm · 22 kg",
+            "6 kW · 2 MPPT · fotovoltaico fino a 12.000 Wp"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica — H1 G2",
+          "file": "/schede/fox-h1-g2-scheda-tecnica-it-b2b38b36.pdf",
+          "size": "483 KB"
+        },
+        {
+          "label": "Manuale utente — H1 G2",
+          "file": "/schede/fox-h1-g2-manuale-utente-it-6e1ae7be.pdf",
+          "size": "4,7 MB"
+        },
+        {
+          "label": "Guida rapida di installazione — H1 G2 (inglese)",
+          "file": "/schede/fox-h1-g2-manuale-installazione-en-1387804f.pdf",
+          "size": "2,4 MB"
+        },
+        {
+          "label": "Certificato CEI 0-21 — H1 G2",
+          "file": "/schede/fox-h1-g2-certificato-cei-0-21-multilingua-b0028c22.pdf",
+          "size": "1,4 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21 — H1 G2",
+          "file": "/schede/fox-h1-g2-dichiarazione-cei-0-21-it-17eb491e.pdf",
+          "size": "14,6 MB"
+        }
+      ]
+    },
+    {
+      "id": "inv-fox-kh-ibrido-monofase",
+      "name": "Fox KH — ibrido monofase",
+      "category": "inverter",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-kh-foto-prodotto-d3077874.webp",
+      "intro": "Fox KH-8.0 è un inverter ibrido monofase da 8 kW per impianti fotovoltaici con accumulo. Dispone di tre MPPT e si abbina alle batterie ad alta tensione EP6 ed EP12.",
+      "highlights": [
+        "Ibrido monofase 8 kW",
+        "3 MPPT",
+        "Accumulo ad alta tensione",
+        "CEI 0-21",
+        "Limitazione dell'immissione",
+        "Uscita di emergenza"
+      ],
+      "points": [
+        "Accumulo con EP6 ed EP12. L'abbinamento è certificato CEI 0-21, con potenza di carica e scarica fino a 8 kW in funzione della configurazione della batteria.",
+        "Limitazione dell'immissione inclusa. La funzione è integrata e il sensore di corrente (CT) è compreso nella confezione.",
+        "Uscita di emergenza. Con la batteria collegata, in caso di assenza rete i carichi passano sull'uscita di emergenza in meno di 20 ms, con 8 kVA continui e un picco di 10 kW per 60 secondi."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "KH-8.0",
+            "Inverter ibrido monofase",
+            "450 × 527 × 208 mm · 29 kg",
+            "8 kW · 3 MPPT · fotovoltaico fino a 16.000 Wp"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-kh-scheda-tecnica-it-1bf0cd67.pdf",
+          "size": "478 KB"
+        },
+        {
+          "label": "Manuale utente (inglese)",
+          "file": "/schede/fox-kh-manuale-utente-en-11b78957.pdf",
+          "size": "2,0 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (inglese)",
+          "file": "/schede/fox-kh-manuale-installazione-en-ed10876f.pdf",
+          "size": "5,3 MB"
+        },
+        {
+          "label": "Certificato CEI 0-21",
+          "file": "/schede/fox-kh-certificato-cei-0-21-multilingua-7afa4c0e.pdf",
+          "size": "843 KB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21",
+          "file": "/schede/fox-kh-dichiarazione-cei-0-21-it-67d58093.pdf",
+          "size": "8,4 MB"
+        }
+      ]
+    },
+    {
+      "id": "inv-fox-h3-smart-ibrido-trifase",
+      "name": "Fox H3 Smart — ibrido trifase",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-h3-smart-foto-prodotto-72b775da.webp",
+      "intro": "Fox H3 Smart è una serie di inverter ibridi trifase da 5 a 15 kW per impianti fotovoltaici con accumulo. Dispone di tre MPPT e si abbina alle batterie ad alta tensione EP6, EP12, ECS 2800 e CQ7.",
+      "highlights": [
+        "Ibrido trifase da 5 a 15 kW",
+        "3 MPPT",
+        "Accumulo ad alta tensione",
+        "CEI 0-21",
+        "Uscita di emergenza trifase",
+        "Wi-Fi e LAN integrati",
+        "Garanzia 5 anni"
+      ],
+      "points": [
+        "Accumulo flessibile. Compatibile con EP6, EP12, ECS 2800 e CQ7, in configurazioni certificate CEI 0-21 su tutte le taglie della serie.",
+        "Tre MPPT. Il campo fotovoltaico collegabile arriva a 30 kWp sulla taglia da 15 kW.",
+        "Uscita di emergenza trifase. Con la batteria collegata, in caso di assenza rete i carichi passano sull'uscita di emergenza in meno di 10 ms, con una potenza massima per fase pari a un terzo della potenza nominale."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "H3-5.0-E Smart",
+            "Inverter ibrido trifase",
+            "600 × 450 × 226 mm · 34 kg",
+            "5 kW · 3 MPPT · fotovoltaico fino a 11.000 Wp"
+          ],
+          [
+            "H3-6.0-E Smart",
+            "Inverter ibrido trifase",
+            "600 × 450 × 226 mm · 34 kg",
+            "6 kW · 3 MPPT · fotovoltaico fino a 14.000 Wp"
+          ],
+          [
+            "H3-8.0-E Smart",
+            "Inverter ibrido trifase",
+            "600 × 450 × 226 mm · 34 kg",
+            "8 kW · 3 MPPT · fotovoltaico fino a 18.000 Wp"
+          ],
+          [
+            "H3-10.0-E Smart",
+            "Inverter ibrido trifase",
+            "600 × 450 × 226 mm · 34 kg",
+            "10 kW · 3 MPPT · fotovoltaico fino a 20.000 Wp"
+          ],
+          [
+            "H3-12.0-E Smart",
+            "Inverter ibrido trifase",
+            "600 × 450 × 226 mm · 34 kg",
+            "12 kW · 3 MPPT · fotovoltaico fino a 24.000 Wp"
+          ],
+          [
+            "H3-15.0-E Smart",
+            "Inverter ibrido trifase",
+            "600 × 450 × 226 mm · 34 kg",
+            "15 kW · 3 MPPT · fotovoltaico fino a 30.000 Wp"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-h3-smart-scheda-tecnica-it-9a9bc1fd.pdf",
+          "size": "462 KB"
+        },
+        {
+          "label": "Manuale di installazione e uso",
+          "file": "/schede/fox-h3-smart-manuale-it-ababdfac.pdf",
+          "size": "2,8 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (inglese)",
+          "file": "/schede/fox-h3-smart-manuale-installazione-en-1fe6f8bd.pdf",
+          "size": "6,1 MB"
+        },
+        {
+          "label": "Certificato CEI 0-21",
+          "file": "/schede/fox-h3-smart-certificato-cei-0-21-multilingua-9a54e2c6.pdf",
+          "size": "20,3 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21",
+          "file": "/schede/fox-h3-smart-dichiarazione-cei-0-21-it-d90cc9bb.pdf",
+          "size": "21,0 MB"
+        }
+      ]
+    },
+    {
+      "id": "inv-fox-h3-pro-ibrido-trifase",
+      "name": "Fox H3 Pro — ibrido trifase",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-h3-pro-foto-prodotto-159c01b6.webp",
+      "intro": "Fox H3 Pro è una serie di inverter ibridi trifase da 20 a 30 kW per impianti fotovoltaici con accumulo. Dispone di tre MPPT e due ingressi batteria e si abbina alle batterie ad alta tensione EP6, EP12 ed ECS 2800.",
+      "highlights": [
+        "Ibrido trifase da 20 a 30 kW",
+        "Due ingressi batteria",
+        "3 MPPT",
+        "Accumulo ad alta tensione",
+        "CEI 0-21",
+        "Contatore incluso",
+        "Uscita di emergenza trifase",
+        "Garanzia 5 anni"
+      ],
+      "points": [
+        "Due ingressi batteria. Su ciascun ingresso si collega un sistema di batterie, fino a 92,16 kWh complessivi con EP12, in configurazioni certificate CEI 0-21 su ogni taglia. Con EP12 il sistema scarica fino alla potenza nominale dell'inverter.",
+        "Uscita di emergenza trifase. Con la batteria collegata, in caso di assenza rete i carichi passano sull'uscita di emergenza in meno di 10 ms, con un picco per 60 secondi fino a 36 kVA sulla taglia da 30 kW."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "H3 Pro-20.0-E",
+            "Inverter ibrido trifase, due ingressi batteria",
+            "600 × 560 × 225 mm · 52,5 kg",
+            "20 kW · 3 MPPT · fotovoltaico fino a 40.000 Wp"
+          ],
+          [
+            "H3 Pro-25.0-E",
+            "Inverter ibrido trifase, due ingressi batteria",
+            "600 × 560 × 225 mm · 52,5 kg",
+            "25 kW · 3 MPPT · fotovoltaico fino a 50.000 Wp"
+          ],
+          [
+            "H3 Pro-30.0-E",
+            "Inverter ibrido trifase, due ingressi batteria",
+            "600 × 560 × 225 mm · 52,5 kg",
+            "30 kW · 3 MPPT · fotovoltaico fino a 60.000 Wp"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-h3-pro-scheda-tecnica-it-f3c4806d.pdf",
+          "size": "423 KB"
+        },
+        {
+          "label": "Manuale utente",
+          "file": "/schede/fox-h3-pro-manuale-utente-it-2f5e2b55.pdf",
+          "size": "14,1 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (inglese)",
+          "file": "/schede/fox-h3-pro-manuale-installazione-en-39efe8ab.pdf",
+          "size": "3,1 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21 — H3 Pro con ECS 2800",
+          "file": "/schede/fox-h3-pro-ecs2800-dichiarazione-cei-0-21-it-f76c9b9b.pdf",
+          "size": "3,6 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21 — H3 Pro con EP6",
+          "file": "/schede/fox-h3-pro-ep6-dichiarazione-cei-0-21-it-68fb588e.pdf",
+          "size": "2,6 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21 — H3 Pro con EP12",
+          "file": "/schede/fox-h3-pro-ep12-dichiarazione-cei-0-21-it-f7ee066a.pdf",
+          "size": "2,6 MB"
+        }
+      ]
+    },
+    {
+      "id": "inv-fox-h3-plus-ibrido-trifase-50-125-kw",
+      "name": "Fox H3 Plus — ibrido trifase 50-125 kW",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-h3-plus-foto-prodotto-07e12495.webp",
+      "intro": "Fox H3 Plus è una serie di inverter ibridi trifase da 50 a 125 kW per impianti fotovoltaici con accumulo. Dispone fino a otto MPPT, tre porte batteria e si abbina alle batterie CQ7 e CQ16.",
+      "highlights": [
+        "Ibrido trifase da 50 a 125 kW",
+        "CEI 0-21 e CEI 0-16",
+        "Fino a 8 MPPT",
+        "Tre porte batteria",
+        "Uscita di emergenza trifase",
+        "Protezione da arco elettrico",
+        "Wi-Fi e LAN integrati"
+      ],
+      "points": [
+        "CQ7 e CQ16. L'abbinamento è certificato CEI 0-21 e CEI 0-16 su tutte le taglie della serie, fino a tre torri CQ7 o tre sistemi CQ16.",
+        "Campo fotovoltaico fino al doppio della potenza nominale. Da 100 kWp sulla taglia da 50 kW fino a 250 kWp sulla 125 kW.",
+        "Parallelo e generatore. Fino a dieci inverter dello stesso modello possono lavorare in parallelo. È inoltre prevista la gestione di un generatore diesel con avvio automatico in base allo stato di carica della batteria."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "H3 Plus-50.0-E",
+            "Inverter ibrido trifase (sigla produttore H3-50-Plus)",
+            "730 × 1060 × 305 mm · 115 kg",
+            "50 kW · 4 MPPT · fotovoltaico fino a 100 kW"
+          ],
+          [
+            "H3 Plus-60.0-E",
+            "Inverter ibrido trifase (sigla produttore H3-60-Plus)",
+            "730 × 1060 × 305 mm · 115 kg",
+            "60 kW · 4 MPPT · fotovoltaico fino a 120 kW"
+          ],
+          [
+            "H3 Plus-80.0-E",
+            "Inverter ibrido trifase (sigla produttore H3-80-Plus)",
+            "730 × 1060 × 305 mm · 120 kg",
+            "80 kW · 8 MPPT · fotovoltaico fino a 160 kW"
+          ],
+          [
+            "H3 Plus-100.0-E",
+            "Inverter ibrido trifase (sigla produttore H3-100-Plus)",
+            "730 × 1060 × 305 mm · 120 kg",
+            "100 kW · 8 MPPT · fotovoltaico fino a 200 kW"
+          ],
+          [
+            "H3 Plus-125.0-E",
+            "Inverter ibrido trifase (sigla produttore H3-125-Plus)",
+            "730 × 1060 × 305 mm · 120 kg",
+            "125 kW · 8 MPPT · fotovoltaico fino a 250 kW"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-h3-plus-scheda-tecnica-it-a03039a4.pdf",
+          "size": "470 KB"
+        },
+        {
+          "label": "Manuale utente (inglese)",
+          "file": "/schede/fox-h3-plus-manuale-utente-en-c8277611.pdf",
+          "size": "10,9 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (inglese)",
+          "file": "/schede/fox-h3-plus-manuale-installazione-en-989bb52a.pdf",
+          "size": "6,1 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21 (con batterie CQ7-80 e CQ16)",
+          "file": "/schede/fox-h3-plus-cq7-cq7-80-cq16-dichiarazione-cei-0-21-it-35171b29.pdf",
+          "size": "23,2 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-16 (con batterie CQ7-80 e CQ16)",
+          "file": "/schede/fox-h3-plus-cq7-cq7-80-cq16-dichiarazione-cei-0-16-it-d95b1a0d.pdf",
+          "size": "22,9 MB"
+        }
+      ]
+    },
+    {
+      "id": "inv-fox-s-stringa-monofase-0-7-3-kw",
+      "name": "Fox S — stringa monofase 0,7-3 kW",
+      "category": "inverter",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-s-foto-prodotto-9c697316.webp",
+      "intro": "Fox S è una serie di inverter di stringa monofase da 0,7 a 3 kW. Ogni taglia dispone di un MPPT per una stringa di moduli ed è certificata CEI 0-21.",
+      "highlights": [
+        "Stringa monofase da 0,7 a 3 kW",
+        "CEI 0-21",
+        "1 MPPT",
+        "Autotest integrato",
+        "Limitazione dell'immissione",
+        "Garanzia 5 anni"
+      ],
+      "points": [
+        "Bassa tensione di avvio. L'inverter si avvia da 60 V in ingresso, con un intervallo MPPT da 50 a 480 V.",
+        "Connessione alla rete italiana. La serie è certificata CEI 0-21 e integra protezione e dispositivo di interfaccia. L'autotest può essere avviato direttamente dal display.",
+        "Garanzia estendibile. Il produttore garantisce l'inverter per 60 mesi dall'installazione; registrando il prodotto sul portale della garanzia entro 36 mesi dalla messa in servizio si può accedere a un'estensione di altri 60 mesi."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "S700-G2",
+            "Inverter di stringa monofase",
+            "290 × 220 × 116 mm · 5,4 kg",
+            "0,7 kW · 1 MPPT · fotovoltaico fino a 1,05 kW"
+          ],
+          [
+            "S1000-G2",
+            "Inverter di stringa monofase",
+            "290 × 220 × 116 mm · 5,4 kg",
+            "1 kW · 1 MPPT · fotovoltaico fino a 1,5 kW"
+          ],
+          [
+            "S1500-G2",
+            "Inverter di stringa monofase",
+            "290 × 220 × 116 mm · 5,4 kg",
+            "1,5 kW · 1 MPPT · fotovoltaico fino a 2,25 kW"
+          ],
+          [
+            "S2000-G2",
+            "Inverter di stringa monofase",
+            "290 × 220 × 116 mm · 5,4 kg",
+            "2 kW · 1 MPPT · fotovoltaico fino a 3 kW"
+          ],
+          [
+            "S2500-G2",
+            "Inverter di stringa monofase",
+            "290 × 220 × 116 mm · 5,4 kg",
+            "2,5 kW · 1 MPPT · fotovoltaico fino a 3,75 kW"
+          ],
+          [
+            "S3000-G2",
+            "Inverter di stringa monofase",
+            "290 × 220 × 116 mm · 5,4 kg",
+            "3 kW · 1 MPPT · fotovoltaico fino a 4,5 kW"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-s-g2-scheda-tecnica-it-97400780.pdf",
+          "size": "460 KB"
+        },
+        {
+          "label": "Manuale utente",
+          "file": "/schede/fox-s-g2-manuale-utente-it-87174ac2.pdf",
+          "size": "944 KB"
+        },
+        {
+          "label": "Guida rapida di installazione",
+          "file": "/schede/fox-s-g2-manuale-installazione-it-e5c68c52.pdf",
+          "size": "1,3 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21",
+          "file": "/schede/fox-s-g2-dichiarazione-cei-0-21-it-84bcc6e9.pdf",
+          "size": "1,1 MB"
+        }
+      ]
+    },
+    {
+      "id": "inv-fox-f-stringa-monofase",
+      "name": "Fox F — stringa monofase",
+      "category": "inverter",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-f-foto-prodotto-1f17c772.webp",
+      "intro": "Fox F è una serie di inverter di stringa monofase da 3 a 6 kW. Ogni taglia dispone di due MPPT indipendenti, ciascuno con una stringa di moduli.",
+      "highlights": [
+        "Stringa monofase da 3 a 6 kW",
+        "2 MPPT indipendenti",
+        "Limitazione dell'immissione",
+        "Garanzia 5 anni"
+      ],
+      "points": [
+        "Garanzia estendibile. Il produttore garantisce l'inverter per 60 mesi dall'installazione; registrando il prodotto sul portale della garanzia entro 36 mesi dalla messa in servizio si può accedere a un'estensione di altri 60 mesi."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "F3000",
+            "Inverter di stringa monofase",
+            "≤ 9,5 kg",
+            "3 kW · 2 MPPT · fotovoltaico fino a 6 kW"
+          ],
+          [
+            "F3600",
+            "Inverter di stringa monofase",
+            "≤ 9,5 kg",
+            "3,6 kW · 2 MPPT · fotovoltaico fino a 7,2 kW"
+          ],
+          [
+            "F4600-G2",
+            "Inverter di stringa monofase, generazione G2",
+            "",
+            "4,6 kW · 2 MPPT · fotovoltaico fino a 6,9 kW"
+          ],
+          [
+            "F5000",
+            "Inverter di stringa monofase",
+            "≤ 9,5 kg",
+            "5 kW · 2 MPPT · fotovoltaico fino a 10 kW"
+          ],
+          [
+            "F6000-G2",
+            "Inverter di stringa monofase, generazione G2",
+            "",
+            "6 kW · 2 MPPT · fotovoltaico fino a 9 kW"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (versioni G2)",
+          "file": "/schede/fox-f-g2-scheda-tecnica-it-4360da8a.pdf",
+          "size": "477 KB"
+        },
+        {
+          "label": "Scheda tecnica (versioni senza suffisso, inglese)",
+          "file": "/schede/fox-f-scheda-tecnica-en-14769613.pdf",
+          "size": "49 KB"
+        },
+        {
+          "label": "Manuale utente (versioni G2)",
+          "file": "/schede/fox-f-manuale-utente-it-3981e6f5.pdf",
+          "size": "1,0 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (versioni G2)",
+          "file": "/schede/fox-f-manuale-installazione-it-58588de2.pdf",
+          "size": "1,7 MB"
+        },
+        {
+          "label": "Manuale utente (versioni senza suffisso, inglese)",
+          "file": "/schede/fox-f-3-0-manuale-utente-en-68fda541.pdf",
+          "size": "1,2 MB"
+        },
+        {
+          "label": "Certificato CEI 0-21 (versioni G2)",
+          "file": "/schede/fox-f-g2-certificato-cei-0-21-it-9ca2f1e0.pdf",
+          "size": "206 KB"
+        }
+      ]
+    },
+    {
+      "id": "inv-fox-t-stringa-trifase",
+      "name": "Fox T — stringa trifase",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-t-foto-prodotto-3e7d3c25.webp",
+      "intro": "Fox T è una serie di inverter di stringa trifase da 3 a 25 kW, certificata CEI 0-21 su tutte le taglie. Ogni taglia ha due MPPT e mantiene lo stesso ingombro a parete.",
+      "highlights": [
+        "Stringa trifase da 3 a 25 kW",
+        "CEI 0-21",
+        "2 MPPT",
+        "Limitazione dell'immissione"
+      ],
+      "points": [
+        "Campo fotovoltaico fino a una volta e mezza la potenza nominale. La potenza in ingresso arriva a 37,5 kW sulla taglia da 25 kW.",
+        "Protezioni integrate. Su tutte le taglie sono di serie il controllo dell'isolamento e delle correnti di dispersione, la protezione anti-isola e la protezione contro le sovratensioni di tipo II in corrente continua e alternata."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "T3-G3",
+            "Inverter di stringa trifase, ventilazione naturale",
+            "370 × 480 × 183,5 mm · 17 kg",
+            "3 kW · 2 MPPT · 1+1 stringhe · FV max 4,5 kW"
+          ],
+          [
+            "T4-G3",
+            "Inverter di stringa trifase, ventilazione naturale",
+            "370 × 480 × 183,5 mm · 17 kg",
+            "4 kW · 2 MPPT · 1+1 stringhe · FV max 6 kW"
+          ],
+          [
+            "T5-G3",
+            "Inverter di stringa trifase, ventilazione naturale",
+            "370 × 480 × 183,5 mm · 17 kg",
+            "5 kW · 2 MPPT · 1+1 stringhe · FV max 7,5 kW"
+          ],
+          [
+            "T6-G3",
+            "Inverter di stringa trifase, ventilazione naturale",
+            "370 × 480 × 183,5 mm · 17 kg",
+            "6 kW · 2 MPPT · 1+1 stringhe · FV max 9 kW"
+          ],
+          [
+            "T8-G3",
+            "Inverter di stringa trifase, ventilazione naturale",
+            "370 × 480 × 183,5 mm · 17 kg",
+            "8 kW · 2 MPPT · 1+1 stringhe · FV max 12 kW"
+          ],
+          [
+            "T10-G3",
+            "Inverter di stringa trifase, ventilazione naturale",
+            "370 × 480 × 183,5 mm · 17 kg",
+            "10 kW · 2 MPPT · 1+1 stringhe · FV max 15 kW"
+          ],
+          [
+            "T12-G3",
+            "Inverter di stringa trifase, ventilazione naturale",
+            "370 × 480 × 183,5 mm · 17 kg",
+            "12 kW · 2 MPPT · 1+1 stringhe · FV max 18 kW"
+          ],
+          [
+            "T15-G3",
+            "Inverter di stringa trifase, raffreddamento a ventola",
+            "370 × 480 × 183,5 mm · 20 kg",
+            "15 kW · 2 MPPT · 2+2 stringhe · FV max 22,5 kW"
+          ],
+          [
+            "T17-G3",
+            "Inverter di stringa trifase, raffreddamento a ventola",
+            "370 × 480 × 183,5 mm · 20 kg",
+            "17 kW · 2 MPPT · 2+2 stringhe · FV max 25,5 kW"
+          ],
+          [
+            "T20-G3",
+            "Inverter di stringa trifase, raffreddamento a ventola",
+            "370 × 480 × 183,5 mm · 20 kg",
+            "20 kW · 2 MPPT · 2+2 stringhe · FV max 30 kW"
+          ],
+          [
+            "T23-G3",
+            "Inverter di stringa trifase, raffreddamento a ventola",
+            "370 × 480 × 183,5 mm · 21 kg",
+            "23 kW · 2 MPPT · 2+2 stringhe · FV max 34,5 kW"
+          ],
+          [
+            "T25-G3",
+            "Inverter di stringa trifase, raffreddamento a ventola",
+            "370 × 480 × 183,5 mm · 21 kg",
+            "25 kW · 2 MPPT · 2+2 stringhe · FV max 37,5 kW"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-t-g3-scheda-tecnica-it-6e04d15a.pdf",
+          "size": "475 KB"
+        },
+        {
+          "label": "Guida rapida di installazione",
+          "file": "/schede/fox-t-g3-manuale-installazione-it-3e9fd056.pdf",
+          "size": "3,1 MB"
+        },
+        {
+          "label": "Manuale utente (inglese)",
+          "file": "/schede/fox-t-g3-manuale-utente-en-077a4982.pdf",
+          "size": "1,8 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21",
+          "file": "/schede/fox-t-g3-dichiarazione-cei-0-21-it-ccba752f.pdf",
+          "size": "1,6 MB"
+        },
+        {
+          "label": "Certificato CEI 0-21",
+          "file": "/schede/fox-t-g3-certificato-cei-0-21-it-en-3259b2ef.pdf",
+          "size": "1,2 MB"
+        }
+      ]
+    },
+    {
+      "id": "inv-fox-v-stringa-trifase-30-75-kw",
+      "name": "Fox V — stringa trifase 30-75 kW",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-v-foto-prodotto-0ea9fc88.webp",
+      "intro": "Fox V è una serie di inverter di stringa trifase da 30 a 75 kW, con tre, quattro o sei MPPT secondo la taglia. Tutte le taglie sono certificate CEI 0-21 e CEI 0-16, per la connessione in bassa e in media tensione.",
+      "highlights": [
+        "Stringa trifase da 30 a 75 kW",
+        "CEI 0-21 e CEI 0-16",
+        "Da 3 a 6 MPPT",
+        "Recupero PID",
+        "Protezione da sovratensioni tipo II",
+        "Garanzia 5 anni"
+      ],
+      "points": [
+        "MPPT indipendenti. Le stringhe collegate a ingressi diversi possono differire per tipo e numero di moduli, inclinazione e orientamento.",
+        "Monitoraggio di ogni stringa. La corrente di ciascuna stringa è misurata in tempo reale, con un allarme dedicato in caso di condizioni anomale.",
+        "Garanzia estendibile. Il produttore garantisce l'inverter per 60 mesi dall'installazione; registrando il prodotto sul portale della garanzia entro 36 mesi dalla messa in servizio si può accedere a un'estensione di altri 60 mesi."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "V30",
+            "Inverter di stringa trifase industriale",
+            "640 × 430 × 243 mm · 41 kg",
+            "30 kW · 3 MPPT · 2 stringhe per MPPT · FV max consigliato 60 kW"
+          ],
+          [
+            "V40",
+            "Inverter di stringa trifase industriale",
+            "640 × 430 × 243 mm · 42 kg",
+            "40 kW · 4 MPPT · 2 stringhe per MPPT · FV max consigliato 80 kW"
+          ],
+          [
+            "V50",
+            "Inverter di stringa trifase industriale",
+            "640 × 430 × 243 mm · 50 kg",
+            "50 kW · 4 MPPT · 2 stringhe per MPPT · FV max consigliato 100 kW"
+          ],
+          [
+            "V60",
+            "Inverter di stringa trifase industriale",
+            "640 × 430 × 243 mm · 50 kg",
+            "60 kW · 6 MPPT · 2 stringhe per MPPT · FV max consigliato 120 kW"
+          ],
+          [
+            "V75",
+            "Inverter di stringa trifase industriale",
+            "640 × 430 × 243 mm · 50 kg",
+            "75 kW · 6 MPPT · 2 stringhe per MPPT · FV max consigliato 150 kW"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-v-scheda-tecnica-it-8fc8889d.pdf",
+          "size": "420 KB"
+        },
+        {
+          "label": "Manuale d'uso e installazione",
+          "file": "/schede/fox-v-manuale-utente-it-86daff98.pdf",
+          "size": "1,9 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21",
+          "file": "/schede/fox-v-dichiarazione-cei-0-21-it-df3fbf58.pdf",
+          "size": "1,1 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-16",
+          "file": "/schede/fox-v-dichiarazione-cei-0-16-it-05ac798c.pdf",
+          "size": "1,4 MB"
+        }
+      ]
+    },
+    {
+      "id": "inv-fox-r-stringa-trifase-75-136-kw",
+      "name": "Fox R — stringa trifase 75-136 kW",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-r-foto-prodotto-70d39395.webp",
+      "intro": "Fox R è una serie di inverter di stringa trifase da 75 a 136 kW, con nove o dieci MPPT secondo la taglia. Tutte le taglie sono certificate CEI 0-21 e CEI 0-16, per la connessione in bassa e in media tensione.",
+      "highlights": [
+        "Stringa trifase da 75 a 136 kW",
+        "CEI 0-21 e CEI 0-16",
+        "9 o 10 MPPT",
+        "Recupero PID",
+        "Protezione da sovratensioni tipo II"
+      ],
+      "points": [
+        "Ingressi indipendenti. Le stringhe collegate a MPPT diversi possono differire per tipo e numero di moduli, inclinazione e orientamento.",
+        "Campo fotovoltaico fino al doppio. La potenza di campo collegabile arriva al doppio della potenza nominale, fino a 272 kWp sulla taglia da 136 kW."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "R75-G2",
+            "Inverter di stringa trifase industriale, seconda generazione",
+            "975 × 630 × 360 mm · 90 kg",
+            "75 kW · 9 MPPT · 2 stringhe per MPPT · campo FV max 150 kWp"
+          ],
+          [
+            "R100-G2",
+            "Inverter di stringa trifase industriale, seconda generazione",
+            "975 × 630 × 360 mm · 90 kg",
+            "100 kW · 9 MPPT · 2 stringhe per MPPT · campo FV max 200 kWp"
+          ],
+          [
+            "R110-G2",
+            "Inverter di stringa trifase industriale, seconda generazione",
+            "975 × 630 × 360 mm · 90 kg",
+            "110 kW · 10 MPPT · 2 stringhe per MPPT · campo FV max 220 kWp"
+          ],
+          [
+            "R125-G2",
+            "Inverter di stringa trifase industriale, seconda generazione",
+            "975 × 630 × 360 mm · 90 kg",
+            "125 kW · 10 MPPT · 2 stringhe per MPPT · campo FV max 250 kWp"
+          ],
+          [
+            "R136-G2",
+            "Inverter di stringa trifase industriale, seconda generazione",
+            "975 × 630 × 360 mm · 90 kg",
+            "136 kW · 10 MPPT · 2 stringhe per MPPT · campo FV max 272 kWp"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-r-g2-scheda-tecnica-it-30f9a135.pdf",
+          "size": "414 KB"
+        },
+        {
+          "label": "Manuale d'uso e installazione",
+          "file": "/schede/fox-r-r-g2-manuale-utente-it-e8b3ee23.pdf",
+          "size": "2,4 MB"
+        },
+        {
+          "label": "Certificato CEI 0-21",
+          "file": "/schede/fox-r-g2-certificato-cei-0-21-it-7f0ddb45.pdf",
+          "size": "359 KB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21",
+          "file": "/schede/fox-r-g2-dichiarazione-cei-0-21-it-86f45c7f.pdf",
+          "size": "2,1 MB"
+        },
+        {
+          "label": "Certificato CEI 0-16",
+          "file": "/schede/fox-r-g2-certificato-cei-0-16-it-32f69c9f.pdf",
+          "size": "359 KB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-16",
+          "file": "/schede/fox-r-g2-dichiarazione-cei-0-16-it-668a7091.pdf",
+          "size": "2,1 MB"
+        }
+      ]
+    },
+    {
+      "id": "acc-fox-ep6-torre-residenziale",
+      "name": "Fox EP6 — torre residenziale",
+      "category": "accumulo",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-ep6-foto-prodotto-e62e1b2c.webp",
+      "intro": "Fox EP6 è un modulo batteria LFP ad alta tensione da 5,76 kWh per gli inverter ibridi dello stesso marchio. I moduli si sommano fino a quattro su un ingresso batteria, e sull'H3 Pro, che ha due ingressi, fino a otto.",
+      "highlights": [
+        "5,76 kWh per modulo",
+        "Fino a 23,04 kWh (46,08 kWh su H3 Pro)",
+        "Celle LFP",
+        "Alta tensione",
+        "Protezione antincendio integrata",
+        "Garanzia di performance 10 anni"
+      ],
+      "points": [
+        "Una batteria per quattro inverter. EP6 si abbina a H1-G2, KH, H3 Smart e H3 Pro, e per ciascuno l'abbinamento è coperto da una dichiarazione di conformità CEI 0-21.",
+        "Potenza che cresce con i moduli. Con più moduli sullo stesso ingresso la potenza di scarica arriva fino a 9,6 kW, e sull'H3 Pro con due ingressi fino a 19,2 kW."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "EP6",
+            "Modulo batteria ad alta tensione LFP, installazione a parete o a pavimento",
+            "380 × 640 × 185 mm · 51 kg",
+            "5,76 kWh · 192 V (174–219 V) · carica/scarica max 30 A · picco di scarica 65 A per 60 s"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-ep6-scheda-tecnica-it-2c3c911e.pdf",
+          "size": "400 KB"
+        },
+        {
+          "label": "Manuale utente",
+          "file": "/schede/fox-ep6-ep12-manuale-utente-it-9e028ea4.pdf",
+          "size": "1,4 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (inglese)",
+          "file": "/schede/fox-ep6-manuale-installazione-en-e77bd8bb.pdf",
+          "size": "2,8 MB"
+        },
+        {
+          "label": "Dichiarazione CEI 0-21 — con inverter H3 Pro",
+          "file": "/schede/fox-h3-pro-ep6-dichiarazione-cei-0-21-it-68fb588e.pdf",
+          "size": "2,6 MB"
+        },
+        {
+          "label": "Dichiarazione CEI 0-21 — con inverter H1-G2",
+          "file": "/schede/fox-h1-g2-dichiarazione-cei-0-21-it-17eb491e.pdf",
+          "size": "14,6 MB"
+        },
+        {
+          "label": "Dichiarazione CEI 0-21 — con inverter KH",
+          "file": "/schede/fox-kh-dichiarazione-cei-0-21-it-67d58093.pdf",
+          "size": "8,4 MB"
+        },
+        {
+          "label": "Dichiarazione CEI 0-21 — con inverter H3 Smart",
+          "file": "/schede/fox-h3-smart-dichiarazione-cei-0-21-it-d90cc9bb.pdf",
+          "size": "21,0 MB"
+        }
+      ]
+    },
+    {
+      "id": "acc-fox-ep12-torre-residenziale",
+      "name": "Fox EP12 — torre residenziale",
+      "category": "accumulo",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-ep12-foto-prodotto-b4702543.webp",
+      "intro": "Fox EP12 è un modulo batteria LFP ad alta tensione da 11,52 kWh per gli inverter ibridi dello stesso marchio. I moduli si sommano fino a quattro su un ingresso batteria, e sull'H3 Pro, che ha due ingressi, fino a otto.",
+      "highlights": [
+        "11,52 kWh per modulo",
+        "Fino a 46,08 kWh (92,16 kWh su H3 Pro)",
+        "Celle LFP",
+        "Alta tensione",
+        "Protezione antincendio integrata",
+        "Garanzia di performance 10 anni"
+      ],
+      "points": [
+        "Una batteria per quattro inverter. EP12 si abbina a H1-G2, KH, H3 Smart e H3 Pro, e per ciascuno l'abbinamento è coperto da una dichiarazione di conformità CEI 0-21.",
+        "Potenza che cresce con i moduli. Con più moduli sullo stesso ingresso la potenza di scarica arriva fino a 19,2 kW, e sull'H3 Pro con due ingressi fino a 30 kW."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "EP12",
+            "Modulo batteria ad alta tensione LFP, installazione a parete o a pavimento",
+            "710 × 640 × 185 mm · 98 kg",
+            "11,52 kWh · 384 V (348–438 V) · carica/scarica max 30 A · picco di scarica 65 A per 60 s"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-ep12-scheda-tecnica-it-a6263e98.pdf",
+          "size": "407 KB"
+        },
+        {
+          "label": "Manuale utente",
+          "file": "/schede/fox-ep6-ep12-manuale-utente-it-9e028ea4.pdf",
+          "size": "1,4 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (inglese)",
+          "file": "/schede/fox-ep12-manuale-installazione-en-aaa79af6.pdf",
+          "size": "2,9 MB"
+        },
+        {
+          "label": "Dichiarazione CEI 0-21 — con inverter H3 Pro",
+          "file": "/schede/fox-h3-pro-ep12-dichiarazione-cei-0-21-it-f7ee066a.pdf",
+          "size": "2,6 MB"
+        },
+        {
+          "label": "Dichiarazione CEI 0-21 — con inverter H1-G2",
+          "file": "/schede/fox-h1-g2-dichiarazione-cei-0-21-it-17eb491e.pdf",
+          "size": "14,6 MB"
+        },
+        {
+          "label": "Dichiarazione CEI 0-21 — con inverter KH",
+          "file": "/schede/fox-kh-dichiarazione-cei-0-21-it-67d58093.pdf",
+          "size": "8,4 MB"
+        },
+        {
+          "label": "Dichiarazione CEI 0-21 — con inverter H3 Smart",
+          "file": "/schede/fox-h3-smart-dichiarazione-cei-0-21-it-d90cc9bb.pdf",
+          "size": "21,0 MB"
+        }
+      ]
+    },
+    {
+      "id": "acc-fox-ecs-2800",
+      "name": "Fox ECS 2800",
+      "category": "accumulo",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-ecs2800-foto-prodotto-594d91dc.webp",
+      "intro": "Fox ECS 2800 è una batteria LFP ad alta tensione a torre, con moduli da 2,76 kWh e da 5,53 a 19,35 kWh per sistema, per gli inverter ibridi H3 Smart e H3 Pro. Ogni torre si compone di un modulo master CM2800 e da uno a sei moduli slave CS2800.",
+      "highlights": [
+        "2,76 kWh per modulo",
+        "Da 5,53 a 19,35 kWh per sistema",
+        "Celle LFP",
+        "Almeno 6.000 cicli",
+        "Garanzia di performance 10 anni"
+      ],
+      "points": [
+        "Abbinamenti certificati. Con H3 Smart e H3 Pro il sistema è certificato CEI 0-21, e sull'H3 Pro, con due ingressi batteria, arriva a 38,70 kWh.",
+        "Potenza di scarica. Sull'H3 Smart il sistema scarica fino alla potenza nominale dell'inverter, e sull'H3 Pro fino a 29,9 kW con due ingressi."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "CM2800 (master)",
+            "Modulo batteria LFP con il controllo del sistema, uno per ogni sistema",
+            "570 × 380 × 178 mm · 35 kg",
+            "2,76 kWh · 57,6 V · carica/scarica max 48 A · picco di scarica 65 A per 60 s"
+          ],
+          [
+            "CS2800 (slave)",
+            "Modulo batteria LFP, da uno a sei per ogni sistema",
+            "570 × 380 × 163 mm · 31 kg",
+            "2,76 kWh · 57,6 V · carica/scarica max 48 A · picco di scarica 65 A per 60 s"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (inglese)",
+          "file": "/schede/fox-ecs2800-scheda-tecnica-en-6dad4806.pdf",
+          "size": "153 KB"
+        },
+        {
+          "label": "Manuale utente",
+          "file": "/schede/fox-ecs-manuale-utente-it-f0e402ac.pdf",
+          "size": "938 KB"
+        },
+        {
+          "label": "Guida rapida di installazione",
+          "file": "/schede/fox-ecs-manuale-installazione-it-80da0a88.pdf",
+          "size": "1,4 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21 — abbinamento H3 Pro",
+          "file": "/schede/fox-h3-pro-ecs2800-dichiarazione-cei-0-21-it-f76c9b9b.pdf",
+          "size": "3,6 MB"
+        }
+      ]
+    },
+    {
+      "id": "acc-fox-cq7",
+      "name": "Fox CQ7",
+      "category": "accumulo",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-cq7-foto-prodotto-594d91dc.webp",
+      "intro": "Fox CQ7-80 è una batteria LFP ad alta tensione a torre, con moduli da 7,02 kWh e da 14,04 a 98,28 kWh per sistema, per gli inverter ibridi H3 Smart e H3 Plus. Ogni torre si compone di un modulo master CQ7-M-80 e fino a tredici moduli slave CQ7-S-80.",
+      "highlights": [
+        "7,02 kWh per modulo",
+        "Da 14,04 a 98,28 kWh per sistema",
+        "Celle LFP",
+        "Garanzia di performance 10 anni"
+      ],
+      "points": [
+        "Due gamme di inverter. Con H3 Smart il sistema è certificato CEI 0-21, e con H3 Plus da 50 a 125 kW CEI 0-21 e CEI 0-16, fino a tre torri da quattordici moduli.",
+        "Antincendio in ogni modulo. Ogni modulo ha un dispositivo di estinzione ad aerosol ad attivazione termica, che non richiede manutenzione."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "CQ7-M-80 (master)",
+            "Modulo batteria LFP con il controllo del sistema, uno per ogni sistema",
+            "660 × 205 × 360 mm · 55 kg",
+            "7,02 kWh · 57,6 V · carica/scarica max 80 A · picco di scarica 120 A per 60 s"
+          ],
+          [
+            "CQ7-S-80 (slave)",
+            "Modulo batteria LFP, fino a tredici per ogni sistema",
+            "660 × 190 × 360 mm · 50,5 kg",
+            "7,02 kWh · 57,6 V · carica/scarica max 80 A · picco di scarica 120 A per 60 s"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (inglese)",
+          "file": "/schede/fox-cq7-80-scheda-tecnica-en-2ec64714.pdf",
+          "size": "60 KB"
+        },
+        {
+          "label": "Manuale utente (inglese)",
+          "file": "/schede/fox-cq6-cq7-manuale-utente-en-7027699f.pdf",
+          "size": "2,0 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (inglese)",
+          "file": "/schede/fox-cq6-cq7-manuale-installazione-en-de10ef03.pdf",
+          "size": "3,3 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21 — abbinamento H3 Plus",
+          "file": "/schede/fox-h3-plus-cq7-cq7-80-cq16-dichiarazione-cei-0-21-it-35171b29.pdf",
+          "size": "23,2 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-16 — abbinamento H3 Plus",
+          "file": "/schede/fox-h3-plus-cq7-cq7-80-cq16-dichiarazione-cei-0-16-it-d95b1a0d.pdf",
+          "size": "22,9 MB"
+        }
+      ]
+    },
+    {
+      "id": "acc-fox-cq16-armadio",
+      "name": "Fox CQ16 — armadio",
+      "category": "accumulo",
+      "sectors": [
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-cq16-foto-prodotto-3bb365e0.webp",
+      "intro": "Fox CQ16 è una batteria LFP ad alta tensione con moduli da 16,07 kWh e da 64,28 a 241,05 kWh per sistema, per gli inverter ibridi H3 Plus. Ogni sistema si compone di un'unità di controllo CQ BOX e da quattro a quindici moduli CQ16, affiancati in colonne a pavimento.",
+      "highlights": [
+        "16,07 kWh per modulo",
+        "Da 64,28 a 241,05 kWh per sistema",
+        "Celle LFP",
+        "Raffreddamento ad aria",
+        "Garanzia di performance 10 anni"
+      ],
+      "points": [
+        "Fino a tre sistemi per inverter. Con H3 Plus da 50 a 125 kW l'abbinamento è certificato CEI 0-21 e CEI 0-16 fino a tre sistemi da quindici moduli, ciascuno con il proprio CQ BOX.",
+        "Antincendio in ogni modulo. Ogni modulo ha un dispositivo di estinzione ad aerosol ad attivazione termica, che non richiede manutenzione."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "CQ16",
+            "Modulo batteria LFP, da quattro a quindici per ogni sistema",
+            "390 × 235 × 810 mm · 115 kg",
+            "16,07 kWh · 51,2 V · carica/scarica max 240 A · picco di scarica 470 A per 60 s"
+          ],
+          [
+            "CQ16 BMS BOX (CQ BOX)",
+            "Unità di controllo del sistema, una per ogni sistema, obbligatoria",
+            "390 × 235 × 810 mm · 29 kg",
+            "gestisce da 64,28 a 241,05 kWh · 101–1000 V · corrente max 240 A"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (inglese)",
+          "file": "/schede/fox-cq16-cq-box-scheda-tecnica-en-cd2dc682.pdf",
+          "size": "64 KB"
+        },
+        {
+          "label": "Manuale utente (inglese)",
+          "file": "/schede/fox-cq16-manuale-utente-en-512a21b8.pdf",
+          "size": "2,6 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (inglese)",
+          "file": "/schede/fox-cq16-manuale-installazione-en-8c2228ba.pdf",
+          "size": "2,8 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-21 — abbinamento H3 Plus",
+          "file": "/schede/fox-h3-plus-cq7-cq7-80-cq16-dichiarazione-cei-0-21-it-35171b29.pdf",
+          "size": "23,2 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità CEI 0-16 — abbinamento H3 Plus",
+          "file": "/schede/fox-h3-plus-cq7-cq7-80-cq16-dichiarazione-cei-0-16-it-d95b1a0d.pdf",
+          "size": "22,9 MB"
+        }
+      ]
+    },
+    {
+      "id": "acc-fox-p100-all-in-one-monofase",
+      "name": "Fox P100 — all-in-one monofase",
+      "category": "accumulo",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/p100-foto-prodotto-8db7b834.webp",
+      "intro": "Fox P100 è un sistema all-in-one monofase che riunisce in un unico corpo un inverter ibrido da 6 kW e una batteria LFP da 10,24 kWh, con due MPPT e un campo fotovoltaico fino a 16 kWp. È disponibile in versione base e in versione espandibile con moduli batteria ET10.",
+      "highlights": [
+        "Inverter ibrido 6 kW e batteria 10,24 kWh integrati",
+        "Celle LFP",
+        "2 MPPT",
+        "Funzionamento fuori rete",
+        "Installazione esterna"
+      ],
+      "points": [
+        "Uscita di emergenza. Se la rete manca, il passaggio all'uscita di emergenza avviene in meno di 4 ms, e il sistema funziona anche fuori rete.",
+        "Espansione della batteria. La versione espandibile accetta fino a tre moduli ET10.",
+        "Parallelo. Fino a tre unità lavorano in parallelo, sia in rete sia fuori rete."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "P100-6-H",
+            "All-in-one monofase, inverter ibrido e batteria LFP integrati — versione base",
+            "584 × 1009 × 197 mm",
+            "6 kW · 10,24 kWh · 2 MPPT, fotovoltaico fino a 16 kWp · efficienza max 97,6 %"
+          ],
+          [
+            "P100E-6-H",
+            "All-in-one monofase, inverter ibrido e batteria LFP integrati — versione espandibile con moduli ET10",
+            "584 × 1009 × 197 mm · 108 kg",
+            "6 kW · 10,24 kWh · 2 MPPT, fotovoltaico fino a 16 kWp · efficienza max 97,6 %"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (versione base)",
+          "file": "/schede/p100-scheda-tecnica-it-fe959c7f.pdf",
+          "size": "284 KB"
+        },
+        {
+          "label": "Scheda tecnica (versione espandibile, inglese)",
+          "file": "/schede/p100e-scheda-tecnica-en-ddb7722d.pdf",
+          "size": "229 KB"
+        },
+        {
+          "label": "Manuale di installazione e uso",
+          "file": "/schede/p100-manuale-utente-it-5a313472.pdf",
+          "size": "4,8 MB"
+        },
+        {
+          "label": "Manuale utente (versione espandibile, inglese)",
+          "file": "/schede/p100e-manuale-utente-en-33622882.pdf",
+          "size": "4,3 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (versione espandibile, inglese)",
+          "file": "/schede/p100e-manuale-installazione-en-e4b91f59.pdf",
+          "size": "18,0 MB"
+        },
+        {
+          "label": "Certificato CEI 0-21 (versione base P100-6-H)",
+          "file": "/schede/p100-certificato-cei-0-21-48d6149c.pdf",
+          "size": "665 KB"
+        },
+        {
+          "label": "Dichiarazione CEI 0-21 (versione base P100-6-H)",
+          "file": "/schede/p100-dichiarazione-cei-0-21-5db83d82.pdf",
+          "size": "1,1 MB"
+        }
+      ]
+    },
+    {
+      "id": "acc-fox-g-max-bess-commerciale-ac-coupled",
+      "name": "Fox G-Max — BESS commerciale AC-coupled",
+      "category": "accumulo",
+      "sectors": [
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-g-max-foto-prodotto-bbd2a228.webp",
+      "intro": "Fox G-Max è un sistema di accumulo commerciale e industriale in armadio unico da 100 kW e 215 kWh, con PCS che si collega all'impianto sul lato in corrente alternata. Il collegamento in corrente alternata permette di integrare G-Max anche in impianti fotovoltaici esistenti. Nell'armadio sono integrati PCS, batterie, BMS, EMS, distribuzione dell'energia e protezione antincendio.",
+      "highlights": [
+        "100 kW / 215 kWh",
+        "PCS in corrente alternata",
+        "CEI 0-21",
+        "Celle LFP",
+        "Raffreddamento a liquido",
+        "Installazione esterna",
+        "Antincendio ad aerosol"
+      ],
+      "points": [
+        "Gestione dell'energia. Le modalità di funzionamento comprendono peak shaving, load shedding, gestione dell'accumulo fotovoltaico e regolazione di frequenza, con controllo antiriflusso che impedisce all'accumulo di scaricare in rete.",
+        "Capacità scalabile. Più armadi si collegano in parallelo per aumentare la capacità.",
+        "Durata della batteria. La batteria arriva ad almeno 8.000 cicli con il 70 % di capacità residua a fine vita."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "G-Max 215 kWh / 100 kW",
+            "Sistema di accumulo commerciale in armadio unico con PCS in corrente alternata, batteria LFP, raffreddamento a liquido, trifase",
+            "1040 × 2200 × 1500 mm (L × A × P) · < 2.500 kg",
+            "100 kW (picco 110 kW) · 215 kWh (4 pacchi da 53,76 kWh) · efficienza ciclo completo > 89 % · 400 V trifase"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (inglese)",
+          "file": "/schede/fox-g-max-scheda-tecnica-en-61db2493.pdf",
+          "size": "59 KB"
+        },
+        {
+          "label": "Manuale utente (inglese)",
+          "file": "/schede/fox-g-max-manuale-utente-en-d3e8c33a.pdf",
+          "size": "2,0 MB"
+        },
+        {
+          "label": "Certificato CEI 0-21 (inglese)",
+          "file": "/schede/fox-g-max-2hf-certificato-cei-0-21-en-841c08b9.pdf",
+          "size": "783 KB"
+        },
+        {
+          "label": "Guida rapida di installazione",
+          "file": "/schede/fox-g-max-manuale-installazione-it-06a63ba7.pdf",
+          "size": "3,0 MB"
+        },
+        {
+          "label": "Certificato CEI 0-21",
+          "file": "/schede/fox-g-max-certificato-cei-0-21-it-en-91830291.pdf",
+          "size": "268 KB"
+        },
+        {
+          "label": "Dichiarazione CEI 0-21",
+          "file": "/schede/fox-g-max-dichiarazione-cei-0-21-it-fa49adbe.pdf",
+          "size": "1,5 MB"
+        }
+      ]
+    },
+    {
+      "id": "acc-fox-g-max-plus-bess-commerciale-ibrido",
+      "name": "Fox G-Max Plus — BESS commerciale ibrido",
+      "category": "accumulo",
+      "sectors": [
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-g-max-plus-foto-prodotto-2fc95730.webp",
+      "intro": "Fox G-Max Plus è un sistema di accumulo all-in-one commerciale e industriale, in armadio unico da 125 kW e 241 kWh, con un PCS ibrido a cui si collegano direttamente fotovoltaico, rete, carichi di backup e gruppo elettrogeno. Nell'armadio sono integrati PCS, batterie, BMS, EMS, distribuzione dell'energia e protezione antincendio.",
+      "highlights": [
+        "125 kW / 241 kWh",
+        "PCS ibrido con ingresso fotovoltaico",
+        "Uscita di backup",
+        "Avvio automatico del gruppo elettrogeno",
+        "Celle LFP",
+        "Raffreddamento a liquido",
+        "Installazione esterna",
+        "Antincendio con sfiato antiesplosione"
+      ],
+      "points": [
+        "Fotovoltaico e storage integrati. Il campo fotovoltaico, fino a 250 kW su 8 MPPT, si collega direttamente al PCS ibrido dell'armadio, lo stesso a cui fanno capo batteria, rete e carichi di backup.",
+        "Backup dei carichi. Fuori rete l'uscita dedicata arriva a 137,5 kVA, con picco di 155 kVA per 10 secondi quando la batteria è sopra il 50 %, e il passaggio dalla rete avviene in meno di 10 ms.",
+        "Gestione e scalabilità. Le modalità di funzionamento comprendono peak shaving, load shedding, gestione dell'accumulo fotovoltaico e regolazione di frequenza, e più unità si collegano in parallelo, fino a 25 in rete e 10 fuori rete."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "G-Max Plus H-V1 (GM241kWh-125kW-H)",
+            "Sistema di accumulo commerciale in armadio unico con PCS ibrido, ingresso fotovoltaico, uscita di backup e ingresso per gruppo elettrogeno, batteria LFP, raffreddamento a liquido, trifase",
+            "1040 × 2230 × 1500 mm (L × A × P) · < 2.400 kg",
+            "125 kW (137,5 kVA max) · 241 kWh (4 pacchi da 60,29 kWh) · fotovoltaico fino a 250 kW, 8 MPPT · efficienza ciclo completo max 89,5 % · 400 V trifase"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (inglese)",
+          "file": "/schede/fox-g-max-plus-h-v1-scheda-tecnica-en-b2a0924f.pdf",
+          "size": "73 KB"
+        },
+        {
+          "label": "Manuale utente (inglese)",
+          "file": "/schede/fox-g-max-plus-manuale-utente-en-b4767952.pdf",
+          "size": "6,1 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (inglese)",
+          "file": "/schede/fox-g-max-plus-manuale-installazione-en-64283c56.pdf",
+          "size": "6,4 MB"
+        }
+      ]
+    },
+    {
+      "id": "mob-fox-serie-a-wall-box-smart",
+      "name": "Fox serie A — wall box smart",
+      "category": "mobilita",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-serie-a-plug-foto-prodotto-7625ebce.webp",
+      "intro": "Fox serie A è una serie di wall box con cavo e connettore Type 2 per la ricarica in corrente alternata, monofase da 7,3 kW e trifase da 11 e 22 kW. Le tre taglie hanno le stesse dimensioni e le stesse funzioni di gestione della ricarica.",
+      "highlights": [
+        "Monofase 7,3 kW · trifase 11 e 22 kW",
+        "Cavo Type 2",
+        "Bilanciamento dinamico del carico",
+        "Ricarica con il fotovoltaico",
+        "Lettore RFID",
+        "Bluetooth e Wi-Fi",
+        "Parete o palo"
+      ],
+      "points": [
+        "Bilanciamento dinamico del carico. La corrente di ricarica segue in tempo reale gli altri carichi letti dal contatore, entro una soglia impostabile da 10 a 300 A. Più wall box collegate in rete possono condividere la stessa soglia dall'app.",
+        "Ricarica con il fotovoltaico. Con un inverter dello stesso marchio, che condivide il contatore, la ricarica può usare solo il surplus solare oppure dare priorità al solare e integrare con la rete.",
+        "Tre modalità di avvio. La ricarica parte in plug & play, con tessera RFID o dall'app. In dotazione ci sono due tessere, e se ne gestiscono fino a otto."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "A7.3KW",
+            "Wall box monofase con cavo Type 2",
+            "320 × 190 × 130 mm · 5,6 kg",
+            "7,3 kW · monofase 230 V · 32 A"
+          ],
+          [
+            "A11KW (A011KP1-E-2-WO)",
+            "Wall box trifase con cavo Type 2",
+            "320 × 190 × 130 mm · 5,6 kg",
+            "11 kW · trifase 400 V · 16 A"
+          ],
+          [
+            "A22KW (A022KP1-E-2-WOG)",
+            "Wall box trifase con cavo Type 2",
+            "320 × 190 × 130 mm · 5,6 kg",
+            "22 kW · trifase 400 V · 32 A"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-serie-a-plug-scheda-tecnica-it-c59bd801.pdf",
+          "size": "478 KB"
+        },
+        {
+          "label": "Guida rapida di installazione (7,3 kW)",
+          "file": "/schede/fox-serie-a-7-3-kw-manuale-installazione-it-373ad0ff.pdf",
+          "size": "1,6 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (11 e 22 kW)",
+          "file": "/schede/fox-serie-a-11-e-22-kw-manuale-installazione-it-fb269c36.pdf",
+          "size": "1,2 MB"
+        },
+        {
+          "label": "Manuale bilanciamento del carico e collegamento fotovoltaico",
+          "file": "/schede/fox-ev-charger-dlb-e-slb-manuale-utente-it-72f72050.pdf",
+          "size": "1,1 MB"
+        },
+        {
+          "label": "Manuale dell'app",
+          "file": "/schede/fox-ev-charger-app-manuale-utente-it-7b5be89f.pdf",
+          "size": "1,2 MB"
+        }
+      ]
+    },
+    {
+      "id": "mob-fox-serie-l-wall-box-base",
+      "name": "Fox serie L — wall box base",
+      "category": "mobilita",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-serie-l-foto-prodotto-07fae7d3.webp",
+      "intro": "Fox serie L è una serie di wall box con cavo e connettore Type 2 per la ricarica in corrente alternata, monofase da 7,3 kW e trifase da 11 kW. Le due taglie hanno le stesse dimensioni e le stesse funzioni di gestione della ricarica, e la ricarica si avvia in plug & play o dall'app.",
+      "highlights": [
+        "Monofase 7,3 kW · trifase 11 kW",
+        "Cavo Type 2",
+        "Ricarica con il fotovoltaico",
+        "Bilanciamento dinamico del carico",
+        "Ricarica programmata",
+        "Bluetooth e Wi-Fi",
+        "Parete o palo",
+        "Garanzia 36 mesi"
+      ],
+      "points": [
+        "Ricarica con il fotovoltaico. La ricarica può usare solo il surplus solare, oppure dare priorità al solare e integrare con la rete.",
+        "Bilanciamento dinamico del carico. La potenza di ricarica si regola in funzione degli altri consumi rilevati dallo Smart Meter."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "L7.3KW (L07P)",
+            "Wall box monofase con cavo Type 2",
+            "",
+            "7,3 kW · monofase 230 V · 32 A · cavo 5 m (6 m opzionale)"
+          ],
+          [
+            "L11KW (L11P)",
+            "Wall box trifase con cavo Type 2",
+            "",
+            "11 kW · trifase 400 V · 16 A · cavo 5 m (6 m opzionale)"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-serie-l-scheda-tecnica-it-e7363a73.pdf",
+          "size": "469 KB"
+        },
+        {
+          "label": "Manuale utente",
+          "file": "/schede/fox-serie-l-manuale-utente-it-21198a6d.pdf",
+          "size": "3,8 MB"
+        },
+        {
+          "label": "Guida rapida di installazione (inglese)",
+          "file": "/schede/fox-serie-l-manuale-installazione-en-91ec36f0.pdf",
+          "size": "2,4 MB"
+        },
+        {
+          "label": "Manuale bilanciamento del carico e collegamento fotovoltaico",
+          "file": "/schede/fox-ev-charger-dlb-e-slb-manuale-utente-it-72f72050.pdf",
+          "size": "1,1 MB"
+        },
+        {
+          "label": "Manuale dell'app",
+          "file": "/schede/fox-ev-charger-app-manuale-utente-it-7b5be89f.pdf",
+          "size": "1,2 MB"
+        }
+      ]
+    },
+    {
+      "id": "mob-fox-serie-c-colonnina-doppia",
+      "name": "Fox serie C — colonnina doppia",
+      "category": "mobilita",
+      "sectors": [
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-serie-c-foto-prodotto-31df7c80.webp",
+      "intro": "Fox serie C è una colonnina per la ricarica in corrente alternata con due punti di ricarica, nelle taglie da 2 × 11 kW e 2 × 22 kW trifase. I veicoli si collegano a due prese Type 2, con il proprio cavo, e l'energia erogata è misurata da un contatore MID certificato.",
+      "highlights": [
+        "2 × 11 kW o 2 × 22 kW trifase",
+        "Due prese Type 2",
+        "Contatore MID integrato",
+        "Lettore RFID e NFC",
+        "Bilanciamento dinamico del carico",
+        "Uso del surplus fotovoltaico",
+        "Parete o palo",
+        "Garanzia 36 mesi"
+      ],
+      "points": [
+        "Pagamento con QR code. La ricarica si paga con un QR code e una piattaforma cloud, senza POS integrato.",
+        "Integrazione con piattaforme di gestione. Il protocollo OCPP è di serie, con interfaccia Modbus aperta.",
+        "Rilevamento delle dispersioni integrato. Le correnti di dispersione alternate e continue sono rilevate dall'apparecchio."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "C22KS2-E-1-WOG",
+            "Colonnina a due prese Type 2",
+            "407 × 527 × 150 mm · ≤ 12 kg",
+            "2 × 11 kW · trifase 400 V · ingresso 32 A"
+          ],
+          [
+            "C44KS2-E-1-WOG",
+            "Colonnina a due prese Type 2",
+            "407 × 527 × 150 mm · ≤ 12 kg",
+            "2 × 22 kW · trifase 400 V · ingresso 64 A"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-serie-c-scheda-tecnica-it-9afbd9c7.pdf",
+          "size": "396 KB"
+        },
+        {
+          "label": "Manuale utente e di installazione",
+          "file": "/schede/fox-serie-c-manuale-utente-it-f8aad53a.pdf",
+          "size": "1,8 MB"
+        },
+        {
+          "label": "Manuale bilanciamento del carico e collegamento fotovoltaico",
+          "file": "/schede/fox-ev-charger-dlb-e-slb-manuale-utente-it-72f72050.pdf",
+          "size": "1,1 MB"
+        },
+        {
+          "label": "Manuale dell'app",
+          "file": "/schede/fox-ev-charger-app-manuale-utente-it-7b5be89f.pdf",
+          "size": "1,2 MB"
+        }
+      ]
+    },
+    {
+      "id": "mob-palo-di-sostegno-ev",
+      "name": "Palo di sostegno EV",
+      "category": "mobilita",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-ev-charger-post-foto-prodotto-80893e9b.webp",
+      "intro": "Il palo di sostegno EV è il supporto per installare a terra i caricatori Fox. Esiste in due versioni, una per le wall box delle serie A e L e una per la serie C.",
+      "highlights": [
+        "Struttura metallica",
+        "Installazione a terra",
+        "Due versioni, per wall box e per colonnina",
+        "Garanzia 24 mesi"
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "EV Charger Post",
+            "Palo per wall box serie A e L",
+            "base 200 × 150 mm · palo 120 × 1200 × 60 mm · 4,3 kg",
+            "per serie L e serie A, escluse le trifase E-2"
+          ],
+          [
+            "EV Charger Post C",
+            "Palo per colonnina serie C",
+            "base 320 × 240 mm · palo 220 × 1380 × 80 mm · 9,0 kg",
+            "per serie C"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (inglese)",
+          "file": "/schede/fox-post-of-ev-charger-scheda-tecnica-en-f914d7cc.pdf",
+          "size": "80 KB"
+        }
+      ]
+    },
+    {
+      "id": "inv-dongle-lan-smart-lan",
+      "name": "Dongle LAN — Smart LAN",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-smart-lan-foto-prodotto-411301e3.webp",
+      "intro": "Smart LAN è il dongle che collega l'inverter al portale di monitoraggio Fox ESS Cloud con un cavo di rete Ethernet, per gli impianti in cui la connessione WiFi non è affidabile. Si innesta nella porta di comunicazione sul fondo dell'inverter.",
+      "highlights": [
+        "Connessione Ethernet",
+        "Installazione plug and play",
+        "Grado di protezione IP65"
+      ],
+      "points": [
+        "Collegamento LAN su H1 G2 e KH. Su questi inverter la porta Ethernet serve solo al monitoraggio locale, e il collegamento LAN al portale passa dallo Smart LAN.",
+        "Monitoraggio da app e portale. Dati di funzionamento, storico e allarmi di sistema sono consultabili dall'app e dal portale web del produttore."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "Smart L 3.0 (SmartLan)",
+            "Dongle di comunicazione LAN per inverter, connettore USB",
+            "100 × 49 × 28 mm · 55 g",
+            "Ethernet 10/100 · interfaccia RS485 · alimentazione DC 7–12 V · 1 W max · da −20 a 60 °C · IP65"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (inglese)",
+          "file": "/schede/fox-smart-lan-scheda-tecnica-en-ee74abdb.pdf",
+          "size": "440 KB"
+        },
+        {
+          "label": "Guida rapida di installazione (inglese)",
+          "file": "/schede/fox-smart-lan-manuale-installazione-en-ce9de2ba.pdf",
+          "size": "426 KB"
+        }
+      ]
+    },
+    {
+      "id": "inv-dongle-wifi-smart-wifi",
+      "name": "Dongle WiFi — Smart WiFi",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-smart-wifi-foto-prodotto-512fcc3d.webp",
+      "intro": "Smart WiFi è il dongle che collega l'inverter al portale di monitoraggio Fox ESS Cloud attraverso una rete WiFi a 2,4 GHz. Si innesta nella porta di comunicazione sul fondo dell'inverter.",
+      "highlights": [
+        "WiFi 2,4 GHz",
+        "Dati ogni 5 minuti",
+        "Installazione plug and play",
+        "Grado di protezione IP65"
+      ],
+      "points": [
+        "Monitoraggio a distanza. Dati di funzionamento, storico e allarmi di sistema sono consultabili dall'app e dal portale web del produttore."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "Smart WiFi (SmartWifi)",
+            "Dongle di comunicazione WiFi per inverter",
+            "105 × 50 × 26,5 mm · 50 g",
+            "WiFi 2,400–2,472 GHz · antenna 3 dB · invio dati ogni 5 min · comunicazione RS485 · alimentazione DC 7–12 V · 1 W medio · da −20 a 60 °C · IP65"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (inglese)",
+          "file": "/schede/fox-smart-wifi-scheda-tecnica-en-752391b6.pdf",
+          "size": "439 KB"
+        },
+        {
+          "label": "Guida di installazione e configurazione",
+          "file": "/schede/fox-smart-wifi-manuale-utente-it-c0ad3032.pdf",
+          "size": "209 KB"
+        }
+      ]
+    },
+    {
+      "id": "inv-ai-link-a-1000",
+      "name": "AI-Link A-1000",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-ai-link-a-1000-foto-prodotto-29cb97fd.webp",
+      "intro": "AI-Link A-1000 è il dispositivo di comunicazione e gestione per gli impianti con più inverter in parallelo delle serie H3 Pro e R. Collega su linea RS485 gli inverter e il contatore, e porta i dati al portale cloud via cavo Ethernet o Wi-Fi. Gestisce fino a 30 inverter della serie R, 10 H3 Pro connessi alla rete e 4 H3 Pro fuori rete.",
+      "highlights": [
+        "4 porte RS485",
+        "Ethernet e Wi-Fi",
+        "Uscite a relè",
+        "Installazione esterna",
+        "Garanzia 3 anni"
+      ],
+      "points": [
+        "Dati e parametri dell'impianto. Il dispositivo raccoglie i dati di inverter e contatori, li trasmette al portale cloud e permette di impostare i parametri degli inverter, anche da remoto.",
+        "Monitoraggio locale. Il monitoraggio in tempo reale funziona anche senza connessione a internet."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "A-1000 (SLBOX-IP65-DU)",
+            "Dispositivo di comunicazione e gestione per inverter in parallelo, montaggio a parete",
+            "260 × 192 × 88 mm · 2,5 kg",
+            "4 RS485 (Modbus RTU, SunSpec) · 2 Ethernet RJ45 10/100 · WiFi 802.11 b/g/n/ac 2,4 GHz · 4G opzionale · 3 uscite a relè · alimentazione DC 10–27 V, 20 W tipici (max 30 W) · da −30 a +60 °C · fino a 4000 m · IP65"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-ai-link-a-1000-scheda-tecnica-it-e8ed5132.pdf",
+          "size": "450 KB"
+        },
+        {
+          "label": "Manuale utente",
+          "file": "/schede/fox-ai-link-a-1000-manuale-utente-it-a45f5731.pdf",
+          "size": "1,7 MB"
+        }
+      ]
+    },
+    {
+      "id": "inv-hv-junction-box",
+      "name": "HV Junction Box",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-hv-junction-box-foto-prodotto-ae4cbeec.webp",
+      "intro": "HV Junction Box è l'accessorio che serve in ogni sistema di batterie EP con più di un modulo. Riunisce fino a quattro batterie su un unico ingresso batteria dell'inverter. Con le batterie EP6 ed EP12 si usa sugli inverter ibridi Fox H1-G2, KH, H3 Smart e H3 Pro.",
+      "highlights": [
+        "Fino a 4 batterie",
+        "Interno o esterno",
+        "Garanzia 10 anni"
+      ],
+      "points": [
+        "Una sola linea verso l'inverter. Il cavo di potenza di ogni batteria entra nella scatola, e dalla scatola esce un'unica linea verso la porta batteria dell'inverter.",
+        "Cavi di collegamento in confezione. La scatola arriva con il cavo di potenza e il cavo di terra da 1,2 m; i cavi dalle batterie alla scatola sono forniti con le batterie."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "HV-Junction Box-50",
+            "Scatola di parallelo in corrente continua per batterie ad alta tensione, montaggio a parete",
+            "223 × 246 × 89 mm · 2,6 kg",
+            "4 ingressi batteria · 1 uscita verso l'inverter · 500 V nominali · 50 A continui · picco 65 A per 60 s · esercizio da −20 a 70 °C (ottimale 15–30 °C) · fino a 2000 m · IP65"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fox-hv-junction-box-scheda-tecnica-it-2b1513a8.pdf",
+          "size": "443 KB"
+        },
+        {
+          "label": "Manuale di installazione",
+          "file": "/schede/fox-hv-junction-box-manuale-installazione-it-4fc4b264.pdf",
+          "size": "628 KB"
+        }
+      ]
+    },
+    {
+      "id": "inv-smart-meter-monofase-ddsu666",
+      "name": "Smart Meter monofase — DDSU666",
+      "category": "inverter",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "intro": "Smart Meter DDSU666 è un contatore monofase a misura diretta, senza trasformatori di corrente esterni, per gli inverter H1 G2 e AC1 G2. Collegato all'ingresso di misura dell'inverter, legge lo scambio con la rete e permette all'inverter di limitare l'immissione.",
+      "highlights": [
+        "Monofase",
+        "Misura diretta fino a 60 A",
+        "Collegamento RS485",
+        "Montaggio su guida DIN",
+        "Classe di precisione 1",
+        "Garanzia 2 anni"
+      ],
+      "points": [
+        "Al posto del trasformatore di corrente. Sugli H1 G2 e AC1 G2 il contatore sostituisce il trasformatore di corrente e misura direttamente la potenza scambiata. Sugli H1 G2 il trasformatore è già compreso nella confezione."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "DDSU666",
+            "Smart Meter monofase (fase + neutro, 1P2W), misura diretta 5(60)A senza TA, display LCD",
+            "36 × 85 × 66 mm · 1,2 kg cavi compresi · guida DIN 35",
+            "0–60 A · 176–288 V · RS485 9600 bps · classe 1 · consumo ≤ 0,8 W"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (inglese)",
+          "file": "/schede/fox-smart-meter-ddsu666-scheda-tecnica-en-dbc5e732.pdf",
+          "size": "335 KB"
+        }
+      ]
+    },
+    {
+      "id": "inv-ct-per-serie-h1",
+      "name": "CT per serie H1",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-ct-per-serie-h1-foto-prodotto-d72b671c.webp",
+      "intro": "Il CT per serie H1 è un trasformatore di corrente per gli inverter H1 G2 e AC1 G2, da collegare all'ingresso di misura dell'inverter. Sugli H1 G2 è la misura di serie, e un trasformatore è già compreso nella confezione.",
+      "highlights": [
+        "Limitazione dell'immissione in rete",
+        "Per H1 G2 e AC1 G2",
+        "Garanzia 3 anni"
+      ],
+      "points": [
+        "Limitazione dell'immissione in rete. La funzione è integrata nell'inverter e richiede, sull'ingresso di misura, un contatore o un trasformatore di corrente.",
+        "Misura di un secondo generatore. Sul secondo ingresso di misura (CT2) si registra la produzione di un altro generatore presente in casa, trasmessa al portale di monitoraggio."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "CT (per H1 / H1 G2)",
+            "Trasformatore di corrente per l'ingresso CT dell'inverter",
+            "",
+            ""
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Manuale dell'inverter H1 G2 e AC1 G2 (capitolo Misuratore/CT)",
+          "file": "/schede/fox-h1-g2-manuale-utente-it-6e1ae7be.pdf",
+          "size": "4,7 MB"
+        }
+      ]
+    },
+    {
+      "id": "inv-smart-meter-trifase-misura-diretta",
+      "name": "Smart Meter trifase — misura diretta",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "intro": "Smart Meter DTSU666 è un contatore trifase con neutro a misura diretta, senza trasformatori di corrente esterni, per gli inverter ibridi trifase H3 Smart e H3 Pro.",
+      "highlights": [
+        "Trifase con neutro",
+        "Misura diretta fino a 80 A",
+        "Collegamento RS485",
+        "Montaggio su guida DIN",
+        "Classe di precisione 1",
+        "Garanzia 2 anni"
+      ],
+      "points": [
+        "Limitazione dell'immissione in rete. Sugli inverter indicati la misura del contatore permette all'inverter di limitare l'immissione.",
+        "Secondo contatore sull'H3 Pro. L'H3 Pro ha un contatore nella confezione, e se ne può collegare un secondo per monitorare la produzione di un altro generatore."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "DTSU666 (ADD001 5(80)A)",
+            "Smart Meter trifase (tre fasi + neutro, 3P4W), misura diretta senza TA, display LCD",
+            "72 × 100 × 85 mm · 1,5 kg cavi compresi · guida DIN 35",
+            "0–80 A · 304–499 V concatenata (176–288 V di fase) · RS485 9600 bps · classe 1 · consumo ≤ 1 W"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (inglese)",
+          "file": "/schede/fox-smart-meter-ddsu666-scheda-tecnica-en-dbc5e732.pdf",
+          "size": "335 KB"
+        }
+      ]
+    },
+    {
+      "id": "inv-smart-meter-trifase-con-ta-esterni",
+      "name": "Smart Meter trifase — con TA esterni",
+      "category": "inverter",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fox-smart-meter-dtsu666-con-ta-200a-foto-prodotto-b481d6cd.webp",
+      "intro": "Smart Meter DTSU666 con TA esterni è un contatore trifase con neutro che misura fino a 200 A attraverso trasformatori amperometrici (TA) forniti con il contatore. È la versione per gli impianti in cui la corrente supera gli 80 A del contatore a misura diretta.",
+      "highlights": [
+        "Trifase con neutro",
+        "Tre TA da 200 A",
+        "Collegamento RS485",
+        "Montaggio su guida DIN",
+        "Classe di precisione 1",
+        "Garanzia 2 anni (TA 3 anni)"
+      ],
+      "points": [
+        "Limitazione dell'immissione in rete. Sugli inverter ibridi trifase H3 Smart e H3 Pro la misura del contatore permette all'inverter di limitare l'immissione in rete e di gestire l'autoconsumo."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "DTSU666 (+CT 200A ×3)",
+            "Smart Meter trifase (tre fasi + neutro, 3P4W) con 3 trasformatori amperometrici da 200 A, cavo 1 m, display LCD",
+            "contatore 72 × 100 × 85 mm · 1,5 kg cavi compresi · guida DIN 35 (misure dei TA non dichiarate)",
+            "0–200 A tramite TA · ingresso di misura 1,5(6) A · 304–499 V concatenata (176–288 V di fase) · RS485 9600 bps · classe 1 · consumo ≤ 1 W"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (inglese)",
+          "file": "/schede/fox-smart-meter-ddsu666-scheda-tecnica-en-dbc5e732.pdf",
+          "size": "335 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-omnia-life-m-monoblocco-r290",
+      "name": "OMNIA LIFE M — monoblocco R290",
+      "category": "clima",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/omnia-life-m-4-16t-foto-prodotto-f155cf8b.webp",
+      "intro": "OMNIA LIFE M è una gamma di pompe di calore aria-acqua monoblocco reversibili a refrigerante naturale R290, da 4 a 35 kW, per edifici residenziali. Produce acqua ad alta temperatura, fino a 75 °C e fino a 85 °C sulle taglie da 26 a 35 kW, e si impiega sia nelle nuove costruzioni sia negli interventi di recupero. La gamma alimenta impianti a pavimento, a ventilconvettori e a radiatori ad alta efficienza a bassa temperatura, ed è predisposta per la connessione fotovoltaica e Smart Grid Ready. Fino a sei unità lavorano in cascata sullo stesso impianto.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "R290",
+        "Monoblocco",
+        "Acqua fino a 75 °C (85 °C da 26 kW)",
+        "Connessione fotovoltaica",
+        "Smart Grid Ready",
+        "Cascata fino a 6 unità"
+      ],
+      "points": [
+        "Alta temperatura anche con il freddo. L'acqua arriva a 75 °C con aria esterna a −10 °C, e sulle taglie da 26 a 35 kW la macchina alimenta anche radiatori a 70 °C."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "LIFE M 4 (2CP100AF)",
+            "Monoblocco R290 alta temperatura, monofase",
+            "1299 × 717 × 426 mm · 90 kg",
+            "4,5 kW · COP 5,15 · 230 V"
+          ],
+          [
+            "LIFE M 6 (2CP100BF)",
+            "Monoblocco R290 alta temperatura, monofase",
+            "1299 × 717 × 426 mm · 90 kg",
+            "6,2 kW · COP 4,90 · 230 V"
+          ],
+          [
+            "LIFE M 8 (2CP100CF)",
+            "Monoblocco R290 alta temperatura, monofase",
+            "1299 × 717 × 426 mm · 117 kg",
+            "8,4 kW · COP 5,00 · 230 V"
+          ],
+          [
+            "LIFE M 10 (2CP100DF)",
+            "Monoblocco R290 alta temperatura, monofase",
+            "1299 × 717 × 426 mm · 117 kg",
+            "10 kW · COP 4,70 · 230 V"
+          ],
+          [
+            "LIFE M 12 (2CP100EF)",
+            "Monoblocco R290 alta temperatura, monofase",
+            "1385 × 865 × 523 mm · 135 kg",
+            "12 kW · COP 4,80 · 230 V"
+          ],
+          [
+            "LIFE M 12T (2CP100HF)",
+            "Monoblocco R290 alta temperatura, trifase",
+            "1385 × 865 × 523 mm · 137 kg",
+            "12 kW · COP 4,80 · 400 V trifase"
+          ],
+          [
+            "LIFE M 14 (2CP100FF)",
+            "Monoblocco R290 alta temperatura, monofase",
+            "1385 × 865 × 523 mm · 135 kg",
+            "14 kW · COP 4,50 · 230 V"
+          ],
+          [
+            "LIFE M 14T (2CP100IF)",
+            "Monoblocco R290 alta temperatura, trifase",
+            "1385 × 865 × 523 mm · 137 kg",
+            "14 kW · COP 4,50 · 400 V trifase"
+          ],
+          [
+            "LIFE M 16 (2CP100GF)",
+            "Monoblocco R290 alta temperatura, monofase",
+            "1385 × 865 × 523 mm · 135 kg",
+            "15 kW · COP 4,40 · 230 V"
+          ],
+          [
+            "LIFE M 16T (2CP100JF)",
+            "Monoblocco R290 alta temperatura, trifase",
+            "1385 × 865 × 523 mm · 137 kg",
+            "15 kW · COP 4,40 · 400 V trifase"
+          ],
+          [
+            "LIFE M 26T (2CP1000F)",
+            "Monoblocco R290 alta potenza, trifase, 2 ventilatori",
+            "1384 × 1816 × 523 mm · 260 kg",
+            "26 kW · COP 4,77 · 400 V trifase"
+          ],
+          [
+            "LIFE M 30T (2CP1001F)",
+            "Monoblocco R290 alta potenza, trifase, 2 ventilatori",
+            "1384 × 1816 × 523 mm · 260 kg",
+            "30 kW · COP 4,50 · 400 V trifase"
+          ],
+          [
+            "LIFE M 35T (2CP1002F)",
+            "Monoblocco R290 alta potenza, trifase, 2 ventilatori",
+            "1384 × 1816 × 523 mm · 260 kg",
+            "35 kW · COP 4,17 · 400 V trifase"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (4–16 kW)",
+          "file": "/schede/omnia-life-m-4-16t-scheda-tecnica-it-en-19d1f6c1.pdf",
+          "size": "9,3 MB"
+        },
+        {
+          "label": "Scheda tecnica (26–35 kW)",
+          "file": "/schede/omnia-life-m-26t-35t-scheda-tecnica-it-en-fdea3a58.pdf",
+          "size": "3,4 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso (4–16 kW)",
+          "file": "/schede/omnia-life-m-4-16t-manuale-it-en-es-pt-2b3e04ef.pdf",
+          "size": "47,0 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso (26–35 kW)",
+          "file": "/schede/omnia-life-m-26t-35t-manuale-it-en-es-pt-8b40c4dd.pdf",
+          "size": "42,6 MB"
+        },
+        {
+          "label": "Manuale del comando remoto",
+          "file": "/schede/comando-remoto-cablato-2cp100z0-manuale-utente-multilingua-8a6ef8fb.pdf",
+          "size": "22,8 MB"
+        },
+        {
+          "label": "Dichiarazione di conformità (4–16 kW)",
+          "file": "/schede/omnia-life-m-4-16t-dichiarazione-di-conformita-multilingua-b5d69f9c.pdf",
+          "size": "1011 KB"
+        },
+        {
+          "label": "Etichetta energetica (4–16 kW)",
+          "file": "/schede/omnia-life-m-4-16t-etichetta-energetica-erp-503f1dc6.pdf",
+          "size": "482 KB"
+        },
+        {
+          "label": "Etichetta energetica (26–35 kW)",
+          "file": "/schede/omnia-life-m-26t-35t-etichetta-energetica-erp-0ead5554.pdf",
+          "size": "170 KB"
+        },
+        {
+          "label": "Depliant (4–16 kW)",
+          "file": "/schede/omnia-life-m-depliant-it-4eea410c.pdf",
+          "size": "1,7 MB"
+        },
+        {
+          "label": "Depliant (26–35 kW)",
+          "file": "/schede/omnia-life-m-26t-35t-depliant-it-d36bf60e.pdf",
+          "size": "957 KB"
+        },
+        {
+          "label": "Scheda commerciale (26–35 kW)",
+          "file": "/schede/omnia-life-m-26t-35t-flyer-it-282e9223.pdf",
+          "size": "323 KB"
+        },
+        {
+          "label": "Scheda commerciale (4–16 kW)",
+          "file": "/schede/omnia-life-m-4-16t-flyer-it-f865605c.pdf",
+          "size": "879 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-omnia-ft-modulo-interno-con-serbatoio-acs",
+      "name": "OMNIA FT — modulo interno con serbatoio ACS",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/omnia-ft-abbinata-a-omnia-life-m-r290-foto-prodotto-2ad3b871.webp",
+      "intro": "OMNIA FT è una serie di unità interne idroniche con serbatoio integrato per l'acqua calda sanitaria, da 190 o 240 litri, che si abbinano alle pompe di calore OMNIA LIFE M da 4 a 16 kW. Con la sola pompa di calore l'acqua sanitaria arriva fino a 70 °C.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "Serbatoio ACS 190 o 240 litri"
+      ],
+      "points": [
+        "Idraulica già a bordo. Nel mobile sono montati la valvola deviatrice a tre vie per l'acqua sanitaria, il vaso di espansione dell'impianto da 10 litri e il gruppo di filtrazione e defangazione.",
+        "Resistenza elettrica di integrazione. Il circuito dell'impianto ha di serie una resistenza elettrica da 3 kW sui modelli monofase e da 6 kW sul modello trifase."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "OMNIA IDU FT 200 HI3 (0XHN1VWA)",
+            "Unità interna idronica con serbatoio ACS, resistenza impianto 3 kW, monofase",
+            "595 × 1860 × 700 mm · 158–184 kg (in esercizio 349–393 kg)",
+            "Serbatoio 190 l · per unità esterne da 4 a 10 kW · 230 V"
+          ],
+          [
+            "OMNIA IDU FT 250 HI3 (0XHN2VWA)",
+            "Unità interna idronica con serbatoio ACS, resistenza impianto 3 kW, monofase",
+            "595 × 2110 × 700 mm · 180–206 kg (in esercizio 421–465 kg)",
+            "Serbatoio 240 l · per unità esterne monofase da 4 a 16 kW · 230 V"
+          ],
+          [
+            "OMNIA IDU FT 250 HI6T (0XHN2WWA)",
+            "Unità interna idronica con serbatoio ACS, resistenza impianto 6 kW, trifase",
+            "595 × 2110 × 700 mm · 180–206 kg (in esercizio 421–465 kg)",
+            "Serbatoio 240 l · per unità esterne trifase da 12 a 16 kW · 400 V trifase"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (abbinamento OMNIA LIFE M)",
+          "file": "/schede/omnia-ft-abbinata-a-omnia-life-m-r290-scheda-tecnica-it-9926d446.pdf",
+          "size": "99 KB"
+        },
+        {
+          "label": "Manuale di installazione e uso",
+          "file": "/schede/omnia-ft-manuale-it-en-es-pt-fr-de-nl-76732b8f.pdf",
+          "size": "18,1 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/omnia-ft-etichetta-energetica-erp-multilingua-12c605b9.pdf",
+          "size": "726 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-omnia-s-split",
+      "name": "OMNIA S — split",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/omnia-s-3-2-foto-prodotto-0d76c9cb.webp",
+      "intro": "OMNIA S 3.2 è una serie di pompe di calore aria-acqua reversibili a installazione splittata, da 4 a 16 kW, con le taglie da 12 a 16 kW anche trifase. L'acqua arriva fino a 65 °C, per impianti radianti, a ventilconvettori e a radiatori, e la temperatura massima scende con il freddo esterno. L'unità interna è murale e porta a bordo circolatore, vaso di espansione, valvola deviatrice a tre vie per l'acqua sanitaria e pannello di comando.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "R32",
+        "Acqua fino a 65 °C",
+        "Unità interna murale",
+        "Smart Grid Ready",
+        "Connessione fotovoltaica"
+      ],
+      "points": [
+        "Resistenza elettrica di riserva di serie. L'unità interna ha un riscaldatore elettrico da 3 kW sulle versioni monofase e da 6 kW sulle trifase, che lavora in integrazione o al posto della pompa di calore.",
+        "Ingresso fotovoltaico. Con il segnale del fotovoltaico attivo l'unità porta l'acqua sanitaria fino a 70 °C, con la pompa di calore e la resistenza del bollitore.",
+        "Gestione del bollitore. La sonda del bollitore è fornita, e l'unità comanda anche la resistenza elettrica del bollitore, non fornita, per l'integrazione e i cicli antilegionella."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "S 3.2 HI3 4 (0XHK4SWA)",
+            "Kit split R32: unità esterna + unità interna murale, monofase",
+            "UE 1008 × 712 × 426 mm · 58 kg — UI 422 × 702 × 320 mm · 33 kg",
+            "4,2 kW · COP 5,10 · 230 V"
+          ],
+          [
+            "S 3.2 HI3 6 (0XHK6SWA)",
+            "Kit split R32: unità esterna + unità interna murale, monofase",
+            "UE 1008 × 712 × 426 mm · 58 kg — UI 422 × 702 × 320 mm · 33 kg",
+            "6,35 kW · COP 4,95 · 230 V"
+          ],
+          [
+            "S 3.2 HI3 8 (0XHK8SWA)",
+            "Kit split R32: unità esterna + unità interna murale, monofase",
+            "UE 1118 × 865 × 523 mm · 77 kg — UI 422 × 702 × 320 mm · 33 kg",
+            "8,4 kW · COP 5,15 · 230 V"
+          ],
+          [
+            "S 3.2 HI3 10 (0XHKASWA)",
+            "Kit split R32: unità esterna + unità interna murale, monofase",
+            "UE 1118 × 865 × 523 mm · 77 kg — UI 422 × 702 × 320 mm · 33 kg",
+            "10 kW · COP 4,95 · 230 V"
+          ],
+          [
+            "S 3.2 HI3 12 (0XHKCSWA)",
+            "Kit split R32: unità esterna + unità interna murale, monofase",
+            "UE 1118 × 865 × 523 mm · 96 kg — UI 422 × 702 × 320 mm · 35 kg",
+            "12,1 kW · COP 4,95 · 230 V"
+          ],
+          [
+            "S 3.2 HI6 12T (0XHLCSWA)",
+            "Kit split R32: unità esterna + unità interna murale, trifase",
+            "UE 1118 × 865 × 523 mm · 112 kg — UI 422 × 702 × 320 mm · 36 kg",
+            "12,1 kW · COP 4,95 · 400 V trifase"
+          ],
+          [
+            "S 3.2 HI3 14 (0XHKESWA)",
+            "Kit split R32: unità esterna + unità interna murale, monofase",
+            "UE 1118 × 865 × 523 mm · 96 kg — UI 422 × 702 × 320 mm · 35 kg",
+            "14,5 kW · COP 4,60 · 230 V"
+          ],
+          [
+            "S 3.2 HI6 14T (0XHLESWA)",
+            "Kit split R32: unità esterna + unità interna murale, trifase",
+            "UE 1118 × 865 × 523 mm · 112 kg — UI 422 × 702 × 320 mm · 36 kg",
+            "14,5 kW · COP 4,60 · 400 V trifase"
+          ],
+          [
+            "S 3.2 HI3 16 (0XHKGSWA)",
+            "Kit split R32: unità esterna + unità interna murale, monofase",
+            "UE 1118 × 865 × 523 mm · 96 kg — UI 422 × 702 × 320 mm · 35 kg",
+            "15,9 kW · COP 4,50 · 230 V"
+          ],
+          [
+            "S 3.2 HI6 16T (0XHLGSWA)",
+            "Kit split R32: unità esterna + unità interna murale, trifase",
+            "UE 1118 × 865 × 523 mm · 112 kg — UI 422 × 702 × 320 mm · 36 kg",
+            "15,9 kW · COP 4,50 · 400 V trifase"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/omnia-s-3-2-scheda-tecnica-it-en-9b2ebfe8.pdf",
+          "size": "6,6 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità interna",
+          "file": "/schede/omnia-s-3-2-unita-interna-manuale-multilingua-28263e25.pdf",
+          "size": "39,1 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità esterna",
+          "file": "/schede/omnia-s-3-2-unita-esterna-manuale-it-en-es-pt-200059a4.pdf",
+          "size": "45,4 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/omnia-s-3-2-etichetta-energetica-erp-9f3a3732.pdf",
+          "size": "245 KB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/omnia-s-3-2-depliant-it-2a1a2519.pdf",
+          "size": "1,5 MB"
+        },
+        {
+          "label": "Scheda commerciale",
+          "file": "/schede/omnia-s-3-2-flyer-it-6e497ffc.pdf",
+          "size": "480 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-omnia-sw-t-split-con-acs-compatto",
+      "name": "OMNIA SW-T — split con ACS compatto",
+      "category": "clima",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/omnia-sw-t-3-2-foto-prodotto-a3c91400.webp",
+      "intro": "OMNIA SW-T 3.2 è una serie di pompe di calore aria-acqua reversibili a installazione splittata, da 4 a 10 kW, tutte monofase. L'unità interna è murale e integra un bollitore sanitario da 100 litri in acciaio smaltato, oltre a circolatore, vaso di espansione e valvola deviatrice a tre vie. La serie è indicata per piccole e medie unità abitative e per la sostituzione di caldaie e scaldacqua elettrici negli impianti esistenti.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "R32",
+        "Accumulo sanitario 100 litri",
+        "Unità interna murale",
+        "Smart Grid Ready",
+        "Connessione fotovoltaica"
+      ],
+      "points": [
+        "Resistenza del bollitore di serie. La resistenza elettrica da 1,2 kW del bollitore serve ai cicli antilegionella e, con il segnale del fotovoltaico attivo, porta l'acqua sanitaria fino a 70 °C insieme alla pompa di calore."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "SW-T 4 (0XHM4SWA)",
+            "Split R32 con accumulo ACS 100 L, resistenza ACS 1,2 kW, monofase",
+            "UI 550 × 1300 × 580 mm — UE 1008 × 712 × 426 mm · 58 kg",
+            "4,2 kW · COP 5,10 · 220-240 V"
+          ],
+          [
+            "SW-T 6 (0XHM6SWA)",
+            "Split R32 con accumulo ACS 100 L, resistenza ACS 1,2 kW, monofase",
+            "UI 550 × 1300 × 580 mm — UE 1008 × 712 × 426 mm · 58 kg",
+            "6,35 kW · COP 4,95 · 220-240 V"
+          ],
+          [
+            "SW-T 8 (0XHM8SWA)",
+            "Split R32 con accumulo ACS 100 L, resistenza ACS 1,2 kW, monofase",
+            "UI 550 × 1300 × 580 mm — UE 1118 × 865 × 523 mm · 77 kg",
+            "8,4 kW · COP 5,15 · 220-240 V"
+          ],
+          [
+            "SW-T 10 (0XHMASWA)",
+            "Split R32 con accumulo ACS 100 L, resistenza ACS 1,2 kW, monofase",
+            "UI 550 × 1300 × 580 mm — UE 1118 × 865 × 523 mm · 77 kg",
+            "10 kW · COP 4,95 · 220-240 V"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/omnia-sw-t-3-2-scheda-tecnica-it-en-7d60df74.pdf",
+          "size": "2,2 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso (unità interna)",
+          "file": "/schede/omnia-sw-t-3-2-unita-interna-manuale-multilingua-2c50c852.pdf",
+          "size": "40,8 MB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/omnia-sw-t-3-2-depliant-it-15097de0.pdf",
+          "size": "1,1 MB"
+        },
+        {
+          "label": "Scheda commerciale",
+          "file": "/schede/omnia-sw-t-3-2-flyer-it-ae015808.pdf",
+          "size": "485 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-omnia-s-in-da-incasso",
+      "name": "OMNIA S IN — da incasso",
+      "category": "clima",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/omnia-s-in-3-2-foto-prodotto-0c23fd34.webp",
+      "intro": "OMNIA S IN 3.2 è un sistema a pompa di calore aria-acqua reversibile a installazione splittata, da incasso, da 4 a 10 kW, monofase. Comprende l'unità esterna, l'unità interna, un bollitore sanitario da 150 litri in acciaio inox e il kit di connessione idraulica che li collega. È indicato per le nuove costruzioni e le ristrutturazioni pesanti.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "R32",
+        "Accumulo sanitario 150 litri inox",
+        "Sistema completo con kit idraulico"
+      ],
+      "points": [
+        "Idraulica compresa nel kit. Il kit di connessione del sistema base porta la valvola di bypass fra mandata e ritorno, il vaso di espansione, la valvola di sicurezza del bollitore e i rubinetti di carico e di intercettazione.",
+        "Configurazione ampliabile. Con i kit di distribuzione l'impianto passa a due zone, due dirette oppure una diretta e una miscelata, e sono previsti come accessori un accumulo inerziale da 30 litri e l'integrazione solare termica del bollitore.",
+        "Resistenza del bollitore di serie. La resistenza elettrica da 1,5 kW compresa nel kit carica rapidamente il bollitore fino a 60 °C e lo scalda al posto della pompa di calore quando questa è in allarme o fuori dai limiti di funzionamento."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "S IN 4 (0XHV4SWA)",
+            "Sistema split da incasso con accumulo ACS inox, monofase",
+            "Unità esterna 1008 × 712 × 426 mm · 58 kg",
+            "4,2 kW · COP 5,10 · 220-240 V"
+          ],
+          [
+            "S IN 6 (0XHV6SWA)",
+            "Sistema split da incasso con accumulo ACS inox, monofase",
+            "Unità esterna 1008 × 712 × 426 mm · 58 kg",
+            "6,35 kW · COP 4,95 · 220-240 V"
+          ],
+          [
+            "S IN 8 (0XHV8SWA)",
+            "Sistema split da incasso con accumulo ACS inox, monofase",
+            "Unità esterna 1118 × 865 × 523 mm · 77 kg",
+            "8,4 kW · COP 5,15 · 220-240 V"
+          ],
+          [
+            "S IN 10 (0XHVASWA)",
+            "Sistema split da incasso con accumulo ACS inox, monofase",
+            "Unità esterna 1118 × 865 × 523 mm · 77 kg",
+            "10 kW · COP 4,95 · 220-240 V"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/omnia-s-in-3-2-scheda-tecnica-it-93e07eca.pdf",
+          "size": "757 KB"
+        },
+        {
+          "label": "Manuale di installazione del sistema a incasso",
+          "file": "/schede/omnia-s-in-3-2-sistema-a-incasso-manuale-it-d3ef0103.pdf",
+          "size": "8,6 MB"
+        },
+        {
+          "label": "Manuale dell'unità esterna",
+          "file": "/schede/omnia-s-3-2-unita-esterna-manuale-it-en-es-pt-200059a4.pdf",
+          "size": "45,4 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/omnia-s-in-3-2-etichetta-energetica-erp-a23f5654.pdf",
+          "size": "167 KB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/omnia-s-in-3-2-depliant-it-b624cdbc.pdf",
+          "size": "1,0 MB"
+        }
+      ]
+    },
+    {
+      "id": "cli-omnia-st-split-con-accumulo-integrato",
+      "name": "OMNIA ST — split con accumulo integrato",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/omnia-st-3-2-foto-prodotto-9f697330.webp",
+      "intro": "OMNIA ST 3.2 è una serie di pompe di calore aria-acqua reversibili a installazione splittata, da 4 a 16 kW, con le taglie da 12 a 16 kW anche trifase. L'unità interna è a pavimento e integra l'accumulo per l'acqua calda sanitaria, da 190 litri sulle taglie da 4 a 10 kW e da 240 litri sulle taglie da 12 a 16 kW.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "R32",
+        "Accumulo sanitario 190 o 240 litri",
+        "Unità interna a pavimento",
+        "Smart Grid Ready",
+        "Connessione fotovoltaica"
+      ],
+      "points": [
+        "Idraulica già a bordo. Nell'unità interna sono montati il circolatore, il vaso di espansione dell'impianto da 10 litri, la valvola deviatrice a tre vie per l'acqua sanitaria e il gruppo di filtrazione e defangazione.",
+        "Integrazione con solare termico e caldaia. L'accumulo si collega a un impianto solare termico tramite kit dedicati, e l'unità può comandare una caldaia in integrazione o in sostituzione della pompa di calore, in base ai parametri impostati."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "ST 4 (0XHT4SWA)",
+            "Split R32 con accumulo sanitario 190 L, monofase",
+            "UE 1008 × 712 × 426 mm · 58 kg — UI 595 × 700 × 1860 mm",
+            "4,2 kW · COP 5,10 · 220-240 V"
+          ],
+          [
+            "ST 6 (0XHT6SWA)",
+            "Split R32 con accumulo sanitario 190 L, monofase",
+            "UE 1008 × 712 × 426 mm · 58 kg — UI 595 × 700 × 1860 mm",
+            "6,35 kW · COP 4,95 · 220-240 V"
+          ],
+          [
+            "ST 8 (0XHT8SWA)",
+            "Split R32 con accumulo sanitario 190 L, monofase",
+            "UE 1118 × 865 × 523 mm · 77 kg — UI 595 × 700 × 1860 mm",
+            "8,4 kW · COP 5,15 · 220-240 V"
+          ],
+          [
+            "ST 10 (0XHTASWA)",
+            "Split R32 con accumulo sanitario 190 L, monofase",
+            "UE 1118 × 865 × 523 mm · 77 kg — UI 595 × 700 × 1860 mm",
+            "10 kW · COP 4,95 · 220-240 V"
+          ],
+          [
+            "ST 12 (0XHTCSWA)",
+            "Split R32 con accumulo sanitario 240 L, monofase",
+            "UE 1118 × 865 × 523 mm · 96 kg — UI 595 × 700 × 2110 mm",
+            "12,1 kW · COP 4,95 · 220-240 V"
+          ],
+          [
+            "ST 12T (0XHUCSWA)",
+            "Split R32 con accumulo sanitario 240 L, trifase",
+            "UE 1118 × 865 × 523 mm · 112 kg — UI 595 × 700 × 2110 mm",
+            "12,1 kW · COP 4,95 · 400 V trifase"
+          ],
+          [
+            "ST 14 (0XHTESWA)",
+            "Split R32 con accumulo sanitario 240 L, monofase",
+            "UE 1118 × 865 × 523 mm · 96 kg — UI 595 × 700 × 2110 mm",
+            "14,5 kW · COP 4,60 · 220-240 V"
+          ],
+          [
+            "ST 14T (0XHUESWA)",
+            "Split R32 con accumulo sanitario 240 L, trifase",
+            "UE 1118 × 865 × 523 mm · 112 kg — UI 595 × 700 × 2110 mm",
+            "14,5 kW · COP 4,60 · 400 V trifase"
+          ],
+          [
+            "ST 16 (0XHTGSWA)",
+            "Split R32 con accumulo sanitario 240 L, monofase",
+            "UE 1118 × 865 × 523 mm · 96 kg — UI 595 × 700 × 2110 mm",
+            "15,9 kW · COP 4,50 · 220-240 V"
+          ],
+          [
+            "ST 16T (0XHUGSWA)",
+            "Split R32 con accumulo sanitario 240 L, trifase",
+            "UE 1118 × 865 × 523 mm · 112 kg — UI 595 × 700 × 2110 mm",
+            "15,9 kW · COP 4,50 · 400 V trifase"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/omnia-st-3-2-scheda-tecnica-it-en-b74cd9a1.pdf",
+          "size": "4,4 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità interna",
+          "file": "/schede/omnia-st-3-2-unita-interna-manuale-multilingua-42133995.pdf",
+          "size": "39,8 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità esterna",
+          "file": "/schede/omnia-s-3-2-unita-esterna-manuale-it-en-es-pt-200059a4.pdf",
+          "size": "45,4 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/omnia-st-3-2-etichetta-energetica-erp-31cd80b6.pdf",
+          "size": "347 KB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/omnia-st-3-2-depliant-it-606fdedb.pdf",
+          "size": "1,5 MB"
+        },
+        {
+          "label": "Scheda commerciale",
+          "file": "/schede/omnia-st-3-2-flyer-it-9421dc13.pdf",
+          "size": "471 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-omnia-s-hybrid-28c",
+      "name": "OMNIA S HYBRID 28C",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/omnia-s-hybrid-28c-foto-prodotto-0d76c9cb.webp",
+      "intro": "OMNIA S HYBRID 28C è un sistema ibrido aria-acqua reversibile, integrato di fabbrica, con un'unità esterna a pompa di calore da 4 a 10 kW e un'unità interna murale che riunisce il modulo idronico e una caldaia a condensazione da 28 kW, uguale per tutte le taglie. La caldaia produce acqua calda sanitaria istantanea anche mentre la pompa di calore riscalda o raffresca. Il sistema è indicato per la sostituzione di vecchie caldaie, anche su impianti ad alta temperatura con radiatori.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "R32",
+        "Acqua calda sanitaria istantanea",
+        "Unità interna murale"
+      ],
+      "points": [
+        "Ingombro da caldaia murale. L'unità interna ha dimensioni simili a quelle di una caldaia murale, e lo scarico fumi si collega anche intubando camini esistenti con condotti da 50, 60 e 80 mm, fino a 22 m con Ø 50 e 60 m con Ø 60.",
+        "Caldaia in integrazione o in sostituzione. La centralina attiva la caldaia in integrazione o in sostituzione della pompa di calore in base ai parametri impostati in installazione, e se la pompa di calore va in blocco riscaldamento e acqua calda passano alla sola caldaia."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "OMNIA S 3.2 HYBRID 28C 4 (KIT-HC-04)",
+            "Ibrido split R32: unità esterna + unità interna murale con caldaia a condensazione 28 kW, monofase",
+            "UE 1008 × 712 × 426 mm · 58 kg — UI 420 × 700 × 320 mm · 43 kg",
+            "4,2 kW · COP 5,10 · 230 V"
+          ],
+          [
+            "OMNIA S 3.2 HYBRID 28C 6 (KIT-HC-06)",
+            "Ibrido split R32: unità esterna + unità interna murale con caldaia a condensazione 28 kW, monofase",
+            "UE 1008 × 712 × 426 mm · 58 kg — UI 420 × 700 × 320 mm · 43 kg",
+            "6,35 kW · COP 4,95 · 230 V"
+          ],
+          [
+            "OMNIA S 3.2 HYBRID 28C 8 (KIT-HC-08)",
+            "Ibrido split R32: unità esterna + unità interna murale con caldaia a condensazione 28 kW, monofase",
+            "UE 1118 × 865 × 523 mm · 77 kg — UI 420 × 700 × 320 mm · 43 kg",
+            "8,4 kW · COP 5,15 · 230 V"
+          ],
+          [
+            "OMNIA S 3.2 HYBRID 28C 10 (KIT-HC-10)",
+            "Ibrido split R32: unità esterna + unità interna murale con caldaia a condensazione 28 kW, monofase",
+            "UE 1118 × 865 × 523 mm · 77 kg — UI 420 × 700 × 320 mm · 43 kg",
+            "10 kW · COP 4,95 · 230 V"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/omnia-s-hybrid-28c-scheda-tecnica-it-en-385794ac.pdf",
+          "size": "3,0 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità interna",
+          "file": "/schede/omnia-s-hybrid-28c-unita-interna-manuale-it-39461ed9.pdf",
+          "size": "8,8 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità esterna",
+          "file": "/schede/omnia-s-3-2-unita-esterna-manuale-it-en-es-pt-200059a4.pdf",
+          "size": "45,4 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/omnia-s-hybrid-28c-etichetta-energetica-erp-multilingua-6b4889cc.pdf",
+          "size": "158 KB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/omnia-s-hybrid-28c-depliant-it-597be19c.pdf",
+          "size": "2,7 MB"
+        },
+        {
+          "label": "Scheda commerciale",
+          "file": "/schede/omnia-s-hybrid-28c-flyer-it-ce4c0a4c.pdf",
+          "size": "571 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-omnia-s-hybrid-28h",
+      "name": "OMNIA S HYBRID 28H",
+      "category": "clima",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/omnia-s-hybrid-28h-foto-prodotto-0d76c9cb.webp",
+      "intro": "OMNIA S HYBRID 28H è un sistema ibrido aria-acqua reversibile, integrato di fabbrica, con un'unità esterna a pompa di calore da 4 a 10 kW, monofase, e un'unità interna murale che riunisce il modulo idronico e una caldaia a condensazione da 28 kW solo riscaldamento, uguale per tutte le taglie. L'acqua calda sanitaria si produce in un bollitore esterno, che la caldaia può caricare anche mentre la pompa di calore riscalda o raffresca.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "R32",
+        "Caldaia solo riscaldamento",
+        "Unità interna murale"
+      ],
+      "points": [
+        "Ingresso fotovoltaico. Con il segnale del fotovoltaico attivo il bollitore viene caricato fino a 70 °C con la pompa di calore e la resistenza elettrica del bollitore, non fornita, mentre la caldaia resta spenta.",
+        "Caldaia in integrazione o in sostituzione. La centralina attiva la caldaia in integrazione o in sostituzione della pompa di calore in base ai parametri impostati in installazione, e se la pompa di calore va in blocco riscaldamento e acqua calda passano alla sola caldaia."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "OMNIA S 3.2 HYBRID 28H 4 (KIT-HH-04)",
+            "Ibrido split R32: unità esterna + unità interna murale con caldaia a condensazione 28 kW solo riscaldamento, per bollitore esterno non compreso, monofase",
+            "UE 1008 × 712 × 426 mm · 58 kg — UI 440 × 700 × 320 mm",
+            "4,2 kW · COP 5,10 · 220-240 V"
+          ],
+          [
+            "OMNIA S 3.2 HYBRID 28H 6 (KIT-HH-06)",
+            "Ibrido split R32: unità esterna + unità interna murale con caldaia a condensazione 28 kW solo riscaldamento, per bollitore esterno non compreso, monofase",
+            "UE 1008 × 712 × 426 mm · 58 kg — UI 440 × 700 × 320 mm",
+            "6,35 kW · COP 4,95 · 220-240 V"
+          ],
+          [
+            "OMNIA S 3.2 HYBRID 28H 8 (KIT-HH-08)",
+            "Ibrido split R32: unità esterna + unità interna murale con caldaia a condensazione 28 kW solo riscaldamento, per bollitore esterno non compreso, monofase",
+            "UE 1118 × 865 × 523 mm · 77 kg — UI 440 × 700 × 320 mm",
+            "8,4 kW · COP 5,15 · 220-240 V"
+          ],
+          [
+            "OMNIA S 3.2 HYBRID 28H 10 (KIT-HH-10)",
+            "Ibrido split R32: unità esterna + unità interna murale con caldaia a condensazione 28 kW solo riscaldamento, per bollitore esterno non compreso, monofase",
+            "UE 1118 × 865 × 523 mm · 77 kg — UI 440 × 700 × 320 mm",
+            "10 kW · COP 4,95 · 220-240 V"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/omnia-s-hybrid-28h-scheda-tecnica-it-en-a55a6735.pdf",
+          "size": "3,0 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità interna",
+          "file": "/schede/omnia-s-hybrid-28h-unita-interna-manuale-it-90c8a3cd.pdf",
+          "size": "9,1 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità esterna",
+          "file": "/schede/omnia-s-3-2-unita-esterna-manuale-it-en-es-pt-200059a4.pdf",
+          "size": "45,4 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/omnia-s-hybrid-28h-etichetta-energetica-erp-multilingua-9315a91c.pdf",
+          "size": "140 KB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/omnia-s-hybrid-28c-depliant-it-597be19c.pdf",
+          "size": "2,7 MB"
+        },
+        {
+          "label": "Scheda commerciale",
+          "file": "/schede/omnia-s-hybrid-28h-flyer-it-4a3659ad.pdf",
+          "size": "579 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-omnia-hy-s-in",
+      "name": "OMNIA HY S IN",
+      "category": "clima",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/omnia-s-hybrid-h-in-foto-prodotto-ec06a624.webp",
+      "intro": "OMNIA HY S IN è un sistema ibrido aria-acqua reversibile da incasso, integrato di fabbrica, con pompa di calore da 4 a 10 kW, monofase. Comprende l'unità esterna, l'unità interna con caldaia a condensazione da 28 kW uguale per tutte le taglie, un bollitore sanitario da 150 litri in acciaio inox e il kit di connessione idraulica che li collega.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "R32",
+        "Accumulo sanitario 150 litri inox",
+        "Sistema completo con kit idraulico"
+      ],
+      "points": [
+        "Idraulica e gas compresi nel kit. Il kit di connessione del sistema base porta la valvola di bypass fra mandata e ritorno, il vaso di espansione, la valvola di sicurezza del bollitore, i rubinetti di carico e di intercettazione e la tubazione del gas con rubinetto per la caldaia.",
+        "Caldaia in integrazione o in sostituzione. La centralina attiva la caldaia in integrazione o in sostituzione della pompa di calore in base ai parametri impostati in installazione, e se la pompa di calore va in blocco riscaldamento e acqua calda passano alla sola caldaia.",
+        "Ingresso fotovoltaico. Con il segnale del fotovoltaico attivo il bollitore viene caricato fino a 70 °C con la pompa di calore e la resistenza elettrica del bollitore, da prevedere, mentre la caldaia resta spenta."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "OMNIA S 3.2 HY H IN 04 (KIT-HIN-04)",
+            "Sistema ibrido split da incasso: unità esterna + unità interna con caldaia 28 kW + accumulo sanitario inox 150 L + kit idraulico, armadio escluso, monofase",
+            "Unità esterna 1008 × 712 × 426 mm · 58 kg",
+            "4,2 kW · COP 5,10 · 220-240 V"
+          ],
+          [
+            "OMNIA S 3.2 HY H IN 06 (KIT-HIN-06)",
+            "Sistema ibrido split da incasso: unità esterna + unità interna con caldaia 28 kW + accumulo sanitario inox 150 L + kit idraulico, armadio escluso, monofase",
+            "Unità esterna 1008 × 712 × 426 mm · 58 kg",
+            "6,35 kW · COP 4,95 · 220-240 V"
+          ],
+          [
+            "OMNIA S 3.2 HY H IN 08 (KIT-HIN-08)",
+            "Sistema ibrido split da incasso: unità esterna + unità interna con caldaia 28 kW + accumulo sanitario inox 150 L + kit idraulico, armadio escluso, monofase",
+            "Unità esterna 1118 × 865 × 523 mm · 77 kg",
+            "8,4 kW · COP 5,15 · 220-240 V"
+          ],
+          [
+            "OMNIA S 3.2 HY H IN 10 (KIT-HIN-10)",
+            "Sistema ibrido split da incasso: unità esterna + unità interna con caldaia 28 kW + accumulo sanitario inox 150 L + kit idraulico, armadio escluso, monofase",
+            "Unità esterna 1118 × 865 × 523 mm · 77 kg",
+            "10 kW · COP 4,95 · 220-240 V"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/omnia-s-hybrid-h-in-scheda-tecnica-it-73711afa.pdf",
+          "size": "761 KB"
+        },
+        {
+          "label": "Manuale di installazione del sistema a incasso",
+          "file": "/schede/omnia-s-hybrid-h-in-sistema-ad-incasso-manuale-it-a8f8e2c2.pdf",
+          "size": "8,7 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità interna",
+          "file": "/schede/omnia-s-hybrid-28h-unita-interna-manuale-it-90c8a3cd.pdf",
+          "size": "9,1 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità esterna",
+          "file": "/schede/omnia-s-3-2-unita-esterna-manuale-it-en-es-pt-200059a4.pdf",
+          "size": "45,4 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/omnia-s-hybrid-h-in-etichetta-energetica-erp-it-2c3de065.pdf",
+          "size": "129 KB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/omnia-s-hybrid-28c-depliant-it-597be19c.pdf",
+          "size": "2,7 MB"
+        }
+      ]
+    },
+    {
+      "id": "cli-giada-mono-split",
+      "name": "GIADA mono-split",
+      "category": "clima",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/giada-s-foto-prodotto-f19e9b0e.webp",
+      "intro": "GIADA mono-split è una serie di climatizzatori murali in pompa di calore, nelle taglie 9, 12, 18 e 24, tutte monofase. Ogni taglia abbina un'unità interna a parete e un'unità esterna della stessa taglia, e raffresca, deumidifica e riscalda l'ambiente in cui è installata l'unità interna.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "R32",
+        "Inverter DC",
+        "Controllo da app",
+        "Filtraggio quadruplo e ionizzatore"
+      ],
+      "points": [
+        "Wi-Fi di serie. Ogni unità interna si collega alla rete Wi-Fi senza accessori ed è compatibile con i comandi vocali di Alexa e Google Home.",
+        "Riscaldamento fino a -15 °C esterni. In riscaldamento l'unità lavora con temperatura esterna da -15 a 30 °C, su tutte le taglie."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "GIADA S 9 (UI 2CP001HF · UE 2CP001LF)",
+            "Split murale R32: unità interna + unità esterna, monofase",
+            "UI 805 × 285 × 194 mm · 7,6 kg — UE 720 × 495 × 270 mm · 23,2 kg",
+            "SEER 6,30 · SCOP 4,00 clima medio · 220-240 V"
+          ],
+          [
+            "GIADA S 12 (UI 2CP001IF · UE 2CP001MF)",
+            "Split murale R32: unità interna + unità esterna, monofase",
+            "UI 805 × 285 × 194 mm · 7,6 kg — UE 720 × 495 × 270 mm · 23,2 kg",
+            "SEER 6,10 · SCOP 4,00 clima medio · 220-240 V"
+          ],
+          [
+            "GIADA S 18 (UI 2CP001JF · UE 2CP001NF)",
+            "Split murale R32: unità interna + unità esterna, monofase",
+            "UI 957 × 302 × 213 mm · 10,0 kg — UE 802 × 554 × 330 mm · 32,7 kg",
+            "SEER 7,40 · SCOP 4,00 clima medio · 220-240 V"
+          ],
+          [
+            "GIADA S 24 (UI 2CP001KF · UE 2CP001OF)",
+            "Split murale R32: unità interna + unità esterna, monofase",
+            "UI 1040 × 327 × 220 mm · 12,3 kg — UE 890 × 673 × 342 mm · 42,9 kg",
+            "SEER 6,10 · SCOP 4,00 clima medio · 220-240 V"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/giada-s-scheda-tecnica-en-de9ee631.pdf",
+          "size": "1,4 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità interna",
+          "file": "/schede/giada-s-unita-interna-ed-esterna-manuale-it-en-es-ro-el-1a3cd616.pdf",
+          "size": "22,7 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/giada-s-etichetta-energetica-erp-multilingua-2f61f58c.pdf",
+          "size": "399 KB"
+        },
+        {
+          "label": "Scheda commerciale",
+          "file": "/schede/giada-s-flyer-it-c4f8ad53.pdf",
+          "size": "190 KB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/giada-s-depliant-it-87ef1d3a.pdf",
+          "size": "3,3 MB"
+        }
+      ]
+    },
+    {
+      "id": "cli-giada-multisplit",
+      "name": "GIADA multisplit",
+      "category": "clima",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/giada-m-foto-prodotto-10e47099.webp",
+      "intro": "GIADA multisplit è una gamma di unità esterne in pompa di calore per impianti multisplit, in quattro taglie monofase, 18-2, 21-3, 27-3 e 28-4. A ogni unità esterna si collegano fino a quattro unità interne murali GIADA 9, 12 e 18, secondo la taglia, e ogni unità interna ha il proprio telecomando.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "R32",
+        "Da 2 a 4 unità interne",
+        "Inverter DC",
+        "Controllo da app",
+        "Filtraggio quadruplo e ionizzatore"
+      ],
+      "points": [
+        "Wi-Fi di serie. Ogni unità interna si collega alla rete Wi-Fi senza accessori ed è compatibile con i comandi vocali di Alexa e Google Home.",
+        "Riscaldamento fino a −15 °C esterni. Il limite inferiore di funzionamento in riscaldamento è lo stesso su tutte e quattro le unità esterne."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "GIADA M 18-2 (2CP001PF)",
+            "Unità esterna multisplit R32, 2 attacchi, monofase",
+            "805 × 554 × 330 mm · 35 kg",
+            "fino a 2 unità interne · SEER 6,1 · SCOP 3,8 clima medio"
+          ],
+          [
+            "GIADA M 21-3 (2CP001QF)",
+            "Unità esterna multisplit R32, 3 attacchi, monofase",
+            "890 × 673 × 342 mm · 43,3 kg",
+            "fino a 3 unità interne · SEER 6,1 · SCOP 4,0 clima medio"
+          ],
+          [
+            "GIADA M 27-3 (2CP011RF)",
+            "Unità esterna multisplit R32, 3 attacchi, monofase",
+            "890 × 673 × 342 mm · 48 kg",
+            "fino a 3 unità interne · SEER 6,1 · SCOP 4,0 clima medio"
+          ],
+          [
+            "GIADA M 28-4 (2CP001SF)",
+            "Unità esterna multisplit R32, 4 attacchi, monofase",
+            "946 × 810 × 410 mm · 61,1 kg",
+            "fino a 4 unità interne · SEER 6,1 · SCOP 3,8 clima medio"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/giada-m-scheda-tecnica-it-e4a851b0.pdf",
+          "size": "278 KB"
+        },
+        {
+          "label": "Manuale di installazione — unità esterna",
+          "file": "/schede/giada-m-unita-esterna-manuale-it-en-es-ro-el-f3eb5997.pdf",
+          "size": "80,1 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso — unità interna",
+          "file": "/schede/giada-s-unita-interna-ed-esterna-manuale-it-en-es-ro-el-1a3cd616.pdf",
+          "size": "22,7 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/giada-m-etichetta-energetica-erp-multilingua-37fd3573.pdf",
+          "size": "387 KB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/giada-s-depliant-it-87ef1d3a.pdf",
+          "size": "3,3 MB"
+        }
+      ]
+    },
+    {
+      "id": "cli-jolly-top-3v",
+      "name": "JOLLY TOP 3V",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/jolly-top-3v-vm-foto-prodotto-05d0b6b1.webp",
+      "intro": "JOLLY TOP 3V è una serie di ventilconvettori ad acqua per il riscaldamento e il raffrescamento, in cinque grandezze da 150 a 700. Ogni grandezza ha due versioni, VM con mantello per l'installazione a vista e VN senza mantello.",
+      "highlights": [
+        "Installazione verticale e orizzontale",
+        "Profondità 200 mm",
+        "Motore AC a 3 velocità",
+        "Ventilatore centrifugo",
+        "Batteria rame-alluminio",
+        "Filtro aria lavabile"
+      ],
+      "points": [
+        "Posizioni di installazione. La VM si monta a parete, in nicchia o sospesa a soffitto, la VN è indicata per l'incasso e il controsoffitto.",
+        "Attacchi a sinistra o a destra. Gli attacchi idraulici sono di serie sul lato sinistro, e ruotando la batteria in fase di installazione passano sul lato destro."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "JOLLY TOP 3V 150 VM (2CO9A30F)",
+            "Ventilconvettore centrifugo a 3 velocità, con mantello, installazione a vista",
+            "790 × 495 × 200 mm · 16,3 kg",
+            "Caldo 1,85 kW (acqua 45-40 °C) · freddo 1,65 kW · assorbimento max 35 W · 35→21 dB(A)"
+          ],
+          [
+            "JOLLY TOP 3V 150 VN (2CO9A350)",
+            "Ventilconvettore centrifugo a 3 velocità, senza mantello, installazione a incasso",
+            "637 × 455 × 200 mm · 11,6 kg",
+            "Caldo 1,85 kW (acqua 45-40 °C) · freddo 1,65 kW · assorbimento max 35 W · 35→21 dB(A)"
+          ],
+          [
+            "JOLLY TOP 3V 250 VM (2CO9A31F)",
+            "Ventilconvettore centrifugo a 3 velocità, con mantello, installazione a vista",
+            "1020 × 495 × 200 mm · 20 kg",
+            "Caldo 3,05 kW (acqua 45-40 °C) · freddo 2,65 kW · assorbimento max 47 W · 34→18 dB(A)"
+          ],
+          [
+            "JOLLY TOP 3V 250 VN (2CO9A360)",
+            "Ventilconvettore centrifugo a 3 velocità, senza mantello, installazione a incasso",
+            "867 × 455 × 200 mm · 13,9 kg",
+            "Caldo 3,05 kW (acqua 45-40 °C) · freddo 2,65 kW · assorbimento max 47 W · 34→18 dB(A)"
+          ],
+          [
+            "JOLLY TOP 3V 350 VM (2CO9A32F)",
+            "Ventilconvettore centrifugo a 3 velocità, con mantello, installazione a vista",
+            "1240 × 495 × 200 mm · 24 kg",
+            "Caldo 4,10 kW (acqua 45-40 °C) · freddo 3,85 kW · assorbimento max 51 W · 39→23 dB(A)"
+          ],
+          [
+            "JOLLY TOP 3V 350 VN (2CO9A370)",
+            "Ventilconvettore centrifugo a 3 velocità, senza mantello, installazione a incasso",
+            "1087 × 455 × 200 mm · 17,3 kg",
+            "Caldo 4,10 kW (acqua 45-40 °C) · freddo 3,85 kW · assorbimento max 51 W · 39→23 dB(A)"
+          ],
+          [
+            "JOLLY TOP 3V 500 VM (2CO9A33F)",
+            "Ventilconvettore centrifugo a 3 velocità, con mantello, installazione a vista",
+            "1240 × 495 × 200 mm · 24 kg",
+            "Caldo 5,20 kW (acqua 45-40 °C) · freddo 4,65 kW · assorbimento max 91 W · 48→31 dB(A)"
+          ],
+          [
+            "JOLLY TOP 3V 500 VN (2CO9A380)",
+            "Ventilconvettore centrifugo a 3 velocità, senza mantello, installazione a incasso",
+            "1087 × 455 × 200 mm · 17,9 kg",
+            "Caldo 5,20 kW (acqua 45-40 °C) · freddo 4,65 kW · assorbimento max 91 W · 48→31 dB(A)"
+          ],
+          [
+            "JOLLY TOP 3V 700 VM (2CO9A34F)",
+            "Ventilconvettore centrifugo a 3 velocità, con mantello, installazione a vista",
+            "1360 × 495 × 200 mm · 27,3 kg",
+            "Caldo 6,15 kW (acqua 45-40 °C) · freddo 6,00 kW · assorbimento max 123 W · 50→33 dB(A)"
+          ],
+          [
+            "JOLLY TOP 3V 700 VN (2CO9A390)",
+            "Ventilconvettore centrifugo a 3 velocità, senza mantello, installazione a incasso",
+            "1207 × 455 × 200 mm · 20,5 kg",
+            "Caldo 6,15 kW (acqua 45-40 °C) · freddo 6,00 kW · assorbimento max 123 W · 50→33 dB(A)"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/jolly-top-3v-scheda-tecnica-it-7d9da2c4.pdf",
+          "size": "176 KB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/jolly-top-3v-depliant-it-0d811059.pdf",
+          "size": "858 KB"
+        },
+        {
+          "label": "Manuale di installazione e uso",
+          "file": "/schede/jolly-top-3v-manuale-multilingua-afbb0ebd.pdf",
+          "size": "2,8 MB"
+        }
+      ]
+    },
+    {
+      "id": "cli-jolly-top-i",
+      "name": "JOLLY TOP I",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/jolly-top-i-vm-foto-prodotto-05d0b6b1.webp",
+      "intro": "JOLLY TOP I è una serie di ventilconvettori ad acqua per il riscaldamento e il raffrescamento, in cinque grandezze da 150 a 700, con motore DC brushless. Ogni grandezza ha due versioni, VM con mantello per l'installazione a vista e VN senza mantello.",
+      "highlights": [
+        "Motore DC brushless",
+        "Installazione verticale e orizzontale",
+        "Profondità 200 mm",
+        "Ventilatore centrifugo",
+        "Batteria rame-alluminio",
+        "Filtro aria lavabile"
+      ],
+      "points": [
+        "Regolazione continua della velocità. Il motore regola la velocità in modo continuo, e alla velocità massima assorbe da 15 W sulla grandezza 150 a 96 W sulla 700.",
+        "Posizioni di installazione. La VM si monta a parete, in nicchia o sospesa a soffitto, la VN è indicata per l'incasso e il controsoffitto.",
+        "Attacchi a sinistra o a destra. Gli attacchi idraulici sono di serie sul lato sinistro, e ruotando la batteria in fase di installazione passano sul lato destro."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "JOLLY TOP I 150 VM (2CO9A3AF)",
+            "Ventilconvettore centrifugo con motore inverter, con mantello, installazione a vista",
+            "790 × 495 × 200 mm · 18 kg",
+            "Caldo 1,57 kW (acqua 45-40 °C) · freddo 1,50 kW · assorbimento max 15 W · 34→21 dB(A)"
+          ],
+          [
+            "JOLLY TOP I 150 VN (2CO9A3F0)",
+            "Ventilconvettore centrifugo con motore inverter, senza mantello, installazione a incasso",
+            "637 × 455 × 200 mm · 14 kg",
+            "Caldo 1,57 kW (acqua 45-40 °C) · freddo 1,50 kW · assorbimento max 15 W · 34→21 dB(A)"
+          ],
+          [
+            "JOLLY TOP I 250 VM (2CO9A3BF)",
+            "Ventilconvettore centrifugo con motore inverter, con mantello, installazione a vista",
+            "1020 × 495 × 200 mm · 21,5 kg",
+            "Caldo 2,60 kW (acqua 45-40 °C) · freddo 2,35 kW · assorbimento max 17 W · 29→18 dB(A)"
+          ],
+          [
+            "JOLLY TOP I 250 VN (2CO9A3G0)",
+            "Ventilconvettore centrifugo con motore inverter, senza mantello, installazione a incasso",
+            "867 × 455 × 200 mm · 16,5 kg",
+            "Caldo 2,60 kW (acqua 45-40 °C) · freddo 2,35 kW · assorbimento max 17 W · 29→18 dB(A)"
+          ],
+          [
+            "JOLLY TOP I 350 VM (2CO9A3CF)",
+            "Ventilconvettore centrifugo con motore inverter, con mantello, installazione a vista",
+            "1240 × 495 × 200 mm · 25,5 kg",
+            "Caldo 3,80 kW (acqua 45-40 °C) · freddo 3,50 kW · assorbimento max 26 W · 38→23 dB(A)"
+          ],
+          [
+            "JOLLY TOP I 350 VN (2CO9A3H0)",
+            "Ventilconvettore centrifugo con motore inverter, senza mantello, installazione a incasso",
+            "1087 × 455 × 200 mm · 19,5 kg",
+            "Caldo 3,80 kW (acqua 45-40 °C) · freddo 3,50 kW · assorbimento max 26 W · 38→23 dB(A)"
+          ],
+          [
+            "JOLLY TOP I 500 VM (2CO9A3DF)",
+            "Ventilconvettore centrifugo con motore inverter, con mantello, installazione a vista",
+            "1240 × 495 × 200 mm · 25,5 kg",
+            "Caldo 4,70 kW (acqua 45-40 °C) · freddo 4,30 kW · assorbimento max 50 W · 46→30 dB(A)"
+          ],
+          [
+            "JOLLY TOP I 500 VN (2CO9A3I0)",
+            "Ventilconvettore centrifugo con motore inverter, senza mantello, installazione a incasso",
+            "1087 × 455 × 200 mm · 19,5 kg",
+            "Caldo 4,70 kW (acqua 45-40 °C) · freddo 4,30 kW · assorbimento max 50 W · 46→30 dB(A)"
+          ],
+          [
+            "JOLLY TOP I 700 VM (2CO9A3EF)",
+            "Ventilconvettore centrifugo con motore inverter, con mantello, installazione a vista",
+            "1360 × 495 × 200 mm · 28,5 kg",
+            "Caldo 6,00 kW (acqua 45-40 °C) · freddo 5,60 kW · assorbimento max 96 W · 50→31 dB(A)"
+          ],
+          [
+            "JOLLY TOP I 700 VN (2CO9A3J0)",
+            "Ventilconvettore centrifugo con motore inverter, senza mantello, installazione a incasso",
+            "1207 × 455 × 200 mm · 22 kg",
+            "Caldo 6,00 kW (acqua 45-40 °C) · freddo 5,60 kW · assorbimento max 96 W · 50→31 dB(A)"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/jolly-top-i-scheda-tecnica-it-59e91bb4.pdf",
+          "size": "157 KB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/jolly-top-3v-depliant-it-0d811059.pdf",
+          "size": "858 KB"
+        },
+        {
+          "label": "Manuale di installazione e uso",
+          "file": "/schede/jolly-top-3v-manuale-multilingua-afbb0ebd.pdf",
+          "size": "2,8 MB"
+        }
+      ]
+    },
+    {
+      "id": "cli-jolly-style",
+      "name": "JOLLY STYLE",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/jolly-style-vm-foto-prodotto-7c690faa.webp",
+      "intro": "JOLLY STYLE è una serie di ventilconvettori tangenziali ultrasottili, in quattro taglie da 10 a 40 di lunghezza crescente, abbinabili a una caldaia, a una pompa di calore o a un refrigeratore. Ogni taglia ha due versioni, VM a mobiletto e VN da incasso per installazione verticale.",
+      "highlights": [
+        "Profondità VM 127 mm",
+        "Riscaldamento e raffrescamento",
+        "Motore a basso consumo",
+        "Alette dell'aria orientabili",
+        "Struttura in metallo bianco"
+      ],
+      "points": [
+        "Comando touch di serie sulla VM. La versione a mobiletto ha a bordo il comando touch con display.",
+        "Rete senza regolatori aggiuntivi. L'elettronica di serie gestisce fino a 30 unità in Master/Slave, con almeno un'unità dotata di display, e fino a 60 unità verso un sistema di supervisione o di domotica Modbus, non fornito.",
+        "Rumorosità ridotta alle basse portate. Il controllo del motore privilegia le basse portate d'aria, e al gradino minimo di ventilazione la pressione sonora va da 19 a 23 dB(A) secondo la taglia."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "JOLLY STYLE 10 VM (2CP003AF)",
+            "Ventilconvettore ultrasottile a mobiletto, attacchi idraulici a sinistra. Con attacchi a destra, su ordinazione: 2CP003GF",
+            "lunghezza 580 mm · profondità 127 mm · 12 kg",
+            "Caldo 1,16 kW (acqua 45-40 °C) · freddo 0,92 kW · 40→19 dB(A)"
+          ],
+          [
+            "JOLLY STYLE 20 VM (2CP003BF)",
+            "Ventilconvettore ultrasottile a mobiletto, attacchi idraulici a sinistra. Con attacchi a destra, su ordinazione: 2CP003HF",
+            "lunghezza 780 mm · profondità 127 mm · 15 kg",
+            "Caldo 2,37 kW (acqua 45-40 °C) · freddo 2,00 kW · 43→23 dB(A)"
+          ],
+          [
+            "JOLLY STYLE 30 VM (2CP003CF)",
+            "Ventilconvettore ultrasottile a mobiletto, attacchi idraulici a sinistra. Con attacchi a destra, su ordinazione: 2CP003IF",
+            "lunghezza 980 mm · profondità 127 mm · 18 kg",
+            "Caldo 3,22 kW (acqua 45-40 °C) · freddo 2,79 kW · 44→23 dB(A)"
+          ],
+          [
+            "JOLLY STYLE 40 VM (2CP003DF)",
+            "Ventilconvettore ultrasottile a mobiletto, attacchi idraulici a sinistra. Con attacchi a destra, su ordinazione: 2CP003JF",
+            "lunghezza 1180 mm · profondità 127 mm · 21 kg",
+            "Caldo 3,83 kW (acqua 45-40 °C) · freddo 3,38 kW · 42→22 dB(A)"
+          ],
+          [
+            "JOLLY STYLE 10 VN (2CP003MF)",
+            "Ventilconvettore ultrasottile a incasso verticale, attacchi idraulici a sinistra",
+            "lunghezza 360 mm · profondità 124 mm",
+            "Caldo 1,16 kW (acqua 45-40 °C) · freddo 0,92 kW · 40→19 dB(A)"
+          ],
+          [
+            "JOLLY STYLE 20 VN (2CP003NF)",
+            "Ventilconvettore ultrasottile a incasso verticale, attacchi idraulici a sinistra",
+            "lunghezza 560 mm · profondità 124 mm",
+            "Caldo 2,37 kW (acqua 45-40 °C) · freddo 2,00 kW · 43→23 dB(A)"
+          ],
+          [
+            "JOLLY STYLE 30 VN (2CP003PF)",
+            "Ventilconvettore ultrasottile a incasso verticale, attacchi idraulici a sinistra",
+            "lunghezza 760 mm · profondità 124 mm",
+            "Caldo 3,22 kW (acqua 45-40 °C) · freddo 2,79 kW · 44→23 dB(A)"
+          ],
+          [
+            "JOLLY STYLE 40 VN (2CP003QF)",
+            "Ventilconvettore ultrasottile a incasso verticale, attacchi idraulici a sinistra",
+            "lunghezza 960 mm · profondità 124 mm",
+            "Caldo 3,83 kW (acqua 45-40 °C) · freddo 3,38 kW · 42→22 dB(A)"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/jolly-style-scheda-tecnica-it-35d9041c.pdf",
+          "size": "2,0 MB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/jolly-style-depliant-it-d947639e.pdf",
+          "size": "2,2 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso",
+          "file": "/schede/jolly-style-manuale-multilingua-4d6fefce.pdf",
+          "size": "7,1 MB"
+        }
+      ]
+    },
+    {
+      "id": "cli-jolly-up",
+      "name": "JOLLY UP",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/jolly-up-foto-prodotto-c58665d7.webp",
+      "intro": "JOLLY UP è una serie di ventilconvettori idronici a parete, con ventilatore tangenziale e mobile in ABS bianco, in tre taglie, 30, 35 e 45. Le unità si installano a 2,3 m dal pavimento, lasciando libero lo spazio a terra, e sono abbinabili a una caldaia, a una pompa di calore o a un refrigeratore.",
+      "highlights": [
+        "Riscaldamento e raffrescamento",
+        "Tre velocità di ventilazione",
+        "Motore a basso consumo",
+        "Collegabile a domotica",
+        "Pressione massima 16 bar"
+      ],
+      "points": [
+        "Valvola e telecomando di serie. Telecomando a infrarossi, valvola a tre vie on/off e scheda elettronica con i contatti di chiamata della caldaia o della pompa di calore sono compresi nella fornitura.",
+        "Attacchi da quattro lati. Il collegamento all'impianto idraulico può essere destro, sinistro, posteriore destro o posteriore sinistro.",
+        "Integrazione negli impianti gestiti. La scheda ha una connessione Modbus verso sistemi di supervisione o di domotica, un ingresso 0-10 V per la velocità del ventilatore e un contatto per l'apertura della finestra."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "JOLLY UP 30 (2CP0030F)",
+            "Ventilconvettore idronico a parete, mobile in ABS, 3 velocità",
+            "larghezza 915 mm · altezza 290 mm · 11,5 kg",
+            "Raffrescamento 2,70 kW (acqua 7-12 °C) · riscaldamento 2,94 kW (acqua 45/40 °C), alla velocità massima · 32–27 dB(A)"
+          ],
+          [
+            "JOLLY UP 35 (2CP0031F)",
+            "Ventilconvettore idronico a parete, mobile in ABS, 3 velocità",
+            "larghezza 915 mm · altezza 290 mm · 11,5 kg",
+            "Raffrescamento 2,91 kW (acqua 7-12 °C) · riscaldamento 3,23 kW (acqua 45/40 °C), alla velocità massima · 32–23 dB(A)"
+          ],
+          [
+            "JOLLY UP 45 (2CP0032F)",
+            "Ventilconvettore idronico a parete, mobile in ABS, 3 velocità",
+            "larghezza 915 mm · altezza 290 mm · 11,5 kg",
+            "Raffrescamento 3,81 kW (acqua 7-12 °C) · riscaldamento 4,30 kW (acqua 45/40 °C), alla velocità massima · 45–35 dB(A)"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/jolly-up-scheda-tecnica-it-00aca79d.pdf",
+          "size": "155 KB"
+        },
+        {
+          "label": "Manuale di installazione",
+          "file": "/schede/jolly-up-manuale-it-en-es-90ffefb5.pdf",
+          "size": "2,8 MB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/jolly-up-depliant-it-df1ac873.pdf",
+          "size": "200 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-jolly-fly",
+      "name": "JOLLY FLY",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/jolly-fly-foto-prodotto-a01e42c8.webp",
+      "intro": "JOLLY FLY è una serie di ventilconvettori idronici a parete, in tre taglie, 15, 30 e 45, con pannello frontale in metallo verniciato bianco e lame di uscita dell'aria in alluminio. Le unità si installano con il fondo a un'altezza fra 2,5 e 3 m dal pavimento e sono abbinabili a una caldaia, a una pompa di calore o a un refrigeratore.",
+      "highlights": [
+        "Riscaldamento e raffrescamento",
+        "Profondità 185 mm",
+        "Ventilatore tangenziale",
+        "Motore a basso consumo"
+      ],
+      "points": [
+        "Valvola montata e telecomando di serie. Telecomando a infrarossi, valvola a tre vie on/off già montata e scheda elettronica di gestione sono compresi nella fornitura.",
+        "Rete senza regolatori aggiuntivi. L'elettronica di serie collega più unità in Master/Slave e, tramite Modbus, fino a 60 unità a un sistema di supervisione o di domotica."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "JOLLY FLY 15 (2CP0033F)",
+            "Ventilconvettore idronico a parete, frontale in metallo",
+            "930 × 333 × 185 mm · 11,5 kg",
+            "Raffrescamento 1,62 kW (acqua 7-12 °C) · riscaldamento 1,81 kW (acqua 45/40 °C), al gradino massimo · 31–17 dB(A)"
+          ],
+          [
+            "JOLLY FLY 30 (2CP0034F)",
+            "Ventilconvettore idronico a parete, frontale in metallo",
+            "930 × 333 × 185 mm · 12 kg",
+            "Raffrescamento 2,52 kW (acqua 7-12 °C) · riscaldamento 2,82 kW (acqua 45/40 °C), al gradino massimo · 45–31 dB(A)"
+          ],
+          [
+            "JOLLY FLY 45 (2CP0035F)",
+            "Ventilconvettore idronico a parete, frontale in metallo",
+            "1235 × 333 × 185 mm · 14,5 kg",
+            "Raffrescamento 3,80 kW (acqua 7-12 °C) · riscaldamento 4,29 kW (acqua 45/40 °C), al gradino massimo · 46–29 dB(A)"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/jolly-fly-scheda-tecnica-it-d09df85a.pdf",
+          "size": "305 KB"
+        },
+        {
+          "label": "Manuale di installazione, uso e manutenzione",
+          "file": "/schede/jolly-fly-manuale-it-en-fr-de-es-ru-9da6c58f.pdf",
+          "size": "13,5 MB"
+        },
+        {
+          "label": "Depliant",
+          "file": "/schede/jolly-style-depliant-it-d947639e.pdf",
+          "size": "2,2 MB"
+        }
+      ]
+    },
+    {
+      "id": "cli-fcm-cassette-da-controsoffitto",
+      "name": "FCM — cassette da controsoffitto",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/fcm-foto-prodotto-613c7ee9.webp",
+      "intro": "FCM è una serie di ventilconvettori ad acqua a cassetta, da installare in controsoffitto, per impianti a due tubi e a quattro tubi, fino a 10,64 kW in raffrescamento alla velocità massima. Nella versione a quattro tubi una seconda batteria è dedicata all'acqua calda.",
+      "highlights": [
+        "Impianti a 2 o 4 tubi",
+        "Installazione in controsoffitto",
+        "Funzione deumidificazione",
+        "Programmazione temporizzata",
+        "Predisposizione aria di rinnovo",
+        "Immissione d'aria in locale attiguo"
+      ],
+      "points": [
+        "Pompa di scarico condensa di serie. La condensa è sollevata fino a 75 cm dal fondo dell'unità, e fino a 50 cm sui modelli 400 e 400-4T."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "FCM 400 (2C097A0F)",
+            "Cassetta da controsoffitto, impianto a 2 tubi",
+            "Unità 575 × 575 × 260 mm · 16,5 kg",
+            "Raffrescamento 3,93 kW · riscaldamento 5,34 kW (acqua in ingresso 50 °C), alla velocità massima · 40–28 dB(A)"
+          ],
+          [
+            "FCM 600 (2C097A1F)",
+            "Cassetta da controsoffitto, impianto a 2 tubi",
+            "Unità 840 × 840 × 230 mm · 23 kg",
+            "Raffrescamento 5,58 kW · riscaldamento 7,72 kW (acqua in ingresso 50 °C), alla velocità massima · 42–26 dB(A)"
+          ],
+          [
+            "FCM 850 (2C097A2F)",
+            "Cassetta da controsoffitto, impianto a 2 tubi",
+            "Unità 840 × 840 × 300 mm · 27 kg",
+            "Raffrescamento 6,84 kW · riscaldamento 9,37 kW (acqua in ingresso 50 °C), alla velocità massima · 46–28 dB(A)"
+          ],
+          [
+            "FCM 1500 (2C097A3F)",
+            "Cassetta da controsoffitto, impianto a 2 tubi",
+            "Unità 840 × 840 × 300 mm · 29 kg",
+            "Raffrescamento 10,64 kW · riscaldamento 14,38 kW (acqua in ingresso 50 °C), alla velocità massima · 50–33 dB(A)"
+          ],
+          [
+            "FCM 400-4T (2C097B0F)",
+            "Cassetta da controsoffitto, impianto a 4 tubi, batteria ausiliaria per il riscaldamento",
+            "Unità 575 × 575 × 260 mm",
+            "Raffrescamento 2,88 kW · riscaldamento 4,73 kW (acqua 70/60 °C), alla velocità massima · 40–28 dB(A)"
+          ],
+          [
+            "FCM 750-4T (2C097B1F)",
+            "Cassetta da controsoffitto, impianto a 4 tubi, batteria ausiliaria per il riscaldamento",
+            "Unità 840 × 840 × 300 mm",
+            "Raffrescamento 5,18 kW · riscaldamento 7,41 kW (acqua 70/60 °C), alla velocità massima · 42–26 dB(A)"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/fcm-scheda-tecnica-it-5008f9c9.pdf",
+          "size": "167 KB"
+        },
+        {
+          "label": "Manuale di installazione",
+          "file": "/schede/fcm-manuale-it-es-en-a3e82d49.pdf",
+          "size": "1,3 MB"
+        }
+      ]
+    },
+    {
+      "id": "cli-egea-tech",
+      "name": "EGEA TECH",
+      "category": "clima",
+      "sectors": [
+        "residenziale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/egea-tech-90-120-lt-foto-prodotto-4ad0b0ad.webp",
+      "intro": "EGEA TECH è una gamma di scaldacqua a pompa di calore ad aria con accumulo integrato per l'acqua calda sanitaria domestica, con modelli a muro da 90 e 120 litri e modelli a basamento da 200 e 260 litri. I modelli a basamento hanno tre versioni: HT, che lavora con aria in ingresso fino a +4 °C, LT, che scende a −7 °C, e LT-S, che alla LT aggiunge un serpentino per l'integrazione con il solare termico. Fino a otto modelli a basamento lavorano in cascata.",
+      "highlights": [
+        "Conto Termico 3.0",
+        "Detrazione fiscale",
+        "Da 90 a 260 litri",
+        "R290 (modelli a muro)",
+        "R134a (modelli a basamento)",
+        "Wi-Fi e app di serie",
+        "Cascata (modelli a basamento)"
+      ],
+      "points": [
+        "Fotovoltaico e tariffa agevolata. Con il segnale dell'impianto fotovoltaico l'accumulo sale fino a 75 °C, con pompa di calore e resistenza elettrica insieme, per sfruttare l'energia prodotta in eccesso. Un altro ingresso riceve il segnale della tariffa elettrica agevolata."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "EGEA TECH 90 LT (2CP0020F)",
+            "Scaldacqua a pompa di calore a muro, R290",
+            "Ø 510 × 1333 mm · 49 kg",
+            "89 l · 102 l a 40 °C · COP 3,12 · aria min −5 °C · classe A"
+          ],
+          [
+            "EGEA TECH 120 LT (2CP0021F)",
+            "Scaldacqua a pompa di calore a muro, R290",
+            "Ø 510 × 1555 mm · 55 kg",
+            "118 l · 145 l a 40 °C · COP 2,75 · aria min −5 °C · classe A"
+          ],
+          [
+            "EGEA TECH 200 HT (2CP0022F)",
+            "Scaldacqua a pompa di calore a basamento, R134a",
+            "Ø 621 × 1607 mm · 86 kg",
+            "192 l · 260 l a 40 °C · COP 2,8 · aria min +4 °C · classe A"
+          ],
+          [
+            "EGEA TECH 260 HT (2CP0023F)",
+            "Scaldacqua a pompa di calore a basamento, R134a",
+            "Ø 621 × 1892 mm · 98 kg",
+            "250 l · 358 l a 40 °C · COP 3,1 · aria min +4 °C · classe A"
+          ],
+          [
+            "EGEA TECH 200 LT (2CP0024F)",
+            "Scaldacqua a pompa di calore a basamento, R134a, sbrinamento attivo",
+            "Ø 621 × 1607 mm · 88 kg",
+            "192 l · 247 l a 40 °C · COP 3,23 · aria min −7 °C · classe A"
+          ],
+          [
+            "EGEA TECH 260 LT (2CP0025F)",
+            "Scaldacqua a pompa di calore a basamento, R134a, sbrinamento attivo",
+            "Ø 621 × 1892 mm · 100 kg",
+            "250 l · 340 l a 40 °C · COP 3,37 · aria min −7 °C · classe A"
+          ],
+          [
+            "EGEA TECH 200 LT-S (2CP0026F)",
+            "Scaldacqua a pompa di calore a basamento, R134a, sbrinamento attivo, serpentino solare 0,72 m²",
+            "Ø 621 × 1607 mm · 97 kg",
+            "187 l · 241 l a 40 °C · COP 3,23 · aria min −7 °C · classe A"
+          ],
+          [
+            "EGEA TECH 260 LT-S (2CP0027F)",
+            "Scaldacqua a pompa di calore a basamento, R134a, sbrinamento attivo, serpentino solare 0,72 m²",
+            "Ø 621 × 1892 mm · 109 kg",
+            "247 l · 335 l a 40 °C · COP 3,37 · aria min −7 °C · classe A"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica (modelli a muro 90-120)",
+          "file": "/schede/egea-tech-90-120-lt-scheda-tecnica-it-67713daa.pdf",
+          "size": "170 KB"
+        },
+        {
+          "label": "Scheda tecnica (modelli a basamento 200-260 HT/LT/LT-S)",
+          "file": "/schede/egea-tech-200-260-scheda-tecnica-it-68ae92de.pdf",
+          "size": "363 KB"
+        },
+        {
+          "label": "Manuale di installazione e uso (modelli a muro 90-120)",
+          "file": "/schede/egea-tech-90-120-lt-manuale-multilingua-35f11f2f.pdf",
+          "size": "13,5 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso (200-260 HT)",
+          "file": "/schede/egea-tech-200-260-ht-manuale-multilingua-4b10457b.pdf",
+          "size": "22,7 MB"
+        },
+        {
+          "label": "Manuale di installazione e uso (200-260 LT e LT-S)",
+          "file": "/schede/egea-tech-200-260-lt-lt-s-manuale-multilingua-baeacf70.pdf",
+          "size": "22,9 MB"
+        },
+        {
+          "label": "Etichetta energetica (90-120)",
+          "file": "/schede/egea-tech-90-120-lt-etichetta-energetica-erp-multilingua-c2ac545a.pdf",
+          "size": "84 KB"
+        },
+        {
+          "label": "Etichetta energetica (200-260 HT)",
+          "file": "/schede/egea-tech-200-260-ht-etichetta-energetica-erp-multilingua-04ad0be3.pdf",
+          "size": "68 KB"
+        },
+        {
+          "label": "Etichetta energetica (200-260 LT)",
+          "file": "/schede/egea-tech-200-260-lt-etichetta-energetica-erp-multilingua-08cbac1c.pdf",
+          "size": "69 KB"
+        },
+        {
+          "label": "Etichetta energetica (200-260 LT-S)",
+          "file": "/schede/egea-tech-200-260-lt-s-etichetta-energetica-erp-multilingua-d5d4951c.pdf",
+          "size": "69 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-bluehelix-alpha",
+      "name": "BLUEHELIX ALPHA",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/bluehelix-alpha-foto-prodotto-d72c1691.webp",
+      "intro": "BLUEHELIX ALPHA è una serie di caldaie murali a gas a condensazione, combinate con produzione istantanea di acqua calda sanitaria, nei modelli 24 C, 28 C e 34 C. L'omologazione per scarichi fumi da 50 mm la rende adatta alle sostituzioni in canne fumarie che richiedono intubamenti impegnativi.",
+      "highlights": [
+        "Scarico fumi Ø 50 mm",
+        "Detrazione fiscale",
+        "Esterno riparato fino a −5 °C",
+        "Portata termica regolabile",
+        "Predisposizione solare"
+      ],
+      "points": [
+        "Scarico fumi da 50 mm. Con condotti da 50 mm lo scarico arriva fino a 28 m sulla 24 C, 22 m sulla 28 C e 17 m sulla 34 C, e in caldaia si imposta la lunghezza reale del camino.",
+        "Scambiatore resistente all'intasamento. Lo scambiatore primario è in acciaio inox, a circuito unico senza giunzioni né saldature, con passaggi ampi e di facile pulizia.",
+        "Metano, GPL o aria propanata. Il passaggio da un gas all'altro avviene configurando l'elettronica, senza kit di conversione, e la trasformazione si richiede al Centro Assistenza Autorizzato."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "BLUEHELIX ALPHA 24 C (0TPF2AWA)",
+            "Caldaia murale a condensazione combinata, acqua calda istantanea",
+            "420 × 700 × 250 mm · 27 kg",
+            "20,0 kW riscaldamento · 14 l/min acqua calda (Δt 25 °C)"
+          ],
+          [
+            "BLUEHELIX ALPHA 28 C (0TPF4AWA)",
+            "Caldaia murale a condensazione combinata, acqua calda istantanea",
+            "420 × 700 × 250 mm · 27 kg",
+            "24,0 kW riscaldamento · 16,1 l/min acqua calda (Δt 25 °C)"
+          ],
+          [
+            "BLUEHELIX ALPHA 34 C (0TPF7AWA)",
+            "Caldaia murale a condensazione combinata, acqua calda istantanea",
+            "420 × 700 × 320 mm · 31 kg",
+            "30,0 kW riscaldamento · 19,5 l/min acqua calda (Δt 25 °C)"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Manuale di installazione e uso",
+          "file": "/schede/bluehelix-alpha-manuale-multilingua-414fa9d1.pdf",
+          "size": "20,8 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/bluehelix-alpha-etichetta-energetica-erp-it-80379cc1.pdf",
+          "size": "137 KB"
+        },
+        {
+          "label": "Scheda commerciale — soluzioni pensili o ad incasso",
+          "file": "/schede/bluehelix-alpha-flyer-it-bfe6623c.pdf",
+          "size": "186 KB"
+        },
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/bluehelix-alpha-scheda-tecnica-it-68bb0641.pdf",
+          "size": "396 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-bluehelix-theta-24-c",
+      "name": "BLUEHELIX THETA 24 C",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/bluehelix-theta-24-c-foto-prodotto-28689298.webp",
+      "intro": "BLUEHELIX THETA 24 C è una caldaia murale a gas a condensazione, combinata, con produzione istantanea di acqua calda sanitaria. Funziona a metano, GPL o aria propanata, e il passaggio da un gas all'altro si fa configurando l'elettronica, senza kit di conversione.",
+      "highlights": [
+        "20 kW in riscaldamento",
+        "Acqua calda 14 l/min (Δt 25 °C)",
+        "Detrazione fiscale",
+        "Esterno riparato fino a −5 °C",
+        "Portata termica regolabile",
+        "Predisposizione solare"
+      ],
+      "points": [
+        "Controllo di combustione adattivo. Il controllo di combustione si adatta alle fluttuazioni e alle riduzioni di pressione della rete del gas, e la trasformazione da un gas all'altro si richiede al Centro Assistenza Autorizzato.",
+        "Scambiatore in acciaio inox. Lo scambiatore primario è a circuito unico, senza giunzioni né saldature, e mantiene un'alta efficienza anche sugli impianti vecchi."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "BLUEHELIX THETA 24 C (0TPY2AWA)",
+            "Caldaia murale a condensazione combinata, acqua calda istantanea",
+            "420 × 700 × 250 mm · 27 kg",
+            "20,0 kW riscaldamento (minima 4,9 kW) · 14 l/min acqua calda (Δt 25 °C)"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Manuale di installazione e uso",
+          "file": "/schede/bluehelix-theta-24-c-manuale-it-en-ro-967aa861.pdf",
+          "size": "11,3 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/bluehelix-theta-24-c-etichetta-energetica-erp-it-8757b64e.pdf",
+          "size": "99 KB"
+        },
+        {
+          "label": "Scheda commerciale — soluzioni pensili o ad incasso",
+          "file": "/schede/bluehelix-alpha-flyer-it-bfe6623c.pdf",
+          "size": "186 KB"
+        },
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/bluehelix-theta-24-c-scheda-tecnica-it-cf9dc907.pdf",
+          "size": "263 KB"
+        }
+      ]
+    },
+    {
+      "id": "cli-ecounit-hp-bollitore-sanitario",
+      "name": "ECOUNIT HP — bollitore sanitario",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/ecounit-hp-foto-prodotto-363f6c23.webp",
+      "intro": "ECOUNIT HP è una serie di bollitori verticali ad accumulo per l'acqua calda sanitaria, da 200, 300 e 500 litri, per pompe di calore, caldaie e sistemi solari termici. Ogni taglia esiste con una serpentina o con due, e le due serpentine si collegano a circuiti diversi oppure in serie.",
+      "highlights": [
+        "Da 200 a 500 litri",
+        "Una o due serpentine",
+        "Resistenza elettrica 2000 W di serie",
+        "Doppio anodo al magnesio",
+        "Detrazione fiscale"
+      ],
+      "points": [
+        "Scambio dichiarato a bassa temperatura. La resa della serpentina grande è dichiarata con acqua di riscaldamento a 60/50 °C e va da 11,5 kW sul modello da 200 litri a 27,5 kW su quello da 500."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "ECOUNIT HP 200-1C (GRM411AA)",
+            "Bollitore acqua calda sanitaria, una serpentina, classe C",
+            "Ø 540 × 1438 mm · 91 kg a vuoto",
+            "167 L utili · serpentina 2,3 m²"
+          ],
+          [
+            "ECOUNIT HP 200-2C (GRM412AA)",
+            "Bollitore acqua calda sanitaria, due serpentine, classe C",
+            "Ø 540 × 1438 mm · 92 kg a vuoto",
+            "162 L utili · serpentine 2,3 + 0,7 m²"
+          ],
+          [
+            "ECOUNIT HP 300-1C (GRM631AA)",
+            "Bollitore acqua calda sanitaria, una serpentina, classe C",
+            "Ø 620 × 1557 mm · 118 kg a vuoto",
+            "254 L utili · serpentina 3,1 m²"
+          ],
+          [
+            "ECOUNIT HP 300-2C (GRM632AA)",
+            "Bollitore acqua calda sanitaria, due serpentine, classe C",
+            "Ø 620 × 1557 mm · 126 kg a vuoto",
+            "247 L utili · serpentine 3,1 + 0,7 m²"
+          ],
+          [
+            "ECOUNIT HP 500-1C (GRM841AA)",
+            "Bollitore acqua calda sanitaria, una serpentina, classe C",
+            "Ø 750 × 1769 mm · 180 kg a vuoto",
+            "444 L utili · serpentina 5,5 m²"
+          ],
+          [
+            "ECOUNIT HP 500-2C (GRM842AA)",
+            "Bollitore acqua calda sanitaria, due serpentine, classe C",
+            "Ø 750 × 1769 mm · 194 kg a vuoto",
+            "434 L utili · serpentine 5,5 + 1,2 m²"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/ecounit-hp-scheda-tecnica-it-567edf65.pdf",
+          "size": "109 KB"
+        },
+        {
+          "label": "Manuale di installazione e uso",
+          "file": "/schede/ecounit-hp-manuale-multilingua-d999ce5a.pdf",
+          "size": "16,4 MB"
+        }
+      ]
+    },
+    {
+      "id": "cli-ecopuffer-hp-accumulo-inerziale",
+      "name": "ECOPUFFER HP — accumulo inerziale",
+      "category": "clima",
+      "sectors": [
+        "residenziale",
+        "industriale"
+      ],
+      "published": true,
+      "image": "/assets/catalogo/ecopuffer-hp-foto-prodotto-9556d36f.webp",
+      "intro": "ECOPUFFER HP è una serie di accumuli inerziali verticali per l'acqua tecnica degli impianti di riscaldamento e raffrescamento, da 50, 80 e 100 litri. A seconda dell'applicazione può fare da volano termico, per garantire il contenuto minimo d'acqua richiesto dalla pompa di calore.",
+      "highlights": [
+        "Da 50 a 100 litri",
+        "Volano termico per pompa di calore",
+        "Acqua tecnica di impianto",
+        "Detrazione fiscale"
+      ],
+      "points": [
+        "Separazione idraulica. L'accumulo rende indipendenti le portate del circuito della pompa di calore e di quello dei terminali."
+      ],
+      "models": {
+        "columns": [
+          "Modello",
+          "Descrizione",
+          "Dimensioni",
+          "Dati"
+        ],
+        "rows": [
+          [
+            "ECOPUFFER HP 50 (0Y11MDXA)",
+            "Accumulo inerziale per acqua tecnica, installazione solo a parete, classe C",
+            "Ø 470 × 534 mm · 19 kg a vuoto, 71 kg a carico",
+            "52 L"
+          ],
+          [
+            "ECOPUFFER HP 80 (0Y110DXA)",
+            "Accumulo inerziale per acqua tecnica, installazione a parete o a pavimento, classe C",
+            "Ø 470 × 742 mm · 25 kg a vuoto, 103 kg a carico",
+            "78 L"
+          ],
+          [
+            "ECOPUFFER HP 100 (0Y111DXA)",
+            "Accumulo inerziale per acqua tecnica, installazione a parete o a pavimento, classe C",
+            "Ø 470 × 962 mm · 28 kg a vuoto, 134 kg a carico",
+            "106 L"
+          ]
+        ]
+      },
+      "datasheets": [
+        {
+          "label": "Scheda tecnica",
+          "file": "/schede/ecopuffer-hp-scheda-tecnica-it-516e76e1.pdf",
+          "size": "123 KB"
+        },
+        {
+          "label": "Manuale di installazione e uso",
+          "file": "/schede/ecopuffer-hp-manuale-multilingua-bacdc091.pdf",
+          "size": "7,6 MB"
+        },
+        {
+          "label": "Etichetta energetica",
+          "file": "/schede/ecopuffer-hp-etichetta-energetica-erp-it-a332c3fe.pdf",
+          "size": "106 KB"
+        }
+      ]
+    }
+  ]
+}

@@ -187,6 +187,12 @@
   font-size: 0.92rem;
   font-weight: 600;
   line-height: 1.25;
+  /* Codici come "(KPV500HCPLUS)" non hanno spazi: in una scheda da un terzo
+     della tendina uscirebbero dal bordo. */
+  overflow-wrap: anywhere;
+  /* Spazio per la spunta nell'angolo, che altrimenti copre la fine della
+     prima riga del nome. */
+  padding-right: 14px;
 }
 
 .cardMeta {
@@ -472,4 +478,113 @@
 .ambassadorCta:hover .ambassadorFill,
 .ambassadorCta:focus-visible .ambassadorFill {
   clip-path: inset(0 0 0 0);
+}
+
+/* ---------- Più modelli, una quantità ciascuno ---------- */
+
+.hint {
+  margin-top: -0.35rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: rgba(23, 20, 15, 0.55);
+}
+
+.qtyList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+/* Nome a sinistra, che va a capo se serve; contatore e × sempre a destra. */
+.qtyRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.55rem 0.55rem 0.95rem;
+  border: 1px solid rgba(23, 20, 15, 0.12);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.qtyName {
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid rgba(23, 20, 15, 0.16);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+
+/* Bersagli da 36 px: si usa anche col pollice. */
+.stepper button {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: background 0.2s var(--ease-out);
+}
+
+.stepper button:hover:not(:disabled) {
+  background: rgba(23, 20, 15, 0.06);
+}
+
+.stepper button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.qtyInput {
+  width: 3.1rem;
+  border: 0;
+  border-inline: 1px solid rgba(23, 20, 15, 0.12);
+  background: transparent;
+  color: #17140f;
+  font-family: var(--font-montserrat);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.qtyInput:focus {
+  outline: none;
+  background: color-mix(in srgb, var(--cat) 10%, #fff);
+}
+
+/* Campo svuotato: il modello resta, ma la richiesta non parte finché non c'è
+   un numero. */
+.qtyInput[aria-invalid="true"] {
+  background: #fdecec;
+}
+
+.qtyRemove {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: rgba(23, 20, 15, 0.5);
+  transition: background 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+
+.qtyRemove:hover {
+  background: rgba(23, 20, 15, 0.06);
+  color: #17140f;
+}
+
+.qtyTotal {
+  font-size: 0.8rem;
+  color: rgba(23, 20, 15, 0.6);
+  text-align: right;
 }

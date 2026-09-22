@@ -27,3 +27,9 @@ dist-ssr
 /public/product-page.png
 /public/pagina-singolo-prodotto.png
 /public/pagina chi siamo.png
+
+# Fascicolo sorgente dei prodotti (2,5 GB): materiale di lavoro da cui è stato
+# generato il catalogo. Foto e PDF pubblicati stanno in public/assets/catalogo
+# e public/schede; qui restano gli originali, che non servono al sito.
+/materiali/
+/public/assets/prodotti/

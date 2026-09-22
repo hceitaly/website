@@ -27,11 +27,12 @@ src/
 ├─ data/
 │  ├─ navigation.ts        # voci di menu
 │  ├─ content.ts           # testi/dati delle sezioni
-│  ├─ products.ts          # catalogo: categorie, settori, prodotti
-│  └─ productDetails.ts    # contenuti lunghi della scheda prodotto
+│  ├─ catalog.json         # i prodotti — scritto dal pannello /admin
+│  └─ products.ts          # categorie e settori + lettura di catalog.json
 ├─ pages/
 │  ├─ ProductsPage.tsx     # "/prodotti": doppio filtro + griglia modulare
-│  └─ ProductPage.tsx      # "/prodotti/<id>": foto ferma + colonna che scorre
+│  ├─ ProductPage.tsx      # "/prodotti/<id>": foto ferma + colonna che scorre
+│  └─ admin/               # "/admin": pannello di gestione del catalogo
 ├─ hooks/
 │  └─ useReveal.ts         # reveal on-scroll con GSAP ScrollTrigger
 ├─ components/
@@ -72,6 +73,75 @@ Non c'è un router: `App.tsx` sceglie la pagina dal `pathname`.
 | `/prodotti`, `/products`| catalogo prodotti                         |
 | `/prodotti?categoria=…` | catalogo con la categoria già filtrata    |
 | `/prodotti/<id>`        | scheda prodotto (id di `CATALOG`)         |
+| `/admin`                | pannello di gestione del catalogo         |
+
+## Gestione dei prodotti — `/admin`
+
+I prodotti non si scrivono più nel codice: stanno in
+[`src/data/catalog.json`](src/data/catalog.json) e si redigono dal pannello
+`/admin`, con email e password. Nessun database e nessun account GitHub per chi
+gestisce il sito: quando salva, una funzione su Vercel fa un commit sul
+repository e Vercel ripubblica. Online in circa un minuto.
+
+Un prodotto ha titolo, descrizione, caratteristiche (parole), punti in evidenza
+(frasi), foto, tabella dei modelli, schede tecniche PDF, categoria e tag. La
+stessa voce alimenta **tre viste**: la griglia di `/prodotti`, la scheda
+`/prodotti/<id>` e la colonna del mega menu — più i modelli fra cui si sceglie
+nella richiesta di preventivo.
+
+**Pubblicata o solo nel menu.** Una scheda pubblicata entra nel catalogo con la
+sua pagina. Una non pubblicata resta una voce di gamma nel menu che porta al
+catalogo filtrato: è così che le denominazioni di listino restano elencate anche
+prima di avere una scheda redatta.
+
+### Configurazione su Vercel
+
+Da *Settings → Environment Variables* del progetto:
+
+| Variabile        | A cosa serve                                                          |
+| ---------------- | --------------------------------------------------------------------- |
+| `ADMIN_EMAIL`    | email di chi entra nel pannello                                       |
+| `ADMIN_PASSWORD` | la sua password                                                       |
+| `SESSION_SECRET` | stringa casuale lunga, firma il cookie di sessione (min 16 caratteri) |
+| `GITHUB_TOKEN`   | token con permesso di scrittura sul repository                        |
+| `GITHUB_REPO`    | opzionale, default `hceitaly/website`                                 |
+| `GITHUB_BRANCH`  | opzionale, default `main`                                             |
+
+Il token va creato come **fine-grained personal access token** sull'account
+proprietario del repository, limitato a quel solo repository, con il permesso
+*Repository permissions → Contents: Read and write*. Resta solo lato server:
+il browser di chi usa il pannello non lo riceve mai.
+
+Per lavorare in locale, le stesse variabili in un file `.env.local` (già
+ignorato da git): `npm run dev` le passa agli endpoint di `api/`, che il dev
+server monta come fa Vercel.
+
+### Come è fatto
+
+```
+api/                       # funzioni serverless (Vercel)
+├─ _lib/auth.ts            # cookie di sessione firmato, niente database
+├─ _lib/github.ts          # lettura e commit via API GitHub
+├─ login.ts · logout.ts · session.ts
+├─ catalog.ts              # GET/PUT del catalogo, con validazione
+└─ upload.ts               # foto e PDF dentro public/
+
+src/pages/admin/           # il pannello, caricato solo su /admin
+├─ AdminPage.tsx           # accesso, elenco, pubblicazione
+├─ ProductEditor.tsx       # il modulo di un prodotto
+├─ fields.tsx              # pastiglie, righe, tabella modelli, allegati
+└─ api.ts                  # chiamate + compressione delle foto
+```
+
+Due cose che vale la pena sapere prima di metterci mano:
+
+- **La validazione sta sul server** ([`api/catalog.ts`](api/catalog.ts)): il
+  JSON viene ricostruito campo per campo prima del commit, così un contenuto
+  malformato non può far fallire la build del sito.
+- **Le foto vengono compresse nel browser** prima dell'invio (ridotte a 1600 px
+  e convertite in WebP): una richiesta a Vercel non può superare 4,5 MB, e la
+  foto di un fornitore spesso li supera da sola. Per i PDF il limite resta:
+  3 MB a file.
 
 ## Prossimi passi
 

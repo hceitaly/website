@@ -1,7 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import gsap from "gsap";
 import { CATEGORY_BY_KEY, type CatalogProduct } from "../data/products";
-import { PRODUCT_DETAILS } from "../data/productDetails";
 import { COMPANY } from "../data/content";
 import { setScrollLocked } from "../hooks/useSmoothScroll";
 import styles from "./QuoteDrawer.module.css";
@@ -13,8 +12,10 @@ type Props = {
 };
 
 type Form = {
-  modello: string;
-  quantita: string;
+  /** Modelli scelti, ciascuno con la sua quantità. La quantità resta testo
+      finché si scrive: un campo svuotato per essere riscritto non deve far
+      sparire il modello dalla richiesta. */
+  quantita: Record<string, string>;
   destinazione: string;
   nome: string;
   telefono: string;
@@ -26,8 +27,7 @@ type Form = {
 };
 
 const EMPTY: Form = {
-  modello: "",
-  quantita: "",
+  quantita: {},
   destinazione: "",
   nome: "",
   telefono: "",
@@ -47,16 +47,51 @@ export default function QuoteDrawer({ product, open, onClose }: Props) {
   const openerRef = useRef<Element | null>(null);
 
   const [step, setStep] = useState(0);
-  const [form, setForm] = useState<Form>(EMPTY);
+  /* Gli stessi modelli della scheda: chi chiede il preventivo sceglie fra le
+     righe della tabella. Senza tabella resta un'unica voce, il prodotto. */
+  const options = (product.models?.rows ?? [[product.name, "", ""]]).map((row) => ({
+    name: row[0],
+    desc: row[1] ?? "",
+    dims: row[2] ?? "",
+  }));
+
+  /** Con un solo modello non c'è niente da scegliere: è già selezionato. */
+  const initial = (): Form => ({
+    ...EMPTY,
+    quantita: options.length === 1 ? { [options[0].name]: "1" } : {},
+  });
+
+  const [form, setForm] = useState<Form>(initial);
   const [sent, setSent] = useState(false);
 
   const cat = CATEGORY_BY_KEY[product.category];
-  const models = PRODUCT_DETAILS[product.id]?.models;
 
   const set = <K extends keyof Form>(key: K, value: Form[K]) =>
     setForm((f) => ({ ...f, [key]: value }));
 
-  const step1Done = form.modello !== "" && form.quantita !== "" && form.destinazione !== "";
+  /* ---- Modelli e quantità ---- */
+
+  // Nell'ordine della tabella, non in quello in cui sono stati cliccati.
+  const selected = options.filter((o) => o.name in form.quantita);
+  const qty = (name: string) => Number.parseInt(form.quantita[name] ?? "", 10);
+  const total = selected.reduce((sum, o) => sum + (qty(o.name) || 0), 0);
+
+  const toggle = (name: string) =>
+    setForm((f) => {
+      const next = { ...f.quantita };
+      if (name in next) delete next[name];
+      else next[name] = "1";
+      return { ...f, quantita: next };
+    });
+
+  const setQty = (name: string, value: string) =>
+    setForm((f) => ({ ...f, quantita: { ...f.quantita, [name]: value.replace(/\D/g, "") } }));
+
+  const stepQty = (name: string, delta: number) =>
+    setQty(name, String(Math.max(1, (qty(name) || 0) + delta)));
+
+  const step1Done =
+    selected.length > 0 && selected.every((o) => qty(o.name) >= 1) && form.destinazione !== "";
   const canSend = form.nome !== "" && form.email !== "" && form.privacy;
 
   /* ---- Apertura: la tendina entra da destra, il velo la accompagna ---- */
@@ -72,14 +107,16 @@ export default function QuoteDrawer({ product, open, onClose }: Props) {
       openerRef.current = document.activeElement;
       gsap.killTweensOf([panel, scrim]);
       gsap.set(scrim, { autoAlpha: 0 });
-      gsap.set(panel, { xPercent: 100 });
+      gsap.set(panel, { xPercent: 100, visibility: "visible" });
       gsap.to(scrim, { autoAlpha: 1, duration: d * 0.7, ease: "power2.out" });
       gsap.to(panel, { xPercent: 0, duration: d, ease: "power3.out" });
       return;
     }
 
-    // Chiusa: fuori schermo, senza animare al primo render.
-    gsap.set(panel, { xPercent: 100 });
+    // Chiusa: fuori schermo, senza animare al primo render. E nascosta: appena
+    // oltre il bordo la sua ombra sbordava nella pagina come una striscia grigia,
+    // e col Tab si finiva nei campi di un modulo che non si vede.
+    gsap.set(panel, { xPercent: 100, visibility: "hidden" });
     gsap.set(scrim, { autoAlpha: 0 });
   }, [open]);
 
@@ -133,7 +170,7 @@ export default function QuoteDrawer({ product, open, onClose }: Props) {
     window.setTimeout(() => {
       setStep(0);
       setSent(false);
-      setForm(EMPTY);
+      setForm(initial());
     }, 450);
   };
 
@@ -211,44 +248,101 @@ export default function QuoteDrawer({ product, open, onClose }: Props) {
             ) : step === 0 ? (
               <div className={styles.slide} data-slide>
                 <fieldset className={styles.group}>
-                  <legend className={styles.legend}>Scegli il modello</legend>
+                  <legend className={styles.legend}>
+                    {options.length > 1 ? "Scegli i modelli" : "Modello"}
+                  </legend>
+                  {options.length > 1 && (
+                    <p className={styles.hint}>
+                      Puoi sceglierne più di uno: per ciascuno indichi la quantità.
+                    </p>
+                  )}
                   <div className={styles.cards}>
-                    {(models?.rows ?? [[product.name, "", "", ""]]).map((row) => {
-                      const on = form.modello === row[0];
+                    {options.map((o) => {
+                      const on = o.name in form.quantita;
                       return (
                         <button
-                          key={row[0]}
+                          key={o.name}
                           type="button"
                           className={`${styles.card} ${on ? styles.cardOn : ""}`}
                           aria-pressed={on}
-                          onClick={() => set("modello", row[0])}
+                          onClick={() => toggle(o.name)}
                         >
                           <span className={styles.tick} aria-hidden="true">
                             <svg viewBox="0 0 24 24">
                               <path d="M5 12.5 10 17.5 19 7" />
                             </svg>
                           </span>
-                          <span className={styles.cardName}>{row[0]}</span>
-                          {row[1] && <span className={styles.cardMeta}>{row[1]}</span>}
-                          {row[2] && <span className={styles.cardMeta}>{row[2]} mm</span>}
+                          <span className={styles.cardName}>{o.name}</span>
+                          {o.desc && <span className={styles.cardMeta}>{o.desc}</span>}
+                          {/* Le dimensioni arrivano già con le unità ("… mm · 22,5 kg"). */}
+                          {o.dims && <span className={styles.cardMeta}>{o.dims}</span>}
                         </button>
                       );
                     })}
                   </div>
                 </fieldset>
 
-                <label className={styles.field}>
-                  <span className={styles.legend}>Inserisci la quantità</span>
-                  <input
-                    className={styles.input}
-                    type="number"
-                    min={1}
-                    inputMode="numeric"
-                    placeholder="Es. 24 moduli"
-                    value={form.quantita}
-                    onChange={(e) => set("quantita", e.target.value)}
-                  />
-                </label>
+                {/* Una riga per modello scelto: nome, contatore, e la × per
+                    toglierlo senza doverlo ricercare fra le schede. */}
+                {selected.length > 0 && (
+                  <fieldset className={styles.group}>
+                    <legend className={styles.legend}>
+                      {selected.length > 1 ? "Quantità per modello" : "Quantità"}
+                    </legend>
+                    <ul className={styles.qtyList}>
+                      {selected.map((o) => {
+                        const n = qty(o.name);
+                        return (
+                          <li key={o.name} className={styles.qtyRow}>
+                            <span className={styles.qtyName}>{o.name}</span>
+                            <span className={styles.stepper}>
+                              <button
+                                type="button"
+                                onClick={() => stepQty(o.name, -1)}
+                                disabled={!(n > 1)}
+                                aria-label={`Diminuisci la quantità di ${o.name}`}
+                              >
+                                −
+                              </button>
+                              <input
+                                className={styles.qtyInput}
+                                type="text"
+                                inputMode="numeric"
+                                pattern="[0-9]*"
+                                value={form.quantita[o.name]}
+                                onChange={(e) => setQty(o.name, e.target.value)}
+                                aria-label={`Quantità di ${o.name}`}
+                                aria-invalid={!(n >= 1)}
+                              />
+                              <button
+                                type="button"
+                                onClick={() => stepQty(o.name, 1)}
+                                aria-label={`Aumenta la quantità di ${o.name}`}
+                              >
+                                +
+                              </button>
+                            </span>
+                            {options.length > 1 && (
+                              <button
+                                type="button"
+                                className={styles.qtyRemove}
+                                onClick={() => toggle(o.name)}
+                                aria-label={`Togli ${o.name} dalla richiesta`}
+                              >
+                                ×
+                              </button>
+                            )}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    {selected.length > 1 && (
+                      <p className={styles.qtyTotal}>
+                        {selected.length} modelli · {total} pezzi in tutto
+                      </p>
+                    )}
+                  </fieldset>
+                )}
 
                 <label className={styles.field}>
                   <span className={styles.legend}>Inserisci destinazione</span>

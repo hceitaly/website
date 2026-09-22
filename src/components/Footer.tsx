@@ -90,11 +90,22 @@ export default function Footer() {
           <div className={styles.legal}>
             <a href="#privacy">Privacy Policy</a>
             <a href="#termini">Termini</a>
-            <span className={styles.credit}>
-              © {new Date().getFullYear()} {COMPANY.name}
-            </span>
           </div>
         </div>
+      </div>
+
+      {/* Ultima riga: chi è l'azienda — nome e dati societari insieme — e la
+          firma di chi ha fatto il sito. */}
+      <div className={styles.colophon}>
+        <p className={styles.company}>
+          <span>
+            © {new Date().getFullYear()} {COMPANY.name}
+          </span>
+          <span>C.F./P.I. {COMPANY.taxCode}</span>
+          <span>Capitale sociale {COMPANY.shareCapital}</span>
+          <span>R.E.A. {COMPANY.rea}</span>
+        </p>
+        <p className={styles.madeBy}>Made by Erma Studio</p>
       </div>
     </footer>
   );

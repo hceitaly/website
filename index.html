@@ -3,12 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="960x960" href="/favicon-HCE.png" />
+    <link rel="apple-touch-icon" href="/favicon-HCE.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="HCE - Home Comfort Electronics. Distribuzione specializzata di tecnologie per fotovoltaico, accumulo, climatizzazione e mobilità elettrica."
-    />
     <meta name="theme-color" content="#0a0e17" />
+
+    <!-- Intestazione SEO della pagina: titolo, descrizione, canonico, anteprime
+         social e dati strutturati. Alla build `vite.config.ts` sostituisce
+         tutto ciò che sta fra i due segnaposto con quella di ogni pagina (vedi
+         `src/seo/meta.ts`); qui restano solo i valori della home, per lo
+         sviluppo. I segnaposto non vanno toccati. -->
+    <!--seo-->
+    <title>HCE — Fotovoltaico, accumulo, clima e mobilità elettrica</title>
+    <meta data-seo name="description" content="Distributore a Padova di moduli fotovoltaici, inverter, sistemi di accumulo, ricarica per auto elettriche e pompe di calore: prodotti selezionati, consulenza tecnica e assistenza." />
+    <!--/seo-->
 
     <!-- Fonts: Orbitron (display / techy) + Poppins (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,8 +25,6 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Orbitron:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <title>HCE — Home Comfort Electronics</title>
 
     <!-- ========================================================
          Transizione fra pagine — colonne oblique a tutto schermo.

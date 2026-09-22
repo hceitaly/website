@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import gsap from "gsap";
-import { CATEGORIES, type CategoryKey } from "../data/products";
+import { CATEGORIES, categoryCatalog, productsByCategory, type CategoryKey } from "../data/products";
 import styles from "./MegaMenu.module.css";
 
 type Props = {
@@ -10,83 +10,20 @@ type Props = {
   onLeave: () => void;
 };
 
-/** Una voce dell'elenco. `id` c'è solo dove esiste già la scheda prodotto. */
-type MenuItem = { name: string; id?: string };
-
-/** Titolo e gamma di ogni categoria, con le denominazioni di listino.
- *
- * Vive qui e non in `products.ts`: la griglia del catalogo e le schede
- * continuano a leggere `CATALOG`, che tiene i prodotti con foto e contenuti.
- * Le voci con `id` puntano alla loro scheda, le altre al catalogo. */
-const MENU: Record<CategoryKey, { title: string; items: MenuItem[] }> = {
-  fotovoltaico: {
-    title: "Moduli fotovoltaici",
-    items: [
-      { name: "Moduli Sonnenkraft", id: "fv-sonnenkraft" },
-      { name: "Moduli Meyer Burger" },
-      { name: "Moduli Vetro Vetro" },
-      { name: "Moduli Terracotta" },
-    ],
-  },
-  inverter: {
-    title: "Inverter fotovoltaici (Fox ESS)",
-    items: [
-      { name: "Serie S (G2)" },
-      { name: "Serie F (G2)" },
-      { name: "Serie T (G3)", id: "inv-serie-t-g3" },
-      { name: "Serie V" },
-      { name: "Serie R (G2)" },
-      { name: "Serie H1 (G2)" },
-      { name: "Serie H3" },
-      { name: "Serie H3 Smart" },
-      { name: "Serie H3 Pro" },
-      { name: "Serie H3 Plus (in arrivo)" },
-    ],
-  },
-  accumulo: {
-    title: "Sistemi di accumulo (Fox ESS)",
-    items: [
-      { name: "ECS4300H" },
-      { name: "EP6 / EP12 (Plus)" },
-      { name: "HV Junction Box (EP)" },
-      { name: "G-MAX", id: "acc-g-max" },
-    ],
-  },
-  mobilita: {
-    title: "Mobilità elettrica",
-    items: [
-      { name: "Serie A Fox ESS", id: "mob-fox-ess-serie-a" },
-      { name: "Scame (gamma su richiesta)" },
-      { name: "V2C (gamma su richiesta)" },
-    ],
-  },
-  clima: {
-    title: "Climatizzazione e pompe di calore (Ferroli)",
-    items: [
-      { name: "OMNIA LIFE M" },
-      { name: "OMNIA M 3.2" },
-      { name: "OMNIA FT" },
-      { name: "OMNIA S 3.2" },
-      { name: "OMNIA ST 3.2", id: "cli-ferroli-omnia-st" },
-      { name: "OMNIA S IN 3.2" },
-      { name: "OMNIA SW-T 3.2" },
-      { name: "OMNIA S HYBRID C 3.2" },
-      { name: "OMNIA S HYBRID H 3.2" },
-      { name: "OMNIA S HYBRID H IN 3.2" },
-      { name: "RCI 1P" },
-      { name: "RCA 1P" },
-      { name: "GIADA S" },
-      { name: "GIADA M" },
-      { name: "EGEA TECH" },
-    ],
-  },
-};
-
 /** Colonne su cui distribuire l'elenco: con 14 voci una sola non basta. */
 function columnsFor(count: number) {
   if (count > 10) return 3;
   if (count > 5) return 2;
   return 1;
+}
+
+/** I nomi di listino hanno spesso una coda descrittiva dopo il trattino lungo
+    ("SK POWER zebra — Made-EU, ENEA cat. A"): nel menu resta il titolo, la
+    coda compare al passaggio. Si taglia solo su " — " con gli spazi, così i
+    trattini dentro le parole (vetro-vetro, AI-Link) restano dove sono. */
+function splitName(name: string): [string, string | null] {
+  const i = name.indexOf(" — ");
+  return i < 0 ? [name, null] : [name.slice(0, i), name.slice(i + 3)];
 }
 
 /** Parola mascherata: cade dall'alto, come le voci del menu principale. */
@@ -108,7 +45,11 @@ export default function MegaMenu({ open, onEnter, onLeave }: Props) {
     () => CATEGORIES.find((c) => c.key === active) ?? CATEGORIES[0],
     [active],
   );
-  const group = MENU[active];
+  /* La gamma della categoria, presa dal catalogo: quello che il pannello
+     carica compare qui senza toccare nulla. I prodotti con scheda puntano
+     alla loro pagina, le voci di gamma al catalogo già filtrato. */
+  const items = useMemo(() => productsByCategory(active), [active]);
+  const doc = categoryCatalog(cat);
 
   /* ---- Apertura: il pannello cala, poi le scritte entrano a cascata ---- */
   // Niente `gsap.context` qui: il revert taglierebbe di netto anche l'uscita,
@@ -250,33 +191,44 @@ export default function MegaMenu({ open, onEnter, onLeave }: Props) {
         <span className={styles.colHead}>
           <span className={styles.mask}>
             <span className={styles.word} data-word="prod">
-              {group.title}
+              {cat.menuTitle}
             </span>
           </span>
         </span>
 
         <ul
           className={styles.products}
-          style={{ "--pcols": columnsFor(group.items.length) } as CSSProperties}
+          style={{ "--pcols": columnsFor(items.length) } as CSSProperties}
         >
-          {group.items.map((item) => (
-            <li key={item.name}>
-              <a
-                className={styles.product}
-                href={item.id ? `/prodotti/${item.id}` : "/prodotti"}
-                tabIndex={open ? 0 : -1}
-              >
-                <span className={styles.mask}>
-                  <span className={styles.word} data-word="prod">
-                    {item.name}
+          {items.map((item) => {
+            const [title, detail] = splitName(item.name);
+            return (
+              <li key={item.id}>
+                {/* Il nome intero resta quello che legge uno screen reader:
+                    la coda è nascosta solo alla vista. */}
+                <a
+                  className={styles.product}
+                  href={item.published ? `/prodotti/${item.id}` : `/prodotti?categoria=${item.category}`}
+                  tabIndex={open ? 0 : -1}
+                  aria-label={item.name}
+                >
+                  <span className={styles.mask}>
+                    <span className={styles.word} data-word="prod">
+                      {title}
+                    </span>
                   </span>
-                </span>
-                <svg className={styles.arrow} viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </a>
-            </li>
-          ))}
+                  {detail && (
+                    <span className={styles.detail} aria-hidden="true">
+                      <span className={styles.detailText}>{detail}</span>
+                    </span>
+                  )}
+                  <svg className={styles.arrow} viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         <a className={styles.all} href="/prodotti" tabIndex={open ? 0 : -1}>
@@ -287,14 +239,25 @@ export default function MegaMenu({ open, onEnter, onLeave }: Props) {
       {/* Colonna 3 — copertina del catalogo, a tutta altezza */}
       {/* Il taglio obliquo sta sul contenitore; la tendina di GSAP su quello
           interno, altrimenti l'animazione sovrascriverebbe il `clip-path`. */}
-      <a className={styles.media} href={cat.catalogFile} download tabIndex={open ? 0 : -1}>
+      <a
+        className={styles.media}
+        href={doc.href}
+        download={doc.pdf || undefined}
+        tabIndex={open ? 0 : -1}
+      >
         <span className={styles.mediaInner} data-media>
           <img className={styles.shot} data-shot src={cat.image} alt="" aria-hidden="true" />
           <span className={styles.mediaLabel}>
-            <span>Catalogo {cat.label}</span>
+            <span>{doc.pdf ? `Catalogo ${cat.label}` : `Documenti ${cat.label}`}</span>
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 4v11M7.5 10.5 12 15l4.5-4.5" />
-              <path d="M5 19h14" />
+              {doc.pdf ? (
+                <>
+                  <path d="M12 4v11M7.5 10.5 12 15l4.5-4.5" />
+                  <path d="M5 19h14" />
+                </>
+              ) : (
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              )}
             </svg>
           </span>
         </span>
