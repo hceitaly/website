@@ -246,7 +246,17 @@ export default function MegaMenu({ open, onEnter, onLeave }: Props) {
         tabIndex={open ? 0 : -1}
       >
         <span className={styles.mediaInner} data-media>
-          <img className={styles.shot} data-shot src={cat.image} alt="" aria-hidden="true" />
+          {/* Il menu è nel DOM di ogni pagina ma chiuso: senza `lazy` le cinque
+              copertine si scaricherebbero a ogni caricamento, menu o no. */}
+          <img
+            className={styles.shot}
+            data-shot
+            src={cat.image}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
           <span className={styles.mediaLabel}>
             <span>{doc.pdf ? `Catalogo ${cat.label}` : `Documenti ${cat.label}`}</span>
             <svg viewBox="0 0 24 24" aria-hidden="true">

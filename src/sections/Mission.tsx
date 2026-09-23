@@ -113,7 +113,7 @@ export default function Mission() {
 
         <div className={styles.statementWrap}>
           <figure className={styles.cutout} data-media>
-            <Media src="/assets/pannelli-solari.jpg" alt="Impianto fotovoltaico HCE" />
+            <Media src="/assets/pannelli-solari.webp" alt="Impianto fotovoltaico HCE" />
           </figure>
           <p className={styles.statement} data-statement>
             La nostra missione è fornire soluzioni all’avanguardia per l’efficienza

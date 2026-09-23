@@ -178,14 +178,18 @@ function Belief() {
 
       {/* In basso a destra: la ricerca di personale, sul video dell'azienda. */}
       <aside className={styles.recruit} data-recruit aria-label="Lavora con noi">
+        {/* Il poster copre il riquadro finché il filmato non è pronto, così il
+            blocco non parte vuoto. `metadata` e non `auto`: il file arriva
+            comunque perché parte da solo, ma senza precedere il resto. */}
         <video
           className={styles.recruitVideo}
           src="/assets/video-chi-siamo.mp4"
+          poster="/assets/video-chi-siamo-poster.webp"
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           aria-hidden="true"
         />
         <span className={styles.recruitShade} aria-hidden="true" />
@@ -215,7 +219,7 @@ const ECO = [
   {
     name: "HCE",
     role: "Home Comfort Electronics",
-    img: "/assets/inverter.jpg",
+    img: "/assets/inverter.webp",
     text: "Distribuzione specializzata di fotovoltaico, accumulo, climatizzazione e ricarica, con assistenza tecnica a chi installa.",
   },
   {
@@ -227,13 +231,13 @@ const ECO = [
   {
     name: "ZapGrid",
     role: "Mobilità elettrica",
-    img: "/assets/mobilita-elettrica.jpg",
+    img: "/assets/mobilita-elettrica.webp",
     text: "L'anello fra chi gestisce le stazioni di ricarica e chi guida elettrico: domanda e offerta che si incontrano.",
   },
   {
     name: "KOINÈ",
     role: "Sviluppo sostenibile",
-    img: "/assets/pannelli-solari.jpg",
+    img: "/assets/pannelli-solari.webp",
     text: "Fondazione senza scopo di lucro: comunità, istituzioni e imprese insieme, su un modello di crescita responsabile.",
   },
 ];
@@ -568,7 +572,7 @@ function Manifesto() {
           a un modello di sviluppo più responsabile e orientato al futuro.
         </p>
         <figure className={styles.manifestoShot} data-rail-shot>
-          <Curtain src="/assets/inverter.jpg" alt="Inverter installato in campo" />
+          <Curtain src="/assets/inverter.webp" alt="Inverter installato in campo" />
         </figure>
       </aside>
     </section>
@@ -582,12 +586,12 @@ const METHOD = [
   {
     title: "Analisi dell'esigenza",
     text: "Ascoltiamo il progetto e troviamo il metodo migliore per realizzarlo.",
-    img: "/assets/pannelli-solari.jpg",
+    img: "/assets/pannelli-solari.webp",
   },
   {
     title: "Configurazione",
     text: "Il nostro ufficio tecnico dimensiona i sistemi e trova i componenti che fanno per te.",
-    img: "/assets/inverter.jpg",
+    img: "/assets/inverter.webp",
   },
   {
     title: "Fornitura",
@@ -597,7 +601,7 @@ const METHOD = [
   {
     title: "Assistenza",
     text: "Ti seguiremo anche dopo l'installazione, per verificare che tutto funzioni correttamente.",
-    img: "/assets/pompadicalore.jpg",
+    img: "/assets/pompadicalore.webp",
   },
 ];
 
@@ -813,8 +817,8 @@ function Team() {
 /* ---------------- Ogni impianto, una risposta ---------------- */
 
 const TALENT_IMAGES = [
-  { src: "/assets/pannelli-solari.jpg", alt: "Impianto fotovoltaico" },
-  { src: "/assets/inverter.jpg", alt: "Inverter installato in campo" },
+  { src: "/assets/pannelli-solari.webp", alt: "Impianto fotovoltaico" },
+  { src: "/assets/inverter.webp", alt: "Inverter installato in campo" },
   { src: "/assets/pinsnap-106327241187857624.jpg", alt: "Impianto agrivoltaico" },
   { src: "/assets/accumulo.webp", alt: "Sistema di accumulo" },
   {
@@ -989,14 +993,19 @@ function Talent() {
           solo la citazione sopra il filmato. */}
       <div className={styles.talentVideoWrap} data-vwrap>
         <div className={styles.talentVideoBox} data-vbox>
+          {/* Stesso filmato del blocco "lavora con noi", in fondo alla pagina.
+              `none`: quando lo scorrimento arriva fin qui il file è già nella
+              cache del browser, scaricato lassù. Con `auto` invece partivano due
+              richieste insieme e il video veniva scaricato due volte. */}
           <video
             ref={videoRef}
             className={styles.talentVideo}
             src="/assets/video-chi-siamo.mp4"
+            poster="/assets/video-chi-siamo-poster.webp"
             muted
             loop
             playsInline
-            preload="auto"
+            preload="none"
             aria-label="Il lavoro di HCE, in un filmato"
           />
           <span className={styles.talentVideoShade} aria-hidden="true" />

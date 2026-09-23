@@ -27,7 +27,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     icon: "solar",
     iconImg: "/assets/Icona-pannelli.png",
-    catalogImg: "/assets/fotovoltaico-catalog.png",
+    catalogImg: "/assets/fotovoltaico-catalog.webp",
     catalogName: "Fotovoltaico",
     category: "fotovoltaico",
     badge: "Fotovoltaico",
@@ -41,7 +41,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     icon: "inverter",
     iconImg: "/assets/icona-inverter.png",
-    catalogImg: "/assets/inverter-catalog.png",
+    catalogImg: "/assets/inverter-catalog.webp",
     catalogName: "Inverter",
     category: "inverter",
     badge: "Inverter",
@@ -55,7 +55,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     icon: "battery",
     iconImg: "/assets/icona%20batterie.png",
-    catalogImg: "/assets/accumulo-catalog.png",
+    catalogImg: "/assets/accumulo-catalog.webp",
     catalogName: "Accumulo",
     category: "accumulo",
     badge: "Accumulo",
@@ -69,7 +69,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     icon: "ev",
     iconImg: "/assets/icona%20mobilita.png",
-    catalogImg: "/assets/mobilita-catalog.png",
+    catalogImg: "/assets/mobilita-catalog.webp",
     catalogName: "Mobilità",
     category: "mobilita",
     badge: "Mobilità elettrica",
@@ -83,7 +83,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     icon: "climate",
     iconImg: "/assets/icona%20pompa.png",
-    catalogImg: "/assets/clima-catalog.png",
+    catalogImg: "/assets/clima-catalog.webp",
     catalogName: "Clima",
     category: "clima",
     badge: "Climatizzazione",

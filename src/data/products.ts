@@ -98,8 +98,8 @@ export const CATEGORIES: Category[] = [
     menuTitle: "Moduli fotovoltaici",
     color: "#2fa1e0",
     icon: "/assets/Icona-pannelli.png",
-    image: "/assets/fotovoltaico-catalog.png",
-    catalogCover: "/assets/pannelli-solari.jpg",
+    image: "/assets/fotovoltaico-catalog.webp",
+    catalogCover: "/assets/pannelli-solari.webp",
   },
   {
     key: "inverter",
@@ -107,7 +107,7 @@ export const CATEGORIES: Category[] = [
     menuTitle: "Inverter fotovoltaici (Fox ESS)",
     color: "#1fb6a6",
     icon: "/assets/icona-inverter.png",
-    image: "/assets/inverter-catalog.png",
+    image: "/assets/inverter-catalog.webp",
     catalogCover: "/assets/pinsnap-106327241187857624.jpg",
   },
   {
@@ -116,7 +116,7 @@ export const CATEGORIES: Category[] = [
     menuTitle: "Sistemi di accumulo (Fox ESS)",
     color: "#3463af",
     icon: "/assets/icona%20batterie.png",
-    image: "/assets/accumulo-catalog.png",
+    image: "/assets/accumulo-catalog.webp",
     catalogCover: "/assets/accumulo.webp",
   },
   {
@@ -125,8 +125,8 @@ export const CATEGORIES: Category[] = [
     menuTitle: "Mobilità elettrica",
     color: "#6250a2",
     icon: "/assets/icona%20mobilita.png",
-    image: "/assets/mobilita-catalog.png",
-    catalogCover: "/assets/mobilita-elettrica.jpg",
+    image: "/assets/mobilita-catalog.webp",
+    catalogCover: "/assets/mobilita-elettrica.webp",
   },
   {
     key: "clima",
@@ -134,8 +134,8 @@ export const CATEGORIES: Category[] = [
     menuTitle: "Climatizzazione e pompe di calore (Ferroli)",
     color: "#a33c8c",
     icon: "/assets/icona%20pompa.png",
-    image: "/assets/clima-catalog.png",
-    catalogCover: "/assets/pompadicalore.jpg",
+    image: "/assets/clima-catalog.webp",
+    catalogCover: "/assets/pompadicalore.webp",
   },
 ];
 
@@ -143,17 +143,17 @@ export const CATEGORIES: Category[] = [
     dalla libreria già in `public/assets`, ognuna il taglio più vicino al
     settore che rappresenta. */
 export const SECTORS: Sector[] = [
-  { key: "residenziale", label: "Residenziale", image: "/assets/pompadicalore.jpg" },
-  { key: "industriale", label: "Industriale", image: "/assets/pannelli-solari.jpg" },
+  { key: "residenziale", label: "Residenziale", image: "/assets/pompadicalore.webp" },
+  { key: "industriale", label: "Industriale", image: "/assets/pannelli-solari.webp" },
 ];
 
 /** Artwork provvisorio: sparisce da sé appena un prodotto ha la sua `image`. */
 export const PLACEHOLDER_IMAGE: Record<CategoryKey, string> = {
-  fotovoltaico: "/assets/pannelli-solari.jpg",
-  inverter: "/assets/inverter.jpg",
+  fotovoltaico: "/assets/pannelli-solari.webp",
+  inverter: "/assets/inverter.webp",
   accumulo: "/assets/accumulo.webp",
-  mobilita: "/assets/mobilita-elettrica.jpg",
-  clima: "/assets/pompadicalore.jpg",
+  mobilita: "/assets/mobilita-elettrica.webp",
+  clima: "/assets/pompadicalore.webp",
 };
 
 /**

@@ -78,11 +78,11 @@
 }
 
 .bg0 {
-  background-image: url("/assets/pannelli-solari.jpg");
+  background-image: url("/assets/pannelli-solari.webp");
 }
 
 .bg1 {
-  background-image: url("/assets/inverter.jpg");
+  background-image: url("/assets/inverter.webp");
 }
 
 .bg2 {
@@ -90,11 +90,11 @@
 }
 
 .bg3 {
-  background-image: url("/assets/mobilita-elettrica.jpg");
+  background-image: url("/assets/mobilita-elettrica.webp");
 }
 
 .bg4 {
-  background-image: url("/assets/pompadicalore.jpg");
+  background-image: url("/assets/pompadicalore.webp");
 }
 
 .watermark {

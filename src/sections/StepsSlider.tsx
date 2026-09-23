@@ -12,19 +12,19 @@ const STEPS = [
     title: "Selezioniamo",
     heading: "I prodotti che fanno per te",
     text: "Individuiamo i prodotti più adatti alle esigenze specifiche di ogni cliente, scegliendo tra soluzioni di qualità e tecnologie all'avanguardia.",
-    image: "/assets/pannelli-solari.jpg",
+    image: "/assets/pannelli-solari.webp",
   },
   {
     title: "Traduciamo",
     heading: "Le complessità del settore",
     text: "Offriamo un affiancamento tecnico competente per orientare le scelte verso le soluzioni più efficaci e convenienti.",
-    image: "/assets/inverter.jpg",
+    image: "/assets/inverter.webp",
   },
   {
     title: "Assistiamo",
     heading: "Prima, durante e dopo l'acquisto",
     text: "Assicuriamo risposte rapide e soluzioni concrete.",
-    image: "/assets/pompadicalore.jpg",
+    image: "/assets/pompadicalore.webp",
   },
   {
     title: "Comprendiamo",

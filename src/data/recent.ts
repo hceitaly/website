@@ -19,7 +19,7 @@ export const RECENT_PRODUCTS: RecentProduct[] = [
     tagColor: "#1fb6a6",
     iconImg: "/assets/icona-inverter.png",
     name: "Inverter ibrido monofase",
-    image: "/assets/inverter.jpg",
+    image: "/assets/inverter.webp",
     href: "/prodotti",
   },
   {
@@ -27,7 +27,7 @@ export const RECENT_PRODUCTS: RecentProduct[] = [
     tagColor: "#2fa1e0",
     iconImg: "/assets/Icona-pannelli.png",
     name: "Modulo full-black ad alta resa",
-    image: "/assets/pannelli-solari.jpg",
+    image: "/assets/pannelli-solari.webp",
     href: "/prodotti",
   },
   {
@@ -43,7 +43,7 @@ export const RECENT_PRODUCTS: RecentProduct[] = [
     tagColor: "#6250a2",
     iconImg: "/assets/icona%20mobilita.png",
     name: "Wallbox per ricarica domestica",
-    image: "/assets/mobilita-elettrica.jpg",
+    image: "/assets/mobilita-elettrica.webp",
     href: "/prodotti",
   },
   {
@@ -51,7 +51,7 @@ export const RECENT_PRODUCTS: RecentProduct[] = [
     tagColor: "#a33c8c",
     iconImg: "/assets/icona%20pompa.png",
     name: "Pompa di calore aria-acqua",
-    image: "/assets/pompadicalore.jpg",
+    image: "/assets/pompadicalore.webp",
     href: "/prodotti",
   },
 ];
