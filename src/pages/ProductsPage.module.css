@@ -51,7 +51,11 @@
 /* Il modulo base è un quadrato: l'altezza di riga vale esattamente la
    larghezza di colonna. `100cqw` è la larghezza interna di `.gridWrap`, da cui
    togliamo le grondaie e dividiamo per le colonne — niente misure in JS.
-   Un prodotto occupa 1×1, 1×2 (verticale) o 2×1 (orizzontale). */
+   Un prodotto occupa 1×1, 1×2 (verticale) o 2×1 (orizzontale).
+
+   `--ratio` è l'altezza del modulo in frazioni della sua larghezza: 1 è il
+   quadrato. Serve al telefono, dove la colonna è una sola e un modulo quadrato
+   sarebbe alto quanto lo schermo — vedi in fondo. */
 .gridWrap {
   container-type: inline-size;
   padding-inline: var(--pad-x);
@@ -60,9 +64,12 @@
 .grid {
   --cols: 4;
   --gap: 20px;
+  --ratio: 1;
   display: grid;
   grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
-  grid-auto-rows: calc((100cqw - (var(--cols) - 1) * var(--gap)) / var(--cols));
+  grid-auto-rows: calc(
+    (100cqw - (var(--cols) - 1) * var(--gap)) / var(--cols) * var(--ratio)
+  );
   grid-auto-flow: row dense;
   gap: var(--gap);
 }
@@ -372,10 +379,24 @@
   }
 }
 
-/* Colonna singola: gli orizzontali tornano quadrati, i verticali restano alti. */
+/* Colonna singola: gli orizzontali tornano al modulo base, i verticali restano
+   alti il doppio.
+
+   Qui il modulo smette di essere quadrato. Con una colonna sola la sua
+   larghezza è tutta la pagina, e un quadrato sarebbe alto quanto lo schermo:
+   su un telefono da 360×640 una scheda normale misurava 316×316 e una verticale
+   316×652, contro i ~560 px che restano sotto la navbar — la scheda alta non ci
+   entrava. A 0.8 il modulo diventa 316×253 e il verticale 316×526: anche la più
+   alta ci sta tutta, e il catalogo passa da 22.700 px di scorrimento a 18.900.
+
+   0.8 e non meno: le foto prodotto sono quasi tutte verticali e stanno nel
+   riquadro in `contain`. Più il modulo si schiaccia, più la foto rimpicciolisce
+   lasciando due fasce bianche ai lati — a 2/3 il pannello era già un francobollo
+   al centro di un riquadro vuoto. */
 @media (max-width: 560px) {
   .grid {
     --cols: 1;
+    --ratio: 0.8;
   }
 
   .cellH {
