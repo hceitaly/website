@@ -17,7 +17,7 @@ const NEWS = [
   {
     title: "Nuovi sistemi di accumulo ad alta densità",
     date: "12 Maggio 2025",
-    image: "/assets/accumulo.webp",
+    image: "/assets/batteria-crop.webp",
   },
 ];
 
@@ -113,7 +113,7 @@ export default function Mission() {
 
         <div className={styles.statementWrap}>
           <figure className={styles.cutout} data-media>
-            <Media src="/assets/pannelli-solari.webp" alt="Impianto fotovoltaico HCE" />
+            <Media src="/assets/pannelli-sonnenkraft.webp" alt="Impianto fotovoltaico HCE" />
           </figure>
           <p className={styles.statement} data-statement>
             La nostra missione è fornire soluzioni all’avanguardia per l’efficienza

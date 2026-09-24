@@ -28,6 +28,19 @@
 .viewport {
   width: 100%;
   overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  /* Vertical swipes still scroll the page; horizontal ones drive the slider. */
+  touch-action: pan-y;
+}
+
+.viewport[data-dragging] {
+  cursor: grabbing;
+}
+
+/* No hover effects while the track is being dragged. */
+.viewport[data-dragging] .slide {
+  pointer-events: none;
 }
 
 .track {
@@ -96,7 +109,16 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  -webkit-user-drag: none;
   transition: transform 0.6s var(--ease-out);
+}
+
+/* Product cut-outs: whole, on white, with a little air — like the catalogue
+   grid. The white also hides the blue curtain behind the transparent edges. */
+.image img[data-fit="contain"] {
+  object-fit: contain;
+  padding: 6%;
+  background: #fff;
 }
 
 /* Logo-blue curtain behind the photo, revealed first on the intro wipe. */

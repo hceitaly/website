@@ -314,12 +314,14 @@
 }
 
 /* La foto sta ferma sotto, e si scopre quando il riquadro si apre. */
-.ecoImg {
+/* Il fondo liquido degli hero, uno per realtà: compare sotto il mouse come
+   prima la foto, ma tenue — una velatura, così le scritte restano nere. */
+.ecoFluid {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  /* Dove il fluido è fermo il canvas è trasparente: sotto ci va il colore
+     base, come il blu dietro l'hero della home. */
+  background: var(--eco-bg);
   opacity: 0;
   transform: scale(1.07);
   transition:
@@ -327,26 +329,9 @@
     transform 1.3s var(--ease-out);
 }
 
-.ecoShade {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(6, 9, 18, 0.5) 0%,
-    rgba(6, 9, 18, 0.12) 42%,
-    rgba(6, 9, 18, 0.62) 100%
-  );
-  transition: opacity 0.7s var(--ease-out);
-}
-
-.ecoCellOn .ecoImg {
-  opacity: 1;
+.ecoCellOn .ecoFluid {
+  opacity: 0.35;
   transform: scale(1);
-}
-
-.ecoCellOn .ecoShade {
-  opacity: 1;
 }
 
 .ecoBody {
@@ -363,15 +348,10 @@
   font-weight: 500;
   line-height: 1.22;
   letter-spacing: -0.03em;
-  transition: color 0.5s var(--ease-out);
 }
 
 .ecoRole {
   display: block;
-}
-
-.ecoCellOn .ecoName {
-  color: #fff;
 }
 
 /* Numero e descrizione stanno nello stesso angolo: uno esce, l'altra entra. */
@@ -404,7 +384,7 @@
   font-weight: 600;
   line-height: 1.45;
   letter-spacing: -0.005em;
-  color: #fff;
+  color: #17140f;
   opacity: 0;
   transform: translateY(10px);
   transition:
@@ -417,7 +397,7 @@
   transform: none;
 }
 
-/* Senza mouse (o in colonna) non c'è niente da scoprire: le foto e le
+/* Senza mouse (o in colonna) non c'è niente da scoprire: i fondi e le
    descrizioni restano visibili, e i riquadri si impilano. */
 @media (max-width: 760px), (hover: none) {
   .ecoRow {
@@ -436,17 +416,9 @@
     border-bottom: 0;
   }
 
-  .ecoImg {
-    opacity: 1;
+  .ecoFluid {
+    opacity: 0.35;
     transform: none;
-  }
-
-  .ecoShade {
-    opacity: 1;
-  }
-
-  .ecoName {
-    color: #fff;
   }
 
   .ecoNumber {
@@ -876,6 +848,10 @@
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: -0.015em;
+}
+
+.talentIntro p + p {
+  margin-top: 0.8em;
 }
 
 /* Rettangoli orizzontali quasi a contatto, come nello screenshot. */

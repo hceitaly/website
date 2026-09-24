@@ -7,7 +7,7 @@
    menu. Un prodotto caricato dal pannello compare in tutti e tre.
 
    Le categorie invece restano in codice: colori, icone e copertine sono scelte
-   di design, non contenuto da redigere. Vedi `data/slides.ts` e `data/recent.ts`. */
+   di design, non contenuto da redigere. Vedi `data/slides.ts`. */
 
 import catalog from "./catalog.json";
 
@@ -88,6 +88,10 @@ export type CatalogProduct = {
   datasheets?: Datasheet[];
   /** Catalogo del singolo prodotto — da depositare in `public/cataloghi/`. */
   catalogFile?: string;
+  /** Quando la scheda è andata online la prima volta (ISO 8601). Non si
+      compila a mano: lo scrive `/api/catalog` al primo salvataggio da
+      pubblicato, e da lì resta fisso. Ordina i "Prodotti Recenti" in home. */
+  publishedAt?: string;
 };
 
 /** Filtro di sinistra — "Filtra per categoria". */
@@ -188,6 +192,23 @@ export const ALL_PRODUCTS: CatalogProduct[] = (catalog.products as CatalogProduc
    categorie mescolate — ma la forma non è più un dato del prodotto: la calcola
    `layoutShapes()` sull'elenco effettivamente a schermo. */
 export const CATALOG: CatalogProduct[] = ALL_PRODUCTS.filter((p) => p.published);
+
+/**
+ * Le ultime schede andate online, dalla più nuova: lo slider "Prodotti
+ * Recenti" della home. Conta `publishedAt`; a parità di data — o per le schede
+ * pubblicate prima che la data esistesse — vince la posizione nel JSON, dove il
+ * pannello aggiunge i prodotti nuovi in coda.
+ */
+export function recentProducts(limit = 10): CatalogProduct[] {
+  const time = (p: CatalogProduct) => {
+    const t = p.publishedAt ? Date.parse(p.publishedAt) : NaN;
+    return Number.isNaN(t) ? 0 : t;
+  };
+  return CATALOG.map((p, i) => ({ p, i, t: time(p) }))
+    .sort((a, b) => b.t - a.t || b.i - a.i)
+    .slice(0, limit)
+    .map(({ p }) => p);
+}
 
 /** La gamma di una categoria, per la colonna centrale del mega menu. */
 export function productsByCategory(key: CategoryKey): CatalogProduct[] {

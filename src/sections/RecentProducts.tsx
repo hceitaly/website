@@ -2,15 +2,33 @@ import { useLayoutEffect, useRef, type CSSProperties } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import { RECENT_PRODUCTS } from "../data/recent";
+import { CATEGORY_BY_KEY, PLACEHOLDER_IMAGE, recentProducts } from "../data/products";
 import styles from "./RecentProducts.module.css";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
+/** Le ultime schede pubblicate dal pannello, dalla più nuova. */
+const PRODUCTS = recentProducts(10);
+const COUNT = PRODUCTS.length;
+
 /** Auto-advance interval (ms). */
 const INTERVAL = 4200;
-/** How many slides are cloned onto the end for a seamless loop (>= max per-view). */
-const CLONES = 2;
+/** Slides cloned onto each end for a seamless loop in both directions (>= max per-view). */
+const CLONES = Math.min(2, COUNT);
+/** A drag of this fraction of a slide is enough to move on by one. */
+const FLICK = 0.15;
+/** Pixels of movement before a press counts as a drag rather than a click. */
+const DRAG_START = 6;
+
+/** Wraps an index into 0…COUNT-1. */
+const wrap = (n: number) => ((n % COUNT) + COUNT) % COUNT;
+
+/** The track as rendered: the last CLONES products, all of them, the first CLONES. */
+const SLIDES = [
+  ...Array.from({ length: CLONES }, (_, k) => PRODUCTS[wrap(k - CLONES)]),
+  ...PRODUCTS,
+  ...PRODUCTS.slice(0, CLONES),
+];
 
 export default function RecentProducts() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -21,68 +39,155 @@ export default function RecentProducts() {
   useLayoutEffect(() => {
     const viewport = viewportRef.current;
     const track = trackRef.current;
-    if (!viewport || !track) return;
+    if (!viewport || !track || COUNT < 2) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const count = RECENT_PRODUCTS.length;
-    let i = 0;
-    let paused = false;
+    /** Current position in slides: 0 is the first real product. Fractional mid-drag. */
+    let pos = 0;
+    let hovering = false;
     let slideW = 0;
+    let timer = 0;
 
     const measure = () => {
       const first = track.querySelector<HTMLElement>("[data-slide]");
       slideW = first ? first.getBoundingClientRect().width : viewport.clientWidth;
     };
 
-    const goTo = (idx: number, animate: boolean) => {
+    const xOf = (p: number) => -(p + CLONES) * slideW;
+
+    const goTo = (target: number) => {
+      pos = target;
       gsap.to(track, {
-        x: -idx * slideW,
-        duration: animate ? 0.9 : 0,
+        x: xOf(target),
+        duration: reduce ? 0.3 : 0.9,
         ease: "power3.inOut",
         overwrite: true,
         onComplete: () => {
-          // Reached the cloned head -> snap back to the real start seamlessly.
-          if (idx >= count) {
-            i = 0;
-            gsap.set(track, { x: 0 });
-          }
+          // Landed on a clone -> jump to the real slide it copies, invisibly.
+          pos = wrap(target);
+          gsap.set(track, { x: xOf(pos) });
         },
       });
     };
 
-    const advance = () => {
-      if (paused) return;
-      i += 1;
-      goTo(i, true);
+    const restart = () => {
+      window.clearInterval(timer);
+      if (reduce) return;
+      timer = window.setInterval(() => {
+        if (!hovering && pointer === null) goTo(Math.round(pos) + 1);
+      }, INTERVAL);
     };
 
     measure();
-    gsap.set(track, { x: 0 });
-
-    const timer = reduce ? 0 : window.setInterval(advance, INTERVAL);
+    gsap.set(track, { x: xOf(0) });
+    restart();
 
     const onResize = () => {
       measure();
-      i = i % count;
-      gsap.set(track, { x: -i * slideW });
+      pos = wrap(Math.round(pos));
+      gsap.set(track, { x: xOf(pos) });
     };
     window.addEventListener("resize", onResize);
 
-    // Pause while the visitor is interacting with the slider.
+    // Pause while the pointer is over the slider.
     const onEnter = () => {
-      paused = true;
+      hovering = true;
     };
     const onLeave = () => {
-      paused = false;
+      hovering = false;
     };
     viewport.addEventListener("mouseenter", onEnter);
     viewport.addEventListener("mouseleave", onLeave);
 
+    /* ---- Drag: mouse, pen and horizontal swipes (vertical ones still scroll the page) ---- */
+
+    let pointer: number | null = null;
+    let startX = 0;
+    let startPos = 0;
+    let dragging = false;
+    /** Set by a real drag, so the click that ends it doesn't open the product. */
+    let swallowClick = false;
+
+    const onDown = (e: PointerEvent) => {
+      if (e.button !== 0 || pointer !== null) return;
+      pointer = e.pointerId;
+      startX = e.clientX;
+      dragging = false;
+      swallowClick = false;
+    };
+
+    const onMove = (e: PointerEvent) => {
+      if (e.pointerId !== pointer) return;
+      const dx = e.clientX - startX;
+
+      if (!dragging) {
+        if (Math.abs(dx) < DRAG_START) return;
+        dragging = true;
+        swallowClick = true;
+        viewport.setPointerCapture(e.pointerId);
+        viewport.dataset.dragging = "";
+        gsap.killTweensOf(track);
+        // Pick up from wherever the track is, even halfway through a slide.
+        startPos = -(gsap.getProperty(track, "x") as number) / slideW - CLONES;
+        startX = e.clientX;
+        return;
+      }
+
+      pos = startPos - dx / slideW;
+      // Keep the view inside the rendered clones by hopping a whole loop.
+      if (pos < -1) {
+        pos += COUNT;
+        startPos += COUNT;
+      } else if (pos >= COUNT) {
+        pos -= COUNT;
+        startPos -= COUNT;
+      }
+      gsap.set(track, { x: xOf(pos) });
+    };
+
+    const onUp = (e: PointerEvent) => {
+      if (e.pointerId !== pointer) return;
+      pointer = null;
+      if (!dragging) return;
+      dragging = false;
+      delete viewport.dataset.dragging;
+
+      const moved = pos - startPos;
+      let target = Math.round(pos);
+      // A short flick still turns the page.
+      if (Math.abs(moved) > FLICK && target === Math.round(startPos)) target += Math.sign(moved);
+      goTo(target);
+      restart();
+    };
+
+    const onClick = (e: MouseEvent) => {
+      if (!swallowClick) return;
+      swallowClick = false;
+      e.preventDefault();
+      e.stopPropagation();
+    };
+
+    // Links and images would otherwise start the browser's own drag-and-drop.
+    const onDragStart = (e: DragEvent) => e.preventDefault();
+
+    viewport.addEventListener("pointerdown", onDown);
+    viewport.addEventListener("pointermove", onMove);
+    viewport.addEventListener("pointerup", onUp);
+    viewport.addEventListener("pointercancel", onUp);
+    viewport.addEventListener("click", onClick, true);
+    viewport.addEventListener("dragstart", onDragStart);
+
     return () => {
-      if (timer) window.clearInterval(timer);
+      window.clearInterval(timer);
       window.removeEventListener("resize", onResize);
       viewport.removeEventListener("mouseenter", onEnter);
       viewport.removeEventListener("mouseleave", onLeave);
+      viewport.removeEventListener("pointerdown", onDown);
+      viewport.removeEventListener("pointermove", onMove);
+      viewport.removeEventListener("pointerup", onUp);
+      viewport.removeEventListener("pointercancel", onUp);
+      viewport.removeEventListener("click", onClick, true);
+      viewport.removeEventListener("dragstart", onDragStart);
       gsap.killTweensOf(track);
     };
   }, []);
@@ -117,7 +222,9 @@ export default function RecentProducts() {
         const cover = q("[data-cover]");
         const fill = q("[data-fill]");
         const copy = [q("[data-name]"), q("[data-explore]")].filter(Boolean) as HTMLElement[];
-        const at = 0.12 + i * 0.13; // cards cascade left -> right
+        // Cards cascade left -> right from the first one in view; the rest,
+        // off-screen, finish together so a quick drag never finds them blank.
+        const at = 0.12 + Math.min(Math.max(i - CLONES, 0), 2) * 0.13;
 
         if (tag) {
           gsap.set(tag, { clipPath: TAG_HIDDEN });
@@ -161,7 +268,7 @@ export default function RecentProducts() {
     };
   }, []);
 
-  const slides = [...RECENT_PRODUCTS, ...RECENT_PRODUCTS.slice(0, CLONES)];
+  if (COUNT === 0) return null;
 
   return (
     <section
@@ -178,39 +285,54 @@ export default function RecentProducts() {
 
       <div ref={viewportRef} className={styles.viewport}>
         <div ref={trackRef} className={styles.track}>
-          {slides.map((p, idx) => (
-            <a
-              key={idx}
-              data-slide
-              href={p.href}
-              className={styles.slide}
-              aria-hidden={idx >= RECENT_PRODUCTS.length ? true : undefined}
-              tabIndex={idx >= RECENT_PRODUCTS.length ? -1 : undefined}
-            >
-              <div className={styles.slideHead}>
-                <span
-                  className={styles.tag}
-                  data-tag
-                  style={{ "--tag-color": p.tagColor } as CSSProperties}
-                >
-                  <img className={styles.tagIcon} src={p.iconImg} alt="" aria-hidden="true" />
-                  <span data-tag-label>{p.tag}</span>
+          {SLIDES.map((p, idx) => {
+            const cat = CATEGORY_BY_KEY[p.category];
+            const clone = idx < CLONES || idx >= CLONES + COUNT;
+            // Product shots are cut-outs and sit whole on white; the category
+            // artwork standing in for a missing one fills the frame.
+            const fit = p.image ? (p.fit ?? "contain") : "cover";
+
+            return (
+              <a
+                key={idx}
+                data-slide
+                href={`/prodotti/${p.id}`}
+                className={styles.slide}
+                aria-hidden={clone || undefined}
+                tabIndex={clone ? -1 : undefined}
+              >
+                <div className={styles.slideHead}>
+                  <span
+                    className={styles.tag}
+                    data-tag
+                    style={{ "--tag-color": cat.color } as CSSProperties}
+                  >
+                    <img className={styles.tagIcon} src={cat.icon} alt="" aria-hidden="true" />
+                    <span data-tag-label>{cat.label}</span>
+                  </span>
+                  <h3 className={styles.name} data-name>
+                    {p.name}
+                  </h3>
+                </div>
+
+                <div className={styles.image}>
+                  <span className={styles.imgCover} data-cover aria-hidden="true" />
+                  <img
+                    src={p.image ?? PLACEHOLDER_IMAGE[p.category]}
+                    alt={p.name}
+                    data-fill
+                    data-fit={fit}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                <span className={styles.explore} data-explore>
+                  Esplora prodotto →
                 </span>
-                <h3 className={styles.name} data-name>
-                  {p.name}
-                </h3>
-              </div>
-
-              <div className={styles.image}>
-                <span className={styles.imgCover} data-cover aria-hidden="true" />
-                <img src={p.image} alt={p.name} data-fill loading="lazy" decoding="async" />
-              </div>
-
-              <span className={styles.explore} data-explore>
-                Esplora prodotto →
-              </span>
-            </a>
-          ))}
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>

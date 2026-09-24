@@ -78,15 +78,15 @@
 }
 
 .bg0 {
-  background-image: url("/assets/pannelli-solari.webp");
+  background-image: url("/assets/pannelli-sonnenkraft.webp");
 }
 
 .bg1 {
-  background-image: url("/assets/inverter.webp");
+  background-image: url("/assets/hero-inverter.webp");
 }
 
 .bg2 {
-  background-image: url("/assets/accumulo.webp");
+  background-image: url("/assets/batteria.webp");
 }
 
 .bg3 {
@@ -94,7 +94,7 @@
 }
 
 .bg4 {
-  background-image: url("/assets/pompadicalore.webp");
+  background-image: url("/assets/pompe-di-calore.webp");
 }
 
 .watermark {

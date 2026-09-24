@@ -12,31 +12,31 @@ const STEPS = [
     title: "Selezioniamo",
     heading: "I prodotti che fanno per te",
     text: "Individuiamo i prodotti più adatti alle esigenze specifiche di ogni cliente, scegliendo tra soluzioni di qualità e tecnologie all'avanguardia.",
-    image: "/assets/pannelli-solari.webp",
+    image: "/assets/selezioniamo.webp",
   },
   {
     title: "Traduciamo",
     heading: "Le complessità del settore",
     text: "Offriamo un affiancamento tecnico competente per orientare le scelte verso le soluzioni più efficaci e convenienti.",
-    image: "/assets/inverter.webp",
+    image: "/assets/semplificazione.webp",
   },
   {
     title: "Assistiamo",
     heading: "Prima, durante e dopo l'acquisto",
     text: "Assicuriamo risposte rapide e soluzioni concrete.",
-    image: "/assets/pompadicalore.webp",
+    image: "/assets/assistiamo.webp",
   },
   {
     title: "Comprendiamo",
     heading: "I vostri bisogni",
     text: "Mettiamo a disposizione un team con esperienza trasversale nei settori dell'energia, dell'elettronica e della mobilità sostenibile.",
-    image: "/assets/accumulo.webp",
+    image: "/assets/comprendiamo.webp",
   },
   {
     title: "Costruiamo",
     heading: "Rapporti duraturi",
     text: "Sia con i nostri collaboratori che con i nostri fornitori.",
-    image: "/assets/pinsnap-106327241187857624.jpg",
+    image: "/assets/costruiamo.webp",
   },
 ];
 const COUNT = STEPS.length;

@@ -214,30 +214,32 @@ function Belief() {
 
 /* ---------------- L'ecosistema ---------------- */
 
-/** Le quattro realtà del gruppo, nell'ordine in cui compaiono. */
+/** Le quattro realtà del gruppo, nell'ordine in cui compaiono. Ognuna ha il
+    suo fondo liquido, lo stesso degli hero, in una sfumatura sua: il primo è
+    proprio quello della home. */
 const ECO = [
   {
     name: "HCE",
     role: "Home Comfort Electronics",
-    img: "/assets/inverter.webp",
+    palette: ["#2fa1e0", "#2b8ed8", "#1e5fbf", "#2740b0", "#2233a6"],
     text: "Distribuzione specializzata di fotovoltaico, accumulo, climatizzazione e ricarica, con assistenza tecnica a chi installa.",
   },
   {
-    name: "G.M.T.",
-    role: "Efficienza energetica",
-    img: "/assets/pinsnap-106327241187857624.jpg",
-    text: "Tecnologie per l'uso razionale dell'energia: consumi più bassi e obiettivi dell'agenda ONU 2030 più vicini.",
+    name: "FINMAT",
+    role: "Area finanziaria",
+    palette: ["#1fb6a6", "#1aa596", "#13867d", "#0f6c68", "#0b5655"],
+    text: "FINMAT è la società dell'area finanziaria che appartiene alla stessa proprietà di HCE. La sua presenza affianca l'attività di distribuzione e contribuisce alla capacità di sostenere operazioni impegnative.",
   },
   {
     name: "ZapGrid",
     role: "Mobilità elettrica",
-    img: "/assets/mobilita-elettrica.webp",
+    palette: ["#8a78c8", "#7563b6", "#6250a2", "#4f3f8c", "#3e3176"],
     text: "L'anello fra chi gestisce le stazioni di ricarica e chi guida elettrico: domanda e offerta che si incontrano.",
   },
   {
     name: "KOINÈ",
     role: "Sviluppo sostenibile",
-    img: "/assets/pannelli-solari.webp",
+    palette: ["#c95aa9", "#b84a9a", "#a33c8c", "#8a2f77", "#722562"],
     text: "Fondazione senza scopo di lucro: comunità, istituzioni e imprese insieme, su un modello di crescita responsabile.",
   },
 ];
@@ -270,6 +272,7 @@ function ecoWidths(active: number | null) {
 function Ecosystem() {
   const ref = useRef<HTMLElement>(null);
   const [active, setActive] = useState<number | null>(null);
+  const [noMotion] = useState(reduced);
   const widths = ecoWidths(active);
 
   useLayoutEffect(() => {
@@ -363,13 +366,13 @@ function Ecosystem() {
           H.C.E. S.r.l. si inserisce in un ecosistema orientato all&apos;innovazione
           sostenibile portando competenze trasversali nei settori dell&apos;energia,
           della mobilità elettrica e della salute. Nata nel 2008, ha saputo evolversi
-          nel tempo affiancando realtà come G.M.T., KOINÈ e ZapGrid, contribuendo a
+          nel tempo affiancando realtà come FINMAT, KOINÈ e ZapGrid, contribuendo a
           costruire un sistema integrato di soluzioni per le sfide ambientali e
           tecnologiche del presente e del futuro.
         </p>
       </div>
 
-      {/* I quattro riquadri: quello sotto il mouse si allarga e scopre la foto. */}
+      {/* I quattro riquadri: quello sotto il mouse si allarga e scopre il suo fondo. */}
       <div className={styles.ecoRow} data-eco-row>
         {ECO.map((c, i) => (
           <article
@@ -380,15 +383,21 @@ function Ecosystem() {
             onMouseLeave={() => setActive((prev) => (prev === i ? null : prev))}
             data-eco-cell
           >
-            <img
-              className={styles.ecoImg}
-              src={c.img}
-              alt=""
+            <div
+              className={styles.ecoFluid}
+              style={{ "--eco-bg": c.palette[0] } as CSSProperties}
               aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-            />
-            <span className={styles.ecoShade} aria-hidden="true" />
+            >
+              <PixelLiquidBg
+                palette={c.palette}
+                bgColor={c.palette[0]}
+                pixelSize={12}
+                resolution={0.4}
+                mouseForce={9}
+                cursorSize={90}
+                autoDemo={!noMotion}
+              />
+            </div>
 
             <div className={styles.ecoBody}>
               <h3 className={styles.ecoName}>
@@ -555,12 +564,10 @@ function Manifesto() {
             fa della virgola una "parola" a sé, e senza il `nowrap` potrebbe
             andare a capo da sola. */}
         <p className={styles.manifestoText} data-manifesto>
-          H.C.E. S.r.l. lavora ogni giorno per essere un punto di riferimento{" "}
-          <span className={styles.manifestoAccent}>affidabile</span> nel panorama
-          della transizione energetica e della mobilità{" "}
-          <span className={styles.nowrap}>
-            <span className={styles.manifestoAccent}>sostenibile</span>.
-          </span>
+          HCE affianca gli{" "}
+          <span className={styles.manifestoAccent}>installatori</span> nella scelta
+          dei componenti per fotovoltaico, accumulo, ricarica elettrica e
+          climatizzazione.
         </p>
       </div>
 
@@ -568,11 +575,11 @@ function Manifesto() {
       <aside className={styles.manifestoRail}>
         <span className={styles.railLine} data-rail-line aria-hidden="true" />
         <p className={styles.manifestoStory} data-story>
-          L&apos;obiettivo non è solo fornire prodotti, ma contribuire attivamente
-          a un modello di sviluppo più responsabile e orientato al futuro.
+          Il nostro obiettivo è aiutare l&apos;installatore a motivare la
+          soluzione che propone al proprio cliente.
         </p>
         <figure className={styles.manifestoShot} data-rail-shot>
-          <Curtain src="/assets/inverter.webp" alt="Inverter installato in campo" />
+          <Curtain src="/assets/pompe-di-calore.webp" alt="Pompa di calore installata in una villa" />
         </figure>
       </aside>
     </section>
@@ -581,27 +588,28 @@ function Manifesto() {
 
 /* ---------------- Come lavoriamo ---------------- */
 
-/** I quattro passaggi, con la foto che li accompagna. */
+/** I quattro passaggi, con la foto che li accompagna: le stesse delle schede
+    "Comprendiamo · Selezioniamo · Costruiamo · Assistiamo" in home. */
 const METHOD = [
   {
     title: "Analisi dell'esigenza",
     text: "Ascoltiamo il progetto e troviamo il metodo migliore per realizzarlo.",
-    img: "/assets/pannelli-solari.webp",
+    img: "/assets/comprendiamo.webp",
   },
   {
     title: "Configurazione",
     text: "Il nostro ufficio tecnico dimensiona i sistemi e trova i componenti che fanno per te.",
-    img: "/assets/inverter.webp",
+    img: "/assets/selezioniamo.webp",
   },
   {
     title: "Fornitura",
     text: "Selezioniamo i prodotti e in base alle indicazioni li spediamo o installiamo in loco.",
-    img: "/assets/batterie.webp",
+    img: "/assets/costruiamo.webp",
   },
   {
     title: "Assistenza",
     text: "Ti seguiremo anche dopo l'installazione, per verificare che tutto funzioni correttamente.",
-    img: "/assets/pompadicalore.webp",
+    img: "/assets/assistiamo.webp",
   },
 ];
 
@@ -816,16 +824,18 @@ function Team() {
 
 /* ---------------- Ogni impianto, una risposta ---------------- */
 
-const TALENT_IMAGES = [
-  { src: "/assets/pannelli-solari.webp", alt: "Impianto fotovoltaico" },
-  { src: "/assets/inverter.webp", alt: "Inverter installato in campo" },
-  { src: "/assets/pinsnap-106327241187857624.jpg", alt: "Impianto agrivoltaico" },
-  { src: "/assets/accumulo.webp", alt: "Sistema di accumulo" },
+/** La pila di foto accanto alla storia. `position` sposta il taglio 16:10
+    quando il soggetto non sta al centro dello scatto. */
+const TALENT_IMAGES: { src: string; alt: string; position?: string }[] = [
+  { src: "/assets/semplificazione.webp", alt: "Architettura, linee essenziali" },
+  { src: "/assets/hero-inverter.webp", alt: "Casa con fotovoltaico, inverter, accumulo e ricarica" },
+  { src: "/assets/pannelli-sonnenkraft.webp", alt: "Casa con tetto fotovoltaico" },
+  { src: "/assets/batteria.webp", alt: "Batteria di accumulo Fox ESS" },
   {
-    src: "/assets/se516-fox-ess-caricabatterie-fox-11kw-serie-a-per-veicoli-elettrici-trifase-con-cavo-tipo-2-da-6-m.jpg",
-    alt: "Caricabatterie per veicoli elettrici",
+    src: "/assets/pompe-di-calore-2.webp",
+    alt: "Pompa di calore Ferroli installata all'esterno",
+    position: "center 85%",
   },
-  { src: "/assets/b_Ferroli_OMNIA-ST-32_tnj7XW7Wo7.webp", alt: "Pompa di calore Ferroli OMNIA" },
 ];
 
 function Talent() {
@@ -952,19 +962,31 @@ function Talent() {
       <div className={styles.talentLead} data-lead>
         <div className={styles.talentSticky} data-lead-title>
           <h2 className={styles.talentLabel}>La nostra storia</h2>
-          <p className={styles.talentIntro}>
-            H.C.E. srl è una società nata nel 2008 per la progettazione e
-            commercializzazione di prodotti elettrici ed elettronici
-            all&apos;avanguardia nel settore del monitoraggio e controllo
-            industriale con protocollo di comunicazione power line.
-          </p>
+          <div className={styles.talentIntro}>
+            <p>
+              HCE nasce nel 2008 nell&apos;elettronica industriale. Progetta e
+              commercializza prodotti per il monitoraggio e il controllo con
+              protocollo di comunicazione power line, che utilizza la rete
+              elettrica per trasmettere dati.
+            </p>
+            <p>
+              Intorno al 2014, HCE estende la propria attività
+              all&apos;efficientamento e al monitoraggio dei sistemi energetici.
+            </p>
+          </div>
         </div>
       </div>
 
       <div className={styles.talentImgs} data-imgs>
         {TALENT_IMAGES.map((b) => (
           <figure key={b.src} className={styles.talentMedia} data-reveal>
-            <img src={b.src} alt={b.alt} loading="lazy" decoding="async" />
+            <img
+              src={b.src}
+              alt={b.alt}
+              style={b.position ? { objectPosition: b.position } : undefined}
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
         ))}
       </div>
@@ -972,19 +994,19 @@ function Talent() {
       {/* Fissa in basso a destra finché le foto scorrono: quando il video
           si allarga, la sezione finisce e la nota risale via da sola. */}
       <div className={styles.talentAside}>
-        {/* Le due divisioni nate dopo: un blocco solo, così restano
-            agganciate insieme mentre le foto scorrono. */}
+        {/* Il seguito della storia: un blocco solo, così i due passaggi
+            restano agganciati insieme mentre le foto scorrono. */}
         <div className={styles.talentNote}>
           <p>
-            Nasce nel 2017 la divisione Mobilità Elettrica per rispondere alla
-            sempre maggior esigenza di tutela del nostro pianeta incentivando un
-            passaggio alla mobilità sostenibile diminuendo la dipendenza dalle
-            fonti fossili.
+            Nel 2017 nasce la divisione Mobilità Elettrica. Il percorso
+            nell&apos;elettronica e nei sistemi energetici si estende alla
+            ricarica dei veicoli, portando l&apos;attività di HCE in un nuovo
+            ambito di utilizzo dell&apos;elettricità.
           </p>
           <p>
-            La nuova divisione Health Care è dedicata alla commercializzazione di
-            prodotti per la prevenzione e sicurezza delle persone sul luogo di
-            lavoro e non solo.
+            Nel 2020 HCE entra nella distribuzione di componenti per
+            l&apos;elettrificazione: moduli fotovoltaici, accumulo e
+            climatizzazione elettrica, oggi parte dell&apos;assortimento.
           </p>
         </div>
       </div>

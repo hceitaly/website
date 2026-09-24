@@ -103,7 +103,34 @@ function clean(raw: Product, index: number): Product {
 
   if (isText(raw.catalogFile)) out.catalogFile = (raw.catalogFile as string).trim();
 
+  if (isDate(raw.publishedAt)) out.publishedAt = raw.publishedAt;
+
   return out;
+}
+
+const isDate = (v: unknown): v is string => isText(v) && !Number.isNaN(Date.parse(v));
+
+/**
+ * Data di prima pubblicazione: è quella che mette un prodotto fra i "Prodotti
+ * Recenti" della home, quindi la decide il server e non il pannello. Chi l'ha
+ * già la tiene — presa dal file salvato, così un pannello con dati vecchi non
+ * può spostarla; chi va online adesso per la prima volta riceve l'ora attuale.
+ */
+function stampPublished(products: Product[], previousText: string | undefined) {
+  const before = new Map<string, string>();
+  if (previousText) {
+    const parsed = JSON.parse(previousText) as { products?: Product[] };
+    for (const p of parsed.products ?? []) {
+      if (isText(p.id) && isDate(p.publishedAt)) before.set(p.id, p.publishedAt);
+    }
+  }
+
+  const now = new Date().toISOString();
+  for (const p of products) {
+    const date = before.get(p.id as string) ?? (p.publishedAt as string | undefined);
+    if (date) p.publishedAt = date;
+    else if (p.published) p.publishedAt = now;
+  }
 }
 
 function validate(products: unknown): Product[] {
@@ -141,6 +168,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const body = await readJson<{ products?: unknown; sha?: string }>(req);
     const products = validate(body.products);
+    stampPublished(products, (await readFile(PATH))?.text);
 
     // Indentato e con l'a capo finale: nel diff di GitHub si legge come un
     // file scritto a mano, non come una riga sola generata da una macchina.
