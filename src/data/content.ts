@@ -76,8 +76,8 @@ export const PRODUCTS: Card[] = [
 /** Ecosystem partners — descrizioni dal profilo aziendale. */
 export const ECOSYSTEM = [
   {
-    name: "GMT S.p.A.",
-    text: "G.M.T. S.p.A. è attiva nell'applicazione di tecnologie efficienti per l'uso razionale dell'energia, al fine di ridurre i consumi energetici e concorrere al raggiungimento degli obiettivi previsti dall'agenda ONU 2030.",
+    name: "FINMAT",
+    text: "FINMAT è attiva nell'applicazione di tecnologie efficienti per l'uso razionale dell'energia, al fine di ridurre i consumi energetici e concorrere al raggiungimento degli obiettivi previsti dall'agenda ONU 2030.",
   },
   {
     name: "KOINÈ",
