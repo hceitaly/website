@@ -214,32 +214,32 @@ function Belief() {
 
 /* ---------------- L'ecosistema ---------------- */
 
-/** Le quattro realtà del gruppo, nell'ordine in cui compaiono. Ognuna ha il
-    suo fondo liquido, lo stesso degli hero, in una sfumatura sua: il primo è
-    proprio quello della home. */
+/** Le quattro realtà del gruppo, nell'ordine in cui compaiono. Ognuna ha la
+    sua foto: a riposo in un quadrato nell'angolo in basso a destra, sotto il
+    mouse si allarga a fondo del riquadro. */
 const ECO = [
   {
     name: "HCE",
     role: "Home Comfort Electronics",
-    palette: ["#2fa1e0", "#2b8ed8", "#1e5fbf", "#2740b0", "#2233a6"],
+    img: "/assets/hero-inverter.webp",
     text: "Distribuzione specializzata di fotovoltaico, accumulo, climatizzazione e ricarica, con assistenza tecnica a chi installa.",
   },
   {
     name: "FINMAT",
     role: "Area finanziaria",
-    palette: ["#1fb6a6", "#1aa596", "#13867d", "#0f6c68", "#0b5655"],
+    img: "/assets/finmat.jpg",
     text: "FINMAT è la società dell'area finanziaria che appartiene alla stessa proprietà di HCE. La sua presenza affianca l'attività di distribuzione e contribuisce alla capacità di sostenere operazioni impegnative.",
   },
   {
     name: "ZapGrid",
     role: "Mobilità elettrica",
-    palette: ["#8a78c8", "#7563b6", "#6250a2", "#4f3f8c", "#3e3176"],
+    img: "/assets/zapgrid.webp",
     text: "L'anello fra chi gestisce le stazioni di ricarica e chi guida elettrico: domanda e offerta che si incontrano.",
   },
   {
     name: "KOINÈ",
     role: "Sviluppo sostenibile",
-    palette: ["#c95aa9", "#b84a9a", "#a33c8c", "#8a2f77", "#722562"],
+    img: "/assets/koine.jpg",
     text: "Fondazione senza scopo di lucro: comunità, istituzioni e imprese insieme, su un modello di crescita responsabile.",
   },
 ];
@@ -272,7 +272,6 @@ function ecoWidths(active: number | null) {
 function Ecosystem() {
   const ref = useRef<HTMLElement>(null);
   const [active, setActive] = useState<number | null>(null);
-  const [noMotion] = useState(reduced);
   const widths = ecoWidths(active);
 
   useLayoutEffect(() => {
@@ -383,20 +382,8 @@ function Ecosystem() {
             onMouseLeave={() => setActive((prev) => (prev === i ? null : prev))}
             data-eco-cell
           >
-            <div
-              className={styles.ecoFluid}
-              style={{ "--eco-bg": c.palette[0] } as CSSProperties}
-              aria-hidden="true"
-            >
-              <PixelLiquidBg
-                palette={c.palette}
-                bgColor={c.palette[0]}
-                pixelSize={12}
-                resolution={0.4}
-                mouseForce={9}
-                cursorSize={90}
-                autoDemo={!noMotion}
-              />
+            <div className={styles.ecoMedia} aria-hidden="true">
+              <img src={c.img} alt="" loading="lazy" decoding="async" />
             </div>
 
             <div className={styles.ecoBody}>
@@ -424,9 +411,8 @@ function Ecosystem() {
 function Manifesto() {
   const ref = useRef<HTMLElement>(null);
 
-  // In testa alla sezione, in un'unica sequenza: la lineetta dell'etichetta si
-  // tira da sinistra, la scritta sale, la doppia tendina cala sul prodotto e
-  // la linea del binario scende lungo la colonna di destra. Poi, ognuno al
+  // In testa alla sezione la linea del binario scende lungo la colonna di
+  // destra. Poi, ognuno al
   // proprio ingresso: la frase parola per parola, le origini riga per riga,
   // la foto in fondo con la stessa tendina.
   useLayoutEffect(() => {
@@ -435,9 +421,6 @@ function Manifesto() {
 
     const splits: SplitText[] = [];
     const ctx = gsap.context(() => {
-      const tagLine = el.querySelector<HTMLElement>("[data-tag-line]");
-      const tagText = el.querySelector<HTMLElement>("[data-tag-text]");
-      const object = el.querySelector<HTMLElement>("[data-object]");
       const statement = el.querySelector<HTMLElement>("[data-manifesto]");
       const railLine = el.querySelector<HTMLElement>("[data-rail-line]");
       const story = el.querySelector<HTMLElement>("[data-story]");
@@ -450,8 +433,6 @@ function Manifesto() {
           ? "inset(0% 100% 0% 0%)"
           : "inset(0% 0% 100% 0%)";
 
-      if (tagLine) gsap.set(tagLine, { clipPath: "inset(0% 100% 0% 0%)" });
-      if (tagText) gsap.set(tagText, { y: 12, opacity: 0 });
       if (railLine) gsap.set(railLine, { clipPath: railHidden() });
 
       const head = gsap.timeline({
@@ -462,13 +443,6 @@ function Manifesto() {
           if (railLine) gsap.set(railLine, { clipPath: railHidden() });
         },
       });
-      if (tagLine) {
-        head.to(tagLine, { clipPath: CURTAIN_SHOWN, duration: 0.7, ease: "power2.inOut" }, 0);
-      }
-      if (tagText) {
-        head.to(tagText, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.15);
-      }
-      if (object) curtainIn(head, [object], 0.1);
       if (railLine) {
         head.to(railLine, { clipPath: CURTAIN_SHOWN, duration: 1.4, ease: "power2.inOut" }, 0.2);
       }
@@ -541,25 +515,9 @@ function Manifesto() {
 
   return (
     <section ref={ref} className={styles.manifesto} aria-label="Il nostro manifesto" data-nav-theme="light">
-      {/* Colonna principale: il prodotto etichettato in alto, poi la frase
-          a tutta larghezza con il capoverso rientrato, come nel riferimento. */}
+      {/* Colonna principale: la frase a tutta larghezza con il capoverso
+          rientrato, come nel riferimento. */}
       <div className={styles.manifestoMain}>
-        <figure className={styles.manifestoObject}>
-          <figcaption className={styles.manifestoTag}>
-            <span className={styles.tagLine} data-tag-line aria-hidden="true" />
-            <span className={styles.tagText} data-tag-text>
-              Inverter Serie T ↓
-            </span>
-          </figcaption>
-          <div className={styles.manifestoObjectMedia} data-object>
-            <Curtain
-              src="/assets/inverter-serie%20t.png"
-              alt="Inverter Fox ESS Serie T"
-              fillClass={styles.fillPaper}
-            />
-          </div>
-        </figure>
-
         {/* Le parole accentate viaggiano con la loro punteggiatura: SplitText
             fa della virgola una "parola" a sé, e senza il `nowrap` potrebbe
             andare a capo da sola. */}

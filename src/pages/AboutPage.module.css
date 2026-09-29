@@ -294,17 +294,22 @@
 
 /* La fila è a tutta pagina: i riquadri arrivano ai bordi dello schermo. */
 .ecoRow {
+  --eco-h: clamp(300px, 26vw, 470px);
   display: flex;
-  height: clamp(300px, 26vw, 470px);
+  height: var(--eco-h);
   border-top: 1px solid rgba(23, 20, 15, 0.18);
 }
 
 .ecoCell {
+  --eco-pad: clamp(0.9rem, 1.5vw, 1.5rem);
+  /* Il lato del quadrato con la foto, a riposo: dal fondo sale fino a metà
+     riquadro. */
+  --eco-thumb: calc(var(--eco-h) / 2 - var(--eco-pad));
   position: relative;
   /* La larghezza arriva da React: a riposo un quarto, sotto il mouse di più. */
   width: var(--eco-w, 25%);
   overflow: hidden;
-  padding: clamp(0.9rem, 1.5vw, 1.5rem);
+  padding: var(--eco-pad);
   border-right: 1px solid rgba(23, 20, 15, 0.18);
   transition: width 0.75s var(--ease-in-out);
 }
@@ -313,25 +318,56 @@
   border-right: 0;
 }
 
-/* La foto sta ferma sotto, e si scopre quando il riquadro si apre. */
-/* Il fondo liquido degli hero, uno per realtà: compare sotto il mouse come
-   prima la foto, ma tenue — una velatura, così le scritte restano nere. */
-.ecoFluid {
+/* La foto di ogni realtà: a riposo un quadrato nell'angolo in basso a destra,
+   sotto il mouse si allarga fino a fare da fondo all'intero riquadro. Si
+   muovono i quattro bordi, e `object-fit` ritaglia la foto strada facendo. */
+.ecoMedia {
   position: absolute;
-  inset: 0;
-  /* Dove il fluido è fermo il canvas è trasparente: sotto ci va il colore
-     base, come il blu dietro l'hero della home. */
-  background: var(--eco-bg);
-  opacity: 0;
-  transform: scale(1.07);
+  top: 50%;
+  /* Sui riquadri stretti non va oltre il 40% da sinistra: lì c'è il numero. */
+  left: max(calc(100% - var(--eco-pad) - var(--eco-thumb)), 40%);
+  right: var(--eco-pad);
+  bottom: var(--eco-pad);
+  overflow: hidden;
+  background: #d4d2cc;
   transition:
-    opacity 0.7s var(--ease-out),
-    transform 1.3s var(--ease-out);
+    top 0.75s var(--ease-in-out),
+    left 0.75s var(--ease-in-out),
+    right 0.75s var(--ease-in-out),
+    bottom 0.75s var(--ease-in-out);
 }
 
-.ecoCellOn .ecoFluid {
-  opacity: 0.35;
-  transform: scale(1);
+.ecoMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Una velatura scura dal basso, che compare solo a foto aperta: le scritte
+   diventano bianche e devono restare leggibili sopra qualsiasi scatto. */
+.ecoMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 12, 16, 0.72) 0%,
+    rgba(10, 12, 16, 0.25) 55%,
+    rgba(10, 12, 16, 0.45) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out);
+}
+
+.ecoCellOn .ecoMedia {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.ecoCellOn .ecoMedia::after {
+  opacity: 1;
 }
 
 .ecoBody {
@@ -348,17 +384,23 @@
   font-weight: 500;
   line-height: 1.22;
   letter-spacing: -0.03em;
+  transition: color 0.5s var(--ease-out);
+}
+
+.ecoCellOn .ecoName {
+  color: #fff;
 }
 
 .ecoRole {
   display: block;
 }
 
-/* Numero e descrizione stanno nello stesso angolo: uno esce, l'altra entra. */
+/* In fondo: il numero a sinistra (l'angolo destro è del quadrato con la
+   foto), la descrizione a destra, che entra quando il numero esce. */
 .ecoFoot {
   position: relative;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .ecoNumber {
@@ -384,7 +426,7 @@
   font-weight: 600;
   line-height: 1.45;
   letter-spacing: -0.005em;
-  color: #17140f;
+  color: #fff;
   opacity: 0;
   transform: translateY(10px);
   transition:
@@ -397,8 +439,8 @@
   transform: none;
 }
 
-/* Senza mouse (o in colonna) non c'è niente da scoprire: i fondi e le
-   descrizioni restano visibili, e i riquadri si impilano. */
+/* Senza mouse (o in colonna) non c'è niente da scoprire: le foto fanno già
+   da fondo, le descrizioni restano visibili, e i riquadri si impilano. */
 @media (max-width: 760px), (hover: none) {
   .ecoRow {
     flex-direction: column;
@@ -416,9 +458,16 @@
     border-bottom: 0;
   }
 
-  .ecoFluid {
-    opacity: 0.35;
-    transform: none;
+  .ecoMedia {
+    inset: 0;
+  }
+
+  .ecoMedia::after {
+    opacity: 1;
+  }
+
+  .ecoName {
+    color: #fff;
   }
 
   .ecoNumber {
@@ -449,47 +498,6 @@
   flex-direction: column;
   justify-content: center;
   gap: clamp(2.5rem, 7vh, 5rem);
-}
-
-.manifestoObject {
-  width: clamp(130px, 12vw, 210px);
-}
-
-/* L'etichetta: la lineetta sopra è un elemento a sé, così GSAP la può
-   tirare da sinistra; la scritta è un blocco, per poter salire. */
-.manifestoTag {
-  position: relative;
-  display: block;
-  margin-bottom: 0.8rem;
-  padding-top: 0.5rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: rgba(23, 20, 15, 0.6);
-}
-
-.tagLine {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(23, 20, 15, 0.25);
-}
-
-.tagText {
-  display: block;
-}
-
-.manifestoObjectMedia {
-  position: relative;
-  aspect-ratio: 1;
-  overflow: hidden;
-}
-
-/* Il prodotto è un PNG ritagliato: sotto la foto ci va il colore della
-   pagina, o a tendina finita il velo blu trasparirebbe dal fondo. */
-.fillPaper {
-  background: #f2efea;
 }
 
 .manifestoText {
