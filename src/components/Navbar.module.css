@@ -59,6 +59,31 @@
   transition: color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
 }
 
+/* La richiesta di preventivo: stesso bottone della ricerca, con il numero
+   dei pezzi scelti in un tondo blu nell'angolo. */
+.cart {
+  position: relative;
+}
+
+.cartCount {
+  position: absolute;
+  top: -1px;
+  right: -4px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--hce-blue);
+  color: #fff;
+  font-family: var(--font-montserrat);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 17px;
+  text-align: center;
+  /* Bordo bianco: sul blu della home il tondo altrimenti si confonde. */
+  box-shadow: 0 0 0 1.5px #fff;
+}
+
 .search:hover {
   color: var(--hce-blue);
   transform: translateY(-1px);

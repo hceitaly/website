@@ -1,6 +1,6 @@
 /* ============================================================
-   Richiesta preventivo — tendina che entra da destra, larga
-   come il pannello del modello, con le due slide del modulo.
+   Tendine laterali — il preventivo di una scheda e la richiesta
+   che le raccoglie: entrano da destra, con le slide del modulo.
    ============================================================ */
 
 .root {
@@ -587,4 +587,71 @@
   font-size: 0.8rem;
   color: rgba(23, 20, 15, 0.6);
   text-align: right;
+}
+
+/* ---------- La richiesta: un blocco per scheda ---------- */
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 1.4rem);
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* Foto piccola e nome del prodotto sopra le righe dei suoi modelli. */
+.itemHead {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.thumb {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid rgba(23, 20, 15, 0.1);
+}
+
+.itemCat {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(23, 20, 15, 0.55);
+}
+
+/* Il pallino nel colore della categoria, come nelle schede del catalogo. */
+.itemCat::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--item, var(--cat));
+}
+
+.itemName {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #17140f;
+  overflow-wrap: anywhere;
+}
+
+a.itemName:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

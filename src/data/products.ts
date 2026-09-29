@@ -86,6 +86,10 @@ export type CatalogProduct = {
   models?: ModelTable;
   /** Documenti scaricabili, sotto la tabella dei modelli. */
   datasheets?: Datasheet[];
+  /** Prodotti che si abbinano a questo (codici di altre schede): la fila
+      "Compatibile con" in fondo alla scheda. Basta scriverlo su una delle due
+      schede, la fila compare su entrambe. */
+  compatible?: string[];
   /** Catalogo del singolo prodotto — da depositare in `public/cataloghi/`. */
   catalogFile?: string;
   /** Quando la scheda è andata online la prima volta (ISO 8601). Non si
@@ -282,4 +286,14 @@ export function sectorsForCategories(cats: CategoryKey[]): Set<SectorKey> | null
     if (cats.includes(p.category)) for (const s of p.sectors) open.add(s);
   }
   return open;
+}
+
+/** Le schede pubblicate che si abbinano a questa, nell'ordine del catalogo.
+    L'abbinamento vale nei due sensi: l'inverter che elenca la batteria compare
+    anche sulla scheda della batteria, senza doverlo scrivere due volte. */
+export function compatibleWith(product: CatalogProduct): CatalogProduct[] {
+  const own = new Set(product.compatible ?? []);
+  return CATALOG.filter(
+    (p) => p.id !== product.id && (own.has(p.id) || (p.compatible ?? []).includes(product.id)),
+  );
 }

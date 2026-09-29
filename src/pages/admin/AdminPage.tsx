@@ -14,6 +14,15 @@ import { getSession, loadCatalog, login, logout, saveCatalog } from "./api";
 import ProductEditor from "./ProductEditor";
 import styles from "./Admin.module.css";
 
+/** Gli abbinamenti di `p` dopo che la scheda `from` ha cambiato indirizzo
+    (`to`) o è stata eliminata (`null`): senza, la fila "Compatibile con"
+    perderebbe il prodotto. */
+function relink(p: CatalogProduct, from: string, to: string | null): CatalogProduct {
+  if (from === to || !p.compatible?.includes(from)) return p;
+  const compatible = p.compatible.flatMap((id) => (id !== from ? [id] : to ? [to] : []));
+  return { ...p, compatible: compatible.length ? compatible : undefined };
+}
+
 /** Codice pagina a partire dal titolo, con la sigla della categoria davanti:
     è la forma che hanno già i prodotti a catalogo (`fv-sonnenkraft`). */
 function makeId(name: string, category: CategoryKey, taken: string[]): string {
@@ -193,9 +202,20 @@ export default function AdminPage() {
         <ProductEditor
           product={current}
           taken={products.filter((p) => p !== current).map((p) => p.id)}
-          onChange={(next) => edit(products.map((p) => (p.id === current.id ? next : p)))}
+          all={products}
+          onChange={(next) =>
+            edit(
+              products.map((p) =>
+                p.id === current.id ? next : relink(p, current.id, next.id),
+              ),
+            )
+          }
           onDelete={() => {
-            edit(products.filter((p) => p.id !== current.id));
+            edit(
+              products
+                .filter((p) => p.id !== current.id)
+                .map((p) => relink(p, current.id, null)),
+            );
             setEditing(null);
           }}
           onBack={() => setEditing(null)}

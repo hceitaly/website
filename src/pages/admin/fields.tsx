@@ -6,7 +6,7 @@
 
 import { useId, useRef, useState, type ReactNode } from "react";
 import { uploadFile, type UploadKind } from "./api";
-import type { Datasheet, ModelTable } from "../../data/products";
+import { CATEGORIES, type CatalogProduct, type Datasheet, type ModelTable } from "../../data/products";
 import styles from "./Admin.module.css";
 
 export function Field({
@@ -433,6 +433,78 @@ export function CatalogField({
         {busy ? "Carico…" : value ? "Sostituisci catalogo" : "Carica catalogo"}
       </label>
       {error && <p className={styles.error}>{error}</p>}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------
+   Compatibile con — altre schede, scelte da un elenco
+   ------------------------------------------------------------------ */
+
+export function CompatibleField({
+  product,
+  all,
+  onChange,
+}: {
+  product: CatalogProduct;
+  all: CatalogProduct[];
+  onChange: (next: string[]) => void;
+}) {
+  const value = product.compatible ?? [];
+  const byId = new Map(all.map((p) => [p.id, p]));
+  /* Chi ha scritto questa scheda fra le sue: compare già, e da qui non si
+     toglie — si toglie da quella scheda. */
+  const linked = all.filter(
+    (p) => p.id !== product.id && !value.includes(p.id) && p.compatible?.includes(product.id),
+  );
+  const taken = new Set([product.id, ...value, ...linked.map((p) => p.id)]);
+
+  return (
+    <div className={styles.lines}>
+      {value.length > 0 && (
+        <div className={styles.toggles}>
+          {value.map((id) => (
+            <span key={id} className={styles.chip}>
+              {byId.get(id)?.name ?? id}
+              {byId.get(id)?.published === false && " (non pubblicata)"}
+              <button
+                type="button"
+                onClick={() => onChange(value.filter((v) => v !== id))}
+                aria-label={`Togli ${byId.get(id)?.name ?? id}`}
+              >
+                ×
+              </button>
+            </span>
+          ))}
+        </div>
+      )}
+
+      <select
+        className={styles.input}
+        value=""
+        onChange={(e) => e.target.value && onChange([...value, e.target.value])}
+      >
+        <option value="">Aggiungi un prodotto…</option>
+        {CATEGORIES.map((c) => {
+          const options = all.filter((p) => p.category === c.key && !taken.has(p.id));
+          return options.length ? (
+            <optgroup key={c.key} label={c.label}>
+              {options.map((p) => (
+                <option key={p.id} value={p.id}>
+                  {p.name}
+                </option>
+              ))}
+            </optgroup>
+          ) : null;
+        })}
+      </select>
+
+      {linked.length > 0 && (
+        <p className={styles.hint}>
+          Compaiono anche, perché indicati dalla loro scheda:{" "}
+          {linked.map((p) => p.name).join(", ")}.
+        </p>
+      )}
     </div>
   );
 }

@@ -2,19 +2,30 @@
    nello stesso ordine in cui si leggono sul sito. */
 
 import { CATEGORIES, SECTORS, type CatalogProduct, type CategoryKey, type SectorKey } from "../../data/products";
-import { CatalogField, ChipList, DatasheetsField, Field, ImageField, LineList, ModelsField } from "./fields";
+import {
+  CatalogField,
+  ChipList,
+  CompatibleField,
+  DatasheetsField,
+  Field,
+  ImageField,
+  LineList,
+  ModelsField,
+} from "./fields";
 import styles from "./Admin.module.css";
 
 type Props = {
   product: CatalogProduct;
   /** Gli altri codici già in uso: servono a non crearne due uguali. */
   taken: string[];
+  /** Tutto il catalogo: fra questi si scelgono i prodotti compatibili. */
+  all: CatalogProduct[];
   onChange: (next: CatalogProduct) => void;
   onDelete: () => void;
   onBack: () => void;
 };
 
-export default function ProductEditor({ product, taken, onChange, onDelete, onBack }: Props) {
+export default function ProductEditor({ product, taken, all, onChange, onDelete, onBack }: Props) {
   const set = <K extends keyof CatalogProduct>(key: K, value: CatalogProduct[K]) =>
     onChange({ ...product, [key]: value });
 
@@ -174,6 +185,19 @@ export default function ProductEditor({ product, taken, onChange, onDelete, onBa
           <Field label="Catalogo del prodotto" hint="Facoltativo: un PDF dedicato a questo prodotto.">
             <CatalogField value={product.catalogFile} onChange={(v) => set("catalogFile", v)} />
           </Field>
+        </section>
+
+        <section className={styles.card}>
+          <h2 className={styles.cardTitle}>Compatibile con</h2>
+          <p className={styles.cardNote}>
+            Compaiono in fondo alla scheda, prima degli altri prodotti, per suggerire cosa
+            abbinare. Basta indicarlo su una delle due schede: la fila compare su entrambe.
+          </p>
+          <CompatibleField
+            product={product}
+            all={all}
+            onChange={(v) => set("compatible", v.length ? v : undefined)}
+          />
         </section>
 
         <section className={`${styles.card} ${styles.danger}`}>

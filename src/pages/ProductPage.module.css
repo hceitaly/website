@@ -180,9 +180,19 @@
   padding-bottom: clamp(1.6rem, 3vw, 2.6rem);
 }
 
-.actions .btn {
+.actions .btn,
+.actionsNote {
   grid-column: 2;
   justify-self: start;
+}
+
+/* Due righe sotto il bottone: come si usa la richiesta. */
+.actionsNote {
+  max-width: 44ch;
+  margin-top: calc(-1 * clamp(0.4rem, 1.2vw, 1.3rem));
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: rgba(23, 20, 15, 0.55);
 }
 
 .btn {
@@ -665,7 +675,8 @@
     grid-template-columns: 1fr;
   }
 
-  .actions .btn {
+  .actions .btn,
+  .actionsNote {
     grid-column: 1;
   }
 }

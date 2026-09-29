@@ -101,6 +101,11 @@ function clean(raw: Product, index: number): Product {
     if (sheets.length) out.datasheets = sheets;
   }
 
+  // Codici di altre schede, senza doppioni e senza sé stesso. Che esistano
+  // davvero lo controlla validate(), che vede tutto l'elenco.
+  const compatible = [...new Set(textList(raw.compatible))].filter((id) => id !== out.id);
+  if (compatible.length) out.compatible = compatible;
+
   if (isText(raw.catalogFile)) out.catalogFile = (raw.catalogFile as string).trim();
 
   if (isDate(raw.publishedAt)) out.publishedAt = raw.publishedAt;
@@ -145,6 +150,14 @@ function validate(products: unknown): Product[] {
       throw new Error(`Il codice "${id}" è usato da due prodotti: dev'essere unico.`);
     }
     seen.add(id);
+  }
+
+  // Un abbinamento a una scheda eliminata non porta da nessuna parte: si toglie.
+  for (const p of clean_) {
+    if (!Array.isArray(p.compatible)) continue;
+    const kept = (p.compatible as string[]).filter((id) => seen.has(id));
+    if (kept.length) p.compatible = kept;
+    else delete p.compatible;
   }
 
   return clean_;

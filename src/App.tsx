@@ -5,6 +5,7 @@ import Mission from "./sections/Mission";
 import RecentProducts from "./sections/RecentProducts";
 import StepsSlider from "./sections/StepsSlider";
 import Footer from "./components/Footer";
+import CartDrawer from "./components/CartDrawer";
 import { CATALOG } from "./data/products";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
 
@@ -98,6 +99,10 @@ function Site() {
         )}
       </Suspense>
       <Footer />
+      {/* La richiesta di preventivo si apre dalla barra su ogni pagina. Sta qui
+          e non dentro la barra: la sua animazione d'ingresso lascia un
+          transform che farebbe da riferimento al pannello fisso. */}
+      <CartDrawer />
     </>
   );
 }

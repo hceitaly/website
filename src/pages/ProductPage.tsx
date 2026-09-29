@@ -6,9 +6,11 @@ import {
   CATALOG,
   CATEGORY_BY_KEY,
   PLACEHOLDER_IMAGE,
+  compatibleWith,
   type CatalogProduct,
 } from "../data/products";
 import QuoteDrawer from "../components/QuoteDrawer";
+import { REQUEST_HINT } from "../lib/cart";
 import styles from "./ProductPage.module.css";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -30,7 +32,11 @@ export default function ProductPage({ product }: { product: CatalogProduct }) {
      catalogo, ripartendo dall'inizio in fondo all'elenco: il listino tiene
      vicini i prodotti affini, e prendere sempre i primi quattro metterebbe gli
      stessi consigli sotto ogni scheda della categoria. */
-  const siblings = CATALOG.filter((p) => p.category === product.category);
+  const compatible = compatibleWith(product);
+  // Chi è già fra i compatibili non si ripete due righe più sotto.
+  const siblings = CATALOG.filter(
+    (p) => p.category === product.category && !compatible.includes(p),
+  );
   const at = siblings.findIndex((p) => p.id === product.id);
   const others = [...siblings.slice(at + 1), ...siblings.slice(0, at)].slice(0, MAX_RELATED);
 
@@ -141,6 +147,7 @@ export default function ProductPage({ product }: { product: CatalogProduct }) {
               <span className={styles.btnFill} aria-hidden="true" />
               Richiedi preventivo
             </button>
+            <p className={styles.actionsNote}>{REQUEST_HINT}</p>
           </div>
 
           {product.highlights && product.highlights.length > 0 && (
@@ -237,47 +244,58 @@ export default function ProductPage({ product }: { product: CatalogProduct }) {
         </div>
       </div>
 
-      {/* Chiusura: gli altri prodotti a catalogo. */}
-      {others.length > 0 && (
-        <section className={styles.more}>
-          <span className={styles.moreLabel} data-reveal>
-            Altri prodotti
-          </span>
-          <div className={styles.moreGrid}>
-            {others.map((p) => {
-              const c = CATEGORY_BY_KEY[p.category];
-              return (
-                <a
-                  key={p.id}
-                  href={`/prodotti/${p.id}`}
-                  className={styles.card}
-                  data-reveal
-                  style={{ "--cat": c.color } as CSSProperties}
-                >
-                  <span className={styles.cardHead}>
-                    <span className={styles.cardName}>{p.name}</span>
-                    <span className={styles.cardTag}>
-                      <span className={styles.cardTagFill} aria-hidden="true" />
-                      <img className={styles.tagIcon} src={c.icon} alt="" aria-hidden="true" />
-                      {c.label}
-                    </span>
-                  </span>
-                  <span className={styles.cardMedia}>
-                    <img
-                      src={p.image ?? PLACEHOLDER_IMAGE[p.category]}
-                      alt={p.name}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </span>
-                </a>
-              );
-            })}
-          </div>
-        </section>
+      {/* Cross selling: quello che si abbina a questo prodotto — le batterie
+          per un inverter, l'inverter per una batteria. */}
+      {compatible.length > 0 && (
+        <ProductRow label="Compatibile con" products={compatible} />
       )}
+
+      {/* Chiusura: gli altri prodotti a catalogo. */}
+      {others.length > 0 && <ProductRow label="Altri prodotti" products={others} />}
 
       <QuoteDrawer product={product} open={quoteOpen} onClose={() => setQuoteOpen(false)} />
     </main>
+  );
+}
+
+/** Una fila di schede in fondo alla pagina: foto, nome e categoria. */
+function ProductRow({ label, products }: { label: string; products: CatalogProduct[] }) {
+  return (
+    <section className={styles.more}>
+      <span className={styles.moreLabel} data-reveal>
+        {label}
+      </span>
+      <div className={styles.moreGrid}>
+        {products.map((p) => {
+          const c = CATEGORY_BY_KEY[p.category];
+          return (
+            <a
+              key={p.id}
+              href={`/prodotti/${p.id}`}
+              className={styles.card}
+              data-reveal
+              style={{ "--cat": c.color } as CSSProperties}
+            >
+              <span className={styles.cardHead}>
+                <span className={styles.cardName}>{p.name}</span>
+                <span className={styles.cardTag}>
+                  <span className={styles.cardTagFill} aria-hidden="true" />
+                  <img className={styles.tagIcon} src={c.icon} alt="" aria-hidden="true" />
+                  {c.label}
+                </span>
+              </span>
+              <span className={styles.cardMedia}>
+                <img
+                  src={p.image ?? PLACEHOLDER_IMAGE[p.category]}
+                  alt={p.name}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </section>
   );
 }

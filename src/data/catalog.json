@@ -471,6 +471,11 @@
           "file": "/schede/fox-h1-g2-dichiarazione-cei-0-21-it-17eb491e.pdf",
           "size": "14,6 MB"
         }
+      ],
+      "compatible": [
+        "acc-fox-ep6-torre-residenziale",
+        "acc-fox-ep12-torre-residenziale",
+        "inv-ct-per-serie-h1"
       ]
     },
     {
@@ -538,6 +543,10 @@
           "file": "/schede/fox-kh-dichiarazione-cei-0-21-it-67d58093.pdf",
           "size": "8,4 MB"
         }
+      ],
+      "compatible": [
+        "acc-fox-ep6-torre-residenziale",
+        "acc-fox-ep12-torre-residenziale"
       ]
     },
     {
@@ -637,6 +646,12 @@
           "file": "/schede/fox-h3-smart-dichiarazione-cei-0-21-it-d90cc9bb.pdf",
           "size": "21,0 MB"
         }
+      ],
+      "compatible": [
+        "acc-fox-ep6-torre-residenziale",
+        "acc-fox-ep12-torre-residenziale",
+        "acc-fox-ecs-2800",
+        "acc-fox-cq7"
       ]
     },
     {
@@ -723,6 +738,11 @@
           "file": "/schede/fox-h3-pro-ep12-dichiarazione-cei-0-21-it-f7ee066a.pdf",
           "size": "2,6 MB"
         }
+      ],
+      "compatible": [
+        "acc-fox-ep6-torre-residenziale",
+        "acc-fox-ep12-torre-residenziale",
+        "acc-fox-ecs-2800"
       ]
     },
     {
@@ -816,6 +836,10 @@
           "file": "/schede/fox-h3-plus-cq7-cq7-80-cq16-dichiarazione-cei-0-16-it-d95b1a0d.pdf",
           "size": "22,9 MB"
         }
+      ],
+      "compatible": [
+        "acc-fox-cq7",
+        "acc-fox-cq16-armadio"
       ]
     },
     {
@@ -2159,6 +2183,11 @@
           "file": "/schede/fox-post-of-ev-charger-scheda-tecnica-en-f914d7cc.pdf",
           "size": "80 KB"
         }
+      ],
+      "compatible": [
+        "mob-fox-serie-a-wall-box-smart",
+        "mob-fox-serie-l-wall-box-base",
+        "mob-fox-serie-c-colonnina-doppia"
       ]
     },
     {
@@ -2779,6 +2808,9 @@
           "file": "/schede/omnia-ft-etichetta-energetica-erp-multilingua-12c605b9.pdf",
           "size": "726 KB"
         }
+      ],
+      "compatible": [
+        "cli-omnia-life-m-monoblocco-r290"
       ]
     },
     {

@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { NAV_LINKS } from "../data/navigation";
 import MegaMenu from "./MegaMenu";
 import ProductSearch from "./ProductSearch";
+import { openCart, useCart, useCartOpen } from "../lib/cart";
 import styles from "./Navbar.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -22,6 +23,9 @@ export default function Navbar() {
   const [mega, setMega] = useState(false);
   const [search, setSearch] = useState(false);
   const megaTimer = useRef(0);
+  const cart = useCart();
+  const cartOpen = useCartOpen();
+  const pieces = cart.reduce((sum, l) => sum + l.qty, 0);
   // Dark backgrounds by default (hero/slider/footer) -> white logo; light
   // sections (marked data-nav-theme="light") -> colour logo.
   const [onLight, setOnLight] = useState(false);
@@ -154,6 +158,29 @@ export default function Navbar() {
               <circle cx="11" cy="11" r="7" />
               <path d="M21 21l-4.3-4.3" />
             </svg>
+          </button>
+
+          <button
+            type="button"
+            className={`${styles.search} ${styles.cart}`}
+            aria-label={
+              pieces > 0
+                ? `Apri la richiesta di preventivo: ${pieces} pezzi`
+                : "Apri la richiesta di preventivo"
+            }
+            aria-expanded={cartOpen}
+            onClick={openCart}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 5h2l1.6 9.2a1.5 1.5 0 0 0 1.5 1.3h7.7a1.5 1.5 0 0 0 1.5-1.2L19.5 8H7" />
+              <circle cx="9.5" cy="19" r="1.2" />
+              <circle cx="17" cy="19" r="1.2" />
+            </svg>
+            {pieces > 0 && (
+              <span className={styles.cartCount} aria-hidden="true">
+                {pieces > 99 ? "99+" : pieces}
+              </span>
+            )}
           </button>
         </div>
 
