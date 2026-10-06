@@ -245,11 +245,13 @@
 }
 
 .card:hover .tagFill,
+.productCell:hover .tagFill,
 .card:focus-visible .tagFill {
   clip-path: inset(0 0 0 0);
 }
 
 .card:hover .cardTag,
+.productCell:hover .cardTag,
 .card:focus-visible .cardTag {
   color: #fff;
 }
@@ -264,6 +266,7 @@
 
 /* Le icone sono PNG colorate: sul pieno vanno portate a bianco. */
 .card:hover .tagIcon,
+.productCell:hover .tagIcon,
 .card:focus-visible .tagIcon {
   filter: brightness(0) invert(1);
 }
@@ -299,8 +302,94 @@
   padding: 6%;
 }
 
-.card:hover .media img {
+.card:hover .media img,
+.productCell:hover .media img {
   transform: scale(1.03);
+}
+
+/* ---------- Aggiungi al preventivo ---------- */
+
+/* La scheda prodotto ospita il bottone sopra la foto, in basso a destra.
+   `--inset` è il margine del riquadro foto più un filo di respiro. */
+.productCell {
+  --inset: calc(clamp(12px, 1vw, 18px) + 10px);
+  position: relative;
+}
+
+.addBtn {
+  position: absolute;
+  right: var(--inset);
+  bottom: var(--inset);
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  background: var(--cat);
+  color: #fff;
+  font-family: var(--font-montserrat);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 12px 28px -14px rgba(23, 20, 15, 0.55);
+  transition:
+    opacity 0.35s var(--ease-out),
+    translate 0.35s var(--ease-out);
+}
+
+.addBtn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Già nella richiesta: pieno scuro, con la spunta. */
+.addBtnOn {
+  background: #17140f;
+}
+
+/* Tendina scura al passaggio, come il bottone della scheda prodotto. */
+.addFill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #0d0b08;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.45s var(--ease-out);
+}
+
+.addBtn:hover .addFill,
+.addBtn:focus-visible .addFill {
+  clip-path: inset(0 0 0 0);
+}
+
+.addBtn:focus-visible {
+  outline: 2px solid #17140f;
+  outline-offset: 3px;
+}
+
+/* Col mouse il bottone compare solo sulla scheda sotto il puntatore (o a
+   fuoco da tastiera). Sui touch non c'è hover: resta sempre visibile. */
+@media (hover: hover) and (pointer: fine) {
+  .addBtn {
+    opacity: 0;
+    translate: 0 8px;
+  }
+
+  .productCell:hover .addBtn,
+  .productCell:focus-within .addBtn {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
 
 .empty {

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, type CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -8,11 +8,14 @@ import {
   categoryCatalog,
   layoutShapes,
   PLACEHOLDER_IMAGE,
+  type CatalogProduct,
   type Shape,
 } from "../data/products";
 import { scrollToTarget } from "../hooks/useSmoothScroll";
 import { useCatalogFilters } from "../hooks/useCatalogFilters";
 import CatalogHero from "../components/CatalogHero";
+import QuoteDrawer from "../components/QuoteDrawer";
+import { useCart } from "../lib/cart";
 import styles from "./ProductsPage.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -29,6 +32,14 @@ export default function ProductsPage() {
   const filtersRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const pillRef = useRef<HTMLButtonElement>(null);
+
+  /* Aggiunta alla richiesta direttamente dalla griglia: la stessa tendina
+     della scheda, con i modelli del prodotto scelto. Il prodotto resta dopo la
+     chiusura, così la tendina esce con il suo contenuto invece di svuotarsi. */
+  const [quoteProduct, setQuoteProduct] = useState<CatalogProduct | null>(null);
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  const cart = useCart();
+  const inCart = useMemo(() => new Set(cart.map((l) => l.productId)), [cart]);
 
   const filters = useCatalogFilters();
   const { cats, matches, active, clear: clearFilters } = filters;
@@ -215,10 +226,11 @@ export default function ProductsPage() {
             return (
               <div
                 key={p.id}
-                className={`${styles.cell} ${SHAPE_CLASS[shapes[i] ?? "square"]}`}
+                className={`${styles.cell} ${styles.productCell} ${SHAPE_CLASS[shapes[i] ?? "square"]}`}
                 style={{ "--cat": cat.color } as CSSProperties}
+                data-card
               >
-                <a href={`/prodotti/${p.id}`} className={styles.card} data-card>
+                <a href={`/prodotti/${p.id}`} className={styles.card}>
                   <span className={styles.cardHead}>
                     <span className={styles.cardName}>{p.name}</span>
                     {/* Al passaggio del mouse il tag si riempie del colore
@@ -234,6 +246,29 @@ export default function ProductsPage() {
                     <img src={src} alt={p.name} loading="lazy" decoding="async" data-fit={fit} />
                   </span>
                 </a>
+
+                {/* Fuori dal link: un bottone dentro un <a> non è HTML valido.
+                    Col mouse compare al passaggio sulla scheda; sui
+                    touch resta sempre visibile (vedi CSS). */}
+                <button
+                  type="button"
+                  className={`${styles.addBtn} ${inCart.has(p.id) ? styles.addBtnOn : ""}`}
+                  onClick={() => {
+                    setQuoteProduct(p);
+                    setQuoteOpen(true);
+                  }}
+                  aria-label={
+                    inCart.has(p.id)
+                      ? `${p.name}: modifica nella richiesta di preventivo`
+                      : `Aggiungi ${p.name} alla richiesta di preventivo`
+                  }
+                >
+                  <span className={styles.addFill} aria-hidden="true" />
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    {inCart.has(p.id) ? <path d="M5 12.5 10 17l9-10" /> : <path d="M12 5v14M5 12h14" />}
+                  </svg>
+                  {inCart.has(p.id) ? "Nel preventivo" : "Aggiungi al preventivo"}
+                </button>
               </div>
             );
           })}
@@ -261,6 +296,14 @@ export default function ProductsPage() {
         Filtri
         {active > 0 && <span className={styles.pillCount}>{active}</span>}
       </button>
+
+      {quoteProduct && (
+        <QuoteDrawer
+          product={quoteProduct}
+          open={quoteOpen}
+          onClose={() => setQuoteOpen(false)}
+        />
+      )}
     </main>
   );
 }
