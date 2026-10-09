@@ -1,7 +1,15 @@
 /* Il modulo di un prodotto: gli stessi campi che la scheda pubblica mostra,
    nello stesso ordine in cui si leggono sul sito. */
 
-import { CATEGORIES, SECTORS, type CatalogProduct, type CategoryKey, type SectorKey } from "../../data/products";
+import {
+  CATEGORIES,
+  SECTORS,
+  kindOptions,
+  type CatalogProduct,
+  type CategoryKey,
+  type KindKey,
+  type SectorKey,
+} from "../../data/products";
 import {
   CatalogField,
   ChipList,
@@ -80,6 +88,32 @@ export default function ProductEditor({ product, taken, all, onChange, onDelete,
               {CATEGORIES.map((c) => (
                 <option key={c.key} value={c.key}>
                   {c.label}
+                </option>
+              ))}
+            </select>
+          </Field>
+
+          <Field
+            label="Tipo"
+            hint="La suddivisione dentro la categoria: è il secondo filtro del catalogo."
+          >
+            <select
+              className={styles.input}
+              // Un tipo che la categoria non ha (i condizionatori fuori dal
+              // clima) ricade sul prodotto principale.
+              value={
+                kindOptions(product.category).some((k) => k.key === product.kind)
+                  ? product.kind
+                  : "main"
+              }
+              onChange={(e) => {
+                const kind = e.target.value as KindKey;
+                set("kind", kind === "main" ? undefined : kind);
+              }}
+            >
+              {kindOptions(product.category).map((k) => (
+                <option key={k.key} value={k.key}>
+                  {k.label}
                 </option>
               ))}
             </select>
@@ -190,8 +224,9 @@ export default function ProductEditor({ product, taken, all, onChange, onDelete,
         <section className={styles.card}>
           <h2 className={styles.cardTitle}>Compatibile con</h2>
           <p className={styles.cardNote}>
-            Compaiono in fondo alla scheda, prima degli altri prodotti, per suggerire cosa
-            abbinare. Basta indicarlo su una delle due schede: la fila compare su entrambe.
+            Compaiono in fondo alla scheda, prima degli altri prodotti e in questo ordine, per
+            suggerire cosa abbinare. Valgono solo per questa scheda: per mostrare l&apos;abbinamento
+            anche sull&apos;altro prodotto, va aggiunto anche lì.
           </p>
           <CompatibleField
             product={product}

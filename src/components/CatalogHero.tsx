@@ -28,7 +28,8 @@ type Props = {
 
 export default function CatalogHero({ title, filters, filtersRef }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
-  const { cats, sectors, openSectors, toggleCat, toggleSector } = filters;
+  const { cats, kind, kinds, sector, openSectors, toggleCat, toggleKind, toggleSector } = filters;
+  const cat = CATEGORIES.find((c) => c.key === cats[0]);
 
   useLayoutEffect(() => {
     const root = rootRef.current;
@@ -110,7 +111,7 @@ export default function CatalogHero({ title, filters, filtersRef }: Props) {
           <span className={styles.groupLabel} data-hero-reveal>
             <strong>Filtra</strong> per categoria
           </span>
-          <div className={`${styles.row} ${styles.rowCats}`}>
+          <div className={`${styles.row} ${styles.rowCats}`} role="radiogroup" aria-label="Categoria">
             {CATEGORIES.map((c) => {
               const on = cats.includes(c.key);
               return (
@@ -118,7 +119,8 @@ export default function CatalogHero({ title, filters, filtersRef }: Props) {
                   key={c.key}
                   type="button"
                   data-filter-card
-                  aria-pressed={on}
+                  role="radio"
+                  aria-checked={on}
                   onClick={() => toggleCat(c.key)}
                   className={`${styles.fCard} ${styles.fCat} ${on ? styles.fOn : ""} ${
                     cats.length && !on ? styles.fOff : ""
@@ -139,6 +141,35 @@ export default function CatalogHero({ title, filters, filtersRef }: Props) {
               );
             })}
           </div>
+
+          {/* Il secondo livello: compare solo per le categorie che si
+              dividono — il clima in tre, inverter e mobilità in due. */}
+          {cat && kinds.length > 0 && (
+            <div
+              className={styles.kinds}
+              role="radiogroup"
+              aria-label={`Tipo di prodotto — ${cat.label}`}
+              style={{ "--cat": cat.color } as CSSProperties}
+            >
+              {kinds.map((k) => {
+                const on = kind === k.key;
+                return (
+                  <button
+                    key={k.key}
+                    type="button"
+                    role="radio"
+                    aria-checked={on}
+                    onClick={() => toggleKind(k.key)}
+                    className={`${styles.kind} ${on ? styles.kindOn : ""} ${
+                      kind && !on ? styles.fOff : ""
+                    }`}
+                  >
+                    {k.label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </section>
 
         {/* Destra — i settori di applicazione. */}
@@ -146,9 +177,9 @@ export default function CatalogHero({ title, filters, filtersRef }: Props) {
           <span className={styles.groupLabel} data-hero-reveal>
             <strong>Filtra</strong> per settore
           </span>
-          <div className={`${styles.row} ${styles.rowSectors}`}>
+          <div className={`${styles.row} ${styles.rowSectors}`} role="radiogroup" aria-label="Settore">
             {SECTORS.map((s) => {
-              const on = sectors.includes(s.key);
+              const on = sector === s.key;
               // Nessun prodotto per questo settore nelle categorie scelte.
               const locked = openSectors !== null && !openSectors.has(s.key);
               return (
@@ -157,11 +188,12 @@ export default function CatalogHero({ title, filters, filtersRef }: Props) {
                   type="button"
                   data-filter-card
                   disabled={locked}
-                  aria-pressed={on}
+                  role="radio"
+                  aria-checked={on}
                   title={locked ? "Nessun prodotto in questo settore per la categoria scelta" : undefined}
                   onClick={() => toggleSector(s.key)}
                   className={`${styles.fCard} ${styles.fSector} ${on ? styles.fOn : ""} ${
-                    !locked && sectors.length && !on ? styles.fOff : ""
+                    !locked && sector && !on ? styles.fOff : ""
                   }`}
                 >
                   <span className={styles.fThumb}>

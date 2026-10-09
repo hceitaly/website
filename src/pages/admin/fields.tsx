@@ -452,12 +452,7 @@ export function CompatibleField({
 }) {
   const value = product.compatible ?? [];
   const byId = new Map(all.map((p) => [p.id, p]));
-  /* Chi ha scritto questa scheda fra le sue: compare già, e da qui non si
-     toglie — si toglie da quella scheda. */
-  const linked = all.filter(
-    (p) => p.id !== product.id && !value.includes(p.id) && p.compatible?.includes(product.id),
-  );
-  const taken = new Set([product.id, ...value, ...linked.map((p) => p.id)]);
+  const taken = new Set([product.id, ...value]);
 
   return (
     <div className={styles.lines}>
@@ -499,12 +494,6 @@ export function CompatibleField({
         })}
       </select>
 
-      {linked.length > 0 && (
-        <p className={styles.hint}>
-          Compaiono anche, perché indicati dalla loro scheda:{" "}
-          {linked.map((p) => p.name).join(", ")}.
-        </p>
-      )}
     </div>
   );
 }

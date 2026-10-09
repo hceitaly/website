@@ -6,75 +6,94 @@
 import { useCallback, useMemo, useState } from "react";
 import {
   CATEGORIES,
+  kindsForCategory,
   sectorsForCategories,
   type CatalogProduct,
   type CategoryKey,
+  type KindKey,
   type SectorKey,
 } from "../data/products";
 
-/** Aggiunge/toglie una chiave da un set di filtri. */
-function toggle<T>(set: T[], key: T): T[] {
-  return set.includes(key) ? set.filter((k) => k !== key) : [...set, key];
-}
+/* I filtri sono a scelta singola, come dei radio: una categoria, un tipo, un
+   settore. Cliccare la voce già scelta la spegne — è l'unico modo di tornare
+   a "tutti" senza un bottone in più. */
 
 /**
- * Categorie preselezionate da `?categoria=` — è così che arrivano i bottoni
- * dello slider in home e le voci del megamenu. Accetta più chiavi separate da
- * virgola e scarta quelle che non esistono.
+ * Categoria preselezionata da `?categoria=` — è così che arrivano i bottoni
+ * dello slider in home e le voci del megamenu. Una chiave che non esiste si
+ * scarta.
  */
-function categoriesFromUrl(): CategoryKey[] {
-  if (typeof window === "undefined") return [];
+function categoryFromUrl(): CategoryKey | null {
+  if (typeof window === "undefined") return null;
   const raw = new URLSearchParams(window.location.search).get("categoria");
-  if (!raw) return [];
-  const wanted = raw.split(",").map((s) => s.trim().toLowerCase());
-  return CATEGORIES.filter((c) => wanted.includes(c.key)).map((c) => c.key);
+  if (!raw) return null;
+  const wanted = raw.split(",")[0].trim().toLowerCase();
+  return CATEGORIES.find((c) => c.key === wanted)?.key ?? null;
 }
 
 export function useCatalogFilters() {
-  const [cats, setCats] = useState<CategoryKey[]>(categoriesFromUrl);
-  const [sectors, setSectors] = useState<SectorKey[]>([]);
+  const [cat, setCat] = useState<CategoryKey | null>(categoryFromUrl);
+  const [kind, setKind] = useState<KindKey | null>(null);
+  const [sector, setSector] = useState<SectorKey | null>(null);
 
-  // Settori raggiungibili con le categorie scelte: gli altri si spengono.
+  const cats = useMemo(() => (cat ? [cat] : []), [cat]);
+
+  // Settori raggiungibili con la categoria scelta: gli altri si spengono.
   const openSectors = useMemo(() => sectorsForCategories(cats), [cats]);
 
-  // Scegliendo una categoria un settore già selezionato può restare senza
-  // prodotti: in quel caso lo lasciamo cadere, così il filtro non mente.
+  // I tipi in cui si divide la categoria scelta: pompe di calore,
+  // condizionatori e accessori nel clima; prodotto e accessori nelle altre.
+  // Vuoto senza categoria, o se la categoria non ha suddivisioni.
+  const kinds = useMemo(() => (cat ? kindsForCategory(cat) : []), [cat]);
+
+  // Cambiando categoria il tipo non vale più, e un settore già scelto può
+  // restare senza prodotti: in quel caso lo lasciamo cadere, così il filtro
+  // non mente.
   const toggleCat = useCallback(
     (key: CategoryKey) => {
-      const next = toggle(cats, key);
-      const open = sectorsForCategories(next);
-      setCats(next);
-      if (open) {
-        setSectors((sel) => (sel.every((s) => open.has(s)) ? sel : sel.filter((s) => open.has(s))));
-      }
+      const next = cat === key ? null : key;
+      const open = sectorsForCategories(next ? [next] : []);
+      setCat(next);
+      setKind(null);
+      if (open) setSector((s) => (s && !open.has(s) ? null : s));
     },
-    [cats],
+    [cat],
   );
 
-  const toggleSector = useCallback((key: SectorKey) => setSectors((v) => toggle(v, key)), []);
+  const toggleKind = useCallback((key: KindKey) => setKind((k) => (k === key ? null : key)), []);
+
+  const toggleSector = useCallback(
+    (key: SectorKey) => setSector((s) => (s === key ? null : key)),
+    [],
+  );
 
   const clear = useCallback(() => {
-    setCats([]);
-    setSectors([]);
+    setCat(null);
+    setKind(null);
+    setSector(null);
   }, []);
 
   const matches = useCallback(
     (p: CatalogProduct) =>
-      (cats.length === 0 || cats.includes(p.category)) &&
-      (sectors.length === 0 || p.sectors.some((s) => sectors.includes(s))),
-    [cats, sectors],
+      (!cat || p.category === cat) &&
+      (!kind || (p.kind ?? "main") === kind) &&
+      (!sector || p.sectors.includes(sector)),
+    [cat, kind, sector],
   );
 
   return {
     cats,
-    sectors,
+    kind,
+    kinds,
+    sector,
     openSectors,
     toggleCat,
+    toggleKind,
     toggleSector,
     clear,
     matches,
     /** Quanti filtri sono accesi, per il bottone "Azzera". */
-    active: cats.length + sectors.length,
+    active: (cat ? 1 : 0) + (kind ? 1 : 0) + (sector ? 1 : 0),
   };
 }
 

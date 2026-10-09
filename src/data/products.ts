@@ -15,6 +15,11 @@ export type CategoryKey = "fotovoltaico" | "inverter" | "accumulo" | "mobilita" 
 
 export type SectorKey = "residenziale" | "industriale";
 
+/** La suddivisione dentro una categoria. `main` è il prodotto che dà il nome
+    alla categoria (l'inverter fra gli inverter, la pompa di calore nel clima);
+    `condizionatori` esiste solo nel clima. */
+export type KindKey = "main" | "condizionatori" | "accessori";
+
 export type Category = {
   key: CategoryKey;
   label: string;
@@ -69,6 +74,9 @@ export type CatalogProduct = {
   name: string;
   category: CategoryKey;
   sectors: SectorKey[];
+  /** Tipo dentro la categoria, per il filtro del catalogo. Senza, è il
+      prodotto principale della categoria — vedi `KindKey`. */
+  kind?: Exclude<KindKey, "main">;
   /** Con la scheda pubblicata il prodotto entra nella griglia e ha una pagina
       sua; senza, resta una voce di gamma nel menu che porta al catalogo. */
   published: boolean;
@@ -86,9 +94,9 @@ export type CatalogProduct = {
   models?: ModelTable;
   /** Documenti scaricabili, sotto la tabella dei modelli. */
   datasheets?: Datasheet[];
-  /** Prodotti che si abbinano a questo (codici di altre schede): la fila
-      "Compatibile con" in fondo alla scheda. Basta scriverlo su una delle due
-      schede, la fila compare su entrambe. */
+  /** Prodotti che si abbinano a questo (codici di altre schede), nell'ordine
+      in cui compaiono nella fila "Compatibile con" in fondo alla scheda. Vale
+      solo per questa scheda: l'abbinamento inverso si scrive sull'altra. */
   compatible?: string[];
   /** Catalogo del singolo prodotto — da depositare in `public/cataloghi/`. */
   catalogFile?: string;
@@ -190,12 +198,23 @@ export const ALL_PRODUCTS: CatalogProduct[] = (catalog.products as CatalogProduc
   (p) => p.id && p.name && CATEGORY_KEYS.has(p.category),
 );
 
+/** Il prodotto di punta dell'azienda: primo nella griglia `/prodotti`, sempre
+    fra i "Prodotti Recenti" della home e sempre fra i consigliati sotto le
+    schede della sua categoria. Se la scheda sparisce o non è pubblicata, il
+    sito torna semplicemente all'ordine normale. */
+export const FLAGSHIP_ID = "fv-3sun-b60-hjt-made-in-italy-enea-cat-c";
+
 /* Griglia prodotti: solo le schede pubblicate.
 
    L'ordine conta ancora — decide quale prodotto riceve quale forma e tiene le
    categorie mescolate — ma la forma non è più un dato del prodotto: la calcola
-   `layoutShapes()` sull'elenco effettivamente a schermo. */
-export const CATALOG: CatalogProduct[] = ALL_PRODUCTS.filter((p) => p.published);
+   `layoutShapes()` sull'elenco effettivamente a schermo. Il prodotto di punta
+   passa davanti a tutti. */
+export const CATALOG: CatalogProduct[] = ALL_PRODUCTS.filter((p) => p.published).sort(
+  (a, b) => Number(b.id === FLAGSHIP_ID) - Number(a.id === FLAGSHIP_ID),
+);
+
+export const FLAGSHIP: CatalogProduct | undefined = CATALOG.find((p) => p.id === FLAGSHIP_ID);
 
 /**
  * Le ultime schede andate online, dalla più nuova: lo slider "Prodotti
@@ -208,10 +227,12 @@ export function recentProducts(limit = 10): CatalogProduct[] {
     const t = p.publishedAt ? Date.parse(p.publishedAt) : NaN;
     return Number.isNaN(t) ? 0 : t;
   };
-  return CATALOG.map((p, i) => ({ p, i, t: time(p) }))
+  // Il prodotto di punta apre sempre lo slider, qualunque sia la sua data.
+  const rest = CATALOG.filter((p) => p !== FLAGSHIP)
+    .map((p, i) => ({ p, i, t: time(p) }))
     .sort((a, b) => b.t - a.t || b.i - a.i)
-    .slice(0, limit)
     .map(({ p }) => p);
+  return (FLAGSHIP ? [FLAGSHIP, ...rest] : rest).slice(0, limit);
 }
 
 /** La gamma di una categoria, per la colonna centrale del mega menu. */
@@ -288,12 +309,48 @@ export function sectorsForCategories(cats: CategoryKey[]): Set<SectorKey> | null
   return open;
 }
 
-/** Le schede pubblicate che si abbinano a questa, nell'ordine del catalogo.
-    L'abbinamento vale nei due sensi: l'inverter che elenca la batteria compare
-    anche sulla scheda della batteria, senza doverlo scrivere due volte. */
+/** Le schede pubblicate che si abbinano a questa, nell'ordine scelto nel
+    pannello. Un codice che non porta a una scheda pubblicata si salta. */
 export function compatibleWith(product: CatalogProduct): CatalogProduct[] {
-  const own = new Set(product.compatible ?? []);
-  return CATALOG.filter(
-    (p) => p.id !== product.id && (own.has(p.id) || (p.compatible ?? []).includes(product.id)),
+  return (product.compatible ?? []).flatMap((id) => {
+    const p = CATALOG.find((x) => x.id === id);
+    return p && p.id !== product.id ? [p] : [];
+  });
+}
+
+/** Come si chiama, categoria per categoria, il prodotto principale: è la
+    prima voce del filtro per tipo. */
+const MAIN_KIND_LABEL: Record<CategoryKey, string> = {
+  fotovoltaico: "Moduli",
+  inverter: "Inverter",
+  accumulo: "Batterie",
+  mobilita: "Ricarica",
+  clima: "Pompe di calore",
+};
+
+const KIND_ORDER: KindKey[] = ["main", "condizionatori", "accessori"];
+
+/** Tutti i tipi che una categoria può avere: le voci fra cui sceglie il
+    pannello. I condizionatori stanno solo nel clima. */
+export function kindOptions(category: CategoryKey): { key: KindKey; label: string }[] {
+  return KIND_ORDER.filter((k) => k !== "condizionatori" || category === "clima").map((key) => ({
+    key,
+    label:
+      key === "main"
+        ? MAIN_KIND_LABEL[category]
+        : key === "condizionatori"
+          ? "Condizionatori"
+          : "Accessori",
+  }));
+}
+
+/** I tipi da proporre come filtro per una categoria: solo quelli che hanno
+    davvero prodotti a catalogo, e nessuno se la categoria ne ha uno solo —
+    un filtro con una voce sola non filtra niente. */
+export function kindsForCategory(category: CategoryKey): { key: KindKey; label: string }[] {
+  const present = new Set(
+    CATALOG.filter((p) => p.category === category).map((p) => p.kind ?? "main"),
   );
+  const kinds = kindOptions(category).filter((k) => present.has(k.key));
+  return kinds.length > 1 ? kinds : [];
 }

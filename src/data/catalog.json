@@ -67,6 +67,12 @@
           "size": "46 KB"
         }
       ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase",
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-pro-ibrido-trifase",
+        "inv-fox-h3-plus-ibrido-trifase-50-125-kw"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -147,6 +153,12 @@
           "size": "46 KB"
         }
       ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase",
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-pro-ibrido-trifase",
+        "inv-fox-h3-plus-ibrido-trifase-50-125-kw"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -216,6 +228,12 @@
           "size": "46 KB"
         }
       ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase",
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-pro-ibrido-trifase",
+        "inv-fox-h3-plus-ibrido-trifase-50-125-kw"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -227,7 +245,7 @@
         "industriale"
       ],
       "published": true,
-      "image": "/assets/catalogo/3sun-b60-foto-prodotto-6257d8be.webp",
+      "image": "/assets/catalogo/3sun-b60-foto-prodotto-crop-a41f07c2.webp",
       "intro": "Modulo fotovoltaico bifacciale vetro-vetro da 575 Wp con tecnologia a eterogiunzione (HJT), progettato e prodotto a Catania. Celle e modulo sono Made in Italy e la referenza è iscritta al Registro ENEA in Categoria C.",
       "highlights": [
         "ENEA Categoria C",
@@ -268,6 +286,12 @@
           "file": "/schede/3sun-b60-manuale-installazione-it-c14b8cc6.pdf",
           "size": "1,6 MB"
         }
+      ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase",
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-pro-ibrido-trifase",
+        "inv-fox-h3-plus-ibrido-trifase-50-125-kw"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -327,6 +351,12 @@
           "size": "46 KB"
         }
       ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase",
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-pro-ibrido-trifase",
+        "inv-fox-h3-plus-ibrido-trifase-50-125-kw"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -384,6 +414,12 @@
           "file": "/schede/sk-power-full-black-dichiarazione-di-conformita-en-a82cbf22.pdf",
           "size": "46 KB"
         }
+      ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase",
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-pro-ibrido-trifase",
+        "inv-fox-h3-plus-ibrido-trifase-50-125-kw"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -481,7 +517,7 @@
       "compatible": [
         "acc-fox-ep6-torre-residenziale",
         "acc-fox-ep12-torre-residenziale",
-        "inv-ct-per-serie-h1"
+        "inv-hv-junction-box"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -553,7 +589,8 @@
       ],
       "compatible": [
         "acc-fox-ep6-torre-residenziale",
-        "acc-fox-ep12-torre-residenziale"
+        "acc-fox-ep12-torre-residenziale",
+        "inv-hv-junction-box"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -658,8 +695,8 @@
       "compatible": [
         "acc-fox-ep6-torre-residenziale",
         "acc-fox-ep12-torre-residenziale",
-        "acc-fox-ecs-2800",
-        "acc-fox-cq7"
+        "acc-fox-cq7",
+        "inv-smart-meter-trifase-misura-diretta"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -749,9 +786,10 @@
         }
       ],
       "compatible": [
-        "acc-fox-ep6-torre-residenziale",
         "acc-fox-ep12-torre-residenziale",
-        "acc-fox-ecs-2800"
+        "acc-fox-ep6-torre-residenziale",
+        "acc-fox-ecs-2800",
+        "inv-ai-link-a-1000"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -944,6 +982,10 @@
           "size": "1,1 MB"
         }
       ],
+      "compatible": [
+        "fv-sk-power-full-black-made-eu",
+        "fv-sk-alpin-terracotta-edifici-vincolati"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -1036,6 +1078,10 @@
           "file": "/schede/fox-f-g2-certificato-cei-0-21-it-9ca2f1e0.pdf",
           "size": "206 KB"
         }
+      ],
+      "compatible": [
+        "fv-sk-power-full-black-made-eu",
+        "fv-sk-power-zebra-made-eu-enea-cat-a"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -1169,6 +1215,10 @@
           "size": "1,2 MB"
         }
       ],
+      "compatible": [
+        "fv-sk-power-zebra-made-eu-enea-cat-a",
+        "fv-sk-power-vetro-vetro-ne"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -1256,6 +1306,10 @@
           "file": "/schede/fox-v-dichiarazione-cei-0-16-it-05ac798c.pdf",
           "size": "1,4 MB"
         }
+      ],
+      "compatible": [
+        "fv-sk-power-vetro-vetro-ne",
+        "fv-3sun-b60-hjt-made-in-italy-enea-cat-c"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -1353,6 +1407,10 @@
           "size": "2,1 MB"
         }
       ],
+      "compatible": [
+        "inv-ai-link-a-1000",
+        "fv-3sun-b60-hjt-made-in-italy-enea-cat-c"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -1429,6 +1487,12 @@
           "file": "/schede/fox-h3-smart-dichiarazione-cei-0-21-it-d90cc9bb.pdf",
           "size": "21,0 MB"
         }
+      ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase",
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-pro-ibrido-trifase",
+        "inv-hv-junction-box"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -1507,6 +1571,12 @@
           "size": "21,0 MB"
         }
       ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase",
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-pro-ibrido-trifase",
+        "inv-hv-junction-box"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -1574,6 +1644,10 @@
           "file": "/schede/fox-h3-pro-ecs2800-dichiarazione-cei-0-21-it-f76c9b9b.pdf",
           "size": "3,6 MB"
         }
+      ],
+      "compatible": [
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-pro-ibrido-trifase"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -1647,6 +1721,10 @@
           "size": "22,9 MB"
         }
       ],
+      "compatible": [
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-plus-ibrido-trifase-50-125-kw"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -1718,6 +1796,9 @@
           "file": "/schede/fox-h3-plus-cq7-cq7-80-cq16-dichiarazione-cei-0-16-it-d95b1a0d.pdf",
           "size": "22,9 MB"
         }
+      ],
+      "compatible": [
+        "inv-fox-h3-plus-ibrido-trifase-50-125-kw"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -1802,6 +1883,10 @@
           "size": "1,1 MB"
         }
       ],
+      "compatible": [
+        "fv-sk-power-full-black-made-eu",
+        "fv-sk-back-contact"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -1876,6 +1961,10 @@
           "size": "1,5 MB"
         }
       ],
+      "compatible": [
+        "inv-fox-v-stringa-trifase-30-75-kw",
+        "fv-3sun-b60-hjt-made-in-italy-enea-cat-c"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -1935,6 +2024,10 @@
           "file": "/schede/fox-g-max-plus-manuale-installazione-en-64283c56.pdf",
           "size": "6,4 MB"
         }
+      ],
+      "compatible": [
+        "fv-3sun-b60-hjt-made-in-italy-enea-cat-c",
+        "fv-sk-power-vetro-vetro-ne"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -2017,6 +2110,11 @@
           "size": "1,2 MB"
         }
       ],
+      "compatible": [
+        "mob-palo-di-sostegno-ev",
+        "inv-smart-meter-monofase-ddsu666",
+        "inv-smart-meter-trifase-misura-diretta"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -2092,6 +2190,11 @@
           "size": "1,2 MB"
         }
       ],
+      "compatible": [
+        "mob-palo-di-sostegno-ev",
+        "inv-smart-meter-monofase-ddsu666",
+        "inv-smart-meter-trifase-misura-diretta"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -2163,6 +2266,10 @@
           "size": "1,2 MB"
         }
       ],
+      "compatible": [
+        "mob-palo-di-sostegno-ev",
+        "inv-smart-meter-trifase-misura-diretta"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -2174,6 +2281,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/fox-ev-charger-post-foto-prodotto-80893e9b.webp",
       "intro": "Il palo di sostegno EV è il supporto per installare a terra i caricatori Fox. Esiste in due versioni, una per le wall box delle serie A e L e una per la serie C.",
       "highlights": [
@@ -2227,6 +2335,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/fox-smart-lan-foto-prodotto-411301e3.webp",
       "intro": "Smart LAN è il dongle che collega l'inverter al portale di monitoraggio Fox ESS Cloud con un cavo di rete Ethernet, per gli impianti in cui la connessione WiFi non è affidabile. Si innesta nella porta di comunicazione sul fondo dell'inverter.",
       "highlights": [
@@ -2266,6 +2375,10 @@
           "size": "426 KB"
         }
       ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase",
+        "inv-fox-kh-ibrido-monofase"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -2277,6 +2390,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/fox-smart-wifi-foto-prodotto-512fcc3d.webp",
       "intro": "Smart WiFi è il dongle che collega l'inverter al portale di monitoraggio Fox ESS Cloud attraverso una rete WiFi a 2,4 GHz. Si innesta nella porta di comunicazione sul fondo dell'inverter.",
       "highlights": [
@@ -2316,6 +2430,10 @@
           "size": "209 KB"
         }
       ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase",
+        "inv-fox-kh-ibrido-monofase"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -2327,6 +2445,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/fox-ai-link-a-1000-foto-prodotto-29cb97fd.webp",
       "intro": "AI-Link A-1000 è il dispositivo di comunicazione e gestione per gli impianti con più inverter in parallelo delle serie H3 Pro e R. Collega su linea RS485 gli inverter e il contatore, e porta i dati al portale cloud via cavo Ethernet o Wi-Fi. Gestisce fino a 30 inverter della serie R, 10 H3 Pro connessi alla rete e 4 H3 Pro fuori rete.",
       "highlights": [
@@ -2368,6 +2487,10 @@
           "size": "1,7 MB"
         }
       ],
+      "compatible": [
+        "inv-fox-h3-pro-ibrido-trifase",
+        "inv-fox-r-stringa-trifase-75-136-kw"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -2379,6 +2502,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/fox-hv-junction-box-foto-prodotto-ae4cbeec.webp",
       "intro": "HV Junction Box è l'accessorio che serve in ogni sistema di batterie EP con più di un modulo. Riunisce fino a quattro batterie su un unico ingresso batteria dell'inverter. Con le batterie EP6 ed EP12 si usa sugli inverter ibridi Fox H1-G2, KH, H3 Smart e H3 Pro.",
       "highlights": [
@@ -2418,6 +2542,10 @@
           "size": "628 KB"
         }
       ],
+      "compatible": [
+        "acc-fox-ep6-torre-residenziale",
+        "acc-fox-ep12-torre-residenziale"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -2428,6 +2556,7 @@
         "residenziale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/fox-smart-meter-ddsu666-foto-prodotto-9857e8f6.webp",
       "intro": "Smart Meter DDSU666 è un contatore monofase a misura diretta, senza trasformatori di corrente esterni, per gli inverter H1 G2 e AC1 G2. Collegato all'ingresso di misura dell'inverter, legge lo scambio con la rete e permette all'inverter di limitare l'immissione.",
       "highlights": [
@@ -2464,6 +2593,11 @@
           "size": "335 KB"
         }
       ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase",
+        "mob-fox-serie-a-wall-box-smart",
+        "mob-fox-serie-l-wall-box-base"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -2475,6 +2609,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/fox-ct-per-serie-h1-foto-prodotto-d72b671c.webp",
       "intro": "Il CT per serie H1 è un trasformatore di corrente per gli inverter H1 G2 e AC1 G2, da collegare all'ingresso di misura dell'inverter. Sugli H1 G2 è la misura di serie, e un trasformatore è già compreso nella confezione.",
       "highlights": [
@@ -2509,6 +2644,9 @@
           "size": "4,7 MB"
         }
       ],
+      "compatible": [
+        "inv-fox-h1-ibrido-monofase"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -2520,6 +2658,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/fox-smart-meter-dtsu666-foto-prodotto-2285f125.webp",
       "intro": "Smart Meter DTSU666 è un contatore trifase con neutro a misura diretta, senza trasformatori di corrente esterni, per gli inverter ibridi trifase H3 Smart e H3 Pro.",
       "highlights": [
@@ -2557,6 +2696,12 @@
           "size": "335 KB"
         }
       ],
+      "compatible": [
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-pro-ibrido-trifase",
+        "mob-fox-serie-a-wall-box-smart",
+        "mob-fox-serie-c-colonnina-doppia"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -2568,6 +2713,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/fox-smart-meter-dtsu666-con-ta-200a-foto-prodotto-b481d6cd.webp",
       "intro": "Smart Meter DTSU666 con TA esterni è un contatore trifase con neutro che misura fino a 200 A attraverso trasformatori amperometrici (TA) forniti con il contatore. È la versione per gli impianti in cui la corrente supera gli 80 A del contatore a misura diretta.",
       "highlights": [
@@ -2603,6 +2749,10 @@
           "file": "/schede/fox-smart-meter-ddsu666-scheda-tecnica-en-dbc5e732.pdf",
           "size": "335 KB"
         }
+      ],
+      "compatible": [
+        "inv-fox-h3-smart-ibrido-trifase",
+        "inv-fox-h3-pro-ibrido-trifase"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -2779,6 +2929,12 @@
           "size": "879 KB"
         }
       ],
+      "compatible": [
+        "cli-omnia-ft-modulo-interno-con-serbatoio-acs",
+        "cli-ecounit-hp-bollitore-sanitario",
+        "cli-ecopuffer-hp-accumulo-inerziale",
+        "cli-jolly-top-i"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -2847,7 +3003,9 @@
         }
       ],
       "compatible": [
-        "cli-omnia-life-m-monoblocco-r290"
+        "cli-omnia-life-m-monoblocco-r290",
+        "cli-ecopuffer-hp-accumulo-inerziale",
+        "cli-jolly-top-i"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -2978,6 +3136,11 @@
           "size": "480 KB"
         }
       ],
+      "compatible": [
+        "cli-ecounit-hp-bollitore-sanitario",
+        "cli-ecopuffer-hp-accumulo-inerziale",
+        "cli-jolly-top-i"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -3057,6 +3220,10 @@
           "file": "/schede/omnia-sw-t-3-2-flyer-it-ae015808.pdf",
           "size": "485 KB"
         }
+      ],
+      "compatible": [
+        "cli-ecopuffer-hp-accumulo-inerziale",
+        "cli-jolly-top-i"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -3142,6 +3309,10 @@
           "file": "/schede/omnia-s-in-3-2-depliant-it-b624cdbc.pdf",
           "size": "1,0 MB"
         }
+      ],
+      "compatible": [
+        "cli-ecopuffer-hp-accumulo-inerziale",
+        "cli-jolly-style"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -3271,6 +3442,10 @@
           "size": "471 KB"
         }
       ],
+      "compatible": [
+        "cli-ecopuffer-hp-accumulo-inerziale",
+        "cli-jolly-top-i"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -3361,6 +3536,10 @@
           "size": "571 KB"
         }
       ],
+      "compatible": [
+        "cli-ecopuffer-hp-accumulo-inerziale",
+        "cli-jolly-top-3v"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -3449,6 +3628,11 @@
           "file": "/schede/omnia-s-hybrid-28h-flyer-it-4a3659ad.pdf",
           "size": "579 KB"
         }
+      ],
+      "compatible": [
+        "cli-ecounit-hp-bollitore-sanitario",
+        "cli-ecopuffer-hp-accumulo-inerziale",
+        "cli-jolly-top-i"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -3540,6 +3724,10 @@
           "size": "2,7 MB"
         }
       ],
+      "compatible": [
+        "cli-ecopuffer-hp-accumulo-inerziale",
+        "cli-jolly-style"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -3550,6 +3738,7 @@
         "residenziale"
       ],
       "published": true,
+      "kind": "condizionatori",
       "image": "/assets/catalogo/giada-s-foto-prodotto-f19e9b0e.webp",
       "intro": "GIADA mono-split è una serie di climatizzatori murali in pompa di calore, nelle taglie 9, 12, 18 e 24, tutte monofase. Ogni taglia abbina un'unità interna a parete e un'unità esterna della stessa taglia, e raffresca, deumidifica e riscalda l'ambiente in cui è installata l'unità interna.",
       "highlights": [
@@ -3625,6 +3814,9 @@
           "size": "3,3 MB"
         }
       ],
+      "compatible": [
+        "cli-giada-multisplit"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -3635,6 +3827,7 @@
         "residenziale"
       ],
       "published": true,
+      "kind": "condizionatori",
       "image": "/assets/catalogo/giada-m-foto-prodotto-10e47099.webp",
       "intro": "GIADA multisplit è una gamma di unità esterne in pompa di calore per impianti multisplit, in quattro taglie monofase, 18-2, 21-3, 27-3 e 28-4. A ogni unità esterna si collegano fino a quattro unità interne murali GIADA 9, 12 e 18, secondo la taglia, e ogni unità interna ha il proprio telecomando.",
       "highlights": [
@@ -3711,6 +3904,9 @@
           "size": "3,3 MB"
         }
       ],
+      "compatible": [
+        "cli-giada-mono-split"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -3722,6 +3918,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/jolly-top-3v-vm-foto-prodotto-05d0b6b1.webp",
       "intro": "JOLLY TOP 3V è una serie di ventilconvettori ad acqua per il riscaldamento e il raffrescamento, in cinque grandezze da 150 a 700. Ogni grandezza ha due versioni, VM con mantello per l'installazione a vista e VN senza mantello.",
       "highlights": [
@@ -3823,6 +4020,10 @@
           "size": "2,8 MB"
         }
       ],
+      "compatible": [
+        "cli-omnia-life-m-monoblocco-r290",
+        "cli-omnia-s-split"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -3834,6 +4035,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/jolly-top-i-vm-foto-prodotto-05d0b6b1.webp",
       "intro": "JOLLY TOP I è una serie di ventilconvettori ad acqua per il riscaldamento e il raffrescamento, in cinque grandezze da 150 a 700, con motore DC brushless. Ogni grandezza ha due versioni, VM con mantello per l'installazione a vista e VN senza mantello.",
       "highlights": [
@@ -3936,6 +4138,10 @@
           "size": "2,8 MB"
         }
       ],
+      "compatible": [
+        "cli-omnia-life-m-monoblocco-r290",
+        "cli-omnia-s-split"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -3947,6 +4153,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/jolly-style-vm-foto-prodotto-7c690faa.webp",
       "intro": "JOLLY STYLE è una serie di ventilconvettori tangenziali ultrasottili, in quattro taglie da 10 a 40 di lunghezza crescente, abbinabili a una caldaia, a una pompa di calore o a un refrigeratore. Ogni taglia ha due versioni, VM a mobiletto e VN da incasso per installazione verticale.",
       "highlights": [
@@ -4036,6 +4243,10 @@
           "size": "7,1 MB"
         }
       ],
+      "compatible": [
+        "cli-omnia-s-split",
+        "cli-omnia-s-in-da-incasso"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -4047,6 +4258,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/jolly-up-foto-prodotto-c58665d7.webp",
       "intro": "JOLLY UP è una serie di ventilconvettori idronici a parete, con ventilatore tangenziale e mobile in ABS bianco, in tre taglie, 30, 35 e 45. Le unità si installano a 2,3 m dal pavimento, lasciando libero lo spazio a terra, e sono abbinabili a una caldaia, a una pompa di calore o a un refrigeratore.",
       "highlights": [
@@ -4106,6 +4318,10 @@
           "size": "200 KB"
         }
       ],
+      "compatible": [
+        "cli-omnia-s-split",
+        "cli-bluehelix-alpha"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -4117,6 +4333,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/jolly-fly-foto-prodotto-a01e42c8.webp",
       "intro": "JOLLY FLY è una serie di ventilconvettori idronici a parete, in tre taglie, 15, 30 e 45, con pannello frontale in metallo verniciato bianco e lame di uscita dell'aria in alluminio. Le unità si installano con il fondo a un'altezza fra 2,5 e 3 m dal pavimento e sono abbinabili a una caldaia, a una pompa di calore o a un refrigeratore.",
       "highlights": [
@@ -4174,6 +4391,10 @@
           "size": "2,2 MB"
         }
       ],
+      "compatible": [
+        "cli-omnia-s-split",
+        "cli-omnia-life-m-monoblocco-r290"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -4185,6 +4406,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/fcm-foto-prodotto-613c7ee9.webp",
       "intro": "FCM è una serie di ventilconvettori ad acqua a cassetta, da installare in controsoffitto, per impianti a due tubi e a quattro tubi, fino a 10,64 kW in raffrescamento alla velocità massima. Nella versione a quattro tubi una seconda batteria è dedicata all'acqua calda.",
       "highlights": [
@@ -4255,6 +4477,10 @@
           "file": "/schede/fcm-manuale-it-es-en-a3e82d49.pdf",
           "size": "1,3 MB"
         }
+      ],
+      "compatible": [
+        "cli-omnia-life-m-monoblocco-r290",
+        "cli-omnia-s-split"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
@@ -4396,6 +4622,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/bluehelix-alpha-foto-prodotto-d72c1691.webp",
       "intro": "BLUEHELIX ALPHA è una serie di caldaie murali a gas a condensazione, combinate con produzione istantanea di acqua calda sanitaria, nei modelli 24 C, 28 C e 34 C. L'omologazione per scarichi fumi da 50 mm la rende adatta alle sostituzioni in canne fumarie che richiedono intubamenti impegnativi.",
       "highlights": [
@@ -4460,6 +4687,10 @@
           "size": "396 KB"
         }
       ],
+      "compatible": [
+        "cli-jolly-up",
+        "cli-ecounit-hp-bollitore-sanitario"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -4471,6 +4702,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/bluehelix-theta-24-c-foto-prodotto-28689298.webp",
       "intro": "BLUEHELIX THETA 24 C è una caldaia murale a gas a condensazione, combinata, con produzione istantanea di acqua calda sanitaria. Funziona a metano, GPL o aria propanata, e il passaggio da un gas all'altro si fa configurando l'elettronica, senza kit di conversione.",
       "highlights": [
@@ -4523,6 +4755,10 @@
           "size": "263 KB"
         }
       ],
+      "compatible": [
+        "cli-jolly-up",
+        "cli-ecounit-hp-bollitore-sanitario"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -4534,6 +4770,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/ecounit-hp-foto-prodotto-363f6c23.webp",
       "intro": "ECOUNIT HP è una serie di bollitori verticali ad accumulo per l'acqua calda sanitaria, da 200, 300 e 500 litri, per pompe di calore, caldaie e sistemi solari termici. Ogni taglia esiste con una serpentina o con due, e le due serpentine si collegano a circuiti diversi oppure in serie.",
       "highlights": [
@@ -4604,6 +4841,12 @@
           "size": "16,4 MB"
         }
       ],
+      "compatible": [
+        "cli-omnia-s-hybrid-28h",
+        "cli-omnia-s-split",
+        "cli-omnia-life-m-monoblocco-r290",
+        "cli-bluehelix-alpha"
+      ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     },
     {
@@ -4615,6 +4858,7 @@
         "industriale"
       ],
       "published": true,
+      "kind": "accessori",
       "image": "/assets/catalogo/ecopuffer-hp-foto-prodotto-9556d36f.webp",
       "intro": "ECOPUFFER HP è una serie di accumuli inerziali verticali per l'acqua tecnica degli impianti di riscaldamento e raffrescamento, da 50, 80 e 100 litri. A seconda dell'applicazione può fare da volano termico, per garantire il contenuto minimo d'acqua richiesto dalla pompa di calore.",
       "highlights": [
@@ -4670,6 +4914,11 @@
           "file": "/schede/ecopuffer-hp-etichetta-energetica-erp-it-a332c3fe.pdf",
           "size": "106 KB"
         }
+      ],
+      "compatible": [
+        "cli-omnia-life-m-monoblocco-r290",
+        "cli-omnia-s-split",
+        "cli-omnia-st-split-con-accumulo-integrato"
       ],
       "publishedAt": "2026-10-09T07:58:35.353Z"
     }

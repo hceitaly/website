@@ -5,6 +5,7 @@ import { SplitText } from "gsap/SplitText";
 import {
   CATALOG,
   CATEGORY_BY_KEY,
+  FLAGSHIP,
   PLACEHOLDER_IMAGE,
   compatibleWith,
   type CatalogProduct,
@@ -38,7 +39,13 @@ export default function ProductPage({ product }: { product: CatalogProduct }) {
     (p) => p.category === product.category && !compatible.includes(p),
   );
   const at = siblings.findIndex((p) => p.id === product.id);
-  const others = [...siblings.slice(at + 1), ...siblings.slice(0, at)].slice(0, MAX_RELATED);
+  const rotated = [...siblings.slice(at + 1), ...siblings.slice(0, at)];
+  // Il prodotto di punta, se è della stessa categoria, apre sempre la fila.
+  const others = (
+    FLAGSHIP && rotated.includes(FLAGSHIP)
+      ? [FLAGSHIP, ...rotated.filter((p) => p !== FLAGSHIP)]
+      : rotated
+  ).slice(0, MAX_RELATED);
 
   useLayoutEffect(() => {
     const page = pageRef.current;

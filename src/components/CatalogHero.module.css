@@ -115,10 +115,77 @@
   border-color: #17140f;
 }
 
-/* Non selezionata mentre il suo gruppo ha una selezione attiva. */
+/* Non selezionata mentre il suo gruppo ha una selezione attiva: smorzata ma
+   ancora con un filo di colore, così quella scelta — a colore pieno — si stacca. */
 .fOff {
-  opacity: 0.5;
-  filter: saturate(0.55);
+  opacity: 0.62;
+  filter: saturate(0.32);
+}
+
+/* Sotto il mouse torna a colori: è la prossima che si può scegliere. */
+.fOff:hover,
+.fOff:focus-visible {
+  opacity: 1;
+  filter: saturate(0.85);
+}
+
+/* La scelta: foto più satura, oltre al fondo pieno. */
+.fOn .fFill img {
+  filter: saturate(1.3);
+}
+
+/* ---------- Tipo di prodotto, sotto le categorie ---------- */
+
+/* Pastiglie nel colore della categoria scelta: pompe di calore,
+   condizionatori, accessori. */
+.kinds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 0.35rem;
+  animation: kindsIn 0.35s var(--ease-out) both;
+}
+
+@keyframes kindsIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.kind {
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--r-pill);
+  border: 1px solid color-mix(in srgb, var(--cat) 35%, transparent);
+  background: color-mix(in srgb, var(--cat) 14%, #fff);
+  color: color-mix(in srgb, var(--cat) 82%, #17140f);
+  font-family: var(--font-montserrat);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out),
+    opacity 0.3s var(--ease-out), filter 0.3s var(--ease-out);
+}
+
+.kind:hover {
+  background: color-mix(in srgb, var(--cat) 28%, #fff);
+}
+
+.kind:focus-visible {
+  outline: 2px solid var(--hce-blue);
+  outline-offset: 3px;
+}
+
+.kindOn,
+.kindOn:hover {
+  background: var(--cat);
+  border-color: color-mix(in srgb, var(--cat) 70%, #000);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kinds {
+    animation: none;
+  }
 }
 
 /* Settore senza prodotti nelle categorie scelte: grigio e fuori uso. */

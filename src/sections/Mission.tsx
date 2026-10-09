@@ -7,20 +7,6 @@ import styles from "./Mission.module.css";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-/** Placeholder "Recent News" entries — swap for real content later. */
-const NEWS = [
-  {
-    title: "Efficienza energetica: le novità normative del 2025",
-    date: "3 Giugno 2025",
-    image: "/assets/pinsnap-106327241187857624.jpg",
-  },
-  {
-    title: "Nuovi sistemi di accumulo ad alta densità",
-    date: "12 Maggio 2025",
-    image: "/assets/batteria-crop.webp",
-  },
-];
-
 /** Two layers for the reveal: a logo-blue curtain, then the image itself. */
 function Media({ src, alt = "" }: { src: string; alt?: string }) {
   return (
@@ -40,7 +26,7 @@ export default function Mission() {
   useReveal(sectionRef);
 
   // Images: logo-blue curtain wipes in top->bottom, then the image wipes in
-  // top->bottom over it — the 3 slots cascade with a slight delay.
+  // top->bottom over it — the slots cascade with a slight delay.
   // Statement: split into words that rise + fade in, word by word.
   useLayoutEffect(() => {
     const el = sectionRef.current;
@@ -63,7 +49,7 @@ export default function Mission() {
         const fill = m.querySelector<HTMLElement>("[data-fill]");
         if (!cover || !fill) return;
         gsap.set([cover, fill], { clipPath: HIDDEN });
-        const at = i * 0.22; // slight delay between the three images
+        const at = i * 0.22; // slight delay between images
         tl.to(cover, { clipPath: SHOWN, duration: 0.45, ease: "power2.inOut" }, at).to(
           fill,
           { clipPath: SHOWN, duration: 0.6, ease: "power2.inOut" },
@@ -107,10 +93,6 @@ export default function Mission() {
           <span className={styles.brandSub}>Home Comfort Electronics</span>
         </div>
 
-        <div className={styles.newsLabel} data-reveal>
-          Recent News <span aria-hidden="true">↓</span>
-        </div>
-
         <div className={styles.statementWrap}>
           <figure className={styles.cutout} data-media>
             <Media src="/assets/pannelli-sonnenkraft.webp" alt="Impianto fotovoltaico HCE" />
@@ -122,21 +104,6 @@ export default function Mission() {
           </p>
         </div>
 
-        {/* Provisional #normative target: the news block leads with the
-            regulatory update until a dedicated section exists. */}
-        <aside id="normative" className={styles.news}>
-          {NEWS.map((n) => (
-            <article key={n.title} className={styles.card}>
-              <div className={styles.cardMedia} data-media>
-                <Media src={n.image} alt={n.title} />
-              </div>
-              <div className={styles.cardBody} data-reveal>
-                <h3 className={styles.cardTitle}>{n.title}</h3>
-                <span className={styles.cardDate}>{n.date}</span>
-              </div>
-            </article>
-          ))}
-        </aside>
       </div>
     </section>
   );

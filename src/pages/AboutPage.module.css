@@ -111,6 +111,9 @@
   position: absolute;
   display: block;
   width: 114.15%;
+  /* Il reset globale mette `max-width: 100%` sulle immagini: lo terrebbe
+     largo quanto il riquadro, e lo spostamento a sinistra taglierebbe la H. */
+  max-width: none;
   left: -7.253%;
   top: -36.364%;
 }
@@ -1051,8 +1054,12 @@
     padding: calc(var(--nav-h) + 1rem) var(--pad-x) clamp(1.6rem, 5vh, 2.6rem);
   }
 
+  /* Nel flusso della colonna, ma `relative`: il marchio e l'immagine dentro
+     sono assoluti e devono riferirsi a questo riquadro, non alla sezione. */
   .wordmark {
-    position: static;
+    position: relative;
+    left: auto;
+    top: auto;
     transform: none;
     width: min(78%, 320px);
     margin: auto;

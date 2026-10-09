@@ -59,6 +59,11 @@ function clean(raw: Product, index: number): Product {
     published: raw.published === true,
   };
 
+  // Il tipo dentro la categoria; i condizionatori esistono solo nel clima.
+  if (raw.kind === "accessori" || (raw.kind === "condizionatori" && raw.category === "clima")) {
+    out.kind = raw.kind;
+  }
+
   if (isText(raw.image)) out.image = (raw.image as string).trim();
   if (raw.fit === "cover" || raw.fit === "contain") out.fit = raw.fit;
   if (isText(raw.intro)) out.intro = (raw.intro as string).trim();
