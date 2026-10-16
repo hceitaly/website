@@ -2,7 +2,7 @@
    Chi Siamo — pannello chiaro caldo come il catalogo, tagliato
    dalle stesse oblique del resto del sito. La struttura ricalca
    il riferimento (manifesto fissato, valori su fondo azzurro,
-   team, finale video), ma parla i colori e le immagini di HCE.
+   finale video), ma parla i colori e le immagini di HCE.
    ============================================================ */
 
 .page {
@@ -266,7 +266,7 @@
   margin-left: 1.5rem;
 }
 
-/* ---------- L'ecosistema: testa centrata e quattro riquadri ---------- */
+/* ---------- L'ecosistema: testa centrata e tre riquadri ---------- */
 
 .eco {
   padding-block: var(--section-gap);
@@ -309,8 +309,8 @@
      riquadro. */
   --eco-thumb: calc(var(--eco-h) / 2 - var(--eco-pad));
   position: relative;
-  /* La larghezza arriva da React: a riposo un quarto, sotto il mouse di più. */
-  width: var(--eco-w, 25%);
+  /* La larghezza arriva da React: a riposo un terzo, sotto il mouse di più. */
+  width: var(--eco-w, 33.333%);
   overflow: hidden;
   padding: var(--eco-pad);
   border-right: 1px solid rgba(23, 20, 15, 0.18);
@@ -392,10 +392,6 @@
 
 .ecoCellOn .ecoName {
   color: #fff;
-}
-
-.ecoRole {
-  display: block;
 }
 
 /* In fondo: il numero a sinistra (l'angolo destro è del quadrato con la
@@ -496,14 +492,17 @@
   padding: var(--section-gap) var(--pad-x);
 }
 
+/* Il titolino in alto, la frase al centro dello spazio che resta. */
 .manifestoMain {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: clamp(2.5rem, 7vh, 5rem);
 }
 
 .manifestoText {
+  margin-block: auto;
   font-size: clamp(1.9rem, 4.6vw, 3.9rem);
   font-weight: 600;
   line-height: 1.14;
@@ -564,18 +563,8 @@
   align-self: flex-end;
 }
 
-/* ---------- Come lavoriamo: foto ferma, blocchi che le scorrono accanto ---- */
-
-.method {
-  padding-block: var(--section-gap);
-}
-
-.methodHead {
-  padding: 0 var(--pad-x) clamp(2.5rem, 6vh, 4.5rem);
-}
-
-/* Etichetta e titolo incolonnati sul margine sinistro. */
-.methodLabel {
+/* Il titolino grigio col puntino e il titolo sotto. */
+.sectionLabel {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -585,7 +574,7 @@
   color: rgba(23, 20, 15, 0.62);
 }
 
-.methodLabel::before {
+.sectionLabel::before {
   content: "";
   width: 7px;
   height: 7px;
@@ -593,226 +582,13 @@
   background: var(--hce-blue);
 }
 
-.methodTitle {
+.sectionTitle {
   max-width: 22ch;
   margin-top: clamp(0.9rem, 2.2vh, 1.5rem);
   font-size: clamp(1.5rem, 2.6vw, 2.3rem);
   font-weight: 600;
   line-height: 1.18;
   letter-spacing: -0.035em;
-}
-
-/* Due colonne di pari larghezza: a sinistra la foto (una sola riga alta
-   quanto tutta la sezione), a destra i quattro blocchi incolonnati. */
-.methodBody {
-  --step-h: clamp(260px, 30vw, 420px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4, minmax(var(--step-h), auto));
-}
-
-.methodMediaCol {
-  grid-column: 1;
-  grid-row: 1 / span 4;
-  border-right: 1px solid rgba(23, 20, 15, 0.18);
-}
-
-.methodSticky {
-  position: sticky;
-  /* Sopra le righe di separazione: sono più larghe della colonna dei blocchi
-     e senza questo attraverserebbero la foto. */
-  z-index: 1;
-  top: calc(var(--nav-h) + clamp(0.5rem, 2vh, 1.4rem));
-  height: var(--step-h);
-  overflow: hidden;
-  background: var(--ink-900);
-}
-
-/* Le quattro foto stanno una sopra l'altra: si scambiano in dissolvenza. */
-.methodImg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.8s var(--ease-in-out);
-}
-
-.methodImgOn {
-  opacity: 1;
-}
-
-/* La "e" del marchio: stesso trucco del logo grande, il margine trasparente
-   del file (il segno sta fra 281 e 679 su 960) viene tolto dal riquadro. */
-.methodMark {
-  position: absolute;
-  z-index: 1;
-  top: clamp(0.9rem, 1.6vw, 1.5rem);
-  right: clamp(0.9rem, 1.6vw, 1.5rem);
-  display: block;
-  width: clamp(26px, 2.4vw, 40px);
-  aspect-ratio: 398 / 330;
-  overflow: clip;
-  /* Col ritaglio attivo, la misura minima automatica diventa quella del
-     contenuto (il PNG intero) e scavalcherebbe il rapporto d'aspetto. */
-  min-height: 0;
-}
-
-.methodMark img {
-  display: block;
-  width: calc(100% * 960 / 398);
-  max-width: none;
-  height: auto;
-  margin-left: calc(-100% * 281 / 398);
-  margin-top: calc(-100% * 315 / 398);
-}
-
-/* Le righe di separazione vivono sui blocchi, quindi si fermano al bordo
-   della colonna: la colonna della foto resta senza tagli orizzontali. */
-.methodStep {
-  position: relative;
-  grid-column: 2;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(1rem, 1.9vw, 1.9rem) clamp(1rem, 2vw, 2rem);
-  border-top: 1px solid rgba(23, 20, 15, 0.18);
-}
-
-/* La foto dentro al blocco serve solo quando la colonna sparisce. */
-.methodStepImg {
-  display: none;
-}
-
-.methodStepTitle {
-  font-size: clamp(1.15rem, 1.9vw, 1.8rem);
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-}
-
-.methodStepText {
-  margin-top: 0.7rem;
-  max-width: 34ch;
-  font-size: clamp(0.88rem, 1.05vw, 1rem);
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: -0.015em;
-  color: rgba(23, 20, 15, 0.66);
-}
-
-.methodNumber {
-  margin-top: auto;
-  align-self: flex-end;
-  padding-top: 1.5rem;
-  font-size: clamp(1.5rem, 2.4vw, 2.3rem);
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: rgba(23, 20, 15, 0.42);
-}
-
-@media (max-width: 900px) {
-  /* In colonna sola non c'è niente a cui agganciare la foto: ogni blocco
-     si porta dietro la sua. */
-  .methodBody {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
-  }
-
-  .methodMediaCol {
-    display: none;
-  }
-
-  .methodStep {
-    grid-column: 1;
-    padding-inline: var(--pad-x);
-  }
-
-  .methodStepImg {
-    display: block;
-    width: 100%;
-    height: clamp(180px, 42vw, 260px);
-    margin-bottom: clamp(1rem, 3vh, 1.6rem);
-    object-fit: cover;
-  }
-
-}
-
-/* ---------- Il team ---------- */
-
-/* L'etichetta tiene la colonna stretta a sinistra, tutto il resto sta nei
-   tre quarti di destra. Lo stacco in cima è un quinto di quello di pagina:
-   il blocco video che precede finisce già pieno di aria, e il respiro
-   intero allontanava troppo il titolo. Sotto resta intero. */
-.team {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
-  gap: 0 clamp(1.5rem, 4vw, 3.5rem);
-  padding: calc(var(--section-gap) * 0.2) var(--pad-x) var(--section-gap);
-}
-
-.teamLabel {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.045em;
-  color: rgba(23, 20, 15, 0.5);
-}
-
-/* ---- Le persone e i reparti: la colonna larga, accanto all'etichetta ---- */
-
-/* Titolo ed etichetta partono dalla stessa riga: nella griglia lo stacco
-   che li separava non serve più (torna quando la sezione va su una colonna). */
-.teamBelow {
-  margin-top: 0;
-}
-
-.teamBelowTitle {
-  max-width: 24ch;
-  font-size: clamp(1.6rem, 3vw, 2.6rem);
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-}
-
-.teamIntro {
-  margin-top: clamp(2rem, 4vh, 3rem);
-  max-width: 40ch;
-  font-size: clamp(1.1rem, 1.7vw, 1.5rem);
-  font-weight: 500;
-  line-height: 1.45;
-}
-
-.teamCount {
-  display: block;
-  margin-top: 1rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: rgba(23, 20, 15, 0.5);
-}
-
-.teamDepts {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: clamp(2rem, 5vw, 5rem);
-  margin-top: clamp(2.5rem, 5vh, 4rem);
-}
-
-.dept {
-  padding-block: clamp(1rem, 2vh, 1.4rem);
-  border-top: 1px solid rgba(23, 20, 15, 0.18);
-}
-
-.deptName {
-  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
-  font-weight: 600;
-}
-
-.deptText {
-  margin-top: 0.3rem;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: rgba(23, 20, 15, 0.6);
 }
 
 /* ---------- Ogni impianto, una risposta: testi fissi, foto al centro ---- */
@@ -971,6 +747,13 @@
 
 /* ---------- Lavora con noi ---------- */
 
+.careersLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  color: rgba(23, 20, 15, 0.5);
+}
+
 .careers {
   padding: var(--section-gap) var(--pad-x);
 }
@@ -1100,20 +883,6 @@
     right: 0;
     width: auto;
     height: 1px;
-  }
-
-  /* Su schermi stretti la colonna dell'etichetta ruberebbe troppo spazio:
-     etichetta sopra, contenuto sotto, a tutta larghezza. */
-  .team {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .teamBelow {
-    margin-top: 0.8rem;
-  }
-
-  .teamDepts {
-    grid-template-columns: 1fr;
   }
 
   .talent {

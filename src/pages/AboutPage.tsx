@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 /* ============================================================
    Chi Siamo — la pagina ricalca il riferimento di design
-   (apertura, manifesto, valori, team, finale video) declinato
+   (apertura, manifesto, valori, finale video) declinato
    sui colori, i caratteri e le immagini di HCE.
    ============================================================ */
 
@@ -214,45 +214,36 @@ function Belief() {
 
 /* ---------------- L'ecosistema ---------------- */
 
-/** Le quattro realtà del gruppo, nell'ordine in cui compaiono. Ognuna ha la
-    sua foto: a riposo in un quadrato nell'angolo in basso a destra, sotto il
-    mouse si allarga a fondo del riquadro. */
+/** I tre criteri con cui HCE sceglie cosa offrire. Ognuno ha la sua foto:
+    a riposo in un quadrato nell'angolo in basso a destra, sotto il mouse si
+    allarga a fondo del riquadro. */
 const ECO = [
   {
-    name: "HCE",
-    role: "Home Comfort Electronics",
-    img: "/assets/hero-inverter.webp",
-    text: "Distribuzione specializzata di fotovoltaico, accumulo, climatizzazione e ricarica, con assistenza tecnica a chi installa.",
+    name: "Scouting tecnico",
+    img: "/assets/selezioniamo.webp",
+    text: "Prodotti scelti per le prestazioni richieste dai mercati dell'efficienza e della decarbonizzazione.",
   },
   {
-    name: "FINMAT",
-    role: "Area finanziaria",
-    img: "/assets/finmat.jpg",
-    text: "FINMAT è la società dell'area finanziaria che appartiene alla stessa proprietà di HCE. La sua presenza affianca l'attività di distribuzione e contribuisce alla capacità di sostenere operazioni impegnative.",
+    name: "Allineamento normativo",
+    img: "/assets/comprendiamo.webp",
+    text: "Criteri guidati dalla normativa attuale e prospettica.",
   },
   {
-    name: "ZapGrid",
-    role: "Mobilità elettrica",
-    img: "/assets/zapgrid.webp",
-    text: "L'anello fra chi gestisce le stazioni di ricarica e chi guida elettrico: domanda e offerta che si incontrano.",
-  },
-  {
-    name: "KOINÈ",
-    role: "Sviluppo sostenibile",
-    img: "/assets/koine.jpg",
-    text: "Fondazione senza scopo di lucro: comunità, istituzioni e imprese insieme, su un modello di crescita responsabile.",
+    name: "Coerenza con gli incentivi",
+    img: "/assets/semplificazione.webp",
+    text: "Soluzioni in linea con gli strumenti di incentivazione.",
   },
 ];
 
 /** Larghezza a riposo di ogni riquadro, in percentuale. */
-const ECO_BASE = 25;
+const ECO_BASE = 100 / 3;
 /** Di quanto cresce quello sotto il mouse. */
 const ECO_GROW = 5;
 
 /**
- * Le larghezze dei quattro riquadri. Lo spazio lo cede solo il lato verso cui
- * il riquadro si apre: i primi due crescono verso destra (cedono quelli dopo),
- * gli ultimi due verso sinistra (cedono quelli prima). Così il bordo fermo di
+ * Le larghezze dei tre riquadri. Lo spazio lo cede solo il lato verso cui
+ * il riquadro si apre: il primo e quello centrale crescono verso destra
+ * (cedono quelli dopo), l'ultimo verso sinistra (cedono quelli prima). Così il bordo fermo di
  * ogni riquadro resta davvero fermo.
  */
 function ecoWidths(active: number | null) {
@@ -356,22 +347,22 @@ function Ecosystem() {
   }, []);
 
   return (
-    <section ref={ref} className={styles.eco} aria-label="L'ecosistema HCE" data-nav-theme="light">
+    <section ref={ref} className={styles.eco} aria-label="Molto più di un'azienda" data-nav-theme="light">
       <div className={styles.ecoHead}>
         <h2 className={styles.ecoTitle} data-eco-title>
           Molto più di un&apos;azienda
         </h2>
         <p className={styles.ecoIntro} data-eco-text>
-          H.C.E. S.r.l. si inserisce in un ecosistema orientato all&apos;innovazione
-          sostenibile portando competenze trasversali nei settori dell&apos;energia,
-          della mobilità elettrica e della salute. Nata nel 2008, ha saputo evolversi
-          nel tempo affiancando realtà come FINMAT, KOINÈ e ZapGrid, contribuendo a
-          costruire un sistema integrato di soluzioni per le sfide ambientali e
-          tecnologiche del presente e del futuro.
+          HCE Italy è un&apos;azienda commerciale specializzata nella fornitura di
+          prodotti per la produzione di energia da fonte rinnovabile, per la
+          mobilità elettrica e per la climatizzazione efficiente. Affianchiamo
+          installatori, aziende e professionisti con un&apos;offerta selezionata e
+          con l&apos;esperienza di tecnici costantemente aggiornati sulle richieste
+          del settore e su una normativa in continua evoluzione.
         </p>
       </div>
 
-      {/* I quattro riquadri: quello sotto il mouse si allarga e scopre il suo fondo. */}
+      {/* I tre riquadri: quello sotto il mouse si allarga e scopre il suo fondo. */}
       <div className={styles.ecoRow} data-eco-row>
         {ECO.map((c, i) => (
           <article
@@ -389,7 +380,6 @@ function Ecosystem() {
             <div className={styles.ecoBody}>
               <h3 className={styles.ecoName}>
                 {c.name}
-                <span className={styles.ecoRole}>{c.role}</span>
               </h3>
 
               <div className={styles.ecoFoot}>
@@ -521,11 +511,14 @@ function Manifesto() {
         {/* Le parole accentate viaggiano con la loro punteggiatura: SplitText
             fa della virgola una "parola" a sé, e senza il `nowrap` potrebbe
             andare a capo da sola. */}
+        <div>
+          <span className={styles.sectionLabel}>I nostri obiettivi</span>
+          <h2 className={styles.sectionTitle}>A chi ci rivolgiamo</h2>
+        </div>
         <p className={styles.manifestoText} data-manifesto>
-          HCE affianca gli{" "}
-          <span className={styles.manifestoAccent}>installatori</span> nella scelta
-          dei componenti per fotovoltaico, accumulo, ricarica elettrica e
-          climatizzazione.
+          <span className={styles.manifestoAccent}>Installatori,</span> società di
+          ingegneria ed EPC, aziende e professionisti che cercano prodotti tecnici
+          affidabili e un interlocutore competente per sceglierli.
         </p>
       </div>
 
@@ -540,242 +533,6 @@ function Manifesto() {
           <Curtain src="/assets/pompe-di-calore.webp" alt="Pompa di calore installata in una villa" />
         </figure>
       </aside>
-    </section>
-  );
-}
-
-/* ---------------- Come lavoriamo ---------------- */
-
-/** I quattro passaggi, con la foto che li accompagna: le stesse delle schede
-    "Comprendiamo · Selezioniamo · Costruiamo · Assistiamo" in home. */
-const METHOD = [
-  {
-    title: "Analisi dell'esigenza",
-    text: "Ascoltiamo il progetto e troviamo il metodo migliore per realizzarlo.",
-    img: "/assets/comprendiamo.webp",
-  },
-  {
-    title: "Configurazione",
-    text: "Il nostro ufficio tecnico dimensiona i sistemi e trova i componenti che fanno per te.",
-    img: "/assets/selezioniamo.webp",
-  },
-  {
-    title: "Fornitura",
-    text: "Selezioniamo i prodotti e in base alle indicazioni li spediamo o installiamo in loco.",
-    img: "/assets/costruiamo.webp",
-  },
-  {
-    title: "Assistenza",
-    text: "Ti seguiremo anche dopo l'installazione, per verificare che tutto funzioni correttamente.",
-    img: "/assets/assistiamo.webp",
-  },
-];
-
-function Method() {
-  const ref = useRef<HTMLElement>(null);
-  const stickyRef = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(0);
-
-  useLayoutEffect(() => {
-    const el = ref.current;
-    const sticky = stickyRef.current;
-    if (!el || !sticky || reduced()) return;
-
-    const splits: SplitText[] = [];
-    const ctx = gsap.context(() => {
-      const title = el.querySelector<HTMLElement>("[data-method-title]");
-      if (title) {
-        const split = new SplitText(title, { type: "words", mask: "words" });
-        splits.push(split);
-        gsap.set(split.words, { yPercent: 110, opacity: 0 });
-        gsap.to(split.words, {
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.7,
-          ease: "power3.out",
-          stagger: { amount: 0.5 },
-          scrollTrigger: { trigger: el, start: "top 78%", once: true },
-        });
-      }
-
-      gsap.from("[data-method-label]", {
-        y: 16,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: el, start: "top 82%", once: true },
-      });
-
-      // La riga alla quale avviene il cambio: la metà dell'immagine ferma.
-      // Sul bordo alto il cambio arrivava troppo presto — il blocco nuovo era
-      // ancora sotto la foto, e accanto al testo che si stava leggendo si
-      // vedeva la foto di quello prima. A metà foto le due cose combaciano.
-      // Lo scostamento va letto dal CSS (`top`), non dal riquadro
-      // dell'elemento: quello si muove con la pagina, e la riga di cambio si
-      // sposterebbe con lui. L'altezza invece sta ferma.
-      const switchLine = () =>
-        (parseFloat(getComputedStyle(sticky).top) || 0) + sticky.offsetHeight / 2;
-      const line = () => `top ${switchLine()}px`;
-
-      gsap.utils.toArray<HTMLElement>(el.querySelectorAll("[data-method-step]")).forEach(
-        (step, i) => {
-          ScrollTrigger.create({
-            trigger: step,
-            start: line,
-            // Stessa riga dell'inizio: un blocco lascia il posto al seguente
-            // nello stesso istante, senza vuoti fra l'uno e l'altro.
-            end: () => `bottom ${switchLine()}px`,
-            invalidateOnRefresh: true,
-            onToggle: (self) => {
-              if (self.isActive) setShown(i);
-            },
-          });
-
-          gsap.from(step, {
-            y: 34,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: { trigger: step, start: "top 88%", once: true },
-          });
-        },
-      );
-    }, el);
-
-    return () => {
-      splits.forEach((split) => split.revert());
-      ctx.revert();
-    };
-  }, []);
-
-  return (
-    <section ref={ref} className={styles.method} aria-label="Come lavoriamo" data-nav-theme="light">
-      <div className={styles.methodHead}>
-        <span className={styles.methodLabel} data-method-label>
-          Come lavoriamo
-        </span>
-        <h2 className={styles.methodTitle} data-method-title>
-          Il metodo HCE
-        </h2>
-      </div>
-
-      <div className={styles.methodBody}>
-        {/* La colonna sinistra attraversa tutte le righe: la foto ci resta
-            agganciata mentre i blocchi le scorrono accanto. */}
-        <div className={styles.methodMediaCol}>
-          <div ref={stickyRef} className={styles.methodSticky}>
-            {METHOD.map((m, i) => (
-              <img
-                key={m.img}
-                className={`${styles.methodImg} ${i === shown ? styles.methodImgOn : ""}`}
-                src={m.img}
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-                decoding="async"
-              />
-            ))}
-
-            {/* La "e" del marchio, in bianco, nell'angolo in alto a destra. */}
-            <span className={styles.methodMark} aria-hidden="true">
-              <img src="/assets/HCE_Icona%20A%20Bianca.png" alt="" width={960} height={960} />
-            </span>
-          </div>
-        </div>
-
-        {METHOD.map((m, i) => (
-          <article key={m.title} className={styles.methodStep} data-method-step>
-            {/* Senza colonna affiancata (schermi stretti) ogni blocco porta
-                con sé la propria foto. */}
-            <img
-              className={styles.methodStepImg}
-              src={m.img}
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3 className={styles.methodStepTitle}>{m.title}</h3>
-            <p className={styles.methodStepText}>{m.text}</p>
-            <span className={styles.methodNumber} aria-hidden="true">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Il team ---------------- */
-
-const DEPARTMENTS = [
-  { name: "Commerciale", text: "Ascolta le esigenze e costruisce l'offerta giusta per ogni impianto." },
-  { name: "Ufficio tecnico", text: "Configura i sistemi e verifica la coerenza di ogni fornitura." },
-  { name: "Logistica", text: "Muove il materiale dai poli di magazzino al cantiere, nei tempi giusti." },
-  { name: "Assistenza", text: "Risponde dopo la consegna: supporto continuo per tutta la vita dell'impianto." },
-  { name: "Amministrazione", text: "Tiene in ordine ordini, pratiche e incentivi, senza sorprese." },
-  { name: "Marketing", text: "Racconta i prodotti e tiene aggiornata la rete su novità e normative." },
-];
-
-function Team() {
-  const ref = useRef<HTMLElement>(null);
-  useReveal(ref);
-
-  // Il titolo entra parola per parola, in maschera.
-  useLayoutEffect(() => {
-    const el = ref.current;
-    if (!el || reduced()) return;
-
-    let split: SplitText | undefined;
-    const ctx = gsap.context(() => {
-      const title = el.querySelector<HTMLElement>("[data-meet-title]");
-      if (title) {
-        split = new SplitText(title, { type: "words", mask: "words" });
-        gsap.set(split.words, { yPercent: 110, opacity: 0 });
-        gsap.to(split.words, {
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.7,
-          ease: "power3.out",
-          stagger: { amount: 0.6 },
-          scrollTrigger: { trigger: el, start: "top 75%", once: true },
-        });
-      }
-    }, el);
-
-    return () => {
-      split?.revert();
-      ctx.revert();
-    };
-  }, []);
-
-  return (
-    <section ref={ref} className={styles.team} aria-label="Il team" data-nav-theme="light">
-      <span className={styles.teamLabel} data-reveal>
-        Il team HCE
-      </span>
-      <div className={styles.teamBelow}>
-        <h2 className={styles.teamBelowTitle} data-meet-title>
-          Le persone dietro ogni fornitura ben fatta
-        </h2>
-        <p className={styles.teamIntro} data-reveal>
-          Siamo un team multidisciplinare di tecnici, commerciali e specialisti
-          di prodotto, con un&apos;unica ossessione: impianti che funzionano.
-        </p>
-        <span className={styles.teamCount} data-reveal>
-          I nostri reparti ↓
-        </span>
-
-        <div className={styles.teamDepts}>
-          {DEPARTMENTS.map((d) => (
-            <div key={d.name} className={styles.dept} data-reveal>
-              <h3 className={styles.deptName}>{d.name}</h3>
-              <p className={styles.deptText}>{d.text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
@@ -1016,7 +773,7 @@ function Careers() {
       aria-label="Lavora con noi"
       data-nav-theme="light"
     >
-      <span className={styles.teamLabel} data-reveal>
+      <span className={styles.careersLabel} data-reveal>
         Lavora con noi
       </span>
       <h2 className={styles.careersTitle} data-reveal>
@@ -1061,9 +818,7 @@ export default function AboutPage() {
       <div className={styles.rise}>
         <Ecosystem />
         <Manifesto />
-        <Method />
         <Talent />
-        <Team />
         <Careers />
       </div>
     </main>
