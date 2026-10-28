@@ -1,5 +1,5 @@
 import { FOOTER_SHORTCUTS } from "../data/navigation";
-import { COMPANY, ECOSYSTEM } from "../data/content";
+import { COMPANY } from "../data/content";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -47,17 +47,6 @@ export default function Footer() {
               <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
               <br />
               <a href={tel}>{COMPANY.phone}</a>
-            </p>
-          </div>
-          <div className={styles.metaGroup}>
-            <h3 className={styles.metaTitle}>Ecosistema</h3>
-            <p className={styles.metaText}>
-              {ECOSYSTEM.map((e) => (
-                <span key={e.name}>
-                  {e.name}
-                  <br />
-                </span>
-              ))}
             </p>
           </div>
         </div>
