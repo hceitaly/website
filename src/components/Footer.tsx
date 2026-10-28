@@ -10,7 +10,7 @@ export default function Footer() {
       {/* Lead: the promise, then a single call to action. */}
       <div className={styles.lead}>
         <h2 className={styles.headline}>
-          Forniture complete per l&apos;energia,
+          Forniture complete per la transizione energetica,
           <br />e un partner su cui contare.
         </h2>
         <a className={styles.cta} href="/contatti">

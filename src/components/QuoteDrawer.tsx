@@ -1,7 +1,8 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CATEGORY_BY_KEY, type CatalogProduct } from "../data/products";
 import { openCart, setProductLines, useCart } from "../lib/cart";
 import { useSlideIn } from "../hooks/useSlideIn";
+import { trackView } from "../lib/views";
 import Drawer, { Stepper, Tick } from "./Drawer";
 import styles from "./Drawer.module.css";
 
@@ -60,6 +61,13 @@ export default function QuoteDrawer({ product, open, onClose }: Props) {
       setWasInCart(inCart.length > 0);
     }
   }
+
+  /* Dalla griglia del catalogo si può chiedere il preventivo senza aprire la
+     scheda: anche questo è interesse per il prodotto, e conta come una visita
+     (dalla scheda la visita è già contata, e non si ripete). */
+  useEffect(() => {
+    if (open) trackView(product.id);
+  }, [open, product.id]);
 
   const cat = CATEGORY_BY_KEY[product.category];
 

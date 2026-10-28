@@ -32,6 +32,10 @@ function devApi(): Plugin {
         'GITHUB_TOKEN',
         'GITHUB_REPO',
         'GITHUB_BRANCH',
+        'KV_REST_API_URL',
+        'KV_REST_API_TOKEN',
+        'UPSTASH_REDIS_REST_URL',
+        'UPSTASH_REDIS_REST_TOKEN',
       ]) {
         if (env[key] && !process.env[key]) process.env[key] = env[key]
       }

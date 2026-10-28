@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -12,6 +12,7 @@ import {
 } from "../data/products";
 import QuoteDrawer from "../components/QuoteDrawer";
 import { REQUEST_HINT } from "../lib/cart";
+import { trackView } from "../lib/views";
 import styles from "./ProductPage.module.css";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -25,6 +26,9 @@ const SHOWN = "inset(0% 0% 0% 0%)";
 export default function ProductPage({ product }: { product: CatalogProduct }) {
   const pageRef = useRef<HTMLElement>(null);
   const [quoteOpen, setQuoteOpen] = useState(false);
+
+  // Per la classifica dei più visti in home.
+  useEffect(() => trackView(product.id), [product.id]);
 
   const cat = CATEGORY_BY_KEY[product.category];
   const src = product.image ?? PLACEHOLDER_IMAGE[product.category];

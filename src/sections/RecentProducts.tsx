@@ -1,40 +1,89 @@
-import { useLayoutEffect, useRef, type CSSProperties } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import { CATEGORY_BY_KEY, PLACEHOLDER_IMAGE, recentProducts } from "../data/products";
+import {
+  CATEGORY_BY_KEY,
+  PLACEHOLDER_IMAGE,
+  homeProducts,
+  type CatalogProduct,
+} from "../data/products";
+import { fetchTopViewed } from "../lib/views";
 import styles from "./RecentProducts.module.css";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-/** Le ultime schede pubblicate dal pannello, dalla più nuova. */
-const PRODUCTS = recentProducts(10);
-const COUNT = PRODUCTS.length;
-
 /** Auto-advance interval (ms). */
 const INTERVAL = 4200;
-/** Slides cloned onto each end for a seamless loop in both directions (>= max per-view). */
-const CLONES = Math.min(2, COUNT);
 /** A drag of this fraction of a slide is enough to move on by one. */
 const FLICK = 0.15;
 /** Pixels of movement before a press counts as a drag rather than a click. */
 const DRAG_START = 6;
 
-/** Wraps an index into 0…COUNT-1. */
-const wrap = (n: number) => ((n % COUNT) + COUNT) % COUNT;
+/** Wraps an index into 0…count-1. */
+const wrap = (n: number, count: number) => ((n % count) + count) % count;
 
-/** The track as rendered: the last CLONES products, all of them, the first CLONES. */
-const SLIDES = [
-  ...Array.from({ length: CLONES }, (_, k) => PRODUCTS[wrap(k - CLONES)]),
-  ...PRODUCTS,
-  ...PRODUCTS.slice(0, CLONES),
-];
-
+/**
+ * I dieci prodotti più visti degli ultimi 30 giorni, completati dai più recenti.
+ *
+ * Lo slider parte con l'ordine per data e si ricostruisce appena arriva la
+ * classifica — di solito molto prima che chi visita scorra fin qui. Se invece
+ * è già comparso, resta com'è: un riordino sotto gli occhi di chi guarda
+ * sarebbe peggio dell'ordine di ripiego.
+ */
 export default function RecentProducts() {
+  const [products, setProducts] = useState(() => homeProducts([]));
+  const shownRef = useRef(false);
+  const onShown = useCallback(() => {
+    shownRef.current = true;
+  }, []);
+
+  useEffect(() => {
+    let alive = true;
+    fetchTopViewed().then((ids) => {
+      if (alive && !shownRef.current && ids.length > 0) setProducts(homeProducts(ids));
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  // Una lista nuova monta uno slider nuovo: animazioni e cloni ripartono da lì.
+  return (
+    <Slider
+      key={products.map((p) => p.id).join()}
+      products={products}
+      onShown={onShown}
+    />
+  );
+}
+
+function Slider({ products, onShown }: { products: CatalogProduct[]; onShown: () => void }) {
+  const COUNT = products.length;
+  /** Slides cloned onto each end for a seamless loop in both directions (>= max per-view). */
+  const CLONES = Math.min(2, COUNT);
+  /** The track as rendered: the last CLONES products, all of them, the first CLONES. */
+  const SLIDES = [
+    ...Array.from({ length: CLONES }, (_, k) => products[wrap(k - CLONES, COUNT)]),
+    ...products,
+    ...products.slice(0, CLONES),
+  ];
+
   const sectionRef = useRef<HTMLElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const eyebrowRef = useRef<HTMLSpanElement>(null);
+
+  // Da quando il primo pixel entra nello schermo l'ordine non cambia più.
+  useLayoutEffect(() => {
+    const st = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top bottom",
+      once: true,
+      onEnter: onShown,
+    });
+    return () => st.kill();
+  }, [onShown]);
 
   useLayoutEffect(() => {
     const viewport = viewportRef.current;
@@ -64,7 +113,7 @@ export default function RecentProducts() {
         overwrite: true,
         onComplete: () => {
           // Landed on a clone -> jump to the real slide it copies, invisibly.
-          pos = wrap(target);
+          pos = wrap(target, COUNT);
           gsap.set(track, { x: xOf(pos) });
         },
       });
@@ -84,7 +133,7 @@ export default function RecentProducts() {
 
     const onResize = () => {
       measure();
-      pos = wrap(Math.round(pos));
+      pos = wrap(Math.round(pos), COUNT);
       gsap.set(track, { x: xOf(pos) });
     };
     window.addEventListener("resize", onResize);
@@ -190,7 +239,7 @@ export default function RecentProducts() {
       viewport.removeEventListener("dragstart", onDragStart);
       gsap.killTweensOf(track);
     };
-  }, []);
+  }, [COUNT, CLONES]);
 
   // First appearance: tags wipe in and letter-fade like the hero slider's
   // badges, photos use the mission section's curtain, copy rises.
@@ -266,7 +315,7 @@ export default function RecentProducts() {
       splits.forEach((s) => s.revert());
       ctx.revert();
     };
-  }, []);
+  }, [CLONES]);
 
   if (COUNT === 0) return null;
 

@@ -198,9 +198,8 @@ export const ALL_PRODUCTS: CatalogProduct[] = (catalog.products as CatalogProduc
   (p) => p.id && p.name && CATEGORY_KEYS.has(p.category),
 );
 
-/** Il prodotto di punta dell'azienda: primo nella griglia `/prodotti`, sempre
-    fra i "Prodotti Recenti" della home e sempre fra i consigliati sotto le
-    schede della sua categoria. Se la scheda sparisce o non è pubblicata, il
+/** Il prodotto di punta dell'azienda: primo nella griglia `/prodotti` e
+    sempre fra i consigliati sotto le schede della sua categoria. Se la scheda sparisce o non è pubblicata, il
     sito torna semplicemente all'ordine normale. */
 export const FLAGSHIP_ID = "fv-3sun-b60-hjt-made-in-italy-enea-cat-c";
 
@@ -217,22 +216,34 @@ export const CATALOG: CatalogProduct[] = ALL_PRODUCTS.filter((p) => p.published)
 export const FLAGSHIP: CatalogProduct | undefined = CATALOG.find((p) => p.id === FLAGSHIP_ID);
 
 /**
- * Le ultime schede andate online, dalla più nuova: lo slider "Prodotti
- * Recenti" della home. Conta `publishedAt`; a parità di data — o per le schede
- * pubblicate prima che la data esistesse — vince la posizione nel JSON, dove il
- * pannello aggiunge i prodotti nuovi in coda.
+ * Le schede pubblicate dalla più nuova. Conta `publishedAt`; a parità di data —
+ * o per le schede pubblicate prima che la data esistesse — vince la posizione
+ * nel JSON, dove il pannello aggiunge i prodotti nuovi in coda.
  */
-export function recentProducts(limit = 10): CatalogProduct[] {
+function newestFirst(): CatalogProduct[] {
   const time = (p: CatalogProduct) => {
     const t = p.publishedAt ? Date.parse(p.publishedAt) : NaN;
     return Number.isNaN(t) ? 0 : t;
   };
-  // Il prodotto di punta apre sempre lo slider, qualunque sia la sua data.
-  const rest = CATALOG.filter((p) => p !== FLAGSHIP)
-    .map((p, i) => ({ p, i, t: time(p) }))
+  return CATALOG.map((p, i) => ({ p, i, t: time(p) }))
     .sort((a, b) => b.t - a.t || b.i - a.i)
     .map(({ p }) => p);
-  return (FLAGSHIP ? [FLAGSHIP, ...rest] : rest).slice(0, limit);
+}
+
+/**
+ * Lo slider "Prodotti Recenti" della home: prima i più visti degli ultimi 30
+ * giorni (`ranked`, gli id dal più visto, da `/api/views`), poi — finché non
+ * sono `limit` — le ultime schede andate online. Gli id che non sono più in
+ * catalogo si saltano. Qui il prodotto di punta non ha un posto riservato.
+ */
+export function homeProducts(ranked: string[], limit = 10): CatalogProduct[] {
+  const byId = new Map(CATALOG.map((p) => [p.id, p]));
+  const out: CatalogProduct[] = [];
+  for (const p of [...ranked.map((id) => byId.get(id)), ...newestFirst()]) {
+    if (out.length === limit) break;
+    if (p && !out.includes(p)) out.push(p);
+  }
+  return out;
 }
 
 /** La gamma di una categoria, per la colonna centrale del mega menu. */

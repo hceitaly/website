@@ -19,6 +19,7 @@ export default function PaintHero() {
   const sectionRef = useRef<HTMLElement>(null);
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
+  const line3Ref = useRef<HTMLSpanElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLAnchorElement>(null);
 
@@ -26,7 +27,9 @@ export default function PaintHero() {
   useLayoutEffect(() => {
     if (reduced) return;
     const ctx = gsap.context(() => {
-      const lines = [line1Ref.current, line2Ref.current].filter(Boolean) as HTMLSpanElement[];
+      const lines = [line1Ref.current, line2Ref.current, line3Ref.current].filter(
+        Boolean,
+      ) as HTMLSpanElement[];
       gsap.set([subtitleRef.current, ctaRef.current], { opacity: 0, y: 24 });
       const tl = gsap.timeline({ delay: 0.25 });
       lines.forEach((el, i) => {
@@ -74,9 +77,10 @@ export default function PaintHero() {
       <div className={styles.scrim} aria-hidden="true" />
 
       <div className={styles.content}>
-        <h1 className={styles.title} aria-label="Un ecosistema per l'energia">
+        <h1 className={styles.title} aria-label="Un ecosistema per la transizione energetica">
           <span ref={line1Ref} className={styles.line}>Un ecosistema</span>
-          <span ref={line2Ref} className={styles.line}>per l'energia</span>
+          <span ref={line2Ref} className={styles.line}>per la transizione</span>
+          <span ref={line3Ref} className={styles.line}>energetica</span>
         </h1>
         <p ref={subtitleRef} className={styles.subtitle}>
           Prodotti selezionati, competenza tecnica e assistenza continua. Dal magazzino al

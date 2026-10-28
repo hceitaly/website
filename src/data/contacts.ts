@@ -48,6 +48,26 @@ export const DEPARTMENTS: Department[] = [
   },
 ];
 
+/* ---------------- Commerciali ---------------- */
+
+export type SalesRep = {
+  key: string;
+  name: string;
+  /** La zona o il ruolo, mostrato accanto al nome nella tendina. */
+  area: string;
+  /** SEGNAPOSTO: nomi e caselle da sostituire con quelli reali. */
+  email: string;
+};
+
+/** A chi può essere indirizzata la richiesta di preventivo. */
+export const SALES_REPS: SalesRep[] = [
+  { key: "marco-ferraro", name: "Marco Ferraro", area: "Veneto", email: "m.ferraro@hceitaly.it" },
+  { key: "giulia-santin", name: "Giulia Santin", area: "Friuli Venezia Giulia", email: "g.santin@hceitaly.it" },
+  { key: "luca-moretti", name: "Luca Moretti", area: "Lombardia", email: "l.moretti@hceitaly.it" },
+  { key: "elena-costa", name: "Elena Costa", area: "Emilia-Romagna", email: "e.costa@hceitaly.it" },
+  { key: "davide-rinaldi", name: "Davide Rinaldi", area: "Centro e Sud Italia", email: "d.rinaldi@hceitaly.it" },
+];
+
 /* ---------------- I tre moduli ---------------- */
 
 export type FieldDef = {

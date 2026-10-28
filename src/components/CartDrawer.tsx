@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { CATALOG, CATEGORY_BY_KEY, PLACEHOLDER_IMAGE } from "../data/products";
 import { COMPANY } from "../data/content";
+import { SALES_REPS } from "../data/contacts";
 import {
   clearCart,
   closeCart,
@@ -17,6 +18,8 @@ import styles from "./Drawer.module.css";
 
 type Contact = {
   destinazione: string;
+  /** Il commerciale a cui va la richiesta: una chiave di SALES_REPS. */
+  commerciale: string;
   nome: string;
   telefono: string;
   email: string;
@@ -28,6 +31,7 @@ type Contact = {
 
 const EMPTY: Contact = {
   destinazione: "",
+  commerciale: "",
   nome: "",
   telefono: "",
   email: "",
@@ -105,7 +109,8 @@ export default function CartDrawer() {
   };
 
   const step1Done =
-    lines.length > 0 && Object.keys(drafts).length === 0 && form.destinazione.trim() !== "";
+    lines.length > 0 && Object.keys(drafts).length === 0 && form.destinazione.trim() !== "" &&
+    form.commerciale !== "";
   const canSend = form.nome.trim() !== "" && form.email.trim() !== "" && form.privacy;
 
   const empty = lines.length === 0 && !sent;
@@ -270,6 +275,24 @@ export default function CartDrawer() {
                   value={form.destinazione}
                   onChange={(e) => set("destinazione", e.target.value)}
                 />
+              </label>
+
+              <label className={styles.field}>
+                <span className={styles.legend}>Commerciale di riferimento</span>
+                <select
+                  className={`${styles.input} ${styles.select}`}
+                  value={form.commerciale}
+                  onChange={(e) => set("commerciale", e.target.value)}
+                >
+                  <option value="" disabled>
+                    Scegli a chi inviare la richiesta
+                  </option>
+                  {SALES_REPS.map((r) => (
+                    <option key={r.key} value={r.key}>
+                      {r.name} — {r.area}
+                    </option>
+                  ))}
+                </select>
               </label>
             </div>
           ) : (

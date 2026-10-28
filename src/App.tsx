@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Mission from "./sections/Mission";
 import RecentProducts from "./sections/RecentProducts";
-import StepsSlider from "./sections/StepsSlider";
 import Footer from "./components/Footer";
 import CartDrawer from "./components/CartDrawer";
 import { CATALOG } from "./data/products";
@@ -93,7 +92,6 @@ function Site() {
             {isSecondary ? <IsoHero /> : <PaintHero />}
             <Hero />
             <Mission />
-            <StepsSlider />
             <RecentProducts />
           </main>
         )}

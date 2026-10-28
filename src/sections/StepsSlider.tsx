@@ -12,7 +12,7 @@ const STEPS = [
     title: "Selezioniamo",
     heading: "I prodotti che fanno per te",
     text: "Individuiamo i prodotti più adatti alle esigenze specifiche di ogni cliente, scegliendo tra soluzioni di qualità e tecnologie all'avanguardia.",
-    image: "/assets/selezioniamo.webp",
+    image: "/assets/selezione-2.webp",
   },
   {
     title: "Traduciamo",
@@ -21,22 +21,22 @@ const STEPS = [
     image: "/assets/semplificazione.webp",
   },
   {
-    title: "Assistiamo",
-    heading: "Prima, durante e dopo l'acquisto",
-    text: "Assicuriamo risposte rapide e soluzioni concrete.",
-    image: "/assets/assistiamo.webp",
+    title: "Distribuiamo",
+    heading: "Diversi impianti, una sola commessa",
+    text: "Pianifichiamo le spedizioni e consolidiamo tutto il materiale in un'unica consegna, qualunque sia la commessa di provenienza.",
+    image: "/assets/distribuzione.webp",
   },
   {
-    title: "Comprendiamo",
-    heading: "I vostri bisogni",
-    text: "Mettiamo a disposizione un team con esperienza trasversale nei settori dell'energia, dell'elettronica e della mobilità sostenibile.",
-    image: "/assets/comprendiamo.webp",
+    title: "Assistiamo",
+    heading: "Prima, durante e dopo l'acquisto",
+    text: "Grazie alla selezione di fornitori specializzati possiamo fornire assistenza puntuale e precisa.",
+    image: "/assets/assistenza.webp",
   },
   {
     title: "Costruiamo",
     heading: "Rapporti duraturi",
     text: "Sia con i nostri collaboratori che con i nostri fornitori.",
-    image: "/assets/costruiamo.webp",
+    image: "/assets/costruzione.webp",
   },
 ];
 const COUNT = STEPS.length;

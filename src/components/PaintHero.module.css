@@ -45,8 +45,11 @@
 /* Title — same family as the slider titles (Orbitron / --font-display). */
 .title {
   font-family: var(--font-display);
-  /* Sized so "UN ECOSISTEMA" holds on one line inside the third-width column. */
-  font-size: clamp(1.8rem, 2.9vw, 3.4rem);
+  /* Tre righe fisse, su ogni schermo. La più lunga, "PER LA TRANSIZIONE",
+     misura 12.2em in Orbitron: sul desktop sborda un po' dalla colonna
+     del sottotitolo, sul telefono il carattere si stringe quanto basta a
+     farla stare nello schermo (12.6 lascia un filo di margine). */
+  font-size: min(clamp(1.8rem, 2.9vw, 3.4rem), (100vw - 2 * var(--pad-x)) / 12.6);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.01em;
@@ -55,8 +58,11 @@
   text-shadow: 0 4px 30px rgba(6, 12, 40, 0.45);
 }
 
+/* Nessuna riga va a capo da sola: nemmeno durante lo scramble, quando le
+   lettere a caso possono essere più larghe di quelle vere. */
 .line {
   display: block;
+  white-space: nowrap;
 }
 
 .subtitle {

@@ -10,6 +10,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import Icon from "../components/Icon";
 import PixelLiquidBg from "../components/PixelLiquidBg";
+import StepsSlider from "../sections/StepsSlider";
 import { useReveal } from "../hooks/useReveal";
 import { scrollToTarget } from "../hooks/useSmoothScroll";
 import styles from "./AboutPage.module.css";
@@ -220,17 +221,17 @@ function Belief() {
 const ECO = [
   {
     name: "Scouting tecnico",
-    img: "/assets/selezioniamo.webp",
+    img: "/assets/selezione.webp",
     text: "Prodotti scelti per le prestazioni richieste dai mercati dell'efficienza e della decarbonizzazione.",
   },
   {
     name: "Allineamento normativo",
-    img: "/assets/comprendiamo.webp",
+    img: "/assets/allineamento.webp",
     text: "Criteri guidati dalla normativa attuale e prospettica.",
   },
   {
     name: "Coerenza con gli incentivi",
-    img: "/assets/semplificazione.webp",
+    img: "/assets/coerenza.webp",
     text: "Soluzioni in linea con gli strumenti di incentivazione.",
   },
 ];
@@ -542,15 +543,17 @@ function Manifesto() {
 /** La pila di foto accanto alla storia. `position` sposta il taglio 16:10
     quando il soggetto non sta al centro dello scatto. */
 const TALENT_IMAGES: { src: string; alt: string; position?: string }[] = [
-  { src: "/assets/semplificazione.webp", alt: "Architettura, linee essenziali" },
-  { src: "/assets/hero-inverter.webp", alt: "Casa con fotovoltaico, inverter, accumulo e ricarica" },
-  { src: "/assets/pannelli-sonnenkraft.webp", alt: "Casa con tetto fotovoltaico" },
-  { src: "/assets/batteria.webp", alt: "Batteria di accumulo Fox ESS" },
+  { src: "/assets/elettronica-industriale.webp", alt: "Saldatura su una scheda elettronica" },
   {
-    src: "/assets/pompe-di-calore-2.webp",
-    alt: "Pompa di calore Ferroli installata all'esterno",
-    position: "center 85%",
+    src: "/assets/efficientamento-energetico.webp",
+    alt: "Etichetta di classe energetica compilata su un progetto",
   },
+  {
+    src: "/assets/zapgrid.webp",
+    alt: "Auto elettrica in carica a una colonnina ZapGrid",
+    position: "30% center",
+  },
+  { src: "/assets/hero-inverter.webp", alt: "Casa con fotovoltaico, inverter, accumulo e ricarica" },
 ];
 
 function Talent() {
@@ -730,15 +733,14 @@ function Talent() {
           solo la citazione sopra il filmato. */}
       <div className={styles.talentVideoWrap} data-vwrap>
         <div className={styles.talentVideoBox} data-vbox>
-          {/* Stesso filmato del blocco "lavora con noi", in fondo alla pagina.
-              `none`: quando lo scorrimento arriva fin qui il file è già nella
-              cache del browser, scaricato lassù. Con `auto` invece partivano due
-              richieste insieme e il video veniva scaricato due volte. */}
+          {/* `none`: il file si scarica solo quando l'ingrandimento lo fa
+              partire; fino ad allora il riquadro mostra il poster, che è il
+              primo fotogramma. */}
           <video
             ref={videoRef}
             className={styles.talentVideo}
-            src="/assets/video-chi-siamo.mp4"
-            poster="/assets/video-chi-siamo-poster.webp"
+            src="/assets/chi-siamo-web.mp4"
+            poster="/assets/chi-siamo-poster.webp"
             muted
             loop
             playsInline
@@ -817,6 +819,7 @@ export default function AboutPage() {
       {/* Un blocco solo, opaco: sale sopra l'apertura fissata. */}
       <div className={styles.rise}>
         <Ecosystem />
+        <StepsSlider />
         <Manifesto />
         <Talent />
         <Careers />
