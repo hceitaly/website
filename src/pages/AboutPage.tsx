@@ -722,7 +722,7 @@ function Talent() {
             ambito di utilizzo dell&apos;elettricità.
           </p>
           <p>
-            Nel 2020 HCE entra nella distribuzione di componenti per
+            Nel 2019 HCE entra nella distribuzione di componenti per
             l&apos;elettrificazione: moduli fotovoltaici, accumulo e
             climatizzazione elettrica, oggi parte dell&apos;assortimento.
           </p>

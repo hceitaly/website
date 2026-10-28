@@ -101,7 +101,7 @@ const PAGES: Record<string, Omit<Head, "path">> = {
   },
   "/contatti": {
     title: "Contatti | HCE",
-    description: `Contatti di ${COMPANY.name} a Padova: ufficio commerciale, ufficio tecnico e assistenza. Telefono ${COMPANY.phone}, email ${COMPANY.email}.`,
+    description: `Contatti di ${COMPANY.name} a Padova: ufficio tecnico, assistenza pre-vendita e supporto logistico. Telefono ${COMPANY.phone}, email ${COMPANY.email}.`,
     index: true,
     crumbs: [HOME, { name: "Contatti", path: "/contatti" }],
     organization: true,

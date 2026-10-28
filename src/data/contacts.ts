@@ -31,20 +31,20 @@ export const DEPARTMENTS: Department[] = [
     hours: "Lun–Ven 8:30–13:00 / 14:00–18:00",
   },
   {
-    key: "assistenza",
-    name: "Assistenza",
-    text: "Supporto dopo la consegna: guasti, sostituzioni in garanzia e messa in servizio.",
-    phone: COMPANY.phone,
-    email: "assistenza@hceitaly.it",
-    hours: "Lun–Ven 9:00–13:00 / 14:00–17:30",
-  },
-  {
-    key: "commerciale",
-    name: "Ufficio commerciale",
+    key: "prevendita",
+    name: "Assistenza pre-vendita",
     text: "Offerte, disponibilità a magazzino, tempi di consegna e condizioni per la rete installatori.",
     phone: COMPANY.phone,
     email: "commerciale@hceitaly.it",
     hours: "Lun–Ven 8:30–13:00 / 14:00–18:00",
+  },
+  {
+    key: "logistica",
+    name: "Supporto logistico",
+    text: "Stato degli ordini, date di consegna e tracciamento delle spedizioni, anche quando più commesse partono in un'unica consegna.",
+    phone: COMPANY.phone,
+    email: "logistica@hceitaly.it",
+    hours: "Lun–Ven 9:00–13:00 / 14:00–17:30",
   },
 ];
 
