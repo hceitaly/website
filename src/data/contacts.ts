@@ -25,7 +25,7 @@ export const DEPARTMENTS: Department[] = [
   {
     key: "tecnico",
     name: "Ufficio tecnico",
-    text: "Dimensionamento, compatibilità fra componenti e configurazioni da verificare prima dell'ordine.",
+    text: "Assistenza al dimensionamento, compatibilità fra componenti e configurazioni da verificare prima dell'ordine.",
     phone: COMPANY.phone,
     email: "tecnico@hceitaly.it",
     hours: "Lun–Ven 8:30–13:00 / 14:00–18:00",
@@ -156,7 +156,7 @@ export const CONTACT_FORMS: FormDef[] = [
       },
     ],
     cta: "Invia la richiesta",
-    done: "Richiesta ricevuta: ti rispondiamo entro un giorno lavorativo.",
+    done: "Richiesta ricevuta: ti ricontattiamo al più presto.",
   },
   {
     id: "assistenza",
@@ -251,9 +251,9 @@ export const CONTACT_FORMS: FormDef[] = [
 
 /** Le frasi che scorrono nel pannello di sinistra. */
 export const CONTACT_CLAIMS = [
-  "Un numero per ogni reparto, non un centralino qualsiasi.",
-  "Rispondiamo entro un giorno lavorativo.",
+  "La qualità è l'unica direzione che seguiamo.",
+  "Prodotti tecnici affidabili e un interlocutore competente per sceglierli.",
   "Ogni preventivo nasce dall'impianto, non da un listino.",
-  "L'assistenza continua dopo la consegna.",
+  "Fornitori specializzati, assistenza puntuale e precisa.",
   "Ascoltiamo chi installa, chi fornisce e chi vuole entrare nel settore.",
 ];

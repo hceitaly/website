@@ -518,7 +518,7 @@ function Manifesto() {
         </div>
         <p className={styles.manifestoText} data-manifesto>
           <span className={styles.manifestoAccent}>Installatori,</span> società di
-          ingegneria ed EPC, aziende e professionisti che cercano prodotti tecnici
+          ingegneria e general contractor, aziende e professionisti che cercano prodotti tecnici
           affidabili e un interlocutore competente per sceglierli.
         </p>
       </div>
@@ -559,6 +559,7 @@ const TALENT_IMAGES: { src: string; alt: string; position?: string }[] = [
 function Talent() {
   const ref = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const noteRef = useRef<HTMLDivElement>(null);
   useReveal(ref);
 
   /* L'ultima "foto" della pila è il primo fotogramma del video. Il blocco si
@@ -672,6 +673,20 @@ function Talent() {
     };
   }, []);
 
+  /* La nota di destra ha lo stesso corpo del racconto di sinistra, quindi è
+     alta: il foglio di stile la alza quanto serve perché non esca dal fondo
+     dello schermo, e per farlo deve sapere quanto è alta. La misura cambia
+     con la larghezza della finestra, per questo la si tiene aggiornata. */
+  useLayoutEffect(() => {
+    const note = noteRef.current;
+    if (!note) return;
+    const measure = () => note.style.setProperty("--note-h", `${note.offsetHeight}px`);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(note);
+    return () => ro.disconnect();
+  }, []);
+
   return (
     <section ref={ref} className={styles.talent} aria-label="La nostra storia" data-nav-theme="light">
       {/* Fissa in alto a sinistra mentre le foto scorrono al centro. La
@@ -714,7 +729,7 @@ function Talent() {
       <div className={styles.talentAside}>
         {/* Il seguito della storia: un blocco solo, così i due passaggi
             restano agganciati insieme mentre le foto scorrono. */}
-        <div className={styles.talentNote}>
+        <div ref={noteRef} className={styles.talentNote}>
           <p>
             Nel 2017 nasce la divisione Mobilità Elettrica. Il percorso
             nell&apos;elettronica e nei sistemi energetici si estende alla
